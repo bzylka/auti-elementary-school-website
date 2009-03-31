@@ -32,7 +32,7 @@ class Form_NewsLink extends Form_Abstract
                                 'size'      => 18,
                                 'maxlength' => 40,
                                 'stringMin' => 0,
-                                'stringMax' => 50));
+                                'stringMax' => 50))
              ->addElement('Cancel', 'cancel',
                           array('label'   => '取消',
                                 'attribs' => array('onclick' => 'history.go(-1)')));

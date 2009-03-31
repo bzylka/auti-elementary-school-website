@@ -125,13 +125,11 @@ abstract class Form_Abstract extends Zend_Form
             }
         }
 
-
         $this->setDisplayGroupDecorators(array(
             'FormElements',
             array('HtmlTag', array('tag' => 'dl')),
             'Fieldset',
             /*'DtDdWrapper'*/));
-
     }
 }
 ?>
