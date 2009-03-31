@@ -28,28 +28,24 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     </head>
     
     <body>
+         <div id="loginNav">
+            <?php echo $this->partial('./components/loginNav.php') ?>
+        </div>
         <div id="pageWraper">
             <div id="header">
-                <div id="loginNav">
-                    <?php echo $this->partial('./components/loginNav.php') ?>
-                </div>
                 <div id="banner">
                     <?php echo $this->partial('./components/banner.php') ?>
                 </div>
             </div>
-
             <div id="adminNav">
                 <?php echo $this->partial('./components/adminNav.php') ?>
             </div>
-
             <div id="pageContent">
                 <?php echo $this->layout()->content ?>
             </div>
-
             <div id="space">
                 &nbsp;
             </div>
-
             <div id="footer">
                 <?php echo $this->partial('./components/footer.php') ?>
             </div>
