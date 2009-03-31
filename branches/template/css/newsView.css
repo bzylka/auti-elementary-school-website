@@ -1,0 +1,56 @@
+.ajaxLink {
+    font-size: 80%;
+}
+#pageContent h1 {
+    border-bottom: 2px solid #B5E2F0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-right: 30px;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em;
+}
+.newsNav {
+    font-size: 80%;
+    float: right;
+}
+.newsNav img {
+    width: 1em;
+}
+#newsContent {
+    padding-left: 2em;
+}
+#newsInfo {
+    border-top: 1px dotted gray;
+    text-align: right;
+    margin-top: 1em;
+    margin-right: 30px;
+    padding-top: 0.5em;
+    padding-right: 1em;
+    font-size: 70%;
+    color: #C8C8C8;
+}
+#link, #attachment {
+    padding: 3px;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    margin-right: 20em;
+    background-color: #F0FFE0;
+}
+#link legend, #attachment legend {
+    margin-left: 0.7em;
+}
+#link li {
+    list-style-type: none;
+    margin-left: 2em;
+}
+#link li img {
+    width: 1.1em;
+    margin-bottom: -0.2em
+}
+.file {
+    margin-left: 2em;
+}
+.file img {
+    width: 1.2em;
+    margin-bottom: -0.2em
+}

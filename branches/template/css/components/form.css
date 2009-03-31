@@ -1,0 +1,49 @@
+/* 表單全域設定 */
+.formContainer {
+    margin-top: 0.5em;
+}
+/* 分行 */
+.formContainer fieldset {
+    border: 0;
+    margin: 0 0 12px 0;
+}
+.formContainer fieldset dt {
+    float: left;
+    display: block;
+    width: 6em;
+    line-height: 1.7em;
+}
+.formContainer fieldset dd {
+    float: left;
+    margin-right: 0.5em;
+}
+.formContainer fieldset dd select {
+    width: 7em;
+}
+/* 最底端行 */
+.formContainer #fieldset-lineEnd dt {
+    display: inline;
+    float: none;
+}
+/* 輸入的文字區域 */
+input, select {
+    padding: 2px;
+}
+button {
+    line-height: 1.4em;
+    padding: 2px;
+}
+option {
+    padding: 1px;
+}
+textarea {
+    border: 1px solid silver;
+    padding: 3px !important;
+}
+/* 表單錯誤訊息 */
+.errors {
+    font-size: 80%;
+    color: red;
+    padding-left: 1em;
+    list-style-type: square;
+}

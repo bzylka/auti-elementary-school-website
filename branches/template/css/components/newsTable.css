@@ -1,0 +1,15 @@
+#newsTable th {
+    background-color: #FFCCCC;
+    padding: 2px;
+}
+#newsTable td {
+    background-color: #FFCCFF;
+    padding: 2px 2px 2px 5px;
+}
+#newsTable .isImportant {
+    text-align: center;
+    padding:4px 6px;
+}
+#newsTable .isImportant img{
+    width:1em;
+}

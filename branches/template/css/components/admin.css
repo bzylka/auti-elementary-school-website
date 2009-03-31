@@ -1,0 +1,8 @@
+#adminNav ul li {
+    margin-left: 1em;
+}
+#adminNav .navTitle {
+    margin-left: 0em;
+    font-size: 110%;
+    font-weight: bold;
+}
