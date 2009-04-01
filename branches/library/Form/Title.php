@@ -17,36 +17,59 @@
  */
 class Form_Title extends Form_Abstract
 { 
-    /**
-     * 建構子
-     * @param string $type 表單類型
-     */
-    public function __construct($type = null)
-    { 
-        parent::__construct();
-        
-        $this->setName('titleForm')
-             ->setMethod('post');
+     public function init()
+    {
+        $this->setMethod('post');
              
-        $this->addComponent('TitleName', array('label' => '職稱', 'required' => true))
-             ->addComponent('TitleEnglishName', array('label' => '英文名稱', 'required' => true))
-             ->addComponent('DisplayOrder', array('label' => '顯示順序'))
-             ->addComponent('OfficeId', array('label' => '所屬處室', 'required' => true))
-             ->addComponent('Duty', array('label' => '職掌'));
+        $this->addElement('Text', 'titleName',
+                          array('label' => '職稱',
+                                'required' => true
+                                'size'      => 10,
+                                'maxlength' => 10,
+                                'stringMin' => 1,
+                                'stringMax' => 10))
+             ->addElement('Text', 'titleEnglishName',
+                          array('label' => '英文名稱',
+                                'required' => true,
+                                'size'      => 40,
+                                'maxlength' => 50,
+                                'stringMin' => 1,
+                                'stringMax' => 50,
+                                'validators' => array(array('Alpha', true, array('messages' => '職稱英文名稱必須輸入英文')))))
+             ->addElement('Text', 'displayOrder',
+                          array('label' => '顯示順序'
+                                'size'      => 3,
+                                'maxlength' => 2,
+                                'filters'   => array('Int')))
+             ->addElement('Select', 'officeId',
+                          array('label'        => '所屬處室',
+                                'required'     => true,
+                                'table'        => 'Office',
+                                'columnPair'   => array('officeId', 'officeName'),
+                                'defaultValue' => array('0' => '無')))
+             ->addElement('Textarea', 'duty',
+                          array('label' => '職掌'
+                                'cols'      => 60,
+                                'rows'      => 12,
+                                'stringMin' => 0,
+                                'stringMax' => 1000));
 
-        if ($type == 'edit') {
-            $this->addComponent('Submit', array('label' => '更新'))
-                 ->addComponent('Cancel', array('label'   => '取消',
-                                                'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/title\'')));
+        if ($this->_formType == 'edit') {
+            $this->addElement('Submit', 'submit',
+                              array('label' => '更新'))
+                 ->addElement('Cancel', 'cancel',
+                              array('label'   => '取消',
+                                    'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/title\'')));
         } else {
-            $this->addComponent('Submit', array('label' => '新增'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '新增'));
         }
         
         //設定分行
-        $this->addDisplayGroup(array('titleName', 'titleEnglishName'), 'line1', array('order' => 1));
-        $this->addDisplayGroup(array('officeId', 'displayOrder'), 'line2', array('order' => 2));
-        $this->addDisplayGroup(array('duty'), 'line3', array('order' => 3));
-        $this->addDisplayGroup(array('submit', 'cancel'), 'lineEnd', array('order' => 99));
+        $this->addDisplayGroup(array('titleName', 'titleEnglishName'))
+             ->addDisplayGroup(array('officeId', 'displayOrder'))
+             ->addDisplayGroup(array('duty'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>

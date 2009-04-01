@@ -38,7 +38,8 @@ class Form_Achievement extends Form_Abstract
         $$this->addDisplayGroup(array('achievementName', 'displayOrder'));
         
         if ($this->_formType == 'edit') {
-            $this->addElement('Submit', 'submit', array('label' => '更新'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '更新'));
         } else {
             $this->addElement('File', 'achievementFile'
                               array('label'       => '成果檔案',

@@ -36,12 +36,13 @@ class Form_NewsLink extends Form_Abstract
              ->addElement('Cancel', 'cancel',
                           array('label'   => '取消',
                                 'attribs' => array('onclick' => 'history.go(-1)')));
-        if ($type == 'edit') {
-            $this->addElement('Submit', 'submit', array('label' => '修改'));
+        if ($this->_formType == 'edit') {
+            $this->addElement('Submit', 'submit',
+                              array('label' => '修改'));
         } else {
-            $this->addElement('Submit', 'submit', array('label' => '新增'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '新增'));
         }
-
         
         //設定分行
         $this->addDisplayGroup(array('linkName'))

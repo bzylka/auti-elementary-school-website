@@ -17,37 +17,52 @@
  */
 class Form_WebLink extends Form_Abstract
 { 
-    /**
-     * 建構子
-     * @param string $type 表單類型
-     */
-    public function __construct($type = null)
-    { 
-        parent::__construct();
-        
-        $this->setName('webLinkForm')
-             ->setMethod('post')
+    public function init()
+    {
+        $this->setMethod('post')
              ->setAttrib('enctype', 'multipart/form-data');
              
-        $this->addComponent('IconFile', array('label' => '圖示檔案', 'required' => true))
-             ->addComponent('LinkName', array('label' => '連結名稱', 'required' => true))
-             ->addComponent('Link', array('label' => '連結', 'required' => true));
+        $this->addElement('File', 'iconFile',
+                          array('label'       => '圖示檔案',
+                                'required'    => true,
+                                'size'        => 40,
+                                'maxFileSize' => 20971520,
+                                'fileSize'    => '20MB',
+                                'validators'  => array(
+                                                   array('Extension', false, 'jpg,gif,png'))))
+             ->addElement('Text', 'linkName',
+                          array('label'     => '連結名稱',
+                                'required'  => true,
+                                'size'      => 18,
+                                'maxlength' => 40,
+                                'stringMin' => 1,
+                                'stringMax' => 50))))
+             ->addElement('Text', 'link',
+                          array('label'     => '連結',
+                                'required'  => true,
+                                'size'      => 35,
+                                'maxlength' => 255,
+                                'stringMin' => 10,
+                                'stringMax' => 255));
 
-        if ($type == 'edit') {
+        if ($this->_formType == 'edit') {
             $this->iconFile->setRequired(false)
                            ->setLabel('替換圖示');
-            $this->addComponent('Submit', array('label' => '更新'))
-                 ->addComponent('Cancel', array('label'   => '取消',
-                                                'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'webLink/\'')));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '更新'))
+                 ->addElement('Cancel', 'cancel',
+                              array('label'   => '取消',
+                                    'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'webLink/\'')));
         } else {
-            $this->addComponent('Submit', array('label' => '新增'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '新增'));
         }
         
         //設定分行
-        $this->addDisplayGroup(array('iconFile'), 'line1', array('order' => 1));
-        $this->addDisplayGroup(array('linkName'), 'line2', array('order' => 2));
-        $this->addDisplayGroup(array('link'), 'line3', array('order' => 3));
-        $this->addDisplayGroup(array('submit', 'cancel'), 'lineEnd', array('order' => 99));
+        $this->addDisplayGroup(array('iconFile'))
+             ->addDisplayGroup(array('linkName'))
+             ->addDisplayGroup(array('link'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>

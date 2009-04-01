@@ -17,25 +17,28 @@
  */
 class Form_UploadPhoto extends Form_Abstract
 { 
-    /**
-     * 建構子
-     * @param string $type 表單類型
-     */
-    public function __construct($type = null)
-    { 
-        parent::__construct();
-        
-        $this->setName('uploadPhotoForm')
-             ->setMethod('post')
+    public function init()
+    {
+        $this->setMethod('post')
              ->setAttrib('enctype', 'multipart/form-data');
              
-        $this->addComponent('UploadPhotos', array('label' => '上傳相片'))
-             ->addComponent('Submit', array('label' => '上傳'))
-             ->addComponent('Cancel', array('label' => '取消', 'attribs' => array('onclick' => 'history.go(-1)')));
+        $this->addElement('File', 'uploadPhotos',
+                          array('label'       => '上傳相片',
+                                'ignore'      => true,
+                                'size'        => 40,
+                                'maxFileSize' => 1048576000,
+                                'fileSize'    => '1000MB'
+                                'validators'  => array(
+                                                   array('Count', false, array('min' => 1, 'max' => 6)),
+                                                   array('Extension', false, 'jpg,png,gif,zip'))))
+             ->addElement('Submit', 'submit',
+                          array('label' => '上傳'))
+             ->addElement('Cancel', 'cancel',
+                          array('label' => '取消', 'attribs' => array('onclick' => 'history.go(-1)')));
 
         //設定分行
-        $this->addDisplayGroup(array('uploadPhotos'), 'line1', array('order' => 1));
-        $this->addDisplayGroup(array('submit', 'cancel'), 'lineEnd', array('order' => 99));
+        $this->addDisplayGroup(array('uploadPhotos'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>

@@ -19,8 +19,6 @@ class Form_NewsAttachment extends Form_Abstract
 {
     public function init()
     {
-        $this->setMethod('post');
-        
         $this->setMethod('post')
              ->setAttrib('enctype', 'multipart/form-data');
 

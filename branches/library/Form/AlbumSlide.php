@@ -32,8 +32,6 @@ class Form_AlbumSlide extends Form_Abstract
     public function init()
     {
         $this->setMethod('post');
-        
-        $this->setMethod('post');
 
         $album = new Table_Album();
         $albumRowset = $album->getRowset();

@@ -17,30 +17,32 @@
  */
 class Form_Resource extends Form_Abstract
 { 
-    /**
-     * 建構子
-     * @param string $type 表單類型
-     */
-    public function __construct($type = null)
-    { 
-        parent::__construct();
-        
-        $this->setName('resourceForm')
-             ->setMethod('post');
+    public function init()
+    {
+        $this->setMethod('post');
              
-        $this->addComponent('ResourceName', array('label' => '資源名稱', 'required' => true));
+        $this->addElement('Text', 'resourceName',
+                          array('label'     => '資源名稱',
+                                'required'  => true,
+                                'size'      => 30,
+                                'maxlength' => 30,
+                                'stringMin' => 1,
+                                'stringMax' => 30));
 
-        if ($type == 'edit') {
-            $this->addComponent('Submit', array('label' => '更新'))
-                 ->addComponent('Cancel', array('label'   => '取消',
-                                                'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/resource\'')));
+        if ($this->_formType == 'edit') {
+            $this->addElement('Submit', 'submit',
+                              array('label' => '更新'))
+                 ->addElement('Cancel', 'cancel',
+                              array('label'   => '取消',
+                                    'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/resource\'')));
         } else {
-            $this->addComponent('Submit', array('label' => '新增'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '新增'));
         }
         
         //設定分行
-        $this->addDisplayGroup(array('resourceName'), 'line1', array('order' => 1));
-        $this->addDisplayGroup(array('submit', 'cancel'), 'lineEnd', array('order' => 99));
+        $this->addDisplayGroup(array('resourceName'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>

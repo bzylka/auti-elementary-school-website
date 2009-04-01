@@ -40,7 +40,7 @@ class Form_Office extends Form_Abstract
                                 'maxlength'  => 50,
                                 'stringMin'  => 1,
                                 'stringMax'  => 50,
-                                'validators' => array('Alpha')))
+                                'validators' => array(array('Alpha', true, array('messages' => '處室英文名稱必須輸入英文')))))
              ->addElement('Text', 'officeLink',
                           array('label' => '處室連結'
                                 'size'       => 70,
@@ -48,7 +48,7 @@ class Form_Office extends Form_Abstract
                                 'stringMin'  => 0,
                                 'stringMax'  => 255));
 
-        if ($this->formType == 'edit') {
+        if ($this->_formType == 'edit') {
             $this->addElement('Submit', 'submit',
                               array('label' => '更新'))
                  ->addElement('Cancel', 'cancel',

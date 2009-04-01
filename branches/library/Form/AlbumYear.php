@@ -29,7 +29,7 @@ class Form_AlbumYear extends Form_Abstract
                                 'stringMin' => 0,
                                 'stringMax' => 50));
 
-        if ($this->formType == 'edit') {
+        if ($this->_formType == 'edit') {
             $this->addElement('Submit', 'submit' ,
                               array('label' => '更新'))
                  ->addElement('Cancel', 'cancel',
