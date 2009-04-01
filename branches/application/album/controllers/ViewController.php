@@ -25,7 +25,7 @@ class Album_ViewController extends Controller
         $id = $this->getParam('id');
         
         $album = new Model_Album();
-        $albumRow = $album->getTable()->getByKey($id)->current();
+        $albumRow = $album->getTable()->find($id)->current();
         if (!$albumRow) {
             $this->redirect('album', '相簿ID無效');
         }

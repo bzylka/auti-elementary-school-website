@@ -27,7 +27,7 @@ class Form_UploadPhoto extends Form_Abstract
                                 'ignore'      => true,
                                 'size'        => 40,
                                 'maxFileSize' => 1048576000,
-                                'fileSize'    => '1000MB'
+                                'fileSize'    => '1000MB',
                                 'validators'  => array(
                                                    array('Count', false, array('min' => 1, 'max' => 6)),
                                                    array('Extension', false, 'jpg,png,gif,zip'))))

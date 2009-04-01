@@ -24,7 +24,6 @@ class Form_Components_File extends Zend_Form_Element_File
     {
         parent::__construct($name, $options);
         
-
         $this->addValidator('Size', true, $options['fileSize']);
         
         $sizeValidator = $this->getValidator('Size');

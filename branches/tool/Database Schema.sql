@@ -155,3 +155,13 @@ CREATE TABLE IF NOT EXISTS achievement (
     dirHash CHAR(40) NOT NULL ,
     displayOrder INT NOT NULL DEFAULT 0
 );
+
+/**
+ * 教育儲蓄專戶
+ */
+CREATE TABLE IF NOT EXISTS educationalSavingAccount (
+    entryId INTEGER PRIMARY KEY NOT NULL ,
+    income INTERGER DEFAULT 0 ,
+    outgo INTERGER DEFAULT 0 ,
+    instruction CHAR(255) NOT NULL
+);

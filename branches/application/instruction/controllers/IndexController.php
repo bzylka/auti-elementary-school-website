@@ -11,11 +11,11 @@
  */
 
 /**
- * Instruction_HistoryController
+ * Instruction_IndexController
  *
- * 校史沿革
+ * 學校簡介
  */
-class Instruction_HistoryController extends Controller
+class Instruction_IndexController extends Controller
 {
     /**
      * 顯示頁面

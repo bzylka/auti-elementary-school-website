@@ -27,8 +27,7 @@ unset($achievement);
     <li><a href="<?php echo BASE_URL . 'news/important'?>"><?php echo $this->img('icon/important.png', '重要公告') ?>重要公告</a></li>
     <li><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;
         <ul>
-            <li><?php echo $this->hyperLink('instruction/history', '校史沿革')?></li>
-            <li><?php echo $this->hyperLink('instruction/state', '學校現況')?></li>
+            <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>
             <li><?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
             <li><?php echo $this->hyperLink('instruction/symbol', '學校象徵')?></li>
 		</ul>

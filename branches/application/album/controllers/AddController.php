@@ -53,7 +53,7 @@ class Album_AddController extends Controller
 
         // 檢查相簿是否有效
         $album = new Model_Album();
-        $albumRow = $album->getTable()->getByKey($albumId)->current();
+        $albumRow = $album->getTable()->find($albumId)->current();
         if (!$albumRow) {
             $this->redirect('album', '相簿ID無效');
         }
