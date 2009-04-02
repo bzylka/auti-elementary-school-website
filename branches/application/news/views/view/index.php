@@ -32,7 +32,11 @@
             <?php echo $this->hyperLink('news/link/add/newsId/' . $this->newsData['newsId'], '新增連結')?>
         </span>
     <?php endif; ?>
-    <?php echo $this->escape($this->newsData['newsTitle']) ?></h1>
+    <?php echo $this->escape($this->newsData['newsTitle']) ?>
+    <?php if ($this->message): ?>
+        <span>│<?php echo $this->messageBlock($this->message) ?></span>
+    <?php endif; ?>
+</h1>
 
 <div id="newsContent">
     <?php echo nl2br($this->escape($this->newsData['newsContent'])) ?>

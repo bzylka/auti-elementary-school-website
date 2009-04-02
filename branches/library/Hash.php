@@ -22,7 +22,7 @@ class Hash
      * @param string $string 字串
      * @return string Hash字串
      */
-    public static function generate($string)
+    public static function generate($string = null)
     {
         if (is_string($string)) {
             return sha1($string);

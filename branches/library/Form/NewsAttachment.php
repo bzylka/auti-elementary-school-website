@@ -24,7 +24,6 @@ class Form_NewsAttachment extends Form_Abstract
 
         $this->addElement('File', 'newsAttachment',
                           array('label'       => '附件檔案',
-                                'required'    => true,
                                 'size'        => 30,
                                 'maxFileSize' => 83886080,
                                 'fileSize'    => '20MB'))
@@ -43,10 +42,11 @@ class Form_NewsAttachment extends Form_Abstract
             $this->addElement('Submit', 'submit', array('label' => '修改'));
         } else {
             $this->addElement('Submit', 'submit', array('label' => '新增'));
+            $this->newsAttachment->setRequired(true);
         }
         
         //設定分行
-        $this->addDisplayGroup(array('newsAttachment', 'fileName'));
+        $this->addDisplayGroup(array('newsAttachment', 'fileName'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }
 }

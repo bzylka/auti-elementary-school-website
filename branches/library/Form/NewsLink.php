@@ -21,14 +21,16 @@ class Form_NewsLink extends Form_Abstract
     {
         $this->setMethod('post');
 
-        $this->addElement('Text', 'newsLink',
+        $this->addElement('Text', 'link',
                           array('label'     => '連結網址',
+                                'required'  => true,
                                 'size'      => 35,
                                 'maxlength' => 255,
                                 'stringMin' => 0,
                                 'stringMax' => 255))
-             ->addElement('Text', 'newsLinkName',
+             ->addElement('Text', 'linkName',
                           array('label'     => '連結名稱',
+                                'required'  => true,
                                 'size'      => 18,
                                 'maxlength' => 40,
                                 'stringMin' => 0,
@@ -45,8 +47,8 @@ class Form_NewsLink extends Form_Abstract
         }
         
         //設定分行
-        $this->addDisplayGroup(array('linkName'))
-             ->addDisplayGroup(array('link'))
+        $this->addDisplayGroup(array('link'))
+             ->addDisplayGroup(array('linkName'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
