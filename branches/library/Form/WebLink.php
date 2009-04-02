@@ -25,6 +25,7 @@ class Form_WebLink extends Form_Abstract
         $this->addElement('File', 'iconFile',
                           array('label'       => '圖示檔案',
                                 'required'    => true,
+                                'ignore'      => true,
                                 'size'        => 40,
                                 'maxFileSize' => 20971520,
                                 'fileSize'    => '20MB',
@@ -36,7 +37,7 @@ class Form_WebLink extends Form_Abstract
                                 'size'      => 18,
                                 'maxlength' => 40,
                                 'stringMin' => 1,
-                                'stringMax' => 50))))
+                                'stringMax' => 50))
              ->addElement('Text', 'link',
                           array('label'     => '連結',
                                 'required'  => true,

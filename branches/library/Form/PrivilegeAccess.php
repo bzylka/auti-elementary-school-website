@@ -27,7 +27,7 @@ class Form_PrivilegeAccess extends Form_Abstract
                                 'table'        => 'Privilege',
                                 'columnPair'   => array('privilegeId', 'privilegeName'),
                                 'defaultValue' => array('0' => '無'),
-                                'validators'   => array(array('GreaterThan', true, array('min' => 0, 'messages' => '請選擇一個權限名稱'))))
+                                'validators'   => array(array('GreaterThan', true, array('min' => 0, 'messages' => '請選擇一個權限名稱')))))
              ->addElement('Select', 'resourceId',
                           array('label'        => '存取資源：',
                                 'required'     => true,

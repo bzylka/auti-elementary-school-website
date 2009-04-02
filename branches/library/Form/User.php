@@ -17,47 +17,96 @@
  */
 class Form_User extends Form_Abstract
 { 
-    /**
-     * 建構子
-     * @param string $type 表單類型
-     */
-    public function __construct($type = null)
-    { 
-        parent::__construct();
-        
-        $this->setName('userForm')
-             ->setMethod('post');
+    public function init()
+    {
+        $this->setMethod('post');
 
-        $this->addComponent('UserName', array('label' => '使用者姓名', 'required' => true))
-             ->addComponent('UserEnglishName', array('label' => '英文姓名'))
-             ->addComponent('Account', array('label' => '帳號', 'required' => true))
-             ->addComponent('PasswordConfirm', array('label' => '確認密碼'))
-             ->addComponent('Email', array('label' => 'E-mail'))
-             ->addComponent('TitleId', array('label' => '職稱'))
-             ->addComponent('PrivilegeId', array('label' => '權限'))
-             ->addComponent('Education', array('label' => '學歷'))
-             ->addComponent('Experience', array('label' => '經歷'))
-             ->addComponent('Talk', array('label' => '想說的話'))
-             ->addComponent('IsLeader', array('label' => '主任/校長'));
+        $this->addElement('Text', 'userName',
+                          array('label'     => '使用者姓名',
+                                'required'  => true
+                                'size'      => 15,
+                                'maxlength' => 20,
+                                'stringMin' => 2,
+                                'stringMax' => 10))
+             ->addElement('Text', 'userEnglishName',
+                          array('label'      => '英文姓名'
+                                'size'       => 20,
+                                'maxlength'  => 20,
+                                'stringMin'  => 2,
+                                'stringMax'  => 20,
+                                'validators' => array(array('Alpha', true, array('messages' => '英文名稱必須輸入英文')))))
+             ->addElement('Text', 'account',
+                          array('label'      => '帳號',
+                                'required'   => true,
+                                'size'       => 15,
+                                'maxlength'  => 20,
+                                'stringMin'  => 4,
+                                'stringMax'  => 10,
+                                'filters'    => array('StringToLower'),
+                                'validators' => array(array('Alnum', true, array('messages' => '帳號只能使用"英文"和"數字"')))))
+             ->addElement('Password', 'passwordConfirm',
+                          array('label'     => '確認密碼'
+                                'size'      => 15,
+                                'maxlength' => 8,
+                                'stringMin' => 4,
+                                'stringMax' => 8,
+                                'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
+             ->addElement('Text', 'email',
+                          array('label'      => 'E-mail'
+                                'size'       => 20,
+                                'maxlength'  => 30,
+                                'stringMin'  => 0,
+                                'stringMax'  => 30,
+                                'validators' => array(array('EmailAddress', true, array('messages' => 'E-mail位址錯誤')))))
+             ->addElement('Select', 'titleId',
+                          array('label'        => '職稱',
+                                'table'        => 'Title',
+                                'columnPair'   => array('titleId', 'titleName'),
+                                'defaultValue' => array('0' => '無')))
+             ->addElement('Select', 'privilegeId',
+                          array('label'        => '權限',
+                                'table'        => 'Privilege',
+                                'columnPair'   => array('privilegeId', 'privilegeName'),
+                                'defaultValue' => array('0' => '無')))
+                                
+                                //改到這邊
+             ->addElement('Textarea', 'education', array('label' => '學歷'))
+             ->addElement('Textarea', 'experience', array('label' => '經歷'))
+             ->addElement('Textarea', 'talk', array('label' => '想說的話'))
+             ->addElement('Checkbox', 'isLeader', array('label' => '主任/校長'));
 
-        if ($type == 'edit') {
-            $this->addComponent('Password', array('label' => '變更密碼', 'allowEmpty' => true))
-                 ->addComponent('Submit', array('label' => '更新'))
-                 ->addComponent('Cancel', array('label'   => '取消',
+        if ($this->_formType == 'edit') {
+            $this->addElement('Password', 'password',
+                              array('label'      => '變更密碼',
+                                    'allowEmpty' => true,
+                                    'size'       => 15,
+                                    'maxlength'  => 8,
+                                    'stringMin'  => 4,
+                                    'stringMax'  => 8,
+                                    'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
+                 ->addElement('Submit', 'submit', array('label' => '更新'))
+                 ->addElement('Cancel', 'cancel', array('label'   => '取消',
                                                 'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/user\'')));
         } else {
-            $this->addComponent('Password', array('label' => '密碼', 'required' => true))
-                 ->addComponent('Submit', array('label' => '新增使用者'));
+            $this->addElement('Password', 'password',
+                              array('label' => '密碼',
+                                    'required' => true,
+                                    'size'       => 15,
+                                    'maxlength'  => 8,
+                                    'stringMin'  => 4,
+                                    'stringMax'  => 8,
+                                    'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
+                 ->addElement('Submit', 'submit', array('label' => '新增使用者'));
         }
         
         //設定分行
-        $this->addDisplayGroup(array('userName', 'userEnglishName', 'titleId'), 'line1', array('order' => 1));
-        $this->addDisplayGroup(array('account', 'email', 'privilegeId'), 'line2', array('order' => 2));
-        $this->addDisplayGroup(array('password', 'passwordConfirm', 'isLeader'), 'line3', array('order' => 3));
-        $this->addDisplayGroup(array('education'), 'line4', array('order' => 4));
-        $this->addDisplayGroup(array('experience'), 'line5', array('order' => 5));
-        $this->addDisplayGroup(array('talk'), 'line6', array('order' => 6));
-        $this->addDisplayGroup(array('submit', 'cancel'), 'lineEnd', array('order' => 99));
+        $this->addDisplayGroup(array('userName', 'userEnglishName', 'titleId'))
+             ->addDisplayGroup(array('account', 'email', 'privilegeId'))
+             ->addDisplayGroup(array('password', 'passwordConfirm', 'isLeader'))
+             ->addDisplayGroup(array('education'))
+             ->addDisplayGroup(array('experience')
+             ->addDisplayGroup(array('talk'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>
