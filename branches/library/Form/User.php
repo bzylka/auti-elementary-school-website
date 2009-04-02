@@ -68,10 +68,14 @@ class Form_User extends Form_Abstract
                                 'table'        => 'Privilege',
                                 'columnPair'   => array('privilegeId', 'privilegeName'),
                                 'defaultValue' => array('0' => '無')))
-                                
-                                //改到這邊
-             ->addElement('Textarea', 'education', array('label' => '學歷'))
-             ->addElement('Textarea', 'experience', array('label' => '經歷'))
+             ->addElement('Textarea', 'education',
+                          array('label'     => '學歷',
+                                'cols'      => 25,
+                                'rows'      => 4,
+                                'stringMin' => 0,
+                                'stringMax' => 255))
+             ->addElement('Textarea', 'experience',
+                          array('label' => '經歷'))
              ->addElement('Textarea', 'talk', array('label' => '想說的話'))
              ->addElement('Checkbox', 'isLeader', array('label' => '主任/校長'));
 
