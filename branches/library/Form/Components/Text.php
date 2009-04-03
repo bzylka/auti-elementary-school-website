@@ -24,9 +24,15 @@ class Form_Components_Text extends Zend_Form_Element_Text
     {
         parent::__construct($name, $options);
 
-        // 加入NotEmpty的設定
-        if ($options['required'] == true) {
+        // 加入NotEmpty的設定（暫時取消）
+        /*if ($options['required'] == true) {
             $this->addValidator('NotEmpty', true, array('messages' => $this->getLabel() . '不能空白'));
+        }*/
+        // 處理Validators
+        $validators = $this->getValidators();
+        
+        if (array_key_exists('NotEmpty', $validators)) {
+            $validators['NotEmpty']->setMessage($this->getLabel() . '不能空白');
         }
         
         $this->addFilter('StringTrim')

@@ -11,19 +11,16 @@
  */
 
 /**
- * State_Extension
+ * State_Validator_Interface
  *
- * 檢查Extension有沒有載入
+ * 系統狀態檢查介面
  */
-class State_Extension extends State_Abstract
+interface State_Validator_Interface
 {
     /**
-     * 取得結果
-     * @return array 結果
+     * 檢查系統狀態
+     * @return bool 檢查結果
      */
-    public function getResult()
-    {
-
-    }
+    public function isValid();
 }
 ?>

@@ -11,20 +11,19 @@
  */
 
 /**
- * State_Interface
+ * State_Validator_Dir
  *
- * 系統狀態檢查介面
+ * 系統狀態檢查類別
  */
-interface State_Interface
+class State_Validator_Dir extends State_Validator_Abstract
 {
     /**
-     * 檢查系統狀態
+     * 取得結果
+     * @return bool 檢查結果
      */
-    public function isValid();
-    
-    /**
-     * 取得訊息
-     */
-    public function getMessage();
+    public function isValid()
+    {
+
+    }
 }
 ?>

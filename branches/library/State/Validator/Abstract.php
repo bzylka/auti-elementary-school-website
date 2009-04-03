@@ -11,11 +11,11 @@
  */
 
 /**
- * State_Abstract
+ * State_Validator_Abstract
  *
  * 系統狀態檢查抽象類別
  */
-abstract class State_Abstract implements State_Interface
+abstract class State_Validator_Abstract implements State_Validator_Interface
 {
     /**
      * @var string 檢查項目
@@ -30,13 +30,7 @@ abstract class State_Abstract implements State_Interface
     protected $_conditions = array();
     
     /**
-     * @var mixed 儲存結果的鍵值
-     * @access protected
-     */
-    protected $_key;
-    
-    /**
-     * @var string 訊息
+     * @var mixed 儲存結果訊息
      * @access protected
      */
     protected $_message;
@@ -45,41 +39,16 @@ abstract class State_Abstract implements State_Interface
      * 建構子
      * @param string $item       檢查項目
      * @param mixed  $conditions 檢查條件
-     * @param string $key        儲存結果的鍵值
      */
-     */
-    public function __construct($item, $conditions, $key)
+    public function __construct($item, $conditions)
     {
         $this->_item       = $item;
         $this->_conditions = array()$conditions;
-        if ($key === null) {
-            $this->_key = $item;
-        } else {
-            $this->_key = $key;
-        }
     }
     
     /**
-     * 取得檢查類別
-     * @return string 檢查類別
-     */
-    public function getClassName()
-    {
-        return substr(getclass($this), 6);
-    }
-    
-    /**
-     * 取得檢查鍵值
-     * @return string 檢查鍵值
-     */
-    public function getKey()
-    {
-        return $this->_key;
-    }
-    
-    /**
-     * 取得訊息
-     * @return string 檢查訊息
+     * 傳回檢查結果訊息
+     * @return array 傳回檢查結果訊息
      */
     public function getMessage()
     {

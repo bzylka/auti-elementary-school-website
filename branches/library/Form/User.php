@@ -49,8 +49,7 @@ class Form_User extends Form_Abstract
                                 'size'      => 15,
                                 'maxlength' => 8,
                                 'stringMin' => 4,
-                                'stringMax' => 8,
-                                'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
+                                'stringMax' => 8))
              ->addElement('Text', 'email',
                           array('label'      => 'E-mail'
                                 'size'       => 20,
@@ -75,9 +74,19 @@ class Form_User extends Form_Abstract
                                 'stringMin' => 0,
                                 'stringMax' => 255))
              ->addElement('Textarea', 'experience',
-                          array('label' => '經歷'))
-             ->addElement('Textarea', 'talk', array('label' => '想說的話'))
-             ->addElement('Checkbox', 'isLeader', array('label' => '主任/校長'));
+                          array('label' => '經歷',
+                                'cols'      => 25,
+                                'rows'      => 4,
+                                'stringMin' => 0,
+                                'stringMax' => 255))
+             ->addElement('Textarea', 'talk',
+                          array('label' => '想說的話',
+                                'cols'      => 50,
+                                'rows'      => 6,
+                                'stringMin' => 0,
+                                'stringMax' => 255))
+             ->addElement('Checkbox', 'isLeader',
+                          array('label' => '主任/校長'));
 
         if ($this->_formType == 'edit') {
             $this->addElement('Password', 'password',
@@ -86,11 +95,12 @@ class Form_User extends Form_Abstract
                                     'size'       => 15,
                                     'maxlength'  => 8,
                                     'stringMin'  => 4,
-                                    'stringMax'  => 8,
-                                    'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
-                 ->addElement('Submit', 'submit', array('label' => '更新'))
-                 ->addElement('Cancel', 'cancel', array('label'   => '取消',
-                                                'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/user\'')));
+                                    'stringMax'  => 8))
+                 ->addElement('Submit', 'submit',
+                              array('label' => '更新'))
+                 ->addElement('Cancel', 'cancel',
+                               array('label'   => '取消',
+                                     'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/user\'')));
         } else {
             $this->addElement('Password', 'password',
                               array('label' => '密碼',
@@ -98,9 +108,9 @@ class Form_User extends Form_Abstract
                                     'size'       => 15,
                                     'maxlength'  => 8,
                                     'stringMin'  => 4,
-                                    'stringMax'  => 8,
-                                    'validators' => array(array('Alnum', true, array('messages' => '密碼只能使用"英文"和"數字"')))))
-                 ->addElement('Submit', 'submit', array('label' => '新增使用者'));
+                                    'stringMax'  => 8))
+                 ->addElement('Submit', 'submit',
+                              array('label' => '新增使用者'));
         }
         
         //設定分行

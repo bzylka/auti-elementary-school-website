@@ -11,17 +11,17 @@
  */
 
 /**
- * State_Ini
+ * State_Validator_Extension
  *
- * 檢查php.ini的設定
+ * 檢查Extension有沒有載入
  */
-class State_Ini extends State_Abstract
+class State_Validator_Extension extends State_Validator_Abstract
 {
     /**
      * 取得結果
-     * @return array 結果
+     * @return bool 檢查結果
      */
-    public function getResult()
+    public function isValid()
     {
 
     }

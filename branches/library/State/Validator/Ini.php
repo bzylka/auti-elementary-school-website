@@ -11,17 +11,17 @@
  */
 
 /**
- * State_Dir
+ * State_Validator_Ini
  *
- * 系統狀態檢查類別
+ * 檢查php.ini的設定
  */
-class State_Dir extends State_Abstract
+class State_Validator_Ini extends State_Validator_Abstract
 {
     /**
      * 取得結果
-     * @return array 結果
+     * @return bool 檢查結果
      */
-    public function getResult()
+    public function isValid()
     {
 
     }

@@ -11,15 +11,15 @@
  */
 
 /**
- * State_File
+ * State_Validator_File
  *
  * 系統狀態檢查類別
  */
-class State_File extends State_Abstract
+class State_Validator_File extends State_Validator_Abstract
 {
     /**
      * 取得結果
-     * @return array 結果
+     * @return bool 檢查結果
      */
     public function isValid()
     {

@@ -36,24 +36,18 @@ class State
      * @var array 檢查物件Array
      * @access protected
      */
-    protected $_states = array();
+    protected $_validators = array();
     
     /**
      * @var array 檢查結果
      * @access protected
      */
-    protected $_results = array();
+    protected $_messages = array();
     /**
-     * @var array 錯誤訊息Array
+     * @var array 錯誤訊息
      * @access protected
      */
-    protected $_message = array();
-    
-    /**
-     * @var bool 是否有錯誤
-     * @access protected
-     */
-    protected $_isValid = true;
+    protected $_errorMessages = array();
 
     /**
      * 建構子，不使用
@@ -61,6 +55,7 @@ class State
     private function __construct()
     {
     }
+    
     /**
      * 單體模式
      */
@@ -80,10 +75,14 @@ class State
      * @param mixed  $conditions 檢查條件
      * @param string $key        儲存結果的鍵值
      */
-    public function addState($className, $item, $conditions, $key = null)
+    public function addValidator($className, $item, $conditions, $key = null)
     {
-        $className = 'State_' . $className;
-        $states[] = new $className($item, $conditions, $key);
+        if ($key === null) {
+            $key = $item;
+        }
+        
+        $validatorClassName = 'State_Validator_' . $className;
+        $this->_validators[$className][$key] = new $validatorClassName($item, $conditions);
         return $this;
     }
     
@@ -117,8 +116,8 @@ class State
     }
     
     /**
-     * 取得錯誤訊息
-     * @return array 錯誤訊息
+     * 取得檢查結果
+     * @return array 檢查結果
      */
     public function getMessage()
     {
@@ -126,12 +125,12 @@ class State
     }
     
     /**
-     * 取得檢查結果
+     * 取得錯誤訊息
      * @return array 錯誤訊息
      */
-    public function getResult()
+    public function getErrorMessage()
     {
-        return $this->_result;
+        return $this->_erroeMessage;
     }
     
     /*

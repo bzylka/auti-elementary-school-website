@@ -37,8 +37,8 @@ class Form_News extends Form_Abstract
                                 'stringMin' => 0,
                                 'stringMax' => 500))
              ->addElement('Cancel', 'cancel',
-                              array('label'   => '取消',
-                                    'attribs' => array('onclick' => 'history.go(-1)')));
+                          array('label'   => '取消',
+                                'attribs' => array('onclick' => 'history.go(-1)')));
         // 設定分行
         $this->addDisplayGroup(array('newsTitle', 'isImportant'))
              ->addDisplayGroup(array('newsContent'));
