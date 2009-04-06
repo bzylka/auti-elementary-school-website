@@ -161,7 +161,48 @@ CREATE TABLE IF NOT EXISTS achievement (
  */
 CREATE TABLE IF NOT EXISTS educationalSavingAccount (
     entryId INTEGER PRIMARY KEY NOT NULL ,
+    entryDate CHAR(10) NOT NULL ,
     income INTERGER DEFAULT 0 ,
     outgo INTERGER DEFAULT 0 ,
     instruction CHAR(255) NOT NULL
+);
+
+/**
+ * Wiki頁面
+ */
+CREATE TABLE IF NOT EXISTS wikiPage (
+    wikiPageId INTEGER PRIMARY KEY NOT NULL ,
+    wikiPageTitle CHAR(255) NOT NULL ,
+    wikiPageContent TEXT
+);
+
+/**
+ * Wiki頁面附加檔案
+ */
+CREATE TABLE IF NOT EXISTS wikiPageAttachment (
+    wikiPageAttachmentId INTEGER PRIMARY KEY NOT NULL ,
+    wikiPageId INTEGER NOT NULL DEFAULT 0,
+    fileName CHAR(255) NOT NULL ,
+    fileHash CHAR(40) NOT NULL
+);
+
+/**
+ * 行事曆項目
+ */
+CREATE TABLE IF NOT EXISTS event (
+    eventId INTEGER PRIMARY KEY NOT NULL ,
+    eventName CHAR(255) NOT NULL ,
+    startDate CHAR(10) NOT NULL ,
+    endDate CHAR(10) NOT NULL ,
+    eventDescription CHAR(255) NOT NULL ,
+    eventCatalogId NOT NULL DEFAULT 0
+);
+
+/**
+ * 行事曆分類
+ */
+CREATE TABLE IF NOT EXISTS eventCatalog (
+    eventCatalogId INTEGER PRIMARY KEY NOT NULL ,
+    eventCatalogName CHAR(255) NOT NULL ,
+    eventCatalogIconFileName CHAR(255)
 );
