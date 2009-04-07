@@ -42,7 +42,7 @@ class Form_Office extends Form_Abstract
                                 'stringMax'  => 50,
                                 'validators' => array(array('Alpha', true, array('messages' => '處室英文名稱必須輸入英文')))))
              ->addElement('Text', 'officeLink',
-                          array('label' => '處室連結'
+                          array('label'      => '處室連結',
                                 'size'       => 70,
                                 'maxlength'  => 255,
                                 'stringMin'  => 0,
@@ -60,8 +60,8 @@ class Form_Office extends Form_Abstract
         }
         
         //設定分行
-        $this->addDisplayGroup(array('officeName', 'officeEnglishName', 'displayOrder'));
-             ->addDisplayGroup(array('officeLink'));
+        $this->addDisplayGroup(array('officeName', 'officeEnglishName', 'displayOrder'))
+             ->addDisplayGroup(array('officeLink'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }
 }

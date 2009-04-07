@@ -19,12 +19,12 @@ class Form_Achievement extends Form_Abstract
 {
     public function init()
     {
-        $this->setMethod('post');
+        $this->setMethod('post')
              ->setAttrib('enctype', 'multipart/form-data');
              
         $this->addElement('Text', 'achievementName',
                           array('label'     => '成果名稱',
-                                'required'  => true
+                                'required'  => true,
                                 'size'      => 20,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
@@ -35,20 +35,20 @@ class Form_Achievement extends Form_Abstract
                                 'maxlength' => 2,
                                 'filters'   => array('Int')));
 
-        $$this->addDisplayGroup(array('achievementName', 'displayOrder'));
+        $this->addDisplayGroup(array('achievementName', 'displayOrder'));
         
         if ($this->_formType == 'edit') {
             $this->addElement('Submit', 'submit',
                               array('label' => '更新'));
         } else {
-            $this->addElement('File', 'achievementFile'
+            $this->addElement('File', 'achievementFile',
                               array('label'       => '成果檔案',
                                     'size'        => 40,
                                     'maxFileSize' => 209715200,
                                     'fileSize'    => '200MB'))
-                 >addElement('Submit', 'submit',
-                             array('label' => '更新'));
-                             
+                 ->addElement('Submit', 'submit',
+                              array('label' => '更新'));
+
             $this->addDisplayGroup(array('achievementFile'));
         }
         

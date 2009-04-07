@@ -23,13 +23,13 @@ class Form_User extends Form_Abstract
 
         $this->addElement('Text', 'userName',
                           array('label'     => '使用者姓名',
-                                'required'  => true
+                                'required'  => true,
                                 'size'      => 15,
                                 'maxlength' => 20,
                                 'stringMin' => 2,
                                 'stringMax' => 10))
              ->addElement('Text', 'userEnglishName',
-                          array('label'      => '英文姓名'
+                          array('label'      => '英文姓名',
                                 'size'       => 20,
                                 'maxlength'  => 20,
                                 'stringMin'  => 2,
@@ -45,13 +45,13 @@ class Form_User extends Form_Abstract
                                 'filters'    => array('StringToLower'),
                                 'validators' => array(array('Alnum', true, array('messages' => '帳號只能使用"英文"和"數字"')))))
              ->addElement('Password', 'passwordConfirm',
-                          array('label'     => '確認密碼'
+                          array('label'     => '確認密碼',
                                 'size'      => 15,
                                 'maxlength' => 8,
                                 'stringMin' => 4,
                                 'stringMax' => 8))
              ->addElement('Text', 'email',
-                          array('label'      => 'E-mail'
+                          array('label'      => 'E-mail',
                                 'size'       => 20,
                                 'maxlength'  => 30,
                                 'stringMin'  => 0,
@@ -118,7 +118,7 @@ class Form_User extends Form_Abstract
              ->addDisplayGroup(array('account', 'email', 'privilegeId'))
              ->addDisplayGroup(array('password', 'passwordConfirm', 'isLeader'))
              ->addDisplayGroup(array('education'))
-             ->addDisplayGroup(array('experience')
+             ->addDisplayGroup(array('experience'))
              ->addDisplayGroup(array('talk'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }

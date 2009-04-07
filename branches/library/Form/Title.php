@@ -22,22 +22,22 @@ class Form_Title extends Form_Abstract
         $this->setMethod('post');
              
         $this->addElement('Text', 'titleName',
-                          array('label' => '職稱',
-                                'required' => true
+                          array('label'     => '職稱',
+                                'required'  => true,
                                 'size'      => 10,
                                 'maxlength' => 10,
                                 'stringMin' => 1,
                                 'stringMax' => 10))
              ->addElement('Text', 'titleEnglishName',
-                          array('label' => '英文名稱',
-                                'required' => true,
+                          array('label'     => '英文名稱',
+                                'required'  => true,
                                 'size'      => 40,
                                 'maxlength' => 50,
                                 'stringMin' => 1,
                                 'stringMax' => 50,
                                 'validators' => array(array('Alpha', true, array('messages' => '職稱英文名稱必須輸入英文')))))
              ->addElement('Text', 'displayOrder',
-                          array('label' => '顯示順序'
+                          array('label'     => '顯示順序',
                                 'size'      => 3,
                                 'maxlength' => 2,
                                 'filters'   => array('Int')))
@@ -48,7 +48,7 @@ class Form_Title extends Form_Abstract
                                 'columnPair'   => array('officeId', 'officeName'),
                                 'defaultValue' => array('0' => '無')))
              ->addElement('Textarea', 'duty',
-                          array('label' => '職掌'
+                          array('label'     => '職掌',
                                 'cols'      => 60,
                                 'rows'      => 12,
                                 'stringMin' => 0,
