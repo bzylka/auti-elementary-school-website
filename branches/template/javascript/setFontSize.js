@@ -12,7 +12,7 @@
 /**
  * 設定字型
  */
-$(document).ready(function(input){
+$(function() {
     if (screen.width >= 800 && screen.width < 1024) {
         bodyFontSize = "16px";
     } else if (screen.width >= 1024 && screen.width < 1280) {

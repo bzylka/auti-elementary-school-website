@@ -12,9 +12,8 @@
 /**
  * 設定相簿隨機顯示的AJAX
  */
-jQuery(function($){
+$(function() {
     $("input[type='checkbox']").click(function(){
-        //alert($(this).attr("checked"));
         if ($(this).attr("checked") == true) {
             var isShow = "1";
         } else {

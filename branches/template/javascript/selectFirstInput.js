@@ -12,7 +12,7 @@
 /**
  * 自動移動到第一個輸入區域
  */
-$(document).ready(function(){
+$(function() {
     $("input[type='text']:first").select();
     $("#loginForm #account").select();
 });

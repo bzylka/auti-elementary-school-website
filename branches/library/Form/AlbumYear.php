@@ -25,7 +25,7 @@ class Form_AlbumYear extends Form_Abstract
                           array('label'     => '相簿年份',
                                 'required'  => true,
                                 'size'      => 30,
-                                'maxlength' => 50
+                                'maxlength' => 50,
                                 'stringMin' => 0,
                                 'stringMax' => 50));
 
@@ -33,14 +33,15 @@ class Form_AlbumYear extends Form_Abstract
             $this->addElement('Submit', 'submit' ,
                               array('label' => '更新'))
                  ->addElement('Cancel', 'cancel',
-                               array('label'   => '取消',
-                                     'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/albumYear\'')));
+                              array('label'   => '取消',
+                                    'attribs' => array('onclick' => 'location.href=\'' . BASE_URL . 'admin/albumYear\'')));
         } else {
-            $this->addElement('Submit', array('label' => '新增'));
+            $this->addElement('Submit', 'submit',
+                              array('label' => '新增'));
         }
         
         //設定分行
-        $this->addDisplayGroup(array('albumYearName'));
+        $this->addDisplayGroup(array('albumYearName'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }
 }

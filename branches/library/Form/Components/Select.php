@@ -39,12 +39,12 @@ class Form_Components_Select extends Zend_Form_Element_Select
         $valueArray = $table->columns($options['columnPair'])->getRowset()->toArray();
         if (isset($valueArray)) {
             foreach ($valueArray as &$value) {
-                $multiOptions[$valueArray[$options['columnPair'][0]]] = $valueArray[$options['columnPair'][1]];
+                $multiOptions[$value[$options['columnPair'][0]]] = $value[$options['columnPair'][1]];
             }
         }
         
         ksort($multiOptions);
-
+        
         $multiOptions = array_merge($options['defaultValue'], $multiOptions);
         
         $this->addValidator('Int', true, array('messages' => $this->getLabel() . '選單必需為整數'))

@@ -22,7 +22,7 @@ function dehighlight(input)
     this.style.backgroundColor = '';
 }
 
-$(document).ready(function(input){
+$(function() {
     $("input[type='text'], input[type='password']").focus(highlight);
     $("input[type='text'], input[type='password']").blur(dehighlight);
 });
