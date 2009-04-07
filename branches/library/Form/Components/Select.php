@@ -15,7 +15,7 @@
  *
  * 下拉選單
  */
-class Form_Components_ResourceId extends Zend_Form_Element_Select
+class Form_Components_Select extends Zend_Form_Element_Select
 { 
     /**
      * 建構子
@@ -37,7 +37,7 @@ class Form_Components_ResourceId extends Zend_Form_Element_Select
         $table = new $tableClass();
         
         $valueArray = $table->columns($options['columnPair'])->getRowset()->toArray();
-        if (isset($valueArray))
+        if (isset($valueArray)) {
             foreach ($valueArray as &$value) {
                 $multiOptions[$valueArray[$options['columnPair'][0]]] = $valueArray[$options['columnPair'][1]];
             }
@@ -45,7 +45,7 @@ class Form_Components_ResourceId extends Zend_Form_Element_Select
         
         ksort($multiOptions);
 
-        $multiOptions = array_merge($option['defaultValue'], $multiOptions);
+        $multiOptions = array_merge($options['defaultValue'], $multiOptions);
         
         $this->addValidator('Int', true, array('messages' => $this->getLabel() . '選單必需為整數'))
              ->addMultiOptions($multiOptions);

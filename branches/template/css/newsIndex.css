@@ -1,33 +1,37 @@
 #addNews {
-    float: right;
-    margin-top: -1.5em;
-    margin-right: 0.5em;
+	float: right;
+	margin-top: -1.5em;
+	margin-right: 0.5em;
 }
 #newsPageNav {
-    text-align: center;
-    margin: 0.5em 0.5em 0.5em 0;
+	text-align: center;
+	margin: 0.5em 0.5em 0.5em 0;
 }
 #newsPageNav #prev, #newsPageNav #next {
-    font-size: 110%;
-    font-weight: bold;
+	font-size: 110%;
+	font-weight: bold;
 }
 #newsPageNav .pageNumber {
-    text-decoration: underline;
-    padding: 2px;
-    font-size: 90%;
+	text-decoration: underline;
+	padding: 2px;
+	font-size: 90%;
 }
 #newsPageNav #currentPage {
-    font-weight: bold;
+	font-weight: bold;
+}
+#newsTable {
+	font-size: 90%;
+	margin-left: 1em;
 }
 #newsTable .postDate {
-    width: 6.5em;
+	width: 6.5em;
 }
 #newsTable .officeName {
-    width: 4em;
+	width: 4em;
 }
 #newsTable .titleName {
-    width: 5em;
+	width: 5em;
 }
 #newsTable .newsTitle {
-    width: 30em;
+	width: 30em;
 }

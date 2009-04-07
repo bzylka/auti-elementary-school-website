@@ -38,6 +38,34 @@ class Model_Attachment extends Model_Abstract
      */
     public function save($news, $newsId)
     {
+        
+        for ($i = 1; $i < 5; $i++) {
+            $newAttachmentFile = $news->getForm()->getElement('newsAttachment_' .  $i);
+            if ($newAttachmentFile->isUploaded()) {
+                $extension = pathinfo($newAttachmentFile->getValue(), PATHINFO_EXTENSION);
+                if ($news->getForm()->{'newsAttachment_' .  $i . '_fileName'}->getValue()) {
+                    $fileName = $news->getForm()->getElement('newsAttachment_' .  $i . '_fileName')->getValue();
+                } else {
+                    $fileName = mb_substr($newAttachmentFile->getValue(), 0, -(strlen($extension)) - 1, 'UTF-8');
+                }
+
+                if ($extension) {
+                    $fileFullName = $fileName . '.' . $extension;
+                } else {
+                    $fileFullName = $fileName;
+                }
+
+                // 儲存檔案、寫入資料庫
+                $hashName = Hash::generate();
+                if (!move_uploaded_file($_FILES['newsAttachment_' .  $i]['tmp_name'], DATA_DIR . $hashName)) {
+                    $this->setMessage('檔案儲存失敗，請聯絡系統管理員');
+                }
+
+                $this->getTable()->addData(array('newsId' => $newsId, 'fileName' => $fileFullName, 'fileHash' => $hashName));
+            }
+        }
+        return 1;
+        /*
         foreach ($_FILES as $key => &$file) {
             if ($file['error'] == 0) {
                 // 處理檔名
@@ -63,6 +91,7 @@ class Model_Attachment extends Model_Abstract
                 $this->getTable()->addData(array('newsId' => $newsId, 'fileName' => $fileFullName, 'fileHash' => $hashName));
             }
         }
+        */
     }
     
     /**

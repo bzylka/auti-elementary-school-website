@@ -80,18 +80,20 @@ class Form_News extends Form_Abstract
                                         'stringMax' => 50));
             }
             
+            // 設定分行
+            $this->addDisplayGroup(array('newsLink_1', 'newsLink_1_name'))
+                 ->addDisplayGroup(array('newsLink_2', 'newsLink_2_name'))
+                 ->addDisplayGroup(array('newsAttachment_1', 'newsAttachment_1_fileName'))
+                 ->addDisplayGroup(array('newsAttachment_2', 'newsAttachment_2_fileName'))
+                 ->addDisplayGroup(array('newsAttachment_3', 'newsAttachment_3_fileName'))
+                 ->addDisplayGroup(array('newsAttachment_4', 'newsAttachment_4_fileName'));
+            
             $this->addElement('Submit', 'submit',
                               array('label' => '發布新聞'));
         }
         
         // 設定分行
-        $this->addDisplayGroup(array('newsLink_1', 'newsLink_1_name'))
-             ->addDisplayGroup(array('newsLink_2', 'newsLink_2_name'))
-             ->addDisplayGroup(array('newsAttachment_1', 'newsAttachment_1_fileName'))
-             ->addDisplayGroup(array('newsAttachment_2', 'newsAttachment_2_fileName'))
-             ->addDisplayGroup(array('newsAttachment_3', 'newsAttachment_3_fileName'))
-             ->addDisplayGroup(array('newsAttachment_4', 'newsAttachment_4_fileName'))
-             ->addDisplayGroup(array('submit', 'cancel'));
+        $this->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>
