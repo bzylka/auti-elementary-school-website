@@ -26,6 +26,7 @@ class Form_UploadPhoto extends Form_Abstract
                           array('label'       => '上傳相片',
                                 'ignore'      => true,
                                 'size'        => 40,
+                                'multiFile'   => 6,
                                 'maxFileSize' => 1048576000,
                                 'fileSize'    => '1000MB',
                                 'validators'  => array(

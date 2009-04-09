@@ -12,7 +12,7 @@
 /**
  * 確認密碼輸入是否相同
  */
-$(document).ready(function(input){
+$(function() {
     $('form').submit(
         function()
         {

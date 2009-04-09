@@ -68,7 +68,7 @@
         <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
         <small>｜</small>
         <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
-        <a href="#photoView" id="showLargePhoto">放大檢視</a>
+        <a href="#photoView" title="<?php echo mb_convert_encoding($this->photo['fileName'], 'UTF-8') ?>" id="showLargePhoto">放大檢視</a>
     </div>
 <?php endif; ?>
     
@@ -76,8 +76,11 @@
     <?php if ($this->isAdmin): ?>
         <span id="infoNav">
             <span id="setAlbumCover"><?php echo $this->hyperLink('album/setCover/index/id/' . $this->photo['photoId'] . '/albumId/' . $this->photo['albumId'], '設定為相簿封面') ?></span>
+            |
             <span id="rotateLeft"><?php echo $this->hyperLink('album/rotateLeft/photo/id/' . $this->photo['photoId'], '左旋90度') ?></span>
+            |
             <span id="rotateRight"><?php echo $this->hyperLink('album/rotateRight/photo/id/' . $this->photo['photoId'], '右旋90度') ?></span>
+            |
             <span id="deletePhoto"><?php echo $this->hyperLink('album/delete/photo/id/' . $this->photo['photoId'] . '/albumId/' . $this->photo['albumId'], '刪除此張相片') ?></span>
         </span>
     <?php endif; ?>
@@ -101,7 +104,7 @@
     <div id="photoDescriptionContainer">
         <?php if ($this->isAdmin): ?>
             <div id="photoDescriptionNav">
-                <?php echo $this->ajaxLink('$(\'#photoDescription\').css({\'display\':\'none\'});$(\'.formContainer\').css({\'display\':\'inline\'});', '編輯說明文字');?>
+                <?php echo $this->ajaxLink('$(\'#photoDescription\').css({\'display\':\'block\'});$(\'.formContainer\').css({\'display\':\'inline\'});', '編輯說明文字');?>
                 /
                 <span><?php echo $this->hyperLink('album/delete/photoDescription/id/' . $this->photo['photoId'], '刪除說明文字') ?></span>
             </div>

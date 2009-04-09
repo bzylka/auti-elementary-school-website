@@ -50,6 +50,10 @@ class Admin_UserController extends Controller
                 $user->getForm()->password->setValue(Hash::generate($password, $salt));
                 
                 $user->add();
+
+                // 處理相片
+                $user->updateUserPhoto()
+                
                 $this->redirect('admin/user', $user->getMessage());
             } else {
                 $this->view->message = $user->getMessage();
@@ -94,6 +98,7 @@ class Admin_UserController extends Controller
             $this->redirect('admin/user', $user->getMessage());
         }
 
+        $this->view->userId    = $id;
         $this->view->userTable = $user->getUserTable();
         $this->view->userForm  = $user->getForm();
         $this->render('index');

@@ -67,6 +67,14 @@ class Form_User extends Form_Abstract
                                 'table'        => 'Privilege',
                                 'columnPair'   => array('privilegeId', 'privilegeName'),
                                 'defaultValue' => array('0' => '無')))
+            ->addElement('File', 'photo',
+                          array('label'       => '上傳相片',
+                                'ignore'      => true,
+                                'size'        => 40,
+                                'maxFileSize' => 10485760,
+                                'fileSize'    => '10MB',
+                                'validators'  => array(
+                                                   array('Extension', false, 'jpg'))))
              ->addElement('Textarea', 'education',
                           array('label'     => '學歷',
                                 'cols'      => 25,
@@ -117,6 +125,7 @@ class Form_User extends Form_Abstract
         $this->addDisplayGroup(array('userName', 'userEnglishName', 'titleId'))
              ->addDisplayGroup(array('account', 'email', 'privilegeId'))
              ->addDisplayGroup(array('password', 'passwordConfirm', 'isLeader'))
+             ->addDisplayGroup(array('photo'))
              ->addDisplayGroup(array('education'))
              ->addDisplayGroup(array('experience'))
              ->addDisplayGroup(array('talk'))

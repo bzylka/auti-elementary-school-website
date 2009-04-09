@@ -21,7 +21,7 @@ class Form_PhotoDescription extends Form_Abstract
     {
         $this->setMethod('post');
              
-        $this->addElement('Text', 'PhotoDescription',
+        $this->addElement('Text', 'photoDescription',
                           array('label'     => '相片說明',
                                 'size'      => 40,
                                 'maxlength' => 255,
@@ -34,7 +34,8 @@ class Form_PhotoDescription extends Form_Abstract
                                 'attribs' => array('onclick' => '$(\'#photoDescription\').css({\'display\':\'block\'});$(\'.formContainer\').css({\'display\':\'none\'});')));
 
         //設定分行
-        $this->addDisplayGroup(array('photoDescription', 'submit', 'cancel'));
+        $this->addDisplayGroup(array('photoDescription'))
+             ->addDisplayGroup(array('submit', 'cancel'));
     }
 }
 ?>

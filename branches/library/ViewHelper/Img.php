@@ -24,8 +24,12 @@ class ViewHelper_Img
      * @param array  $attribs 屬性
      * @return string img標籤
      */
-    public function img($src, $alt, $attribs = null)
+    public function img($src, $alt = null, $attribs = null)
     {
+        if ($alt == null) {
+            $alt = $src;
+        }
+        
         $alt = htmlentities($alt, ENT_COMPAT, 'UTF-8');
         $img = '<img src="'
              . IMG_URL

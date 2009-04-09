@@ -16,7 +16,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'albumIndex.css') ?>
 
 <?php if ($this->allowAlbum): ?>
-    <?php echo $this->hyperLink('album/add', '新增相簿') ?>
+    <?php echo $this->hyperLink('album/add', '新增相簿＋') ?>
 <?php endif; ?>
 
 <?php if ($this->message): ?>

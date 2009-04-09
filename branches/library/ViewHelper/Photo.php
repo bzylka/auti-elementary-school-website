@@ -11,7 +11,7 @@
  */
 
 /**
- * ViewHelper_Img
+ * ViewHelper_Photo
  *
  * 產生img標籤
  */
@@ -24,8 +24,12 @@ class ViewHelper_Photo
      * @param array  $attribs 屬性
      * @return string img標籤
      */
-    public function photo($src, $alt, $attribs = null)
+    public function photo($src, $alt = null, $attribs = null)
     {
+        if ($alt == null) {
+            $alt = $src;
+        }
+        
         $alt = htmlentities($alt, ENT_COMPAT, 'UTF-8');
         $img = '<img src="'
              . PHOTO_URL

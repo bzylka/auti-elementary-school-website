@@ -11,7 +11,8 @@
  */
 ?>
 <?php $this->headTitle('管理介面')->headTitle('使用者管理') ?>
-<?php $this->headLink()->appendStylesheet(BASE_URL . 'template/css/components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'adminUser.css') ?>
 
 <h1>使用者管理</h1>
 
@@ -43,6 +44,17 @@
                 </tr>
             <?php endforeach; ?>
         </table>
+    </div>
+<?php endif; ?>
+
+<?php if ($this->userId): ?>
+    <div id="userPhoto">
+        <?php if (is_file(PHOHO_URL . 'user' . $this->userId . '.jpg')): ?>
+            <?php echo $this->photo('user' . $this->userId . '.jpg') ?>
+        <?php else: ?>
+            <b>目前沒有相片</b>
+            <?php echo $this->img('noPhoto.png') ?>
+        <?php endif; ?>
     </div>
 <?php endif; ?>
 
