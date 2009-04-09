@@ -42,5 +42,26 @@ class Model_User extends Model_Abstract
         }
         return $userTable;
     }
+    
+    /**
+     * 覆載add()
+     */
+    public function add()
+    {
+    }
+    
+    /**
+     * 覆載update()
+     */
+    public function add()
+    {
+    }
+    
+    /**
+     * 覆載delete()
+     */
+    public function add()
+    {
+    }
 }
 ?>
