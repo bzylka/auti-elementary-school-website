@@ -99,7 +99,6 @@ class News_AttachmentController extends Controller
                         $attachment->getForm()->fileName->setValue($fileName . $extension);
                     }
                     
-                    
                     $attachment->update($id);
                     $this->redirect('news/view/index/id/' . $newsId, $attachment->getMessage());
                 } else {
