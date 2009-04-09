@@ -54,19 +54,18 @@ class News_LinkController extends Controller
         // 檢查權限
         $this->isAllowed('管理新聞', true, new Acl_Assertion_NewsTitleOwner($newsId));
 
-        $newsLink = new Model_NewsLink(array('formType' => 'edit'));
+        $newsLink = new Model_NewsLink();
+        $newsLink->setFormType('edit');
 
-        if ($newsLink->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($newsLink->isValid()) {
-                    $newsLink->addData(array('newsId' => $newsId));
-                    $newsLink->update($id);
-                    $this->redirect('news/view/index/id/' . $newsId, $newsLink->getMessage());
-                } else {
-                    $this->view->message = $newsLink->getMessage();
-                }
+        if ($this->isPost()) {
+            if ($newsLink->isValid()) {
+                $newsLink->addData(array('newsId' => $newsId));
+                $newsLink->update($id);
+                $this->redirect('news/view/index/id/' . $newsId, $newsLink->getMessage());
+            } else {
+                $this->view->message = $newsLink->getMessage();
             }
-        } else {
+        } elseif (!$newsLink->setFormById($id)) {
             $this->redirect('news/view/index/id/' . $newsId, $newsLink->getMessage());
         }
 

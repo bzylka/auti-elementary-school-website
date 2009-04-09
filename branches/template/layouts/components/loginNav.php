@@ -23,6 +23,12 @@
             <li><?php echo $this->hyperLink('admin', '進入管理介面')?>&nbsp;|</li>
         <?php endif; ?>
         
+        <?php if ($userInfo->titleId): ?>
+            <li><?php echo $this->hyperLink('title/duty/edit/id/' . $userInfo->titleId, '修改職掌') ?>&nbsp;|</li>
+        <?php endif; ?>
+        
+        <li><?php echo $this->hyperLink('user/edit/index/id/' . $userInfo->userId, '修改個人資料') ?>&nbsp;|</li>
+
         <?php if ($userInfo->officeName): ?>
             <li><?php echo $userInfo->officeName ?>&nbsp;|</li>
         <?php endif; ?>
@@ -30,7 +36,7 @@
         <?php if ($userInfo->titleName): ?>
             <li><?php echo $userInfo->titleName ?>&nbsp;|</li>
         <?php endif; ?>
-        
+
         <li><strong><?php echo $userInfo->userName ?></strong>&nbsp;|</li>
         <li>身份：<?php echo $userInfo->privilegeName ?>&nbsp;|</li>
         <li><?php echo $this->hyperLink('logout', '登出')?></li>

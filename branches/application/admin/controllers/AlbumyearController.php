@@ -60,17 +60,16 @@ class Admin_AlbumyearController extends Controller
     {
         $id = $this->getParam('id');
         $albumYear = new Model_AlbumYear();
-
-        if ($albumYear->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($albumYear->isValid()) {
-                    $albumYear->update($id);
-                    $this->redirect('admin/albumYear', $albumYear->getMessage());
-                } else {
-                    $this->view->message = $albumYear->getMessage();
-                }
+        $albumYear->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($albumYear->isValid()) {
+                $albumYear->update($id);
+                $this->redirect('admin/albumYear', $albumYear->getMessage());
+            } else {
+                $this->view->message = $albumYear->getMessage();
             }
-        } else {
+        } elseif (!$albumYear->setFormById($id)) {
             $this->redirect('admin/albumYear', $albumYear->getMessage());
         }
 

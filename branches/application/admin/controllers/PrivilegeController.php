@@ -60,17 +60,16 @@ class Admin_PrivilegeController extends Controller
     {
         $id = $this->getParam('id');
         $privilege = new Model_Privilege();
-
-        if ($privilege->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($privilege->isValid()) {
-                    $privilege->update($id);
-                    $this->redirect('admin/privilege', $privilege->getMessage());
-                } else {
-                    $this->view->message = $privilege->getMessage();
-                }
+        $privilege->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($privilege->isValid()) {
+                $privilege->update($id);
+                $this->redirect('admin/privilege', $privilege->getMessage());
+            } else {
+                $this->view->message = $privilege->getMessage();
             }
-        } else {
+        } elseif (!$privilege->setFormById($id)) {
             $this->redirect('admin/privilege', $privilege->getMessage());
         }
 

@@ -40,7 +40,7 @@ class Form_Office extends Form_Abstract
                                 'maxlength'  => 50,
                                 'stringMin'  => 1,
                                 'stringMax'  => 50,
-                                'validators' => array(array('Alpha', true, array('messages' => '處室英文名稱必須輸入英文')))))
+                                'validators' => array(array(new Zend_Validate_Alpha(true), true, array('messages' => '處室英文名稱必須輸入英文')))))
              ->addElement('Text', 'officeLink',
                           array('label'      => '處室連結',
                                 'size'       => 70,

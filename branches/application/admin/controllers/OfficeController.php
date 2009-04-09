@@ -60,17 +60,16 @@ class Admin_OfficeController extends Controller
     {
         $id = $this->getParam('id');
         $office = new Model_Office();
+        $office->setFormType('edit');
 
-        if ($office->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($office->isValid()) {
-                    $office->update($id);
-                    $this->redirect('admin/office', $office->getMessage());
-                } else {
-                    $this->view->message = $office->getMessage();
-                }
+        if ($this->isPost()) {
+            if ($office->isValid()) {
+                $office->update($id);
+                $this->redirect('admin/office', $office->getMessage());
+            } else {
+                $this->view->message = $office->getMessage();
             }
-        } else {
+        } elseif (!$office->setFormById($id)) {
             $this->redirect('admin/office', $office->getMessage());
         }
 

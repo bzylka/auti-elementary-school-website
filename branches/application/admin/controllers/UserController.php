@@ -69,29 +69,28 @@ class Admin_UserController extends Controller
     {
         $id = $this->getParam('id');
         $user = new Model_User();
+        $user->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($user->isValid()) {
+                // 檢查帳號重複
 
-        if ($user->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($user->isValid()) {
-                    // 檢查帳號重複
-
-                    // 處理密碼
-                    $password = $user->getForm()->getValue('password');
-                    if ($password) {
-                        $salt = Hash::generate();
-                        $user->addData(array('salt' => $salt, 'photo' => Hash::generate()));
-                        $user->getForm()->password->setValue(Hash::generate($password, $salt));
-                    } else {
-                        $user->getForm()->removeEmptyElement('password');
-                    }
-
-                    $user->update($id);
-                    $this->redirect('admin/user', $user->getMessage());
+                // 處理密碼
+                $password = $user->getForm()->getValue('password');
+                if ($password) {
+                    $salt = Hash::generate();
+                    $user->addData(array('salt' => $salt, 'photo' => Hash::generate()));
+                    $user->getForm()->password->setValue(Hash::generate($password, $salt));
                 } else {
-                    $this->view->message = $user->getMessage();
+                    $user->getForm()->removeEmptyElement('password');
                 }
+
+                $user->update($id);
+                $this->redirect('admin/user', $user->getMessage());
+            } else {
+                $this->view->message = $user->getMessage();
             }
-        } else {
+        } elseif (!$user->setFormById($id)) {
             $this->redirect('admin/user', $user->getMessage());
         }
 

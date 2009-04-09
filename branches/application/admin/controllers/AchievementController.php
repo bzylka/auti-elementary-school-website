@@ -74,17 +74,16 @@ class Admin_AchievementController extends Controller
     {
         $id = $this->getParam('id');
         $achievement = new Model_Achievement();
-
-        if ($achievement->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($achievement->isValid()) {
-                    $achievement->update($id);
-                    $this->redirect('admin/achievement', $achievement->getMessage());
-                } else {
-                    $this->view->message = $achievement->getMessage();
-                }
+        $achievement->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($achievement->isValid()) {
+                $achievement->update($id);
+                $this->redirect('admin/achievement', $achievement->getMessage());
+            } else {
+                $this->view->message = $achievement->getMessage();
             }
-        } else {
+        } elseif (!$achievement->setFormById($id)) {
             $this->redirect('admin/achievement', $achievement->getMessage());
         }
 

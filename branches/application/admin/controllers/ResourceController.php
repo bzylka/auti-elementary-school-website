@@ -60,17 +60,16 @@ class Admin_ResourceController extends Controller
     {
         $id = $this->getParam('id');
         $resource = new Model_Resource();
-
-        if ($resource->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($resource->isValid()) {
-                    $resource->update($id);
-                    $this->redirect('admin/resource', $resource->getMessage());
-                } else {
-                    $this->view->message = $resource->getMessage();
-                }
+        $resource->setFormType('edit');
+       
+        if ($this->isPost()) {
+            if ($resource->isValid()) {
+                $resource->update($id);
+                $this->redirect('admin/resource', $resource->getMessage());
+            } else {
+                $this->view->message = $resource->getMessage();
             }
-        } else {
+        } elseif (!$resource->setFormById($id)) {
             $this->redirect('admin/resource', $resource->getMessage());
         }
 

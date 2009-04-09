@@ -28,34 +28,31 @@ class WebLink_EditController extends Controller
         $this->isAllowed('管理網路連結', true);
         
         $webLink = new Model_WebLink();
+        $webLink->setFormType('edit');
+        
+         if ($this->isPost()) {
+            if ($webLink->isValid()) {
+                // 檢查是否需要替換圖示檔
+                $iconFileInfo = $webLink->getForm()->iconFile->getTransferAdapter()->getFileInfo();
 
-        if ($webLink->setFormById($id)) {
-             if ($this->isPost()) {
-                if ($webLink->isValid()) {
-                    // 檢查是否需要替換圖示檔
-
-                    $iconFileInfo = $webLink->getForm()->iconFile->getTransferAdapter()->getFileInfo();
-
-                    if ($iconFileInfo['iconFile']['error'] == 0) {
-                        if ($iconHashFile = Image::resize($iconFileInfo['iconFile']['tmp_name'], array(200, 150), false, false)) {
-                            // 刪除舊圖檔，插入新資料
-                            @unlink(PHOTO_DIR . $webLink->getTable()->getByKey($id)->current()->iconHashFile);
-                            $webLink->addData(array('iconHashFile' => $iconHashFile));
-                        } else {
-                            $imageFail = '，圖檔錯誤，圖示未替換';
-                        }
-
+                if ($iconFileInfo['iconFile']['error'] == 0) {
+                    if ($iconHashFile = Image::resize($iconFileInfo['iconFile']['tmp_name'], array(200, 150), false, false)) {
+                        // 刪除舊圖檔，插入新資料
+                        @unlink(PHOTO_DIR . $webLink->getTable()->getByKey($id)->current()->iconHashFile);
+                        $webLink->addData(array('iconHashFile' => $iconHashFile));
+                    } else {
+                        $imageFail = '，圖檔錯誤，圖示未替換';
                     }
-                    
-                    $webLink->update($id);
-
-                    // 回到網路連結列表
-                    $this->redirect('webLink', $webLink->getMessage() . $imageFail);
-                } else {
-                    $this->view->message = $webLink->getMessage();
                 }
-             }
-        } else {
+                
+                $webLink->update($id);
+
+                // 回到網路連結列表
+                $this->redirect('webLink', $webLink->getMessage() . $imageFail);
+            } else {
+                $this->view->message = $webLink->getMessage();
+            }
+        } elseif (!$webLink->setFormById($id)) {
             $this->redirect('webLink', $webLink->getMessage());
         }
         

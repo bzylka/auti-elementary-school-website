@@ -60,17 +60,16 @@ class Admin_TitleController extends Controller
     {
         $id = $this->getParam('id');
         $title = new Model_Title();
-
-        if ($title->setFormById($id)) {
-            if ($this->isPost()) {
-                if ($title->isValid()) {
-                    $title->update($id);
-                    $this->redirect('admin/title', $title->getMessage());
-                } else {
-                    $this->view->message = $title->getMessage();
-                }
+        $title->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($title->isValid()) {
+                $title->update($id);
+                $this->redirect('admin/title', $title->getMessage());
+            } else {
+                $this->view->message = $title->getMessage();
             }
-        } else {
+        } elseif (!$title->setFormById($id)) {
             $this->redirect('admin/title', $title->getMessage());
         }
 

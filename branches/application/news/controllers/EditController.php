@@ -28,22 +28,17 @@ class News_EditController extends Controller
         $this->isAllowed('管理新聞', true, new Acl_Assertion_NewsTitleOwner($id));
         
         $news = new Model_News();
+        $news->setFormType('edit');
 
-        if ($news->setFormById($id)) {
-             if ($this->isPost()) {
-                if ($news->isValid()) {
-                    //新增資料
-                    $data['postDate'] = Date::getDate();
-                    $data['postTime'] = Date::getTime();
-
-                    $news->addData($data);
-                    $news->update($id);
-                    $this->redirect('news', $news->getMessage());
-                } else {
-                    $this->view->message = $news->getMessage();
-                }
-             }
-        } else {
+        if ($this->isPost()) {
+            if ($news->isValid()) {
+                $news->addData(array('postDate' => Date::getDate(), 'postTime' => Date::getTime()));
+                $news->update($id);
+                $this->redirect('news', $news->getMessage());
+            } else {
+                $this->view->message = $news->getMessage();
+            }
+        } elseif (!$news->setFormById($id)) {
             $this->redirect('news', $news->getMessage());
         }
         

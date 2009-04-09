@@ -27,18 +27,16 @@ class Album_EditController extends Controller
         // 檢查權限
         $this->isAllowed('管理相簿', true);
         $album = new Model_Album();
-
-        if ($album->setFormById($id)) {
-             if ($this->isPost()) {
-                if ($album->isValid()) {
-                    //新增資料
-                    $album->update($id);
-                    $this->redirect('album/view/index/id/' . $id, $album->getMessage());
-                } else {
-                    $this->view->message = $album->getMessage();
-                }
-             }
-        } else {
+        $album->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($album->isValid()) {
+                $album->update($id);
+                $this->redirect('album/view/index/id/' . $id, $album->getMessage());
+            } else {
+                $this->view->message = $album->getMessage();
+            }
+        } elseif (!$album->setFormById($id)) {
             $this->redirect('album', $album->getMessage());
         }
         
