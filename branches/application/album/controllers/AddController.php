@@ -110,7 +110,7 @@ class Album_AddController extends Controller
                 // 建立相片縮圖、寫入資料庫
                 foreach ($photos as &$file) {
                     if ($photoHashFile = Image::resize($file['file'], array(1024, 768), array(200, 150))) {
-                        $photo->addData(array('fileName'  => pathinfo($file['fileName'], PATHINFO_FILENAME) . '.' . strtolower(pathinfo($file['fileName'], PATHINFO_EXTENSION)),
+                        $photo->addData(array('fileName'      => pathinfo($file['fileName'], PATHINFO_FILENAME) . '.' . strtolower(pathinfo($file['fileName'], PATHINFO_EXTENSION)),
                                               'photoHashFile' => $photoHashFile));
                         $photo->add();
                     } else {

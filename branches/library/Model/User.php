@@ -48,20 +48,45 @@ class Model_User extends Model_Abstract
      */
     public function add()
     {
+        $message = parent::add();
+        $this->_replacePhoto($this->getTable()->getLastInsertId());
+        return $message;
     }
     
     /**
      * 覆載update()
+     * @param int $id 使用者ID
      */
-    public function add()
+    public function update($id)
     {
+        $message = parent::update($id);
+        $this->_replacePhoto($id);
+        return $message;
     }
     
     /**
      * 覆載delete()
+     * @param int $id 使用者ID
      */
-    public function add()
+    public function delete($id)
     {
+        @unlink(PHOTO_DIR . 'user' . $userId . '.jpg');
+        parent::delete($id);
+    }
+    
+    /**
+     * 取代使用者相片
+     * @param int $userId 使用者ID
+     */
+    private function _replacePhoto($userId)
+    {
+        if ($this->getForm()->photo->isUploaded()) {
+            if ($imageHash = Image::resize($_FILES['photo']['tmp_name'], array(640, 480))) {
+                rename(PHOTO_DIR . $imageHash, PHOTO_DIR . 'user' . $userId . '.jpg');
+            } else {
+                return false;
+            }
+        }
     }
 }
 ?>

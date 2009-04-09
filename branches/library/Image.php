@@ -55,7 +55,7 @@ class Image
         // 縮圖、寫入圖檔
         $photoHash = Hash::generate();
         $image->thumbnailImage($resizeXy[0], $resizeXy[1], $isAspectRatio);
-        $image->writeImage(ROOT_DIR . '/photos/' . $photoHash . $suffix);
+        $image->writeImage(PHOTO_DIR . $photoHash . $suffix);
         
         // 產生拇指圖
         if (is_array($thumbXy)) {

@@ -19,8 +19,9 @@ class Form_User extends Form_Abstract
 { 
     public function init()
     {
-        $this->setMethod('post');
-
+        $this->setMethod('post')
+             ->setAttrib('enctype', 'multipart/form-data');
+             
         $this->addElement('Text', 'userName',
                           array('label'     => '使用者姓名',
                                 'required'  => true,

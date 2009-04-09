@@ -50,9 +50,6 @@ class Admin_UserController extends Controller
                 $user->getForm()->password->setValue(Hash::generate($password, $salt));
                 
                 $user->add();
-
-                // 處理相片
-                $user->updateUserPhoto()
                 
                 $this->redirect('admin/user', $user->getMessage());
             } else {

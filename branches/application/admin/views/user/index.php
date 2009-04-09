@@ -49,12 +49,7 @@
 
 <?php if ($this->userId): ?>
     <div id="userPhoto">
-        <?php if (is_file(PHOHO_URL . 'user' . $this->userId . '.jpg')): ?>
-            <?php echo $this->photo('user' . $this->userId . '.jpg') ?>
-        <?php else: ?>
-            <b>目前沒有相片</b>
-            <?php echo $this->img('noPhoto.png') ?>
-        <?php endif; ?>
+        <?php echo $this->userPhoto($this->userId) ?>
     </div>
 <?php endif; ?>
 

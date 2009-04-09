@@ -19,13 +19,28 @@ if ($this->officeData['officeLink']) {
     echo '<a class="external" href="' . $this->officeData['officeLink'] . '" target="_blank">' . $this->escape($this->officeData['officeName']) . '網站</a>';
 }
 ?>
-<?php foreach ($this->officeData['title'] as &$title): ?>
-    <div class="titleBlock">
-    <h2><?php echo $this->escape($title['titleName'])  . '&nbsp;│&nbsp;' . $this->escape($title['titleEnglishName']); ?></h2>
-    <?php foreach ($title['user'] as &$user): ?>
-        <div class="userBlock">
-            <?php echo $this->escape($user['userName']) ?>
-        </div>
+<div id="officeContainer">
+    <?php foreach ($this->officeData['title'] as &$title): ?>
+        <?php foreach ($title['user'] as &$user): ?>
+            <div class="userBlock">
+                <div class="photo">
+                    <?php echo $this->userPhoto($user['userId']) ?>
+                </div>
+                <div class="titleName">
+                    <div class="userTitle">
+                        <?php echo $this->escape($title['titleName']) ?>
+                    </div>
+                    <div class="userTitleEnglishName">
+                        <?php echo $this->escape($title['titleEnglishName'])?>
+                    </div>
+                    <div class="userName">
+                        <?php echo $this->escape($user['userName']) ?>
+                    </div>
+                </div>
+                <div class="duty">
+                    
+                </div>
+            </div>
+        <?php endforeach; ?>
     <?php endforeach; ?>
-    </div>
-<?php endforeach; ?>
+</div>
