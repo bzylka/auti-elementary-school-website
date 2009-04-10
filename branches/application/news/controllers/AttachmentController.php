@@ -68,48 +68,42 @@ class News_AttachmentController extends Controller
         $this->isAllowed('管理新聞', true, new Acl_Assertion_NewsTitleOwner($newsId));
 
         $attachment = new Model_Attachment();
-
-        if ($attachment->setFormById($id)) {
-            // 處理檔名
-            $fileName  = pathinfo($attachment->getForm()->fileName->getValue(), PATHINFO_FILENAME);
-            $extension = pathinfo($attachment->getForm()->fileName->getValue(), PATHINFO_EXTENSION);
-            $attachment->getForm()->fileName->setValue($fileName);
-            if ($this->isPost()) {
-                if ($attachment->isValid()) {
-                    // 如果有上傳檔案就取代檔案
-                    if ($attachment->getForm()->newsAttachment->isUploaded()) {
-                        if ($fileName = $attachment->replace($id)) {
-                            if ($userSetFileName = $attachment->getForm()->fileName->getValue()) {
-                                if ($ext = pathinfo($fileName, PATHINFO_EXTENSION)) {
-                                    $ext = '.' . $ext;
-                                }
-                                $attachment->getForm()->fileName->setValue($userSetFileName . $ext);
-                            } else {
-                                $attachment->getForm()->fileName->setValue($fileName);
-                            }
+        $attachment->setFormType('edit');
+        
+        if ($this->isPost()) {
+            if ($attachment->isValid()) {
+                // 如果有上傳檔案就取代檔案（尚未完成）
+                if ($_FILES['newsAttachment']['error'] == '0') {
+                    if ($uploadFileName = $attachment->replace($id)) {
+                        if ($userSetFileName = $attachment->getForm()->fileName->getValue()) {
+                            $attachment->getForm()->fileName->setValue($userSetFileName . $ext);
                         } else {
-                            $attachment->setMessage('檔案取代失敗，請聯絡系統管理員');
+                            $attachment->getForm()->fileName->setValue($uploadFileName);
                         }
                     } else {
-                        // 如果沒有就只要修改檔名
-                        if ($extension) {
-                            $extension = '.' . $extension;
-                        }
-                        $fileName = $attachment->getForm()->fileName->getValue();
-                        $attachment->getForm()->fileName->setValue($fileName . $extension);
+                        $attachment->setMessage('檔案取代失敗，請聯絡系統管理員');
                     }
-                    
-                    $attachment->update($id);
-                    $this->redirect('news/view/index/id/' . $newsId, $attachment->getMessage());
                 } else {
-                    $this->view->message = $attachment->getMessage();
+                    // 如果沒有上傳就只要修改檔名（尚未完成）
+                    if ($newFileName = $attachment->getForm()->fileName->getValue()) {
+                        $attachment->getForm()->fileName->setValue($newFileName . $extension);
+                    } else {
+                        $attachment->setMessage('檔名不可空白');
+                    }
                 }
+                
+                $attachment->update($id);
+                $this->redirect('news/view/index/id/' . $newsId, $attachment->getMessage());
+            } else {
+                $this->view->message = $attachment->getMessage();
             }
-        } else {
+        } elseif(!$attachment->setFormById($id)) {
             $this->redirect('news/view/index/id/' . $newsId, $attachment->getMessage());
         }
 
-        $this->view->attachmentForm  = $attachment->getForm();
+        $file = new FileInfo($attachment->getForm()->fileName->getValue());
+        $attachment->getForm()->fileName->setValue($file->fileName);
+        $this->view->attachmentForm = $attachment->getForm();
         $this->render('index');
     }
     
