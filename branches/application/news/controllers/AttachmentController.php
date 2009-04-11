@@ -76,7 +76,12 @@ class News_AttachmentController extends Controller
                 if ($_FILES['newsAttachment']['error'] == '0') {
                     if ($uploadFileName = $attachment->replace($id)) {
                         if ($userSetFileName = $attachment->getForm()->fileName->getValue()) {
-                            $attachment->getForm()->fileName->setValue($userSetFileName . $ext);
+                            $uploadFile = new FileInfo($uploadFileName);
+                            if ($uploadFile->extension) {
+                                $attachment->getForm()->fileName->setValue($userSetFileName . '.' . $uploadFile->extension);
+                            } else {
+                                $attachment->getForm()->fileName->setValue($userSetFileName);
+                            }
                         } else {
                             $attachment->getForm()->fileName->setValue($uploadFileName);
                         }
@@ -86,9 +91,14 @@ class News_AttachmentController extends Controller
                 } else {
                     // 如果沒有上傳就只要修改檔名（尚未完成）
                     if ($newFileName = $attachment->getForm()->fileName->getValue()) {
-                        $attachment->getForm()->fileName->setValue($newFileName . $extension);
+                        $orginFile = new FileInfo($attachment->getTable()->find($id)->current()->fileName);
+                        if ($orginFile->extension) {
+                            $attachment->getForm()->fileName->setValue($newFileName . '.' . $orginFile->extension);
+                        } else {
+                            $attachment->getForm()->fileName->setValue($newFileName);
+                        }
                     } else {
-                        $attachment->setMessage('檔名不可空白');
+                        exit('修改檔名不可空白');
                     }
                 }
                 

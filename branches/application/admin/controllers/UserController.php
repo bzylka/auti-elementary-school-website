@@ -46,11 +46,10 @@ class Admin_UserController extends Controller
                 // 處理密碼
                 $password = $user->getForm()->getValue('password');
                 $salt     = Hash::generate();
-                $user->addData(array('salt' => $salt, 'photo' => Hash::generate()));
-                $user->getForm()->password->setValue(Hash::generate($password, $salt));
+                $user->addData(array('salt' => $salt));
+                $user->getForm()->password->setValue(Hash::generate($password . $salt));
                 
                 $user->add();
-                
                 $this->redirect('admin/user', $user->getMessage());
             } else {
                 $this->view->message = $user->getMessage();
@@ -79,8 +78,8 @@ class Admin_UserController extends Controller
                 $password = $user->getForm()->getValue('password');
                 if ($password) {
                     $salt = Hash::generate();
-                    $user->addData(array('salt' => $salt, 'photo' => Hash::generate()));
-                    $user->getForm()->password->setValue(Hash::generate($password, $salt));
+                    $user->addData(array('salt' => $salt));
+                    $user->getForm()->password->setValue(Hash::generate($password . $salt));
                 } else {
                     $user->getForm()->removeEmptyElement('password');
                 }

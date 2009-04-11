@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS user (
     account CHAR(8) NOT NULL ,
     password CHAR(40) NOT NULL ,
     salt CHAR(40) NOT NULL ,
-    photo CHAR(40) NOT NULL ,
     email CHAR(50) ,
     education CHAR(255) ,
     experience CHAR(255) ,

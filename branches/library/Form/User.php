@@ -57,18 +57,23 @@ class Form_User extends Form_Abstract
                                 'maxlength'  => 30,
                                 'stringMin'  => 0,
                                 'stringMax'  => 30,
-                                'validators' => array(array('EmailAddress', true, array('messages' => 'E-mail位址錯誤')))))
-             ->addElement('Select', 'titleId',
-                          array('label'        => '職稱',
-                                'table'        => 'Title',
-                                'columnPair'   => array('titleId', 'titleName'),
-                                'defaultValue' => array('0' => '無')))
-             ->addElement('Select', 'privilegeId',
-                          array('label'        => '權限',
-                                'table'        => 'Privilege',
-                                'columnPair'   => array('privilegeId', 'privilegeName'),
-                                'defaultValue' => array('0' => '無')))
-            ->addElement('File', 'photo',
+                                'validators' => array(array('EmailAddress', true, array('messages' => 'E-mail位址錯誤')))));
+        if ($this->_formType != 'userEdit') {
+            $this->addElement('Select', 'titleId',
+                              array('label'        => '職稱',
+                                    'table'        => 'Title',
+                                    'columnPair'   => array('titleId', 'titleName'),
+                                    'defaultValue' => array('0' => '無')))
+                 ->addElement('Select', 'privilegeId',
+                              array('label'        => '權限',
+                                    'table'        => 'Privilege',
+                                    'columnPair'   => array('privilegeId', 'privilegeName'),
+                                    'defaultValue' => array('0' => '無')))
+                 ->addElement('Checkbox', 'isLeader',
+                              array('label' => '主任/校長'));
+        }
+
+        $this->addElement('File', 'photo',
                           array('label'       => '上傳相片',
                                 'ignore'      => true,
                                 'size'        => 40,
@@ -93,11 +98,9 @@ class Form_User extends Form_Abstract
                                 'cols'      => 50,
                                 'rows'      => 6,
                                 'stringMin' => 0,
-                                'stringMax' => 255))
-             ->addElement('Checkbox', 'isLeader',
-                          array('label' => '主任/校長'));
+                                'stringMax' => 255));
 
-        if ($this->_formType == 'edit') {
+        if ($this->_formType == 'edit' || $this->_formType == 'userEdit') {
             $this->addElement('Password', 'password',
                               array('label'      => '變更密碼',
                                     'allowEmpty' => true,

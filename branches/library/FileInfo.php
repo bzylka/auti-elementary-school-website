@@ -41,7 +41,7 @@ class FileInfo
     public function __construct($file)
     {
         if (!$file) {
-            trigger_error('FileInfo類別需要檔名', E_USER_ERROR);
+            return false;
         }
 
         if (strpos($file, '/') !== false) {
@@ -69,7 +69,7 @@ class FileInfo
         if(isset($this->{'_' . $property})) {
             return $this->{'_' . $property};
         } else {
-            trigger_error('使用錯誤的檔案屬性', E_USER_ERROR);
+            return false;
         }
     }
 }

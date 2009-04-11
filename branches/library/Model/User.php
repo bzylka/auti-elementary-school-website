@@ -81,7 +81,7 @@ class Model_User extends Model_Abstract
     private function _replacePhoto($userId)
     {
         if ($this->getForm()->photo->isUploaded()) {
-            if ($imageHash = Image::resize($_FILES['photo']['tmp_name'], array(640, 480))) {
+            if ($imageHash = Image::resize($_FILES['photo']['tmp_name'], array(320, 240))) {
                 rename(PHOTO_DIR . $imageHash, PHOTO_DIR . 'user' . $userId . '.jpg');
             } else {
                 return false;
