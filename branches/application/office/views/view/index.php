@@ -19,6 +19,7 @@ if ($this->officeData['officeLink']) {
     echo '<a class="external" href="' . $this->officeData['officeLink'] . '" target="_blank">' . $this->escape($this->officeData['officeName']) . '網站</a>';
 }
 ?>
+
 <div id="officeContainer">
     <?php foreach ($this->officeData['title'] as &$title): ?>
         <?php foreach ($title['user'] as &$user): ?>
@@ -38,7 +39,7 @@ if ($this->officeData['officeLink']) {
                     </div>
                 </div>
                 <div class="duty">
-                    
+                    <?php echo $this->textareaToList($title['duty']) ?>
                 </div>
             </div>
         <?php endforeach; ?>

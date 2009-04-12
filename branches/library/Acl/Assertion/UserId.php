@@ -11,25 +11,25 @@
  */
 
 /**
- * Acl_Assertion_NewsTitleOwner
+ * Acl_Assertion_UserId
  *
- * 檢查是否為新聞職稱的擁有者
+ * 檢查是否為某個使用者
  */
-class Acl_Assertion_NewsTitleOwner implements Acl_Assertion_Interface
+class Acl_Assertion_UserId implements Acl_Assertion_Interface
 {
     /**
-     * @var int 新聞ID
+     * @var int 使用者ID
      * access private
      */
-    private $_newsId;
+    private $_userId;
     
     /**
      * 建構子
      * @param int $newsId  新聞ID
      */
-    public function __construct($newsId)
+    public function __construct($userId)
     {
-        $this->_newsId = $newsId;
+        $this->_userId = $userId;
     }
     
     /**
@@ -38,8 +38,8 @@ class Acl_Assertion_NewsTitleOwner implements Acl_Assertion_Interface
      */
     public function isAllowed()
     {
-        $news = new Table_News();
-        if ($news->find($this->_newsId)->current()->titleId == Zend_Auth::getInstance()->getIdentity()->titleId) {
+        $user = new Table_User();
+        if ($user->find($this->_userId)->current()->userId == Zend_Auth::getInstance()->getIdentity()->userId) {
             return true;
         } else {
             return false;

@@ -25,7 +25,7 @@ class User_EditController extends Controller
         $id = $this->getParam('id');
 
         // 檢查權限
-        //$this->isAllowed('', true, new Acl_Assertion_UserId($id));
+        $this->isAllowed('無', true, new Acl_Assertion_UserId($id));
 
         $user = new Model_User();
         $user->setFormType('userEdit');

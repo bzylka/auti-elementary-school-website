@@ -50,7 +50,7 @@ class Acl
         if (defined('ADMIN_MODE')) {
             return true;
         }
-        
+
         // 檢查權限是否允許存取資源
         if ($this->_assertion) {
             return $this->_checkResource() | $this->_assertion->isAllowed();

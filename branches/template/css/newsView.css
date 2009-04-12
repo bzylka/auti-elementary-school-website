@@ -18,6 +18,7 @@
 }
 #newsContent {
     padding-left: 2em;
+    padding-right: 2.5em;
 }
 #newsInfo {
     border-top: 1px dotted gray;
@@ -38,6 +39,14 @@
 }
 #link legend, #attachment legend {
     margin-left: 0.7em;
+    font-weight: bold;
+    padding:0 3px;
+}
+#link legend {
+    color: #FF6633;
+}
+#attachment legend {
+    color: #009900;
 }
 #link li {
     list-style-type: none;
