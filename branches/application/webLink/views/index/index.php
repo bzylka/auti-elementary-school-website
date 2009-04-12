@@ -17,8 +17,6 @@
 
 <h1>網路連結</h1>
 
-<?php echo $this->hyperLink('', '«回到首頁') ?>
-
 <?php if ($this->isAdmin): ?>
     <div id="addHyperLink">
         <?php echo $this->hyperLink('webLink/add', '新增連結»') ?>

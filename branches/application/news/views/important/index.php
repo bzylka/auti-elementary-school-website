@@ -17,8 +17,6 @@
 
 <h1>重要公告</h1>
 
-<?php echo $this->hyperLink('', '«回到首頁') ?>
-
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>

@@ -49,7 +49,7 @@ a:hover {
 /* 標題設定 */
 h1 {
     font-size: 120%;
-    color: #5D87A0;
+    color: #107FF0;
     padding: 3px 0;
 }
 h2 {
@@ -90,6 +90,9 @@ h2 {
     margin-left: 0.5em;
     font-size: 80%;
 }
+#nav h1 {
+    color: #F07F10;
+}
 #nav a:hover {
     color: white;
 }
@@ -117,7 +120,7 @@ h2 {
 }
 /* 內容 */
 #pageContent {
-    margin-left: 8.5em;
+    margin-left: 8.8em;
     font-size: 90%;
 }
 /* space */

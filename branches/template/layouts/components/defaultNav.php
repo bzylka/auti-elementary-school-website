@@ -12,12 +12,12 @@
 ?>
 <?php
 // 讀取處室列表
-$office = new Model_Office(array('setNoForm' => true));
+$office = new Model_Office();
 $officeList = $office->getOfficeList();
 unset($office);
 
 // 讀取成果專區
-$achievement = new Model_Achievement(array('setNoForm' => true));
+$achievement = new Model_Achievement();
 $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
@@ -39,13 +39,13 @@ unset($achievement);
             <?php endforeach; ?>
         </ul>
     </li>
+    <li><a href="<?php echo BASE_URL . 'team'?>"><?php echo $this->img('icon/team.png', '學校團隊') ?>學校團隊</a></li>
     <li><?php echo $this->img('icon/pta.png', '家長會') ?>家長會&nbsp;&raquo;
         <ul>
             <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000080753" target="_blank">家長會</a></li>
             <li>志工隊</li>
         </ul>
     </li>
-    <!--<li><a href="<?php //echo BASE_URL . 'teachers'?>"><?php //echo $this->img('icon/teachers.png', '教師團隊') ?>教師團隊</a></li>-->
     <li><?php echo $this->img('icon/classWeb.png', '班級網頁') ?>班級網頁&nbsp;&raquo;
         <ul>
             <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000069012" target="_blank">一甲</a></li>

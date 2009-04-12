@@ -17,10 +17,9 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'newsIndex.css') ?>
 
 <h1>最新消息</h1>
-<?php echo $this->hyperLink('', '«回到首頁') ?>
 
 <?php if ($this->message): ?>
-    <span style="display:inline-block;margin-left:1em;">
+    <span style="display:inline-block; margin-left:1em;">
         <?php echo $this->messageBlock($this->message) ?>
     </span>
 <?php endif; ?>
