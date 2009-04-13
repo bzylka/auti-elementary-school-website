@@ -64,7 +64,7 @@ unset($achievement);
     </li>
     <li><a href="http://www.nhcue.edu.tw/~u9115043/AutiDoc/"><?php echo $this->img('icon/doc.png', '數位機會中心') ?>數位機會中心</a></li>
     <li><a href="<?php echo BASE_URL . 'album'?>"><?php echo $this->img('icon/album.png', '相簿') ?>相簿</a></li>
-    <li><a href="<?php //echo BASE_URL . 'calendar'?>"><?php echo $this->img('icon/calendar.png', '行事曆') ?>行事曆</a></li>
+    <li><a href="<?php echo BASE_URL . 'calendar/view'?>"><?php echo $this->img('icon/calendar.png', '行事曆') ?>行事曆</a></li>
     <?php foreach ($achievementList as $achievement): ?>
         <li><a href="<?php echo BASE_URL . 'achievement/index/index/id/' . $achievement['achievementId']?>"><?php echo $this->img('icon/achievement.png', '學輔專區') ?><?php echo $this->escape($achievement['achievementName']) ?></a></li>
     <?php endforeach; ?>
