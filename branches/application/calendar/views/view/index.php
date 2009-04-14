@@ -23,3 +23,34 @@
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
+<table id="calendar">
+    <tr>
+        <th>週一</th>
+        <th>週二</th>
+        <th>週三</th>
+        <th>週四</th>
+        <th>週五</th>
+        <th>週六</th>
+        <th>週日</th>
+    </tr>
+    <?php foreach ($this->calendar as $weekDays => &$calendar): ?>
+        <?php
+        // 設定類別
+        if ($calendar['isPreMonth']) {
+            $class = 'preMonth';
+        } elseif ($calendar['isAfterMonth']) {
+            $class = 'afterMonth';
+        } else {
+            $class = 'normal';
+        }
+        ?>
+        <?php if ($weekDays % 7 == 0): ?>
+            <tr>
+        <?php endif; ?>
+            <td class="<?php echo $class ?>"><?php echo $calendar['date'] ?></td>
+        <?php if ($weekDays % 7 == 6): ?>
+           </tr>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</table>
+
