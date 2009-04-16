@@ -31,19 +31,21 @@ class Calendar_ViewController extends Controller
      */
     public function by2weekAction()
     {
-        $date = $this->getParam('date');
-        
-        // 檢查日期
-        if (!Date::isDate($date)) {
-            $this->redirect('calendar', '日期設定錯誤');
+        if ($date = $this->getParam('date')) {
+            if (!Date::isDate($date)) {
+                $this->redirect('calendar', '日期設定錯誤');
+            }
+        } else {
+            $date = Date::getDate();
         }
+
+        $date = new Zend_Date();
+        $date->set($date, 'YYYY-MM-dd');
+        $date->sub($date->get(Zend_Date::WEEKDAY_8601), Zend_Date::DAY);
+        echo $date->get('YYYY-MM-dd');exit;
+        $calendar = $this->_getDateRangeArray();
         
-        // 取得日期陣列
-        
-        
-        
-        
-        // 取得日期陣列
+        // 取得兩週日期
         $date = new Zend_Date();
         $date->set($date, 'YYYY-MM-dd');
         $date->sub($date->get(Zend_Date::WEEKDAY_8601), Zend_Date::DAY);
@@ -108,8 +110,12 @@ class Calendar_ViewController extends Controller
         $this->render('index');
     }
 
-    private function _initCalendar()
+    private function _getDateRangeArray($startDate, $endDate)
     {
+        // 取得跟前一週星期天的距離
+        $date = new Zend_Date();
+        $date->set($startDate, 'YYYY-MM-dd');
+        $preStartDate = $date->get(Zend_Date::WEEKDAY_8601);
 
     }
 }
