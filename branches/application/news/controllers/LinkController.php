@@ -39,7 +39,7 @@ class News_LinkController extends Controller
             }
         }
         
-        $this->view->newsLinkForm  = $newsLink->getForm();
+        $this->view->newsLinkForm = $newsLink->getForm();
         $this->render('index');
     }
     
@@ -69,7 +69,7 @@ class News_LinkController extends Controller
             $this->redirect('news/view/index/id/' . $newsId, $newsLink->getMessage());
         }
 
-        $this->view->newsLinkForm  = $newsLink->getForm();
+        $this->view->newsLinkForm = $newsLink->getForm();
         $this->render('index');
     }
     

@@ -25,7 +25,7 @@ class Title_DutyController extends Controller
         $id = $this->getParam('id');
 
         // 檢查權限
-        //$this->isAllowed('無', true, new Acl_Assertion_HasTitleId($id));
+        $this->isAllowed('無', true, new Acl_Assertion_HasTitleId($id));
 
         $title = new Model_Title();
         $title->setFormType('userEdit');

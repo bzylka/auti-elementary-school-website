@@ -71,7 +71,7 @@ class News_AddController extends Controller
             }
         }
         
-        $this->view->newsForm  = $news->getForm();
+        $this->view->newsForm = $news->getForm();
         $this->render('index');
     }
 }

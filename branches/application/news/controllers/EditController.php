@@ -42,7 +42,7 @@ class News_EditController extends Controller
             $this->redirect('news', $news->getMessage());
         }
         
-        $this->view->newsForm  = $news->getForm();
+        $this->view->newsForm = $news->getForm();
         $this->render('index');
     }
 }

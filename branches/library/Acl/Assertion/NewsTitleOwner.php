@@ -25,7 +25,7 @@ class Acl_Assertion_NewsTitleOwner implements Acl_Assertion_Interface
     
     /**
      * 建構子
-     * @param int $newsId  新聞ID
+     * @param int $newsId 新聞ID
      */
     public function __construct($newsId)
     {

@@ -56,7 +56,7 @@ class WebLink_EditController extends Controller
             $this->redirect('webLink', $webLink->getMessage());
         }
         
-        $this->view->webLinkForm  = $webLink->getForm();
+        $this->view->webLinkForm = $webLink->getForm();
         $this->render('index');
     }
 }

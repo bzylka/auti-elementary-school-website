@@ -27,27 +27,45 @@ class Calendar_ViewController extends Controller
 
     /**
      * 顯示兩週行事曆
-     * 參數：year/2009/week/2
+     * 參數：date/2009-10-12
      */
     public function by2weekAction()
     {
-        // 算出週的第一天
+        $date = $this->getParam('date');
+        
+        // 檢查日期
+        if (!Date::isDate($date)) {
+            $this->redirect('calendar', '日期設定錯誤');
+        }
+        
+        // 取得日期陣列
+        
+        
+        
+        
+        // 取得日期陣列
         $date = new Zend_Date();
-        $date->set('2009-04-12', 'YYYY-MM-dd');
+        $date->set($date, 'YYYY-MM-dd');
         $date->sub($date->get(Zend_Date::WEEKDAY_8601), Zend_Date::DAY);
-        for ($i = 0; $i < 14; $i++) {
-            $date->add(1, Zend_Date::DAY);
-            $calendar[$i]['date'] = $date->get('YYYY-MM-dd');
 
+        for ($i = 0; $i < 2; $i++) {
+            for ($j = 0; $j < 7; $j++) {
+                $date->add(1, Zend_Date::DAY);
+                $calendar[$i][$j]['date'] = $date->get('YYYY-MM-dd');
+            }
         }
 
+        // 取得事件陣列
+
+        // 設定View變數
+        
         $this->view->calendar = $calendar;
         $this->render('index');
     }
 
     /**
-     * 顯示兩週行事曆
-     * 參數：year/2009/week/2
+     * 顯示月份行事曆
+     * 參數：date/2008-10-14
      */
     public function bymonthAction()
     {
@@ -60,14 +78,15 @@ class Calendar_ViewController extends Controller
         // 算出最後一天
         $date->set("2009-$month-$daysOfMonth", 'YYYY-MM-dd');
         $afterMonthDays = 7 - $date->get(Zend_Date::WEEKDAY_8601);
-
+        $date->add($afterMonthDays , Zend_Date::DAY);
+        $endDay = $date->get('YYYY-MM-dd');
+        
         // 算出起始日
         $date->set("2009-$month-1", 'YYYY-MM-dd');
         $preMonthDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
-
-        // 填入陣列
-        $date->sub($preMonthDays + 1, Zend_Date::DAY);
-
+        $date->sub($preMonthDays, Zend_Date::DAY);
+        $startDay = $date->get('YYYY-MM-dd');
+        
         for ($i = 0; $i < $preMonthDays; $i++) {
             $date->add(1, Zend_Date::DAY);
             $calendar[$i]['date'] = $date->get('YYYY-MM-dd');

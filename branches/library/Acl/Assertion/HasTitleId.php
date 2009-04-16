@@ -11,25 +11,25 @@
  */
 
 /**
- * Acl_Assertion_UserId
+ * Acl_Assertion_HasTitleId
  *
- * 檢查是否為某個使用者
+ * 檢查是否為某組的擁有者
  */
-class Acl_Assertion_UserId implements Acl_Assertion_Interface
+class Acl_Assertion_HasTitleId implements Acl_Assertion_Interface
 {
     /**
-     * @var int 使用者ID
+     * @var int 職稱ID
      * access private
      */
-    private $_userId;
+    private $_titleId;
     
     /**
      * 建構子
-     * @param int $newsId 使用者ID
+     * @param int $newsId 職稱ID
      */
-    public function __construct($userId)
+    public function __construct($titleId)
     {
-        $this->_userId = $userId;
+        $this->_titleId = $titleId;
     }
     
     /**
@@ -38,7 +38,7 @@ class Acl_Assertion_UserId implements Acl_Assertion_Interface
      */
     public function isAllowed()
     {
-        if ($this->_userId == Zend_Auth::getInstance()->getIdentity()->userId) {
+        if ($this->_titleId == Zend_Auth::getInstance()->getIdentity()->titleId) {
             return true;
         } else {
             return false;

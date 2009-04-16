@@ -15,8 +15,8 @@
 <?php $this->headTitle('行事曆') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'calendarView.css') ?>
 
-<?php if ($this->allowAlbum): ?>
-    <?php echo $this->hyperLink('album/add', '新增事件＋') ?>
+<?php if ($this->allowAlbum = true): ?>
+    <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
 <?php endif; ?>
 
 <?php if ($this->message): ?>

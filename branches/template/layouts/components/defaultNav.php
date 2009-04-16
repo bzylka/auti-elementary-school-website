@@ -43,7 +43,7 @@ unset($achievement);
     <li><?php echo $this->img('icon/pta.png', '家長會') ?>家長會&nbsp;&raquo;
         <ul>
             <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000080753" target="_blank">家長會</a></li>
-            <li>志工隊</li>
+            <li><a class="external" href="http://css000000046904.uclass.com.tw/" target="_blank">志工隊</a></li>
         </ul>
     </li>
     <li><?php echo $this->img('icon/classWeb.png', '班級網頁') ?>班級網頁&nbsp;&raquo;

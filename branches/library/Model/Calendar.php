@@ -24,30 +24,6 @@ class Model_Calendar extends Model_Abstract
     protected $_tableClass = 'Event';
     
     /**
-     * @var string 表單類別
-     * @access protected
-     */
-    protected $_formClass = 'Event';
-    
-    /**
-     * @var int 年
-     * @access private
-     */
-    private $_year;
-    
-    /**
-     * @var int 月
-     * @access private
-     */
-    private $_month;
-    
-    /**
-     * @var int 日
-     * @access private
-     */
-    private $_day;
-    
-    /**
      * 取得事件列表with月曆（用於首頁）
      * @return array 處室列表
      */
@@ -59,24 +35,6 @@ class Model_Calendar extends Model_Abstract
         $beginDate = implode('-', array($this->_year, $this->_month, '00'));
         $endDate   = implode('-', array($this->_year, $this->_month, '32'));
         $result['evenList'] = $this->getTable()->where("startDate > $beginDate AND startDate < $endDate")
-    }
-    
-
-    /**
-     * 取得月曆
-     * @param string $type 要取得的類型
-     */
-    private function _getCalendar($type)
-    {
-        switch($type) {
-            case 'month':
-                break;
-            case '2weeks':
-                break;
-            default:
-                trigger_error('對於Model_Calendar>_getCalendar()有錯誤的用法', E_USER_WARNING);
-                break;
-        }
     }
 }
 ?>

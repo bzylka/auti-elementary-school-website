@@ -40,7 +40,7 @@ class Album_EditController extends Controller
             $this->redirect('album', $album->getMessage());
         }
         
-        $this->view->albumForm  = $album->getForm();
+        $this->view->albumForm = $album->getForm();
         $this->render('index');
     }
 }

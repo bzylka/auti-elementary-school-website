@@ -52,7 +52,7 @@ class News_AttachmentController extends Controller
             }
         }
 
-        $this->view->attachmentForm  = $attachment->getForm();
+        $this->view->attachmentForm = $attachment->getForm();
         $this->render('index');
     }
     

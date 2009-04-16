@@ -37,7 +37,7 @@ class Album_AddController extends Controller
             }
         }
         
-        $this->view->albumForm  = $album->getForm();
+        $this->view->albumForm = $album->getForm();
         $this->render('index');
     }
     
@@ -143,7 +143,7 @@ class Album_AddController extends Controller
             }
         }
 
-        $this->view->uploadForm  = $photo->getForm();
+        $this->view->uploadForm = $photo->getForm();
         $this->render('photo');
     }
 }

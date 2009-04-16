@@ -26,6 +26,7 @@ class Table_Event extends Table_Abstract
     /**
      * 定義關聯
      */
+/* 暫時取消
     protected $_referenceMap = array(
         'EventCatalog' => array(
             'columns'       => 'eventCatalogId',
@@ -33,5 +34,6 @@ class Table_Event extends Table_Abstract
             'refColumns'    => 'eventCatalogId'
         )
     );
+*/
 }
 ?>

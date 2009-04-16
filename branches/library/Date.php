@@ -66,5 +66,15 @@ class Date
     {
         return date('H:i:s');
     }
+    
+    /**
+     * 檢查日期是否正確
+     * @param string $date 日期
+     * @return bool 檢查結果
+     */
+    public function isDate($date)
+    {
+        return Zend_Date::isDate($date, 'YYYY-MM-dd');
+    }
 }
 ?>
