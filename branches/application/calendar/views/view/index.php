@@ -33,24 +33,17 @@
         <th>週六</th>
         <th>週日</th>
     </tr>
-    <?php foreach ($this->calendar as $weekDays => &$calendar): ?>
-        <?php
-        // 設定類別
-        if ($calendar['isPreMonth']) {
-            $class = 'preMonth';
-        } elseif ($calendar['isAfterMonth']) {
-            $class = 'afterMonth';
-        } else {
-            $class = 'normal';
-        }
-        ?>
-        <?php if ($weekDays % 7 == 0): ?>
-            <tr>
-        <?php endif; ?>
-            <td class="<?php echo $class ?>"><?php echo $calendar['date'] ?></td>
-        <?php if ($weekDays % 7 == 6): ?>
-           </tr>
-        <?php endif; ?>
+    
+    <?php foreach ($this->calendar['date'] as $row => $week): ?>
+        <tr>
+            <?php foreach ($week as $weekDay => $day): ?>
+                <td><?php echo $day ?></td>
+            <?php endforeach; ?>
+        </tr>
+        <?php foreach ($this->events as $eventRow => $events): ?>
+            <?php if ($eventRow == $row): ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
     <?php endforeach; ?>
 </table>
 

@@ -18,15 +18,15 @@
 class Date
 {
     /**
-     * 日期加總
-     * @param  string $date 要加總的日期
-     * @param  int    $days 加總量
+     * 日期加總/相減
+     * @param  string $originDate 要加總的日期
+     * @param  int    $days 加總量/相減量
      * @return string 加總後的日期
      */
-    public static function add($date, $days)
+    public static function add($originDate, $days)
     {
         $date = new Zend_Date();
-        $date->set($date, 'YYYY-MM-dd');
+        $date->set($originDate, 'YYYY-MM-dd');
         $date->add($days, Zend_Date::DAY);
         return $date->get('YYYY-MM-dd');
     }
