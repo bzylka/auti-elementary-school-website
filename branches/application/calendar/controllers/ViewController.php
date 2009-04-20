@@ -49,8 +49,9 @@ class Calendar_ViewController extends Controller
         // 設定View變數
         $this->view->calendar = $this->_getDateRangeArray($satrtDate, $endDate);
         $this->view->events   = $this->_getEvents($satrtDate, $endDate, $this->view->calendar);
-        $this->view->type     = $this->getRequest()->getActionName();
+        $this->view->type     = 'by2Week';
         $this->view->date     = $satrtDate;
+        $this->view->period   = '〔' . $satrtDate . '〕～〔' . $endDate . '〕';
         $this->render('index');
     }
 
@@ -82,6 +83,7 @@ class Calendar_ViewController extends Controller
                                                   $this->view->calendar);
         $this->view->type     = $this->getRequest()->getActionName();
         $this->view->date     = "$year-$month-01";
+        $this->view->period   = $year . '年' . $month . '月';
         $this->render('index');
     }
 
@@ -101,7 +103,7 @@ class Calendar_ViewController extends Controller
         // 回傳陣列
         $row = 0;
         $calendar['preStartDays']   = $preStartDays;
-        $calendar['preDate']        = Date::add($preStartDate, -1);
+        $calendar['preDate']        = Date::add($preStartDate, -8);
         $calendar['afterStartDays'] = $afterStartDays;
         $calendar['afterDate']      = Date::add($afterStartDate, 1);
         

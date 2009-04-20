@@ -1,26 +1,26 @@
-#calendarNav {
-    margin-top: 1em;
-    width: 98%;
+#calendarNav td {
+    border: 0 !important;
+    border-bottom: 7px solid #9BAFF1 !important;
+    font-size: 90%;
 }
-#calendarNav #viewNav {
-    float: left;
+#leftNav #period {
+    font-weight: bold;
 }
-#calendarNav #typeNav {
-    float: right;
+.pageNav {
+    padding-left: 2em;
 }
-#calendarNav #typeNav a {
-    display: inline-block;
-    padding: 3px;
+.pageNav div {
     background-color: #D9D6C8;
     border: 1px solid #9BAFF1;
+    border-bottom: 0;
+    padding: 2px;
+    text-align: center;
 }
-#calendarNav #typeNav .selected a {
+.pageNav #selected {
     background-color: #9BAFF1;
-    border: 2px solid #9BAFF1;
 }
 #calendar {
     border-collapse: collapse;
-    border-top: 7px solid #9BAFF1;
     border-bottom: 7px solid #9BAFF1;
     width: 98%;
 }
