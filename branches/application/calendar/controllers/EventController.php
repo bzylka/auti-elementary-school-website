@@ -36,5 +36,40 @@ class Calendar_EventController extends Controller
         $this->view->eventForm = $event->getForm();
         $this->render('index');
     }
+    
+     /**
+     * 編輯事件類別
+     */
+    public function editAction()
+    {
+        $id = $this->getParam('id');
+        $event = new Model_Event();
+        $event->setFormType('edit');
+
+        if ($this->isPost()) {
+            if ($event->isValid()) {
+                $event->update($id);
+                $this->redirect('calendar/view/by2Week/date/' . $event->getForm()->startDate->getValue(), $event->getMessage());
+            } else {
+                $this->view->message = $event->getMessage();
+            }
+        } elseif (!$event->setFormById($id)) {
+            $this->redirect('calendar', $event->getMessage());
+        }
+
+        $this->view->eventForm = $event->getForm();
+        $this->render('index');
+    }
+
+    /**
+     * 刪除事件類別
+     */
+    public function deleteAction()
+    {
+        $id = $this->getParam('id');
+        $event = new Model_Event();
+        $event->delete($id);
+        $this->redirect('calendar', $event->getMessage());
+    }
 }
 ?>

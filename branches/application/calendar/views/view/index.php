@@ -23,6 +23,22 @@
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
+<div id="calendarNav">
+    <div id="viewNav">
+        <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['preDate'], '<<') ?>
+        <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['afterDate'], '>>') ?>
+    </div>
+    <div id="typeNav">
+        <span<?php if($this->type == 'by2Week'): echo ' class="selected"';endif; ?>>
+            <?php echo $this->hyperLink('calendar/view/by2Week/date/' . $this->date, '兩週檢視') ?>
+        </span>
+        &nbsp;
+        <span<?php if($this->type == 'byMonth'): echo ' class="selected"';endif; ?>>
+            <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->date, '月份檢視') ?>
+        </span>
+    </div>
+</div>
+
 <table id="calendar">
     <tr>
         <th>週一</th>
@@ -37,13 +53,38 @@
     <?php foreach ($this->calendar['date'] as $row => $week): ?>
         <tr>
             <?php foreach ($week as $weekDay => $day): ?>
-                <td><?php echo $day ?></td>
+                <td class="days"><?php echo substr($day, -5) ?></td>
             <?php endforeach; ?>
         </tr>
-        <?php foreach ($this->events as $eventRow => $events): ?>
-            <?php if ($eventRow == $row): ?>
-            <?php endif; ?>
-        <?php endforeach; ?>
+        
+        <?php for ($j = 0; $j < 5; $j++): ?>
+            <tr class="calendarSpace">
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr class="eventRow">
+                <?php for ($i = 0; $i < 7; $i++): ?>
+                    <?php if ($this->events[$row][$i][$j] === true): ?>
+                        <td>&nbsp;</td>
+                    <?php elseif (is_array($this->events[$row][$i][$j])): ?>
+                        <td class="event" colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>" style="background-color:<?php echo $this->events[$row][$i][$j]['backgroundColor']?>">
+                            <?php if ($this->events[$row][$i][$j]['hasNext'] == true): ?>
+                                <span class="hasNext">»</span>
+                            <?php endif ?>
+                            <?php if ($this->events[$row][$i][$j]['hasPre']): ?>
+                                <span class="hasPre">«</span>
+                            <?php endif ?>
+                            <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], $this->events[$row][$i][$j]['eventName']) ?>
+                        </td>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </tr>
+        <?php endfor; ?>
     <?php endforeach; ?>
 </table>
 

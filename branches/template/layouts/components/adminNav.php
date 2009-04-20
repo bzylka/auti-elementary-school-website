@@ -24,6 +24,8 @@
     <li class="navTitle">相簿</li>
     <li><?php echo $this->hyperLink('admin/albumYear', '相簿年份管理')?></li>
     <li><?php echo $this->hyperLink('admin/slideShow', '相簿隨機展示')?></li>
+    <li class="navTitle">行事曆</li>
+    <li><?php echo $this->hyperLink('admin/eventCatalog', '事件類別管理')?></li>
     <li class="navTitle">成果區塊</li>
     <li><?php echo $this->hyperLink('admin/achievement', '成果區塊管理')?></li>
     <li class="navTitle">系統狀態</li>

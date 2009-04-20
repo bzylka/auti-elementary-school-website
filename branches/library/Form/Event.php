@@ -24,7 +24,7 @@ class Form_Event extends Form_Abstract
         $this->addElement('Text', 'eventName',
                           array('label'     => '事件名稱',
                                 'required'  => true,
-                                'size'      => 40,
+                                'size'      => 30,
                                 'maxlength' => 255,
                                 'stringMin' => 0,
                                 'stringMax' => 255))
@@ -46,6 +46,12 @@ class Form_Event extends Form_Abstract
                                 'stringMin' => 10,
                                 'stringMax' => 10,
                                 'validators' => array(array('Date', true, array('messages' => '日期格式錯誤')))))
+            ->addElement('Select', 'eventCatalogId',
+                          array('label'        => '類型',
+                                'required'     => true,
+                                'table'        => 'EventCatalog',
+                                'columnPair'   => array('eventCatalogId', 'eventCatalogName'),
+                                'defaultValue' => array('0' => '一般')))
              ->addElement('Textarea', 'eventDescription',
                           array('label'     => '說明',
                                 'cols'      => 40,
@@ -64,7 +70,7 @@ class Form_Event extends Form_Abstract
         }
 
         //設定分行
-        $this->addDisplayGroup(array('eventName'))
+        $this->addDisplayGroup(array('eventName', 'eventCatalogId'))
              ->addDisplayGroup(array('startDate', 'endDate'))
              ->addDisplayGroup(array('eventDescription'))
              ->addDisplayGroup(array('submit', 'cancel'));

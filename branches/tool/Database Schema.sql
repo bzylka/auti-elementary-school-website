@@ -167,17 +167,14 @@ CREATE TABLE IF NOT EXISTS event (
 );
 
 /**
- * 行事曆分類（尚未修改完成）
+ * 行事曆分類
  */
-/*
 CREATE TABLE IF NOT EXISTS eventCatalog (
     eventCatalogId INTEGER PRIMARY KEY NOT NULL ,
     eventCatalogName CHAR(255) NOT NULL ,
-    eventCatalogIconFileName CHAR(255) ,
-    color CAHR(7) DEFAULT 0 ,
-    backgroundColor DEFAULT 0
+    backgroundColor CHAR(7) DEFAULT 0
 );
-*/
+
 /*以下內容暫停
 教育儲蓄專戶
 CREATE TABLE IF NOT EXISTS educationalSavingAccount (
