@@ -38,8 +38,25 @@ class Model_Title extends Model_Abstract
         foreach ($titleRowset as $titleRow) {
             $titleTable[] = array_merge($titleRow->toArray(),
                                         array('officeName' => $titleRow->findParentRow('Table_Office')->officeName));
+            echo $titleRow->findParentRow('Table_Office')->officeName . '|';
         }
+        
         return $titleTable;
+    }
+    
+    /**
+     * 覆載delete()，設定使用者無所屬職稱
+     * @param int $id 職稱ID
+     */
+    public function delete($id)
+    {
+        $userRowset = $this->getTable()->find($id)->current()->findDependentRowset('Table_User');
+        foreach ($userRowset as $userRow) {
+            $userRow->titleId = 0;
+            $userRow->save();
+        }
+
+        parent::delete($id);
     }
 }
 ?>

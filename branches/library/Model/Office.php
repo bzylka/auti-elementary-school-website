@@ -68,5 +68,20 @@ class Model_Office extends Model_Abstract
             return false;
         }
     }
+    
+    /**
+     * 覆載delete()，設定職稱無所屬處室
+     * @param int $id 處室ID
+     */
+    public function delete($id)
+    {
+        $titleRowset = $this->getTable()->find($id)->current()->findDependentRowset('Table_Title');
+        foreach ($titleRowset as $titleRow) {
+            $titleRow->officeId = 0;
+            $titleRow->save();
+        }
+
+        parent::delete($id);
+    }
 }
 ?>

@@ -22,5 +22,10 @@ class Table_EventCatalog extends Table_Abstract
      * @access protected
      */
     protected $_name = 'eventCatalog';
+    
+    /**
+     * 定義關聯資料表
+     */
+    protected $_dependentTables = array('Table_Event');
 }
 ?>

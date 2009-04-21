@@ -75,7 +75,7 @@
         <?php else: ?>
             <b>無設定顯示相簿</b>
         <?php endif; ?>
-        <div class="more">
+        <div class="more" style="padding-top:0.5em;">
             <?php echo $this->hyperLink('album', '更多…') ?>
         </div>
     </div>

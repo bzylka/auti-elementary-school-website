@@ -43,10 +43,9 @@ class Form_Components_Select extends Zend_Form_Element_Select
             }
         }
         
+        $multiOptions += $options['defaultValue'];
         ksort($multiOptions);
-        
-        $multiOptions = array_merge($options['defaultValue'], $multiOptions);
-        
+
         $this->addValidator('Int', true, array('messages' => $this->getLabel() . '選單必需為整數'))
              ->addMultiOptions($multiOptions);
     }
