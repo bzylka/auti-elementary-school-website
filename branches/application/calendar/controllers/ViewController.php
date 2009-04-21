@@ -45,7 +45,7 @@ class Calendar_ViewController extends Controller
         $dateObj->sub($dateObj->get(Zend_Date::WEEKDAY_8601) - 1, Zend_Date::DAY);
         $satrtDate = $dateObj->get('YYYY-MM-dd');
         $endDate   = Date::add($satrtDate, 13);
-        
+
         // 設定View變數
         $this->view->calendar = $this->_getDateRangeArray($satrtDate, $endDate);
         $this->view->events   = $this->_getEvents($satrtDate, $endDate, $this->view->calendar);
@@ -127,11 +127,12 @@ class Calendar_ViewController extends Controller
      */
     private function _getEvents($startDate, $endDate, $calendar)
     {
+        $calendarWeeks = count($calendar['date']);
         
-        for ($row = 0; $row < count($calendar['date']); $row++) {
-            for($i = 0; $i < 7; $i++) {
-                for($j = 0; $j < 5; $j++) {
-                    $events[$row][$i][$j] = true;
+        for ($week = 0; $week < $calendarWeeks; $week++) {
+            for($day = 0; $day < 7; $day++) {
+                for($slot = 0; $slot < 5; $slot++) {
+                    $events[$week][$day][$slot] = true;
                 }
             }
         }
@@ -140,56 +141,60 @@ class Calendar_ViewController extends Controller
         $eventRowset = $event->getTable()->where("endDate >= '$startDate' AND startDate <= '$endDate'")->order('startDate')->getRowset();
         
         foreach ($eventRowset as $eventRow) {
-            for ($startDate = $eventRow->startDate; $startDate < $eventRow->endDate; $startDate = Date::add($startDate, 1)) {
-                for ($row = 0; $row < count($calendar['date']) && $startDate < $eventRow->endDate;$row++) {
-                    for ($i = 0; $i < 7 && $startDate < $eventRow->endDate; $i++) {
-                        if ($startDate > $calendar['date'][$row][$i]) {
-                            continue;
+            $startDate = $eventRow->startDate;
+            $endFlag   = false;
+            for ($week = 0; $week < $calendarWeeks && $endFlag == false; $week++) {
+                for ($day = 0; $day < 7; $day++) {
+                    if ($startDate > $calendar['date'][$week][$day]) {
+                        continue;
+                    } else {
+                        if ($startDate < $calendar['date'][$week][$day]) {
+                            $startDate = $calendar['date'][$week][$day];
+                            $hasPre = true;
                         } else {
-                            if ($startDate < $calendar['date'][$row][$i]) {
-                                $startDate = $calendar['date'][$row][$i];
-                                $hasPre = true;
-                            }
-
-                            // 進入事件處理，尋找空的位置
-                            for ($j = 0; $j < 5; $j++) {
-                                if ($events[$row][$i][$j] === true) {
-                                    break;
-                                }
-                            }
-
-                            // 計算和週末的距離
-                            $distanceToSunday = Date::sub($calendar['date'][$row][6], $startDate);
-                            $distanceToEnd    = Date::sub($eventRow->endDate, $startDate);
-                            if ($distanceToEnd > $distanceToSunday) {
-                                $colspan      = $distanceToSunday + 1;
-                                $hasNext      = true;
-                                $startDate    = Date::add($startDate, $distanceToSunday);
-                                $nullUntilEnd = $distanceToSunday + 1;
-                            } else {
-                                $colspan      = $distanceToEnd + 1;
-                                $hasNext      = false;
-                                $startDate    = Date::add($startDate, $distanceToEnd);
-                                $nullUntilEnd = $distanceToEnd + 1;
-                            }
-
-                            // 儲存Events
-                            $events[$row][$i][$j]                    = $eventRow->toArray();
-                            $events[$row][$i][$j]['backgroundColor'] = $eventRow->findParentRow('Table_EventCatalog')->backgroundColor;
-                            $events[$row][$i][$j]['colspan']         = $colspan;
-                            $events[$row][$i][$j]['hasPre']          = $hasPre;
-                            $events[$row][$i][$j]['hasNext']         = $hasNext;
-
-                            // 設定之間的陣列內容為null
-                            for ($i++; $i < $nullUntilEnd; $i++) {
-                                $events[$row][$i][$j] = null;
+                            $hasPre = false;
+                        }
+                        
+                        // 進入事件處理，尋找空的位置（$slot）
+                        for ($slot = 0; $slot < 5; $slot++) {
+                            if ($events[$week][$day][$slot] === true) {
+                                break;
                             }
                         }
+                        
+                        // 計算和週末的距離
+                        $distanceToSunday = Date::sub($calendar['date'][$week][6], $startDate);
+                        $distanceToEnd    = Date::sub($eventRow->endDate, $startDate);
+                        
+                        if ($distanceToEnd > $distanceToSunday) {
+                            $colspan   = $distanceToSunday + 1;
+                            $hasNext   = true;
+                            $startDate = Date::add($startDate, $distanceToSunday);
+                        } else {
+                            $colspan   = $distanceToEnd + 1;
+                            $hasNext   = false;
+                            $startDate = Date::add($startDate, $distanceToEnd);
+                            $endFlag   = true;
+                        }
+                        
+                        // 儲存Events
+                        $events[$week][$day][$slot]                    = $eventRow->toArray();
+                        $events[$week][$day][$slot]['backgroundColor'] = $eventRow->findParentRow('Table_EventCatalog')->backgroundColor;
+                        $events[$week][$day][$slot]['colspan']         = $colspan;
+                        $events[$week][$day][$slot]['hasPre']          = $hasPre;
+                        $events[$week][$day][$slot]['hasNext']         = $hasNext;
+                        
+                        // 設定之後的陣列內容為null
+                        for ($endDay = $day + $colspan, $day++; $day < $endDay ; $day++) {
+                            $events[$week][$day][$slot] = null;
+                        }
+                        
+                        break;
                     }
                 }
             }
         }
-        
+
         return $events;
     }
 }
