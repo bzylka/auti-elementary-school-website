@@ -22,7 +22,6 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     <head>
         <?php echo $this->headMeta() ?>
         <?php echo $this->headLink() ?>
-        <?php echo $this->headScript() ?>
         <?php echo $this->headTitle() ?>
     </head>
     

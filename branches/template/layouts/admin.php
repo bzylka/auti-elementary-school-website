@@ -23,7 +23,6 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     <head>
         <?php echo $this->headMeta() ?>
         <?php echo $this->headLink() ?>
-        <?php echo $this->headScript() ?>
         <?php echo $this->headTitle() ?>
     </head>
     
@@ -50,5 +49,6 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
                 <?php echo $this->partial('./components/footer.php') ?>
             </div>
         </div>
+        <?php echo $this->headScript() ?>
     </body>
 </html>
