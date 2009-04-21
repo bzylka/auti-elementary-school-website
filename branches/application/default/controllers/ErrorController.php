@@ -23,18 +23,18 @@ class ErrorController extends Controller
     public function errorAction()
     {
         // 設定Layout
-        //$this->_helper->layout->setLayout('error');
+        $this->_helper->layout->setLayout('error');
         $errors = $this->getParam('error_handler');
 
         switch ($errors->type) {
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_CONTROLLER:
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_ACTION:
                 //網址錯誤
-                $this->view->message = '網址錯誤';
+                $this->view->message = '抱歉！您輸入的網址不存在';
                 break;
             default:
                 //無權限存取這個網址
-                $this->view->message = '無權限存取這個網址：' . $this->getParam('deny');
+                $this->view->message = 'Sorry！無權限存取這個網址';
                 break;
         }
 

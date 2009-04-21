@@ -2,6 +2,7 @@
 * {
     padding: 0;
     margin: 0;
+    vertical-align: middle;
 }
 body {
     padding: 8px;
@@ -138,6 +139,16 @@ h2 {
     text-align: center;
     background: #696969;
     color: white;
+}
+#footer a {
+    color: #1010FF
+}
+#footer a:hover {
+    text-decoration: underline;
+}
+#footer img {
+    width: 1em;
+    margin-right: 0.2em;
 }
 /* 訊息區塊 */
 .messageBlock {
