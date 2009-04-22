@@ -14,38 +14,52 @@
 ?>
 <?php $this->headTitle('行事曆') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'calendarView.css') ?>
-
-<?php if ($this->allowAlbum = true): ?>
-    <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
-<?php endif; ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/calendarDetailDialog.css') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'calendarNav.js') ?>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
-
 <table id="calendar">
     <tr id="calendarNav">
         <td id="leftNav" colspan="5">
-            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['preDate'], '<<') ?>
-            |
-            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['afterDate'], '>>') ?>
-            |
+            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['preDate'], '««') ?>
+            &nbsp;
+            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['afterDate'], '»»') ?>
+            &nbsp;
             <?php echo $this->hyperLink('calendar/view/' . $this->type, '今天') ?>
-            |
+            
             <span id="period">
                 <?php echo $this->escape($this->period)?>
             <span>
+            
+            <?php if ($this->allowCalendar == true): ?>
+                <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
+            <?php endif; ?>
         </td>
         <td class="pageNav">
-            <div<?php if($this->type == 'by2Week'): echo ' id="selected"';endif; ?>>
-                <?php echo $this->hyperLink('calendar/view/by2Week/date/' . $this->date, '兩週') ?>
-            </div>
+            <?php if($this->type == 'by2Week'): ?>
+                <div id="selected">
+                    兩週
+                </div>
+            <?php else: ?>
+                <div>
+                    <?php echo $this->hyperLink('calendar/view/by2Week/date/' . $this->date, '兩週') ?>
+                </div>
+            <?php endif; ?>
         </td>
         <td class="pageNav">
-            <div<?php if($this->type == 'byMonth'): echo ' id="selected"';endif; ?>>
-                <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->date, '整月') ?>
-            </div>
+            <?php if($this->type == 'byMonth'): ?>
+                <div id="selected">
+                    整月
+                </div>
+            <?php else: ?>
+                <div>
+                    <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->date, '整月') ?>
+                </div>
+            <?php endif; ?>
         </td>
     </tr>
     <tr>
@@ -80,14 +94,34 @@
                     <?php if ($this->events[$row][$i][$j] === true): ?>
                         <td>&nbsp;</td>
                     <?php elseif (is_array($this->events[$row][$i][$j])): ?>
-                        <td class="event" colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>" style="background-color:<?php echo $this->events[$row][$i][$j]['backgroundColor']?>">
+                        <td onclick="showDetail('<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row ?>')" class="event" title="<?php echo 'eventId' . $this->events[$row][$i][$j]['eventId']?>" colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>"<?php if ($this->events[$row][$i][$j]['backgroundColor']): ?> style="background-color:<?php echo $this->events[$row][$i][$j]['backgroundColor'] ?>"<?php endif; ?>>
                             <?php if ($this->events[$row][$i][$j]['hasNext'] == true): ?>
                                 <span class="hasNext">»</span>
                             <?php endif ?>
                             <?php if ($this->events[$row][$i][$j]['hasPre']): ?>
                                 <span class="hasPre">«</span>
                             <?php endif ?>
-                            <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], $this->events[$row][$i][$j]['eventName']) ?>
+                            <?php echo $this->restrictString($this->events[$row][$i][$j]['eventName'], $this->events[$row][$i][$j]['colspan'] * 5) ?>
+
+                            <div class="detail" id="<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row?>" title="<?php echo $this->escape($this->events[$row][$i][$j]['eventName']) ?>">
+                                <div class="datePeriod">
+                                    <?php if ($this->events[$row][$i][$j]['startDate'] == $this->events[$row][$i][$j]['endDate']): ?>
+                                        <?php echo $this->events[$row][$i][$j]['startDate'] ?>
+                                    <?php else: ?>
+                                        <?php echo $this->events[$row][$i][$j]['startDate'] . '～' . $this->events[$row][$i][$j]['startDate']?>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="eventDescription">
+                                    <?php echo nl2br($this->escape($this->events[$row][$i][$j]['eventDescription']));?>
+                                </div>
+                                <?php if ($this->allowCalendar == true): ?>
+                                    <div class="eventNav">
+                                        <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], '編輯') ?>
+                                        |
+                                        <?php echo $this->hyperLink('calendar/event/delete/id/' . $this->events[$row][$i][$j]['eventId'], '刪除') ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </td>
                     <?php endif; ?>
                 <?php endfor; ?>
@@ -95,4 +129,3 @@
         <?php endfor; ?>
     <?php endforeach; ?>
 </table>
-

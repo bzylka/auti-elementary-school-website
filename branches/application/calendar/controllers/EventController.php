@@ -18,6 +18,16 @@
 class Calendar_EventController extends Controller
 {
     /**
+     * 初始Controller
+     */
+    public function init()
+    {
+        // 檢查權限
+        $this->isAllowed('行事曆管理', true);
+        parent::init();
+    }
+    
+    /**
      * 新增行事曆事件
      */
     public function addAction()

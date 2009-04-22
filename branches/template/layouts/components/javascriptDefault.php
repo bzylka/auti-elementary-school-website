@@ -18,6 +18,6 @@ $this->headScript()->prependFile(JAVASCRIPT_URL . 'hightlightInput.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/positionBy.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/dimensions.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/bgiframe.js')
-                   ->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js');
+                   ->prependFile(JAVASCRIPT_URL . 'jQuery/jQuery.js');
 ?>
         

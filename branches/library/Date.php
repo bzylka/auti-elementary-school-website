@@ -28,7 +28,7 @@ class Date
         $date = new Zend_Date();
         $date->set($originDate, 'YYYY-MM-dd');
         $date->add($days, Zend_Date::DAY);
-        return $date->get('YYYY-MM-dd');
+        return $date->get('yyyy-MM-dd');
     }
     
     /**

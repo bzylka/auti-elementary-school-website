@@ -31,6 +31,8 @@ class Calendar_ViewController extends Controller
      */
     public function by2weekAction()
     {
+        $this->view->allowCalendar = $this->isAllowed('行事曆管理');
+        
         if ($date = $this->getParam('date')) {
             if (!Date::isDate($date)) {
                 $this->redirect('calendar/view', '日期設定錯誤');
@@ -61,6 +63,8 @@ class Calendar_ViewController extends Controller
      */
     public function bymonthAction()
     {
+        $this->view->allowCalendar = $this->isAllowed('行事曆管理');
+        
         // 取得日期
         if ($date = $this->getParam('date')) {
             if (!Date::isDate($date)) {
@@ -89,6 +93,7 @@ class Calendar_ViewController extends Controller
 
     private function _getDateRangeArray($startDate, $endDate)
     {
+        
         // 取得跟前一週星期天的距離、日期
         $date = new Zend_Date();
         $date->set($startDate, 'YYYY-MM-dd');
