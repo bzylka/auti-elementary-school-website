@@ -18,6 +18,31 @@
 class Date
 {
     /**
+     * @var object Instance
+     * @access protected
+     */
+    protected static $_instance = null;
+
+    /**
+     * 建構子，不使用
+     */
+    private function __construct()
+    {
+    }
+    
+    /**
+     * 單體模式
+     */
+    public static function getInstance()
+    {
+        if (self::$_instance === null) {
+            self::$_instance = new Zend_Date();
+        }
+
+        return self::$_instance;
+    }
+    
+    /**
      * 日期加總/相減
      * @param  string $originDate 要加總的日期
      * @param  int    $days 加總量/相減量
@@ -25,8 +50,8 @@ class Date
      */
     public static function add($originDate, $days)
     {
-        $date = new Zend_Date();
-        $date->set($originDate, 'YYYY-MM-dd');
+        $date = self::getInstance();
+        $date->set($originDate, 'yyyy-MM-dd');
         $date->add($days, Zend_Date::DAY);
         return $date->get('yyyy-MM-dd');
     }
@@ -39,11 +64,11 @@ class Date
      */
     public static function sub($date1, $date2)
     {
-        $date = new Zend_Date();
-        $date->set($date1, 'YYYY-MM-dd');
+        $date = self::getInstance();
+        $date->set($date1, 'yyyy-MM-dd');
         $timestamp1 = $date->get(Zend_Date::TIMESTAMP);
         
-        $date->set($date2, 'YYYY-MM-dd');
+        $date->set($date2, 'yyyy-MM-dd');
         $timestamp2 = $date->get(Zend_Date::TIMESTAMP);
         
         return ($timestamp1 - $timestamp2) / 60 / 60 / 24;
@@ -58,6 +83,61 @@ class Date
         return date('Y-m-d');
     }
     
+    /**
+     * 回傳一段時間的所有日期
+     * @param string $startDate 開始日期
+     * @param string $endDate   結束日期
+     * @return array 日期陣列
+     */
+    public static function getRangeDates($startDate, $endDate)
+    {
+        // 取得跟前一週星期天的距離、日期
+        $date = self::getInstance();
+        $date->set($startDate, 'yyyy-MM-dd');
+        $preStartDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
+        $preStartDate = self::add($startDate, -$preStartDays);
+
+        // 取得跟最後一週星期天的距離
+        $date->set($endDate, 'yyyy-MM-dd');
+        $afterStartDays = 7 - $date->get(Zend_Date::WEEKDAY_8601);
+        $afterStartDate = self::add($endDate, $afterStartDays);
+
+        // 回傳陣列
+        $row = 0;
+        $calendar['preStartDays']   = $preStartDays;
+        $calendar['preDate']        = self::add($preStartDate, -8);
+        $calendar['afterStartDays'] = $afterStartDays;
+        $calendar['afterDate']      = self::add($afterStartDate, 1);
+
+        $rangeDays = self::sub($endDate, $startDate);
+        $today     = self::getDate();
+        for ($i = 0; $preStartDate <= $afterStartDate; $i++, $preStartDate = self::add($preStartDate, 1)) {
+            if ($i > 0 && $i % 7 == 0) {
+                $row++;
+                $i = 0;
+            }
+            $calendar['date'][$row][$i]['date'] = $preStartDate;
+
+            // 類別判斷
+            if ($row * 7 + $i + 1 <= $preStartDays) {
+                $calendar['date'][$row][$i]['type'] = 'preDays';
+            } elseif ($row * 7 + $i + 1 > $preStartDays + $rangeDays + 1) {
+                $calendar['date'][$row][$i]['type'] = 'afterDays';
+            } else {
+                $calendar['date'][$row][$i]['type'] = 'normal';
+            }
+            
+            // 檢查是否是今天
+            if ($preStartDate == $today) {
+                $calendar['date'][$row][$i]['type'] .= ' today';
+            }
+            
+        }
+
+        return $calendar;
+    
+    }
+
     /**
      * 回傳現在時間
      * @return string 日期、時間
@@ -74,7 +154,7 @@ class Date
      */
     public function isDate($date)
     {
-        return Zend_Date::isDate($date, 'YYYY-MM-dd');
+        return Zend_Date::isDate($date, 'yyyy-MM-dd');
     }
 }
 ?>

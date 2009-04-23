@@ -70,14 +70,18 @@
     line-height: 0.2em !important;
 }
 /* 日期設定 */
-.days {
+.days td {
     font-size: 80%;
     width: 6em;
     text-align: right;
-    color: #686868;
-    padding: 2px 1px;
+    color: #3D3D3D;
+    padding: 2px;
     background-color: #E8EEF7;
     line-height: 1em !important;
+}
+.days .preDays, .days .afterDays {
+    background-color: #EEEEEE;
+    color: #77778D;
 }
 /* 事件 */
 .eventRow td {

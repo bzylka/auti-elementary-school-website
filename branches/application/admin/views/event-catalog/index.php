@@ -34,7 +34,7 @@
             <?php foreach ($this->eventCatalogList as &$eventCatalog): ?>
                 <tr>
                     <td class="eventCatalogName"><?php echo $this->escape($eventCatalog['eventCatalogName']) ?></td>
-                    <td class="backgroundColor" style="padding:2px; color:blue; background-color:<?php echo $eventCatalog['backgroundColor'] ?>">測試顏色</td>
+                    <td class="backgroundColor" style="padding:2px; color:white; background-color:<?php echo $eventCatalog['backgroundColor'] ?>">測試顏色</td>
                     <td class="edit"><?php echo $this->hyperLinK('admin/eventCatalog/edit/id/' . $eventCatalog['eventCatalogId'], '編輯') ?></td>
                     <td class="delete"><?php echo $this->hyperLinK('admin/eventCatalog/delete/id/' . $eventCatalog['eventCatalogId'], '刪除') ?></td>
                 </tr>

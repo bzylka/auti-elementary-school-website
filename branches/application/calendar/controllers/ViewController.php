@@ -43,13 +43,13 @@ class Calendar_ViewController extends Controller
 
         // 設定日期範圍
         $dateObj = new Zend_Date();
-        $dateObj->set($date, 'YYYY-MM-dd');
+        $dateObj->set($date, 'yyyy-MM-dd');
         $dateObj->sub($dateObj->get(Zend_Date::WEEKDAY_8601) - 1, Zend_Date::DAY);
-        $satrtDate = $dateObj->get('YYYY-MM-dd');
+        $satrtDate = $dateObj->get('yyyy-MM-dd');
         $endDate   = Date::add($satrtDate, 13);
 
         // 設定View變數
-        $this->view->calendar = $this->_getDateRangeArray($satrtDate, $endDate);
+        $this->view->calendar = Date::getRangeDates($satrtDate, $endDate);
         $this->view->events   = $this->_getEvents($satrtDate, $endDate, $this->view->calendar);
         $this->view->type     = 'by2Week';
         $this->view->date     = $satrtDate;
@@ -76,64 +76,34 @@ class Calendar_ViewController extends Controller
         
         // 設定日期範圍
         $dateObj = new Zend_Date();
-        $dateObj->set($date, 'YYYY-MM-dd');
+        $dateObj->set($date, 'yyyy-MM-dd');
         $year        = $dateObj->get(Zend_Date::YEAR_8601);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
 
-        $this->view->calendar = $this->_getDateRangeArray("$year-$month-01", "$year-$month-$daysOfMonth");
-        $this->view->events   = $this->_getEvents(Date::add($this->view->calendar['preDate'], 1),
-                                                  Date::add($this->view->calendar['afterDate'], -1),
+        $this->view->calendar = Date::getRangeDates("$year-$month-01", "$year-$month-$daysOfMonth");
+        
+        $this->view->events   = $this->_getEvents($this->view->calendar['date'][0][0]['date'],
+                                                  current(end(end($this->view->calendar['date']))),
                                                   $this->view->calendar);
         $this->view->type     = $this->getRequest()->getActionName();
         $this->view->date     = "$year-$month-01";
         $this->view->period   = $year . '年' . $month . '月';
         $this->render('index');
     }
-
-    private function _getDateRangeArray($startDate, $endDate)
-    {
-        
-        // 取得跟前一週星期天的距離、日期
-        $date = new Zend_Date();
-        $date->set($startDate, 'YYYY-MM-dd');
-        $preStartDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
-        $preStartDate = Date::add($startDate, -$preStartDays);
-
-        // 取得跟最後一週星期天的距離
-        $date->set($endDate, 'YYYY-MM-dd');
-        $afterStartDays = 7 - $date->get(Zend_Date::WEEKDAY_8601);
-        $afterStartDate = Date::add($endDate, $afterStartDays);
-
-        // 回傳陣列
-        $row = 0;
-        $calendar['preStartDays']   = $preStartDays;
-        $calendar['preDate']        = Date::add($preStartDate, -8);
-        $calendar['afterStartDays'] = $afterStartDays;
-        $calendar['afterDate']      = Date::add($afterStartDate, 1);
-        
-        for ($i = 0; $preStartDate <= $afterStartDate; $i++, $preStartDate = Date::add($preStartDate, 1)) {
-            if ($i > 0 && $i % 7 == 0) {
-                $row++;
-                $i = 0;
-            }
-            $calendar['date'][$row][$i] = $preStartDate;
-        }
-
-        return $calendar;
-    }
     
     /**
      * 取得事件
-     * @param string $startDate 初始日期
+     * @param string $startDate 開始日期
      * @param string $endDate   結束日期
-     * @param int    $calendar  日期陣列
+     * @param array  $calendar  日期陣列
      * @return array 事件陣列
      */
     private function _getEvents($startDate, $endDate, $calendar)
     {
         $calendarWeeks = count($calendar['date']);
-        
+
+        // 初始事件陣列
         for ($week = 0; $week < $calendarWeeks; $week++) {
             for($day = 0; $day < 7; $day++) {
                 for($slot = 0; $slot < 5; $slot++) {
@@ -142,19 +112,21 @@ class Calendar_ViewController extends Controller
             }
         }
 
+        // 讀取事件
         $event = new Model_Event();
-        $eventRowset = $event->getTable()->where("endDate >= '$startDate' AND startDate <= '$endDate'")->order('startDate')->getRowset();
-        
+        $eventRowset = $event->getEvents($startDate, $endDate);
+
+        // 處理事件陣列
         foreach ($eventRowset as $eventRow) {
             $startDate = $eventRow->startDate;
             $endFlag   = false;
             for ($week = 0; $week < $calendarWeeks && $endFlag == false; $week++) {
                 for ($day = 0; $day < 7; $day++) {
-                    if ($startDate > $calendar['date'][$week][$day]) {
+                    if ($startDate > $calendar['date'][$week][$day]['date']) {
                         continue;
                     } else {
-                        if ($startDate < $calendar['date'][$week][$day]) {
-                            $startDate = $calendar['date'][$week][$day];
+                        if ($startDate < $calendar['date'][$week][$day]['date']) {
+                            $startDate = $calendar['date'][$week][$day]['date'];
                             $hasPre = true;
                         } else {
                             $hasPre = false;
@@ -168,7 +140,7 @@ class Calendar_ViewController extends Controller
                         }
                         
                         // 計算和週末的距離
-                        $distanceToSunday = Date::sub($calendar['date'][$week][6], $startDate);
+                        $distanceToSunday = Date::sub($calendar['date'][$week][6]['date'], $startDate);
                         $distanceToEnd    = Date::sub($eventRow->endDate, $startDate);
                         
                         if ($distanceToEnd > $distanceToSunday) {

@@ -35,7 +35,7 @@ class Form_EventCatalog extends Form_Abstract
                                 'maxlength' => 7,
                                 'stringMin' => 0,
                                 'stringMax' => 7,
-                                'attribs'   => array('style' => 'color:blue !important'),
+                                'attribs'   => array('style' => 'color:white !important'),
                                 'value'     => '#ffffff'));
 
         if ($this->_formType == 'edit') {

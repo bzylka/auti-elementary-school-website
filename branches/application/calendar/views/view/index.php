@@ -73,9 +73,9 @@
     </tr>
     
     <?php foreach ($this->calendar['date'] as $row => $week): ?>
-        <tr>
+        <tr class="days">
             <?php foreach ($week as $weekDay => $day): ?>
-                <td class="days"><?php echo substr($day, -5) ?></td>
+                <td class="<?php echo $day['type']?>"><?php echo substr($day['date'], -5) ?></td>
             <?php endforeach; ?>
         </tr>
         
@@ -101,6 +101,7 @@
                             <?php if ($this->events[$row][$i][$j]['hasPre']): ?>
                                 <span class="hasPre">«</span>
                             <?php endif ?>
+                            
                             <?php echo $this->restrictString($this->events[$row][$i][$j]['eventName'], $this->events[$row][$i][$j]['colspan'] * 5) ?>
 
                             <div class="detail" id="<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row?>" title="<?php echo $this->escape($this->events[$row][$i][$j]['eventName']) ?>">
@@ -108,7 +109,7 @@
                                     <?php if ($this->events[$row][$i][$j]['startDate'] == $this->events[$row][$i][$j]['endDate']): ?>
                                         <?php echo $this->events[$row][$i][$j]['startDate'] ?>
                                     <?php else: ?>
-                                        <?php echo $this->events[$row][$i][$j]['startDate'] . '～' . $this->events[$row][$i][$j]['startDate']?>
+                                        <?php echo $this->events[$row][$i][$j]['startDate'] . '～' . $this->events[$row][$i][$j]['endDate']?>
                                     <?php endif; ?>
                                 </div>
                                 <div class="eventDescription">

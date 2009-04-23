@@ -28,5 +28,16 @@ class Model_Event extends Model_Abstract
      * @access protected
      */
     protected $_formClass = 'Event';
+    
+    /**
+     * 取得日期間的事件
+     * @param string $startDate 開始日期
+     * @param string $endDate   結束日期
+     * @retrun obj 事件物件
+     */
+    public function getEvents($startDate, $endDate)
+    {
+        return $this->getTable()->where("endDate >= '$startDate' AND startDate <= '$endDate'")->order('startDate')->getRowset();
+    }
 }
 ?>
