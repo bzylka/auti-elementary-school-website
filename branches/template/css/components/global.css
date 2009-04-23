@@ -137,7 +137,7 @@ h2 {
     margin: 0px auto;
     font-size: 70%;
     text-align: center;
-    background: #696969;
+    background-color: #696969;
     color: white;
 }
 #footer a {
@@ -153,7 +153,7 @@ h2 {
 /* 訊息區塊 */
 .messageBlock {
     text-align: center;
-    background: #fff070;
+    background-color: #fff070;
     padding: 2px;
     display: inherit;
 }

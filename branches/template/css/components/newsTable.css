@@ -1,6 +1,7 @@
 #newsTable th {
     background-color: #FFCCCC;
-    padding: 2px;
+    padding: 2px 2px 2px 6px;
+    vertical-align: middle;
 }
 #newsTable td {
     background-color: #FFCCFF;
@@ -8,8 +9,8 @@
 }
 #newsTable .isImportant {
     text-align: center;
-    padding:4px 6px;
+    padding: 4px 6px;
 }
-#newsTable .isImportant img{
-    width:1em;
+#newsTable .isImportant img {
+    width: 1em;
 }

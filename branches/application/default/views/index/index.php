@@ -12,6 +12,8 @@
 ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'defaultIndex.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/newsTable.css') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callCalendarBlock.js') ?>
 
 <div id="news" class="contentBlock">
     <div class="blockHeader">
@@ -51,52 +53,15 @@
 
 <div id="calendar" class="contentBlock">
     <div class="blockHeader">
+        <span class="blockNav">
+            <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈顯示本月〉') ?>
+        </span>
         行事曆
     </div>
+    <div id="calendarMessage">
+        
+    </div>
     <div class="blockContent">
-        <div >
-            <table id="dates">
-                <tr>
-                    <td id="caption" colspan="7">
-                        <?php echo $this->calendarCaption ?>
-                    </td>
-                </tr>
-                <tr>
-                    <th>一</th>
-                    <th>二</th>
-                    <th>三</th>
-                    <th>四</th>
-                    <th>五</th>
-                    <th>六</th>
-                    <th>日</th>
-                </tr>
-                <?php foreach ($this->calendar['date'] as $row => $week): ?>
-                    <tr class="days">
-                        <?php foreach ($week as $weekDay => $day): ?>
-                            <td class="<?php echo $day['type']?><?php if ($weekDay % 7 == 5 || $weekDay % 7 == 6): echo ' weekEnd'; endif;?>"><?php echo (int)substr($day['date'], -2) ?></td>
-                        <?php endforeach; ?>
-                    </tr>
-                <?php endforeach;?>
-            </table>
-        </div>
-        <hr />
-        <div id="events">
-            <?php foreach ($this->events as $eventRow): ?>
-                <div class="datePeriod">
-                    <?php if ($eventRow->startDate == $eventRow->endDate): ?>
-                        <?php echo $eventRow->startDate ?>
-                    <?php else: ?>
-                        <?php echo $eventRow->startDate . '&nbsp;～&nbsp;' . $eventRow->endDate ?>
-                    <?php endif; ?>
-                </div>
-                <div class="eventName">
-                    <?php echo $this->escape($eventRow->eventName) ?>
-                </div>
-            <?php endforeach;?>
-        </div>
-        <div class="more" style="padding-top:0.5em;">
-            <?php echo $this->hyperLink('calendar/view/byMonth/date/', '檢視細節…') ?>
-        </div>
     </div>
 </div>
 

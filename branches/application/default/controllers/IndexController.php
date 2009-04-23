@@ -42,19 +42,6 @@ class IndexController extends Controller
         $album = new Model_Album();
         $this->view->photos = $album->getRandomPhotos(8);
         
-        // 設定日曆
-        $dateObj = new Zend_Date();
-        $dateObj->set(Date::getDate(), 'yyyy-MM-dd');
-        $year        = $dateObj->get(Zend_Date::YEAR_8601);
-        $month       = $dateObj->get(Zend_Date::MONTH);
-        $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
-        $this->view->calendarCaption = $year . '年' . $month . '月';
-        $this->view->calendar = Date::getRangeDates("$year-$month-01", "$year-$month-$daysOfMonth");;
-        
-        // 設定待辦事項
-        $event = new Model_Event();
-        $this->view->events = $event->getEvents("$year-$month-01", "$year-$month-$daysOfMonth");
-        
         $this->render('index');
     }
 }
