@@ -51,8 +51,8 @@ function getCalendarBlock(date, moveDirection)
                 $('#calendar .blockContent').fadeIn(200);
             }
             
-            // 讀取節日
-            $('#festivalMessage').html('讀取節日中…');
+            // 讀取節日列表
+            $('#festivalMessage').html('讀取本月節日中…');
             $.ajax({
                 url: 'calendar/ajax/getFestival/date/' + date,
                 error: function(exception) {
@@ -62,8 +62,8 @@ function getCalendarBlock(date, moveDirection)
                     // 寫入內容，顯示動作
                     $('#festivalList').css('display', 'none');
                     $('#festivalList').html(response);
-                    //$('#festivalMessage').fadeOut(600);
-                    $('#festivalList').fadeIn(300);
+                    $('#festivalMessage').fadeOut(500);
+                    $('#festivalList').fadeIn(400);
                 }
             });
         }

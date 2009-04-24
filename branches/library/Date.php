@@ -145,9 +145,13 @@ class Date
      */
     public function getFestivals($startDate, $endDate)
     {
-        $festivalFeed = file_get_contents("http://www.google.com/calendar/feeds/taiwan__zh_tw%40holiday.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&start-min=$startDate&start-max=$endDate");
-        $festivalObj = new SimpleXMLElement($festivalFeed);
+        // 網路發生問題，無法連線，發出錯誤訊息
+        if (!$festivalFeed = @file_get_contents("http://www.google.com/calendar/feeds/taiwan__zh_tw%40holiday.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&start-min=$startDate&start-max=$endDate")) {
+            return false;
+        }
 
+        // 剖析Google Calendar的內容
+        $festivalObj = new SimpleXMLElement($festivalFeed);
         foreach ($festivalObj->entry as $festivalEntry) {
             preg_match('/\d{4}-\d{2}-\d{2}/', $festivalEntry->summary, $match);
             $festival[] = array('date' => $match[0], 'title' => (string)$festivalEntry->title);

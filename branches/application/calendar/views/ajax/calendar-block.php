@@ -67,8 +67,9 @@
         <?php endif; ?>
     </div>
 
+    <hr />
+    
     <div id="festivalMessage">
-        讀取節日中
     </div>
 
     <div id="festivalList">

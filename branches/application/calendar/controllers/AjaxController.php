@@ -90,6 +90,13 @@ class Calendar_AjaxController extends Controller
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
         $this->view->festivals = Date::getFestivals("$year-$month-01", "$year-$month-$daysOfMonth");
+        
+        if ($this->view->festivals === false) {
+            $this->view->message = '無法取得Google的節日資料';
+        } elseif (count($this->view->festivals) == 0) {
+            $this->view->message = '本月無國定節日';
+        }
+
         $this->render('festival-list');
     }
 }

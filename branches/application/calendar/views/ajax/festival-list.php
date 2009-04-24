@@ -14,20 +14,22 @@
 ?>
 
 <?php if ($this->message): ?>
-    <?php echo $this->messageBlock($this->message) ?>
+    <?php echo $this->escape($this->message) ?>
 <?php else: ?>
     <?php if (count($this->festivals) != 0): ?>
-            <hr />
-            <?php foreach ($this->festivals as &$festival): ?>
-                <div class="festivalDate">
-                    <?php echo $festival['date'] ?>
-                </div>
-                <div class="festivalTitle">
-                    <?php echo $this->escape($festival['title']) ?>
-                </div>
-            <?php endforeach;?>
-        <?php else: ?>
-            本月無節日
-        <?php endif; ?>
+        <h1>本月節日</h1>
+        <?php foreach ($this->festivals as &$festival): ?>
+            <span class="festivalDate">
+                <?php echo $festival['date'] ?>
+            </span>
+            &nbsp;
+            <span class="festivalTitle">
+                <?php echo $this->escape($festival['title']) ?>
+            </span>
+            <br />
+        <?php endforeach;?>
+    <?php else: ?>
+        本月無節日
+    <?php endif; ?>
 <?php endif; ?>
 
