@@ -12,8 +12,9 @@
 ?>
 <?php
 // 設定HeadMeta
-$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=utf-8')
-                 ->appendName('keywords', '澳底, 國小, 台北縣, 貢寮, 海洋')
-                 ->appendName('description', '台北縣貢寮鄉澳底國小');
+$this->headMeta()->prependName('description', '台北縣貢寮鄉澳底國小')
+                 ->prependName('keywords', '澳底, 國小, 台北縣, 貢寮, 海洋')
+                 ->prependHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+                 
 ?>
         

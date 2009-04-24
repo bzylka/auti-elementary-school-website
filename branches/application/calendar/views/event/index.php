@@ -15,7 +15,7 @@
 <?php $this->headTitle('行事曆')->headTitle('事件管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/datepicker.css') ?>
-<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/datepicker.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUI.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/datepicker-zh-TW.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callDatepickerRange.js') ?>
 

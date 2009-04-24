@@ -135,9 +135,27 @@ class Date
         }
 
         return $calendar;
-    
     }
 
+    /**
+     * 從Google取得節日
+     * @param string $startDate 開始日期
+     * @param string $endDate   結束日期
+     * @return array 節日陣列
+     */
+    public function getFestivals($startDate, $endDate)
+    {
+        $festivalFeed = file_get_contents("http://www.google.com/calendar/feeds/taiwan__zh_tw%40holiday.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&start-min=$startDate&start-max=$endDate");
+        $festivalObj = new SimpleXMLElement($festivalFeed);
+
+        foreach ($festivalObj->entry as $festivalEntry) {
+            preg_match('/\d{4}-\d{2}-\d{2}/', $festivalEntry->summary, $match);
+            $festival[] = array('date' => $match[0], 'title' => (string)$festivalEntry->title);
+        }
+        
+        return $festival;
+    }
+    
     /**
      * 回傳現在時間
      * @return string 日期、時間

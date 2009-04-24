@@ -13,7 +13,7 @@
 <?php $this->headTitle('相簿')->headTitle('新增相簿') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/datepicker.css') ?>
-<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/datepicker.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUI.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/datepicker-zh-TW.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callDatepicker.js') ?>
 

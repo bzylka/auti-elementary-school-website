@@ -18,11 +18,11 @@ function getCalendarBlock(date, moveDirection)
     $('#calendarMessage').html('讀取中…');
     $('#calendarMessage').css('display', 'block');
     
-    // 開始讀取行事曆
+    // 讀取行事曆
     $.ajax({
-        url: 'calendar/Ajax/index/date/' + date,
+        url: 'calendar/ajax/getDefaultCalendar/date/' + date,
         error: function(exception) {
-            $('#calendar .blockContent #calendarMessage').html('發生錯誤，讀取行事曆，請稍後再試');
+            $('#calendarMessage').html('發生錯誤，讀取行事曆，請稍後再試');
         },
         success: function(response) {
             // 設定消失方向（反向）
@@ -50,6 +50,22 @@ function getCalendarBlock(date, moveDirection)
             } else {
                 $('#calendar .blockContent').fadeIn(200);
             }
+            
+            // 讀取節日
+            $('#festivalMessage').html('讀取節日中…');
+            $.ajax({
+                url: 'calendar/ajax/getFestival/date/' + date,
+                error: function(exception) {
+                    $('#festivalMessage').html('無法讀取Google上的節日清單');
+                },
+                success: function(response) {
+                    // 寫入內容，顯示動作
+                    $('#festivalList').css('display', 'none');
+                    $('#festivalList').html(response);
+                    //$('#festivalMessage').fadeOut(600);
+                    $('#festivalList').fadeIn(300);
+                }
+            });
         }
     });
 }
