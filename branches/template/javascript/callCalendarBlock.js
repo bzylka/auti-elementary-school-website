@@ -60,8 +60,7 @@ function getCalendarBlock(date, moveDirection)
                 },
                 success: function(response) {
                     // 寫入內容，顯示動作
-                    $('#festivalList').css('display', 'none');
-                    $('#festivalList').html(response);
+                    $('#festivalList').css('display', 'none').html(response);
                     $('#festivalMessage').fadeOut(500);
                     $('#festivalList').fadeIn(400);
                 }

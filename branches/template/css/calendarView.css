@@ -69,6 +69,9 @@
 .calendarSpace td {
     line-height: 0.2em !important;
 }
+#calendar .highlight {
+    background-color: yellow;
+}
 /* 日期設定 */
 .days td {
     font-size: 80%;

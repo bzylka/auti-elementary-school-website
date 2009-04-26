@@ -43,7 +43,11 @@ class Form_Components_Select extends Zend_Form_Element_Select
             }
         }
         
-        $multiOptions += $options['defaultValue'];
+        if ($options['defaultValue'] && $multiOptions) {
+            $multiOptions += $options['defaultValue'];
+        } elseif ($options['defaultValue']) {
+            $multiOptions = $options['defaultValue'];
+        }
         ksort($multiOptions);
 
         $this->addValidator('Int', true, array('messages' => $this->getLabel() . '選單必需為整數'))
