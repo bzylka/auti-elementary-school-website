@@ -1,0 +1,26 @@
+.webLinkBlock {
+    display: inline-block;
+    margin: 0.6em 0.8em;
+    text-align: center;
+    position: relative;
+/* IE hack */
+    zoom: 1;
+    *display: inline;
+}
+.webLinkBlock p {
+    text-align: center;
+}
+.webLinkBlock img {
+    width: 8em;
+    height: 2.5em;
+}
+.webLinkNav {
+    font-size: 80%;
+}
+#addHyperLink {
+    float: right;
+    margin-right: 1em;
+    margin-top: -1.5em;
+    border: 2px solid #FF6600;
+    padding: 2px;
+}

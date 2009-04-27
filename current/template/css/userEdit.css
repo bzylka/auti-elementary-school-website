@@ -1,0 +1,8 @@
+#userPhoto {
+    float: left;
+    margin-right: 1em;
+}
+#userPhoto img {
+    max-width: 10em;
+    max-height: 9em;
+}
