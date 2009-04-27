@@ -16,15 +16,12 @@ $(function() {
     // 高亮度標記事件
     $('.event').hover(
         function() {
-            $(this).toggleClass("highlight");
             var eventTitle = $(this).attr('title');
-            originBackgroundColor = $("td[title='" + eventTitle + "']").css('background-color');
-            $("td[title='" + eventTitle + "']").css('background-color' , '#F07F00');
+            $("td[title='" + eventTitle + "']").toggleClass("eventHighlight");
         },
         function() {
-            $(this).toggleClass("highlight");
             var eventTitle = $(this).attr('title');
-            $("td[title='" + eventTitle + "']").css('background-color' , originBackgroundColor);
+            $("td[title='" + eventTitle + "']").toggleClass("eventHighlight");
         }
     );
     
@@ -32,32 +29,9 @@ $(function() {
     $('.event').children('.detail').dialog({autoOpen: false});
     
     // 標示節日（測試程式碼）
-    $('tr').find("td:contains('09-01')").css('color', 'red');
-    $('tr').find("td:contains('09-01')").prepend('YA，今天放假！');
+    $('tr').find("td:contains('04-23')").css('color', 'red');
+    //$('tr').find("td:contains('04-23')").prepend('YA，今天放假！');
     
-    //高亮度標記日期格子（需要測試）
-    $('.eventRow td').hover (
-        function() {
-            var tdIndex = $('.eventRow td').index(this);
-            var row     = parseInt(tdIndex / 35);
-            var col     = tdIndex % 7;
-            
-            for (i =0; i < 5; i++) {
-                $('.eventRow td').eq(35 * row + i * 7 + col).toggleClass("highlight");
-                $('.calendarSpace td').eq(35 * row + i * 7 + col).toggleClass("highlight");
-            }
-        },
-        function() {
-            var tdIndex = $('.eventRow td').index(this);
-            var row     = parseInt(tdIndex / 35);
-            var col     = tdIndex % 7;
-
-            for (i =0; i < 5; i++) {
-                $('.eventRow td').eq(35 * row + i * 7 + col).toggleClass("highlight");
-                $('.calendarSpace td').eq(35 * row + i * 7 + col).toggleClass("highlight");
-            }
-        }
-    );
 });
 
 /**

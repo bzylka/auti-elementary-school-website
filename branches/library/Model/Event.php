@@ -37,7 +37,13 @@ class Model_Event extends Model_Abstract
      */
     public function getEvents($startDate, $endDate)
     {
-        return $this->getTable()->where("endDate >= '$startDate' AND startDate <= '$endDate'")->order('startDate')->getRowset();
+        $eventRowset = $this->getTable()->where("endDate >= '$startDate' AND startDate <= '$endDate'")->order('startDate')->getRowset();
+        $events = array();
+        foreach ($eventRowset as $eventRow) {
+            $events[] = array_merge($eventRow->toArray(), array('backgroundColor' => $eventRow->findParentRow('Table_EventCatalog')->backgroundColor));
+        }
+        
+        return $events;
     }
 }
 ?>

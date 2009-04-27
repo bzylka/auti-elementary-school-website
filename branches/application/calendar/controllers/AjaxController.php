@@ -30,7 +30,7 @@ class Calendar_AjaxController extends Controller
 
         // 設定都要進行Ajax呼叫
         if (!$this->_request->isXmlHttpRequest()) {
-            exit('錯誤的呼叫');
+            //exit('錯誤的呼叫');
         }
     }
     
@@ -89,15 +89,15 @@ class Calendar_AjaxController extends Controller
         $year        = $dateObj->get(Zend_Date::YEAR_8601);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
-        $this->view->festivals = Date::getFestivals("$year-$month-01", "$year-$month-$daysOfMonth");
+        $festivals   = Date::getFestivals("$year-$month-01", "$year-$month-$daysOfMonth");
         
-        if ($this->view->festivals === false) {
-            $this->view->message = '無法取得Google的節日資料';
-        } elseif (count($this->view->festivals) == 0) {
-            $this->view->message = '本月無國定節日';
+        if ($festivals === false) {
+            $festivals['message'] = '無法取得Google的節日資料';
+        } elseif (count($festivals) == 0) {
+            $festivals['message'] = '本月無國定節日';
         }
 
-        $this->render('festival-list');
+        $this->_helper->json->sendJson($festivals);
     }
 }
 ?>

@@ -58,11 +58,21 @@ function getCalendarBlock(date, moveDirection)
                 error: function(exception) {
                     $('#festivalMessage').html('無法讀取Google上的節日清單');
                 },
+                dataType: 'json',
                 success: function(response) {
                     // 寫入內容，顯示動作
-                    $('#festivalList').css('display', 'none').html(response);
-                    $('#festivalMessage').fadeOut(500);
-                    $('#festivalList').fadeIn(400);
+                    if (response.message) {
+                        $('#festivalMessage').html(response.message);
+                    } else {
+                        $('#festivalList').css('display', 'none')
+                        $('#festivalList').prepend('<h1>本月節日</h1>');
+                        $.each(response, function(i, festival){
+                            $('#festivalList').append('<span class="festivalDate">' + festival.date + '</span>&nbsp;&nbsp;');
+                            $('#festivalList').append('<span class="festivalTitle">' + festival.title + '</span><br />');
+                        });
+                        $('#festivalMessage').fadeOut(500);
+                        $('#festivalList').fadeIn(400);
+                    }
                 }
             });
         }

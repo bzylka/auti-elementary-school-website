@@ -94,6 +94,13 @@ class Date
         // 取得跟前一週星期天的距離、日期
         $date = self::getInstance();
         $date->set($startDate, 'yyyy-MM-dd');
+
+        // 檢查日期限制為1970～2100
+        
+        if ($date->get('yyyy') < 1970 || $date->get('yyyy') > 2100) {
+            exit('超過日期限制，本行事曆限制年份為西元1970年～西元2100年');
+        }
+        
         $preStartDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
         $preStartDate = self::add($startDate, -$preStartDays);
 

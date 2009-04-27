@@ -114,11 +114,11 @@ class Calendar_ViewController extends Controller
 
         // 讀取事件
         $event = new Model_Event();
-        $eventRowset = $event->getEvents($startDate, $endDate);
+        $eventArray = $event->getEvents($startDate, $endDate);
 
         // 處理事件陣列
-        foreach ($eventRowset as $eventRow) {
-            $startDate = $eventRow->startDate;
+        foreach ($eventArray as &$eventEntry) {
+            $startDate = $eventEntry['startDate'];
             $endFlag   = false;
             for ($week = 0; $week < $calendarWeeks && $endFlag == false; $week++) {
                 for ($day = 0; $day < 7; $day++) {
@@ -141,7 +141,7 @@ class Calendar_ViewController extends Controller
                         
                         // 計算和週末的距離
                         $distanceToSunday = Date::sub($calendar['date'][$week][6]['date'], $startDate);
-                        $distanceToEnd    = Date::sub($eventRow->endDate, $startDate);
+                        $distanceToEnd    = Date::sub($eventEntry['endDate'], $startDate);
                         
                         if ($distanceToEnd > $distanceToSunday) {
                             $colspan   = $distanceToSunday + 1;
@@ -155,11 +155,10 @@ class Calendar_ViewController extends Controller
                         }
                         
                         // 儲存Events
-                        $events[$week][$day][$slot]                    = $eventRow->toArray();
-                        $events[$week][$day][$slot]['backgroundColor'] = $eventRow->findParentRow('Table_EventCatalog')->backgroundColor;
-                        $events[$week][$day][$slot]['colspan']         = $colspan;
-                        $events[$week][$day][$slot]['hasPre']          = $hasPre;
-                        $events[$week][$day][$slot]['hasNext']         = $hasNext;
+                        $events[$week][$day][$slot]            = $eventEntry;
+                        $events[$week][$day][$slot]['colspan'] = $colspan;
+                        $events[$week][$day][$slot]['hasPre']  = $hasPre;
+                        $events[$week][$day][$slot]['hasNext'] = $hasNext;
                         
                         // 設定之後的陣列內容為null
                         for ($endDay = $day + $colspan, $day++; $day < $endDay ; $day++) {

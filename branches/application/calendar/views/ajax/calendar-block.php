@@ -50,16 +50,16 @@
 
     <div id="events">
         <?php if (count($this->events) != 0): ?>
-            <?php foreach ($this->events as $eventRow): ?>
+            <?php foreach ($this->events as &$eventEntry): ?>
                 <div class="datePeriod">
-                    <?php if ($eventRow->startDate == $eventRow->endDate): ?>
-                        <?php echo $eventRow->startDate ?>
+                    <?php if ($eventEntry['startDate'] == $eventEntry['endDate']): ?>
+                        <?php echo $eventEntry['startDate'] ?>
                     <?php else: ?>
-                        <?php echo $eventRow->startDate . '&nbsp;～&nbsp;' . $eventRow->endDate ?>
+                        <?php echo $eventEntry['startDate'] . '&nbsp;～&nbsp;' . $eventEntry['endDate'] ?>
                     <?php endif; ?>
                 </div>
-                <div class="eventName">
-                    <?php echo $this->escape($eventRow->eventName) ?>
+                <div class="eventName" style="color: <?php echo $eventEntry['backgroundColor'] ?>">
+                    <?php echo $this->escape($eventEntry['eventName']) ?>
                 </div>
             <?php endforeach;?>
         <?php else: ?>
