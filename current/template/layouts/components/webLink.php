@@ -22,7 +22,7 @@ unset($webLink);
     <?php foreach ($webLinkList as &$webLink): ?>
         <li>
             <a href="<?php echo $webLink['link'] ?>">
-                <?php echo $this->layout()->getView()->img('photos/' . $webLink['iconHashFile'], $webLink['linkName']) ?>
+                <?php echo $this->layout()->getView()->photo($webLink['iconHashFile'], $webLink['linkName']) ?>
             </a>
         </li>
     <?php endforeach; ?>

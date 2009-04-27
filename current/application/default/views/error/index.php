@@ -12,7 +12,7 @@
 ?>
 <?php $this->headTitle('錯誤') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/error.css') ?>
-<?php //$this->headMeta()->appendHttpEquiv('Refresh', '5;url=' . BASE_URL ) ?>
+<?php $this->headMeta()->appendHttpEquiv('Refresh', '5;url=' . BASE_URL ) ?>
 
 <div style="margin:0 auto; display:inline-block; padding:5px; border:1px solid #CD0A0A; background-color:#E35B2B; color:white;">
     <?php echo $this->img('icon/alert.png', '警告', array('style' => 'width:1.5em;vertical-align:middle;')) ?>

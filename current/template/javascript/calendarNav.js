@@ -29,7 +29,7 @@ $(function() {
     $('.event').children('.detail').dialog({autoOpen: false});
     
     // 標示節日（測試程式碼）
-    $('tr').find("td:contains('04-23')").css('color', 'red');
+    //$('tr').find("td:contains('04-23')").css('color', 'red');
     //$('tr').find("td:contains('04-23')").prepend('YA，今天放假！');
     
 });
