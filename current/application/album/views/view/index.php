@@ -44,14 +44,16 @@
                 <?php echo $this->hyperLink('album/add/photo/albumId/' . $this->album['albumData']['albumId'], '上傳相片＋') ?>
             </span>
         <?php endif; ?>
-            |
+            
         <?php if ($this->isEditAlbum): ?>
+            |
             <span id="editAlbum">
                 <?php echo $this->hyperLink('album/edit/index/id/' . $this->album['albumData']['albumId'], '編輯相簿資訊') ?>
             </span>
         <?php endif; ?>
-            |
+            
         <?php if ($this->isDeleteAlbum): ?>
+            |
             <span id="deleteAlbum">
                 <?php echo $this->hyperLink('album/delete/index/id/' . $this->album['albumData']['albumId'], '刪除相簿') ?>
             </span>
