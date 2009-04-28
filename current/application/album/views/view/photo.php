@@ -50,7 +50,7 @@
     <div id="photoNav">
         相片<?php echo $this->photo['count'] ?>，總數為<?php echo $this->photo['totalCount'] ?>
         <small>｜</small>
-        <?php echo $this->img('template/img/upNarrow.png', '檢視全部相片')?>
+        <?php echo $this->img('icon/upNarrow.png', '檢視全部相片')?>
         <?php echo $this->hyperLink('album/view/index/id/' . $this->photo['albumId'], '檢視全部相片') ?>
         <small>｜</small>
         <?php echo $this->img('icon/backNarrow.png', '上一張')?>
