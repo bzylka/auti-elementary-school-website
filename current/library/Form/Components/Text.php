@@ -22,6 +22,12 @@ class Form_Components_Text extends Zend_Form_Element_Text
      */
     public function __construct($name, $options)
     {
+        // 刪除屬性避免加入到HTML中
+        $stringMin = $options['stringMin'];
+        $stringMax = $options['stringMax'];
+        unset($options['stringMin']);
+        unset($options['stringMax']);
+        
         parent::__construct($name, $options);
 
         // 加入NotEmpty的設定
@@ -31,10 +37,10 @@ class Form_Components_Text extends Zend_Form_Element_Text
         
         $this->addFilter('StringTrim')
              ->addValidator('StringLength', true,
-                            array($option['stringMin'],
-                                  $option['stringMax'],
-                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $option['stringMin'] . '個字以上',
-                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $option['stringMin'] . '10個字')));
+                            array($stringMin,
+                                  $stringMax,
+                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $options['stringMin'] . '個字以上',
+                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $options['stringMin'] . '10個字')));
     }
 }
 ?>

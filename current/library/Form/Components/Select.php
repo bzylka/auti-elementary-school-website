@@ -26,6 +26,12 @@ class Form_Components_Select extends Zend_Form_Element_Select
      */
    public function __construct($name, $options)
     {
+        // 刪除屬性避免加入到HTML中
+        $columnPair   = $options['columnPair'];
+        $defaultValue = $options['defaultValue'];
+        unset($options['columnPair']);
+        unset($options['defaultValue']);
+        
         parent::__construct($name, $options);
         
         // 加入NotEmpty的設定
@@ -36,17 +42,17 @@ class Form_Components_Select extends Zend_Form_Element_Select
         $tableClass = 'Table_' . $options['table'];
         $table = new $tableClass();
         
-        $valueArray = $table->columns($options['columnPair'])->getRowset()->toArray();
+        $valueArray = $table->columns($columnPair)->getRowset()->toArray();
         if (isset($valueArray)) {
             foreach ($valueArray as &$value) {
-                $multiOptions[$value[$options['columnPair'][0]]] = $value[$options['columnPair'][1]];
+                $multiOptions[$value[$columnPair[0]]] = $value[$columnPair[1]];
             }
         }
         
-        if ($options['defaultValue'] && $multiOptions) {
-            $multiOptions += $options['defaultValue'];
-        } elseif ($options['defaultValue']) {
-            $multiOptions = $options['defaultValue'];
+        if ($defaultValue && $multiOptions) {
+            $multiOptions += $defaultValue;
+        } elseif ($defaultValue) {
+            $multiOptions = $defaultValue;
         }
         ksort($multiOptions);
 

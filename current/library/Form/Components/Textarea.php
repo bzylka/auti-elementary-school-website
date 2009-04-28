@@ -32,8 +32,8 @@ class Form_Components_Textarea extends Zend_Form_Element_Textarea
         $this->addFilter('StringTrim')
              ->addValidator('StringLength',
                             true,
-                            array($option['stringMin'],
-                                  $option['stringMax'],
+                            array($options['stringMin'],
+                                  $options['stringMax'],
                                   'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $option['stringMin'] . '個字以上',
                                                       Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $option['stringMin'] . '10個字')));
     }
