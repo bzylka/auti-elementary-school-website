@@ -14,12 +14,10 @@
  */
 $(function() {
     if (screen.width >= 800 && screen.width < 1024) {
-        bodyFontSize = "16px";
+        $('body').css('fontSize', '16px');
     } else if (screen.width >= 1024 && screen.width < 1280) {
-        bodyFontSize = "17px";
+        //不設定，由CSS決定
     } else if (screen.width >= 1280) {
-        bodyFontSize = "20px";
+        $('body').css('fontSize', '20px');
     }
-    
-    $("body").css({fontSize: bodyFontSize});
 });
