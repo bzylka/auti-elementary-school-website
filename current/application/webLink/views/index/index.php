@@ -37,7 +37,7 @@
                 </a>
             </p>
             <p>
-                <a class="external "href="<?php echo $webLink['link'] ?>" target="_blank">
+                <a class="external" href="<?php echo $webLink['link'] ?>" target="_blank">
                     <?php echo $this->escape($webLink['linkName']) ?>
                 </a>
             </p>
