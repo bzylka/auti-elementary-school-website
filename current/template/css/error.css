@@ -1,0 +1,13 @@
+#errorBlock {
+    font-size: 120%;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #AC6262;
+    background-color: #FBEDED;
+    color: #6D675F;
+}
+#errorBlock img {
+    width: 1.2em;
+    vertical-align: middle;
+}
