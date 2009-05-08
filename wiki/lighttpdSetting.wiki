@@ -1,0 +1,18 @@
+#summary lighttpd伺服器設定
+
+= rewrite的設定 =
+{{{
+url.rewrite-once = (
+  ".*\.(js|ico|gif|jpg|png|css|txt|swf|mp3)$" => "$0",
+  ".*\?(.*)$" => "/index.php?$1",
+  "" => "/index.php"
+)
+}}}
+
+= mod_expire的設定 =
+== 設定此選項可以減輕網站負擔 ==
+{{{
+$HTTP["url"] =~ "^/template/" {
+         expire.url = ( "" => "access 10 years" )
+}
+}}}
