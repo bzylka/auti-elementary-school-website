@@ -10,7 +10,7 @@ url.rewrite-once = (
 }}}
 
 = mod_expire的設定 =
-== 設定此選項可以減輕網站負擔 ==
+== 設定圖片、CSS的過期時間，提供瀏覽器做快取 ==
 {{{
 $HTTP["url"] =~ "^/template/" {
          expire.url = ( "" => "access 10 years" )
