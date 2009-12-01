@@ -1,5 +1,5 @@
+#summary 安裝需求
 #labels Featured
-#安裝需求
 
 = PHP extension =
 mbstring
