@@ -1,0 +1,6 @@
+#labels Featured
+#安裝需求
+
+= PHP extension =
+mbstring
+ImageMagick
