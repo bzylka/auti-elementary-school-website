@@ -1,5 +1,7 @@
 #summary 安裝需求
 
-= PHP extension =
-mbstring
-ImageMagick
+= 需要的PHP extension =
+
+  * mbstring
+  * imageMagick
+  * pdo_sqlite
