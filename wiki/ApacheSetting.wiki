@@ -1,0 +1,12 @@
+#summary Apache伺服器設定
+
+= mod_rewrite設定 =
+{{{
+
+}}}
+
+= mod_expire設定 =
+== 設定圖片、CSS的過期時間，提供瀏覽器做快取 ==
+{{{
+
+}}}
