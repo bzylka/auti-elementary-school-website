@@ -28,7 +28,8 @@ class Form_Login extends Form_Abstract
                           array('label'     => '帳號',
                                 'required'  => true,
                                 'size'      => 15,
-                                'maxlength' => 10))
+                                'maxlength' => 10,
+                                'validators' => array(array('Alnum', true, array('messages' => '帳號只能使用"英文"和"數字"')))))
              ->addElement('Password', 'password',
                           array('label'     => '密碼',
                                 'required'  => true,

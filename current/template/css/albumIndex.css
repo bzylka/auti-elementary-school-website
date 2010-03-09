@@ -34,3 +34,9 @@
     font-size: 70%;
     padding: 2px;
 }
+.albumBlock .createDate sup {
+    vertical-align: super;
+    font-size: 80%;
+    font-weight: bold;
+    color: red;
+}

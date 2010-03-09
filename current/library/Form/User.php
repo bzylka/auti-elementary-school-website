@@ -35,7 +35,8 @@ class Form_User extends Form_Abstract
                                 'maxlength'  => 20,
                                 'stringMin'  => 2,
                                 'stringMax'  => 20,
-                                'validators' => array(array('Alpha', true, array('messages' => '英文名稱必須輸入英文')))))
+                                'validators' => array(array('Alpha', true, array('messages' => '使用者英文姓名必須輸入英文',
+                                                                                 'allowWhiteSpace' => true)))))
              ->addElement('Text', 'account',
                           array('label'      => '帳號',
                                 'required'   => true,
@@ -57,7 +58,7 @@ class Form_User extends Form_Abstract
                                 'maxlength'  => 30,
                                 'stringMin'  => 0,
                                 'stringMax'  => 30,
-                                'validators' => array(array('EmailAddress', true, array('messages' => 'E-mail位址錯誤')))));
+                                'validators' => array(array('EmailAddress', true, array('messages' => 'E-mail位址格式錯誤')))));
         if ($this->_formType != 'userEdit') {
             $this->addElement('Select', 'titleId',
                               array('label'        => '職稱',

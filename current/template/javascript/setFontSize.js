@@ -13,11 +13,7 @@
  * 設定字型
  */
 $(function() {
-    if (screen.width >= 800 && screen.width < 1024) {
-        $('body').css('fontSize', '16px');
-    } else if (screen.width >= 1024 && screen.width < 1280) {
-        //不設定，由CSS決定
-    } else if (screen.width >= 1280) {
+    if (screen.width >= 1280) {
         $('body').css('fontSize', '20px');
     }
 });

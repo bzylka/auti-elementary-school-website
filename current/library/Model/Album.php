@@ -37,17 +37,19 @@ class Model_Album extends Model_Abstract
     {
         $albumYear = new Table_AlbumYear();
         $albumYearRowset = $albumYear->order('albumYearId DESC')->getRowset();
+
         foreach ($albumYearRowset as $albumYearRow) {
-            $albumRowset = $albumYearRow->findDependentRowset('Table_Album');
+            $select = $albumYear->select()->order('createDate DESC');
+            $albumRowset = $albumYearRow->findDependentRowset('Table_Album', 'AlbumYear', $select);
             foreach ($albumRowset as $albumRow) {
                 $albumArray[$albumYearRow->albumYearName][] = array_merge($albumRow->toArray(),
                                                                           array('coverPhotoFile' => str_replace('.', '_thumb.', $albumRow->findParentRow('Table_Photo')->photoHashFile)));
             }
         }
-        
+
         // 讀取無相簿年份
         $album = new Table_Album();
-        $albumNoYearRowset = $album->where('albumYearId = 0')->getRowset();
+        $albumNoYearRowset = $album->where('albumYearId = 0')->order('createDate DESC')->getRowset();
         foreach ($albumNoYearRowset as $albumNoYear) {
             $albumArray['無年份'][] = array_merge($albumNoYear->toArray(),
                                                   array('coverPhotoFile' => str_replace('.', '_thumb.', $albumNoYear->findParentRow('Table_Photo')->photoHashFile)));

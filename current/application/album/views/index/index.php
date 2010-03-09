@@ -39,7 +39,11 @@
                     </a>
                 </p>
                 <p class="albumName"><?php echo $this->escape($album['albumName']) ?></p>
-                <p class="createDate"><?php echo $this->escape($album['createDate']) ?></p>
+                <p class="createDate"><?php echo $this->escape($album['createDate']) ?>
+                                      <?php if (Date::sub(Date::getDate(), $this->escape($album['createDate'])) < 30):?>
+                                          <sup>New！</sup>
+                                      <?php endif;?>
+                </p>
             </div>
         <?php endforeach; ?>
     <?php endforeach; ?>

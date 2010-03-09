@@ -35,7 +35,8 @@ class Form_Title extends Form_Abstract
                                     'maxlength' => 50,
                                     'stringMin' => 1,
                                     'stringMax' => 50,
-                                    'validators' => array(array('Alpha', true, array('messages' => '職稱英文名稱必須輸入英文')))))
+                                    'validators' => array(array('Alpha', true, array('messages' => '職稱英文名稱必須輸入英文',
+                                                                                     'allowWhiteSpace' => true)))))
                  ->addElement('Text', 'displayOrder',
                               array('label'     => '顯示順序',
                                     'size'      => 3,

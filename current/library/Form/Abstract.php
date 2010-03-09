@@ -41,7 +41,7 @@ abstract class Form_Abstract extends Zend_Form
     }
     
     /**
-     * 子類別的掛勾
+     * 提供給子類別的Hook
      */
     public function init()
     {
@@ -50,7 +50,6 @@ abstract class Form_Abstract extends Zend_Form
     /**
      * 覆載loadDefaultDecorators()
      */
-
     public function loadDefaultDecorators()
     {
         $this->setDecorators(array(
