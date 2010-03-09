@@ -38,7 +38,6 @@ class Model_Title extends Model_Abstract
         foreach ($titleRowset as $titleRow) {
             $titleTable[] = array_merge($titleRow->toArray(),
                                         array('officeName' => $titleRow->findParentRow('Table_Office')->officeName));
-            echo $titleRow->findParentRow('Table_Office')->officeName . '|';
         }
         
         return $titleTable;
