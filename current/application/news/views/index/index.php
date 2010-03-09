@@ -62,7 +62,7 @@
     <div id="newsTable">
         <table summary="最新消息列表">
             <tr>
-                <th class="postDate">發佈日期</th>
+                <th class="postDate">日期</th>
                 <th class="isImportant"><?php echo $this->img('icon/important.png', '重要訊息')?></th>
                 <th class="officeName">處室</th>
                 <th class="titleName">職稱</th>
@@ -70,11 +70,11 @@
             </tr>
             <?php foreach ($this->newsTable as &$news): ?>
                 <tr>
-                    <td class="postDate"><?php echo $news['postDate'] ?></td>
+                    <td class="postDate"><?php echo str_replace('-', '.', substr($news['postDate'], 5)) ?></td>
                     <td class="isImportant"><?php echo ($news['isImportant'] ? $this->img('icon/important.png', '重要訊息') : '&nbsp;') ?></td>
                     <td class="officeName"><?php echo $this->escape($news['officeName']) ?></td>
                     <td class="titleName"><?php echo $this->escape($news['titleName']) ?></td>
-                    <td class="newsTitle"><?php echo $this->hyperLinK('news/view/index/id/' . $news['newsId'], $this->restrictString($news['newsTitle'], 30)) ?></td>
+                    <td class="newsTitle"><?php echo $this->hyperLinK('news/view/index/id/' . $news['newsId'], $this->restrictString($news['newsTitle'], 70)) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

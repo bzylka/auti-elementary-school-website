@@ -26,13 +26,13 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     </head>
     
     <body>
-        <div id="pageWraper">
+        <div id="pageWraper" class="container_24">
             <div id="header">
                 <div id="banner">
                     <?php echo $this->partial('./components/banner.php') ?>
                 </div>
             </div>
-            <div id="pageContent" style="width:100%; margin:0; height:20em; text-align:center;">
+            <div id="pageContent" style="height:20em; text-align:center;" class="grid_24">
                 <?php echo $this->layout()->content ?>
             </div>
             <div id="space">

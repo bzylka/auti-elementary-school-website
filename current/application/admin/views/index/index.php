@@ -12,4 +12,6 @@
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
+<?php $this->headTitle('管理介面') ?>
+
 <h1>管理介面</h1>

@@ -25,11 +25,12 @@ class ViewHelper_RestrictString
      */
     public function restrictString($string, $limit)
     {
-        $stringLength = mb_strlen($string, 'UTF-8');
+        $stringLength = mb_strwidth($string, 'UTF-8');
+
         if ($stringLength <= $limit) {
             return $string;
         } else {
-            return mb_substr($string, 0, $limit - 1) . '…';
+            return mb_strimwidth($string, 0, $limit, '…', 'UTF-8');
         }
     }
 }

@@ -19,8 +19,6 @@
     <li><?php echo $this->hyperLink('admin/privilege', '權限管理')?></li>
     <li><?php echo $this->hyperLink('admin/resource', '資源管理')?></li>
     <li><?php echo $this->hyperLink('admin/accessResource', '資源存取管理')?></li>
-    <li class="navTitle">最新消息</li>
-    <li><?php echo $this->hyperLink('admin/news', '最新消息管理')?></li>
     <li class="navTitle">相簿</li>
     <li><?php echo $this->hyperLink('admin/albumYear', '相簿年份管理')?></li>
     <li><?php echo $this->hyperLink('admin/slideShow', '相簿隨機展示')?></li>

@@ -27,8 +27,14 @@
 #news {
     width: 60%;
 }
+#news table {
+    width: 100%;
+}
 #news .postDate {
-    width: 6.5em;
+    width: 3em;
+}
+#news .isImportant {
+    width: 1.1em;
 }
 #news .officeName {
     width: 4em;
