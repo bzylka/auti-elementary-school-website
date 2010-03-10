@@ -1,3 +1,12 @@
+#left {
+    float: left;
+    width: 55%;
+}
+#right {
+    float: left;
+    width: 40%;
+    margin-left: 1em;
+}
 .contentBlock {
     border: 1px solid #A5C98B;
     font-size: 80%;
@@ -43,7 +52,6 @@
 }
 #calendar {
     min-height: 4em;
-    float: right;
 }
 #calendar #calendarMessage {
     font-weight: bold;
