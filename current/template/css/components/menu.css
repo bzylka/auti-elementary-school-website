@@ -1,6 +1,6 @@
 /* 總體設定 */
 #menu * {
-    list-style-type: none;
+    white-space: nowrap;
 }
 /* 第一層選單設定 */
 #menu li {

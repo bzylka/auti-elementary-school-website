@@ -5,4 +5,5 @@ p:first-letter {
 }
 p {
     padding: 0.5em 1em;
+    line-height:1.5em;
 }

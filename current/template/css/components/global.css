@@ -1,13 +1,8 @@
 /* 版面設定 */
-* {
-    padding: 0;
-    margin: 0;
-    vertical-align: middle;
-}
 body {
     padding: 8px;
     font-family: sans-serif, serif;
-    font-size: 16px;
+    font-size: 16px/1.5;
 }
 /* 表格設定 */
 th {
@@ -61,30 +56,31 @@ h2 {
 }
 /* PageWraper */
 #pageWraper {
+    padding-top: 0.2em;
     border: 1px solid #A8A8A8;
-}
-#header {
-    height: 4.5em;
-    position: relative;
-}
-/* Banner */
-#banner img {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 4em;
 }
 /* 登入操作區 */
 #loginNav {
-    font-size: 70%;
+    font-size: 80%;
     text-align: right;
+    margin-bottom: 10px;
 }
 #loginNav li {
     display: inline;
 }
+/* Header */
+#header {
+    margin-bottom: 10px;
+}
+#header a, #header img {
+    display: block;
+    width: 100%;
+    height: 4.5em;
+}
 /* 操作欄 */
 #nav {
     font-size: 90%;
+    margin-bottom: 1em;
 }
 #nav h1 {
     color: #F07F10;
@@ -109,7 +105,6 @@ h2 {
 #adminNav li {
     list-style-type: none;
 }
-/* 內容 */
 /* space */
 #space {
     width: 100%;

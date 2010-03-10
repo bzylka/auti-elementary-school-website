@@ -28,15 +28,15 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     </head>
     
     <body>
-        <div id="loginNav" class="container_24">
-            <?php echo $this->partial('./components/loginNav.php') ?>
-        </div>
         <div id="pageWraper" class="container_24">
-            <div id="header">
-                <div id="banner">
-                    <?php echo $this->partial('./components/banner.php') ?>
-                </div>
+            <div id="loginNav" class="grid_24">
+                <?php echo $this->partial('./components/loginNav.php') ?>
             </div>
+            <div class="clear"></div>
+            <div id="header" class="grid_24">
+                <?php echo $this->partial('./components/banner.php') ?>
+            </div>
+            <div class="clear"></div>
             <div id="nav" class="grid_3">
                 <?php echo $this->partial('./components/defaultNav.php') ?>
                 <?php echo $this->partial('./components/webLink.php') ?>
@@ -44,9 +44,7 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
             <div id="pageContent" class="grid_20">
                 <?php echo $this->layout()->content ?>
             </div>
-            <div id="space">
-                &nbsp;
-            </div>
+            <div class="clear"></div>
             <div id="footer">
                 <?php echo $this->partial('./components/footer.php') ?>
             </div>

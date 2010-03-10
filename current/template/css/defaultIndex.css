@@ -1,5 +1,4 @@
 .contentBlock {
-    float: left;
     border: 1px solid #A5C98B;
     font-size: 80%;
     height: 20em;
@@ -24,11 +23,8 @@
     text-align: right;
     background-color: transparent !important;
 }
-#news {
-    width: 60%;
-}
 #news table {
-    width: 100%;
+    width: 99.3%;
 }
 #news .postDate {
     width: 3em;
@@ -46,10 +42,8 @@
     width: 20em;
 }
 #calendar {
-    float: right;
-    margin-right: 1em;
-    width: 35%;
     min-height: 4em;
+    float: right;
 }
 #calendar #calendarMessage {
     font-weight: bold;
@@ -129,9 +123,6 @@
 }
 #calendar #festivalList .festivalTitle {
     color: #CC3333;
-}
-#album {
-    width: 60%;
 }
 #album .blockContent {
     text-align: center;

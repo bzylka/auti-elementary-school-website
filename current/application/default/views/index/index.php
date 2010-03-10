@@ -16,7 +16,7 @@
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callCalendarBlock.js') ?>
 
-<div id="news" class="contentBlock">
+<div id="news" class="contentBlock grid_14">
     <div class="blockHeader">
         <?php if ($this->allowAddNews): ?>
             <span class="blockNav">
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-<div id="calendar" class="contentBlock">
+<div id="calendar" class="contentBlock grid_9">
     <div class="blockHeader">
         <span class="blockNav">
             <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈顯示本月〉') ?>
@@ -60,13 +60,13 @@
         行事曆
     </div>
     <div id="calendarMessage">
-        
+
     </div>
     <div class="blockContent">
     </div>
 </div>
 
-<div id="album" class="contentBlock">
+<div id="album" class="contentBlock grid_14">
     <div class="blockHeader">
         相簿
         <?php if ($this->photos): ?>
@@ -91,3 +91,4 @@
         </div>
     </div>
 </div>
+
