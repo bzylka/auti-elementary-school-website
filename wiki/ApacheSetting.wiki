@@ -2,7 +2,8 @@
 
 = mod_rewrite設定 =
 {{{
-
+RewriteEngine on
+RewriteRule !\.(js|ico|gif|jpg|png|css|txt|swf|mp3)$ index.php
 }}}
 
 = mod_expire設定 =
