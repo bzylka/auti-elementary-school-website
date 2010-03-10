@@ -14,10 +14,7 @@
 $this->headScript()->prependFile(JAVASCRIPT_URL . 'hightlightInput.js')
                    ->prependFile(JAVASCRIPT_URL . 'selectFirstInput.js')
                    ->prependFile(JAVASCRIPT_URL . 'setFontSize.js')
-                   ->prependFile(JAVASCRIPT_URL . 'jQuery/jdMenu.js')
-                   ->prependFile(JAVASCRIPT_URL . 'jQuery/positionBy.js')
-                   ->prependFile(JAVASCRIPT_URL . 'jQuery/dimensions.js')
-                   ->prependFile(JAVASCRIPT_URL . 'jQuery/bgiframe.js')
+                   ->prependFile(JAVASCRIPT_URL . 'menu.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/jQuery.js');
 ?>
         

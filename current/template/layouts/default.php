@@ -41,7 +41,7 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
                 <?php echo $this->partial('./components/defaultNav.php') ?>
                 <?php echo $this->partial('./components/webLink.php') ?>
             </div>
-            <div id="pageContent" class="grid_21">
+            <div id="pageContent" class="grid_20">
                 <?php echo $this->layout()->content ?>
             </div>
             <div id="space">

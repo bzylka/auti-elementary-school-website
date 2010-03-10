@@ -13,8 +13,8 @@
  */
 ?>
 <?php
-$this->headLink()->prependStylesheet(CSS_URL . 'components/jdMenu.css')
-                 ->prependStylesheet(CSS_URL . 'components/global.css')
+$this->headLink()->prependStylesheet(CSS_URL . 'components/global.css')
+                 ->prependStylesheet(CSS_URL . 'components/menu.css')
                  ->prependStylesheet(CSS_URL . 'components/960grid.css');
 ?>
         

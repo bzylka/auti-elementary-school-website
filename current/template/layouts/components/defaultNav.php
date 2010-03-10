@@ -22,7 +22,7 @@ $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
 <h1>網站導覽</h1>
-<ul class="jd_menu jd_menu_vertical" style="display: block !important;">
+<ul id="menu">
     <li><a href="<?php echo BASE_URL . 'news'?>"><?php echo $this->img('icon/news.png', '最新消息') ?>最新消息</a></li>
     <li><a href="<?php echo BASE_URL . 'news/important'?>"><?php echo $this->img('icon/important.png', '重要公告') ?>重要公告</a></li>
     <li><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;

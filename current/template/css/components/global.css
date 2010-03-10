@@ -7,7 +7,7 @@
 body {
     padding: 8px;
     font-family: sans-serif, serif;
-    font-size: 17px;
+    font-size: 16px;
 }
 /* 表格設定 */
 th {
@@ -88,9 +88,6 @@ h2 {
 }
 #nav h1 {
     color: #F07F10;
-}
-#nav a:hover {
-    color: white;
 }
 #nav img {
     width: 1.1em;
