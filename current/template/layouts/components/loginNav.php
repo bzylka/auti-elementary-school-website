@@ -11,38 +11,38 @@
  */
 ?>
 <?php $userInfo = Zend_Auth::getInstance()->getIdentity() ?>
-<ul>
-    <?php if ($this->layout()->getView()->loginMessage): ?>
-        <li>
-            <?php echo $this->layout()->getView()->messageBlock($this->layout()->getView()->loginMessage) ?>
-        </li>
-        <li>&nbsp;|</li>
-    <?php endif; ?>
-    <?php if ($userInfo): ?>
-        <?php if ($userInfo->privilegeName == '管理者'): ?>
-            <li><?php echo $this->hyperLink('admin', '進入管理介面')?>&nbsp;|</li>
+<div id="loginNav" class="grid_24">
+    <ul>
+        <?php if ($this->layout()->getView()->loginMessage): ?>
+            <li>
+                <?php echo $this->layout()->getView()->messageBlock($this->layout()->getView()->loginMessage) ?>
+            </li>
+            <li>&nbsp;|</li>
         <?php endif; ?>
-        
-        <?php if ($userInfo->titleId): ?>
-            <li><?php echo $this->hyperLink('title/duty/edit/id/' . $userInfo->titleId, '修改職掌') ?>&nbsp;|</li>
-        <?php endif; ?>
-        
-        <li><?php echo $this->hyperLink('user/edit/index/id/' . $userInfo->userId, '修改個人資料') ?>&nbsp;|</li>
+        <?php if ($userInfo): ?>
+            <?php if ($userInfo->privilegeName == '管理者'): ?>
+                <li><?php echo $this->hyperLink('admin', '進入管理介面')?>&nbsp;|</li>
+            <?php endif; ?>
 
-        <?php if ($userInfo->officeName): ?>
-            <li><?php echo $userInfo->officeName ?>&nbsp;|</li>
-        <?php endif; ?>
-        
-        <?php if ($userInfo->titleName): ?>
-            <li><?php echo $userInfo->titleName ?>&nbsp;|</li>
-        <?php endif; ?>
+            <?php if ($userInfo->titleId): ?>
+                <li><?php echo $this->hyperLink('title/duty/edit/id/' . $userInfo->titleId, '修改職掌') ?>&nbsp;|</li>
+            <?php endif; ?>
 
-        <li><strong><?php echo $userInfo->userName ?></strong>&nbsp;|</li>
-        <li>身份：<?php echo $userInfo->privilegeName ?>&nbsp;|</li>
-        <li><?php echo $this->hyperLink('logout', '登出')?></li>
-    <?php else: ?>
-        <li><?php echo $this->hyperLink('login', '登入')?></li>
-    <?php endif; ?>
-</ul>
+            <li><?php echo $this->hyperLink('user/edit/index/id/' . $userInfo->userId, '修改個人資料') ?>&nbsp;|</li>
 
-        
+            <?php if ($userInfo->officeName): ?>
+                <li><?php echo $userInfo->officeName ?>&nbsp;|</li>
+            <?php endif; ?>
+
+            <?php if ($userInfo->titleName): ?>
+                <li><?php echo $userInfo->titleName ?>&nbsp;|</li>
+            <?php endif; ?>
+
+            <li><strong><?php echo $userInfo->userName ?></strong>&nbsp;|</li>
+            <li>身份：<?php echo $userInfo->privilegeName ?>&nbsp;|</li>
+            <li><?php echo $this->hyperLink('logout', '登出')?></li>
+        <?php else: ?>
+            <li><?php echo $this->hyperLink('login', '登入')?></li>
+        <?php endif; ?>
+    </ul>
+</div>

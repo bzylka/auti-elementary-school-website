@@ -8,10 +8,12 @@
  *
  * @category   View
  * @package    Layout
- * @copyright  2008 ottokang
+ * @copyright  2010 ottokang
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
-<a href="<?php echo BASE_URL ?>">
-    <img src="<?php echo IMG_URL . 'banner.jpg' ?>" alt="台北縣貢寮鄉澳底國小" title="台北縣貢寮鄉澳底國小" />
-</a>
+<div id="header" class="grid_24">
+    <a href="<?php echo BASE_URL ?>">
+        <img src="<?php echo IMG_URL . 'banner.jpg' ?>" alt="台北縣貢寮鄉澳底國小" title="台北縣貢寮鄉澳底國小" />
+    </a>
+</div>

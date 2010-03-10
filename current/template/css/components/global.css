@@ -1,8 +1,8 @@
 /* 版面設定 */
 body {
-    padding: 8px;
     font-family: sans-serif, serif;
     font-size: 16px/1.5;
+    background-color: #E4E4E4;
 }
 /* 表格設定 */
 th {
@@ -25,7 +25,7 @@ a:visited {
 }
 /* 連外超連結設定 */
 .external {
-    background: url(/template/img/icon/external.png) no-repeat 95% 50% !important;
+    background: url(/template/img/icon/external.png) no-repeat 97% 50% !important;
     padding-right: 1em;
 }
 /* AJAX超連結設定 */
@@ -50,14 +50,16 @@ h2 {
 }
 /* PageWraper */
 #pageWraper {
-    padding-top: 0.2em;
+    padding-top: 0.3em;
     border: 1px solid #A8A8A8;
+    border-top: 0;
+    background-color: white;
 }
 /* 登入操作區 */
 #loginNav {
-    font-size: 80%;
+    font-size: 90%;
     text-align: right;
-    margin-bottom: 10px;
+    margin-bottom: 0.3em;
 }
 #loginNav li {
     display: inline;
@@ -73,11 +75,14 @@ h2 {
 }
 /* 操作欄 */
 #nav {
+    border: 1px solid #A4A4A4;
+    padding: 10px 0 10px 5px;
     font-size: 90%;
     margin-bottom: 1em;
 }
 #nav h1 {
     color: #F07F10;
+    margin-bottom: 3px;
 }
 #nav img {
     width: 1.1em;
@@ -99,30 +104,23 @@ h2 {
 #adminNav li {
     list-style-type: none;
 }
-/* space */
-#space {
-    width: 100%;
-    height: 0.5em;
-    float: left;
-}
 /* footer */
 #footer {
-    clear: left;
+    margin: 0.5em auto 1em auto;
     padding: 3px;
-    margin: 0px auto;
-    font-size: 80%;
+    font-size: 90%;
     text-align: center;
-    background-color: #EAEBEE;
     color: #365DB4;
-    border-top: 1px solid #A8A8A8;
+}
+#footer p {
     line-height: 1.3em;
 }
 #footer a {
-    color: #858585;
+    color: #1F2126;
 }
 #footer a:hover {
+    color: red;
     text-decoration: underline;
-    color: #1F2126;
 }
 #footer img {
     width: 1em;

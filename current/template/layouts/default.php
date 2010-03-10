@@ -28,27 +28,30 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     
     <body>
         <div id="pageWraper" class="container_24">
-            <div id="loginNav" class="grid_24">
-                <?php echo $this->partial('./components/loginNav.php') ?>
-            </div>
+            <?php echo $this->partial('./components/loginNav.php') ?>
+            
             <div class="clear"></div>
-            <div id="header" class="grid_24">
-                <?php echo $this->partial('./components/banner.php') ?>
-            </div>
+            
+            <?php echo $this->partial('./components/header.php') ?>
+                
             <div class="clear"></div>
+            
             <div id="nav" class="grid_3">
                 <?php echo $this->partial('./components/defaultNav.php') ?>
                 <?php echo $this->partial('./components/webLink.php') ?>
             </div>
+            
             <div id="pageContent" class="grid_20">
                 <?php echo $this->layout()->content ?>
             </div>
+            
             <div class="clear"></div>
-            <div id="footer">
-                <?php echo $this->partial('./components/footer.php') ?>
-            </div>
         </div>
+        
+        <?php echo $this->partial('./components/footer.php') ?>
+        
         <?php echo $this->headScript() ?>
+        
         <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
