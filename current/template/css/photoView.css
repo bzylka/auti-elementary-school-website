@@ -1,36 +1,1 @@
-#fileName {
-    color: #878787;
-    font-size: 90%;
-}
-#photoView {
-    padding: 0.3em 0;
-    text-align: center;
-}
-#photoView img {
-    max-width: 30em;
-/* IE6 Hack*/
-    width: 30em;
-    width: auto !important;
-}
-#photoNav {
-    height: 1.8em;
-    font-size: 80%;
-    padding-left: 2em;
-}
-#photoNav small {
-    color: #222222;
-}
-#photoNav img {
-    width: 0.8em;
-    margin: 0 -0.3em -0.1em -0.3em;
-}
-#photoDescriptionContainer {
-    text-align: center;
-}
-#photoDescriptionText {
-    font-weight: bold;
-}
-#photoDescriptionNav {
-    font-weight: normal;
-    font-size: 80%;
-}
+#fileName {    color: #878787;    font-size: 90%;}#photoView {    padding: 0.3em 0;    margin: 0 auto;    max-width: 70%;/* IE6 Hack*/    width: 70%;    width: auto !important;}#fancybox-inner #photoView {    max-width: 100%;    padding: 0;}#photoView img {    width: 100%;}#photoNav {    height: 1.8em;    font-size: 80%;    padding-left: 2em;}#photoNav small {    color: #222222;}#photoNav img {    width: 0.8em;    margin: 0 -0.3em -0.1em -0.3em;}#photoDescriptionContainer {    text-align: center;}#photoDescriptionText {    font-weight: bold;}#photoDescriptionNav {    font-weight: normal;    font-size: 80%;}

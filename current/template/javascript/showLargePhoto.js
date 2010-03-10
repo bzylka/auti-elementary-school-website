@@ -16,7 +16,8 @@ $(function() {
     $("a#showLargePhoto").fancybox({
         "overlayShow": true,
         "overlayOpacity": 0.5,
-        "frameWidth": screen.width * 0.68,
-        "frameHeight": screen.width * 0.68 * 0.75
+        "width": screen.width * 0.75,
+        "height": screen.width * 0.75 * 0.75,
+        "autoDimensions": false
     });
 });
