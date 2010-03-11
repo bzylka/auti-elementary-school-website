@@ -24,7 +24,14 @@ class Form_Components_Checkbox extends Zend_Form_Element_Checkbox
     {
         parent::__construct($name, $options);
         
-        $this->addValidator('Int', true, array('messages' => $this->getLabel() . '必須是數字'));
+        // 設定不同的decorator
+
+        $this->setDecorators(array(
+            'ViewHelper',
+            array('HtmlTag', array('tag' => 'dt')),
+            array('Label', array('tag' => 'dd',
+                                 'id'  => $this->getName() . '-element',
+                                 'placement' => 'append'))));
     }
 }
 ?>

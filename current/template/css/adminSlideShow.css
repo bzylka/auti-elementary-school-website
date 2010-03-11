@@ -1,0 +1,7 @@
+.formContainer fieldset dt {
+    clear: left;
+    width: 1.5em;
+}
+.formContainer fieldset dd {
+    line-height: 1.3em;
+}

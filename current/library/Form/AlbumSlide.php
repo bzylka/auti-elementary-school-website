@@ -34,14 +34,14 @@ class Form_AlbumSlide extends Form_Abstract
         $this->setMethod('post');
 
         $album = new Table_Album();
-        $albumRowset = $album->getRowset();
+        $albumRowset = $album->order('createDate DESC')->getRowset();
         
         foreach ($albumRowset as $albumRow) {
-            $this->_checkBoxes[$albumRow->albumYearId][] = new Zend_Form_Element_Checkbox('album_' . $albumRow->albumId,
-                                                                                          array('label' => $albumRow->albumName,
-                                                                                                'value' => (int)$albumRow->isSlideShow));
+            $this->_checkBoxes[$albumRow->albumYearId][] = new Form_Components_Checkbox('album_' . $albumRow->albumId,
+                                                                                        array('label' => $albumRow->albumName . "...[$albumRow->createDate]",
+                                                                                              'value' => (int)$albumRow->isSlideShow));
         }
-        
+
         $albumYear = new Table_AlbumYear();
         $albumYearRowset = $albumYear->getRowset();
         foreach ($albumYearRowset as $albumYearRow) {

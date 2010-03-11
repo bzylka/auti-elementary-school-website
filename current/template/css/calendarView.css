@@ -47,7 +47,6 @@
 }
 /* 日曆格子設定 */
 #calendar {
-    border-collapse: collapse;
     border-bottom: 7px solid #9BAFF1;
     width: 98%;
 }

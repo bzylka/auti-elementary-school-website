@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('隨機圖片展示設定') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'adminSlideShow.css') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'setSlideShow.js') ?>
 
 <h1>隨機圖片展示設定</h1>

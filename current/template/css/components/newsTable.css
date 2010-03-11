@@ -1,11 +1,13 @@
 #newsTable th {
     background-color: #FFCCCC;
-    padding: 2px 2px 2px 6px;
+    padding: 3px 2px 2px 6px;
     vertical-align: middle;
+    border-bottom: 1.5px solid #FFFFFF;
 }
 #newsTable td {
     background-color: #FFCCFF;
-    padding: 2px 2px 2px 5px;
+    padding: 3px 2px 2px 5px;
+    border-bottom: 1.5px solid #FFFFFF;
 }
 #newsTable .isImportant {
     text-align: center;

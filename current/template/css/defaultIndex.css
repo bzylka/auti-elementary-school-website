@@ -64,10 +64,11 @@
     display: none;
 }
 #calendar #dates {
-    border-collapse: collapse;
     border: 4px solid #C3D9FF;
     width: 80%;
     margin: 1em auto;
+    line-height: 1.2em;
+    width: 17em;
 }
 #calendar #dates * {
     text-align: center;
