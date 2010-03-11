@@ -1,8 +1,14 @@
+/* 管理介面操作欄 */
+#adminNav {
+    font-size: 90%;
+    line-height: 1.2em;
+    margin-bottom: 2em;
+}
 #adminNav ul li {
     margin-left: 1em;
 }
 #adminNav .navTitle {
-    margin-left: 0em;
+    margin: 0.3em 0em;
     font-size: 110%;
     font-weight: bold;
 }

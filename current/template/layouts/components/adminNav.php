@@ -30,7 +30,7 @@
         <li class="navTitle">系統狀態</li>
         <li><?php echo $this->hyperLink('admin/state', '系統狀態')?></li>
     </ul>
-<div>
+</div>
 
 
         

@@ -1,3 +1,19 @@
+/* 操作區塊 */
+#nav {
+    border: 1px solid #A4A4A4;
+    padding: 10px 0 10px 5px;
+    font-size: 90%;
+    margin-bottom: 1em;
+}
+#nav h1 {
+    color: #F07F10;
+    margin-bottom: 3px;
+}
+#nav img {
+    width: 1.1em;
+    margin: 0 0.3em;
+    margin-bottom: -0.1em;
+}
 /* 整體選單設定 */
 #menu {
     white-space: nowrap;
@@ -34,4 +50,12 @@
 }
 #menu li ul li a:hover, #menu li ul li a:active {
     color: red;
+}
+/* 網路連結 */
+#webLink img {
+    width: 5em;
+    height: 2em;
+}
+#webLink li {
+    display: block;
 }

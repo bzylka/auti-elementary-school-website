@@ -15,6 +15,7 @@
 <?php
 $this->headLink()->prependStylesheet(CSS_URL . 'components/admin.css')
                  ->prependStylesheet(CSS_URL . 'components/global.css')
-                 ->prependStylesheet(CSS_URL . 'components/960grid.css');
+                 ->prependStylesheet(CSS_URL . 'components/960grid.css')
+                 ->prependStylesheet(CSS_URL . 'components/reset.css');
 ?>
         
