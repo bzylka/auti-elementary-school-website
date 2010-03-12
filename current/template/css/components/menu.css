@@ -1,7 +1,7 @@
 /* 操作區塊 */
 #nav {
     border: 1px solid #A4A4A4;
-    padding: 10px 0 10px 5px;
+    padding: 8px 5px;
     font-size: 90%;
     margin-bottom: 1em;
 }
@@ -27,6 +27,7 @@
     border-top: 1px dotted #cccccc;
     cursor: pointer;
     color: blue;
+    padding-left: 2px;
 }
 #menu li a, .parentMenuItem {
     display: block;
@@ -41,7 +42,7 @@
     position: absolute;
     z-index: 1000;
     width: 6.5em;
-    background: #E9E9E9;
+    background-color: #ffffff;
     border: 1px solid #A8A8A8;
 }
 #menu li ul li a {
