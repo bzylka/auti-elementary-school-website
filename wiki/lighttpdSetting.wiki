@@ -1,4 +1,5 @@
 #summary lighttpd伺服器設定
+#labels Document
 
 = mod_rewrite設定 =
 {{{
