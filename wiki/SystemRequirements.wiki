@@ -1,4 +1,5 @@
 #summary 安裝需求
+#labels Document
 
 = 需要的PHP extension =
 
