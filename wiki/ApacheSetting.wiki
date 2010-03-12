@@ -1,4 +1,5 @@
 #summary Apache伺服器設定
+#labels Document
 
 = mod_rewrite設定 =
 {{{
@@ -6,7 +7,7 @@ RewriteEngine on
 RewriteRule !\.(js|ico|gif|jpg|png|css|txt|swf|mp3)$ index.php
 }}}
 
-= mod_expire設定 =
+= mod_expires設定 =
 == 設定圖片、CSS的過期時間，提供瀏覽器做快取 ==
 {{{
 
