@@ -27,7 +27,6 @@
     border-top: 1px dotted #cccccc;
     cursor: pointer;
     color: blue;
-    padding-left: 2px;
 }
 #menu li a, .parentMenuItem {
     display: block;
@@ -47,7 +46,7 @@
 }
 #menu li ul li a {
     display: block;
-    padding: 3px;
+    padding: 5px;
 }
 #menu li ul li a:hover, #menu li ul li a:active {
     color: red;
