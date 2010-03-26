@@ -12,7 +12,6 @@
 ?>
 <?php
 $this->headScript()->prependFile(JAVASCRIPT_URL . 'selectFirstInput.js')
-                   ->prependFile(JAVASCRIPT_URL . 'setFontSize.js')
                    ->prependFile(JAVASCRIPT_URL . 'menu.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/jQuery.js');
 ?>

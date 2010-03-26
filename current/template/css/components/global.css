@@ -57,7 +57,7 @@ h2 {
 }
 /* 登入操作區 */
 #loginNav {
-    font-size: 90%;
+    font-size: 80%;
     text-align: right;
     margin-bottom: 0.3em;
 }
@@ -77,7 +77,7 @@ h2 {
 #footer {
     margin: 0.5em auto 1em auto;
     padding: 3px;
-    font-size: 90%;
+    font-size: 80%;
     text-align: center;
     color: #365DB4;
 }

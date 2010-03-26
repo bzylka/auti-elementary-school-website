@@ -68,5 +68,5 @@ unset($achievement);
     <?php foreach ($achievementList as $achievement): ?>
         <li><a href="<?php echo BASE_URL . 'achievement/index/index/id/' . $achievement['achievementId']?>"><?php echo $this->img('icon/achievement.png', '學輔專區') ?><?php echo $this->escape($achievement['achievementName']) ?></a></li>
     <?php endforeach; ?>
-    <li id="end"><a href="<?php echo BASE_URL . 'webLink'?>"><?php echo $this->img('icon/weblink.png', '網路連結') ?>網路連結</a></li>
+    <li><a href="<?php echo BASE_URL . 'webLink'?>"><?php echo $this->img('icon/weblink.png', '網路連結') ?>網路連結</a></li>
 </ul>

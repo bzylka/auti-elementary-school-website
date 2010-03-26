@@ -1,18 +1,18 @@
 /* 操作區塊 */
 #nav {
     border: 1px solid #A4A4A4;
-    padding: 8px 5px;
-    font-size: 90%;
+    padding: 3px;
+    font-size: 80%;
     margin-bottom: 1em;
 }
 #nav h1 {
     color: #F07F10;
     margin-bottom: 3px;
+    font-size: 120%;
 }
 #nav img {
-    width: 1.1em;
-    margin: 0 0.3em;
-    margin-bottom: -0.1em;
+    width: 1em;
+    margin-right: 3px
 }
 /* 整體選單設定 */
 #menu {
@@ -20,20 +20,16 @@
 }
 /* 整體選單hover的效果 */
 #menu li:hover, #menu li a:hover, #menu li a:active {
-    background: yellow;
+    background: #D8DFEA;
 }
 /* 第一層選單設定 */
 #menu li {
-    border-top: 1px dotted #cccccc;
     cursor: pointer;
     color: blue;
 }
 #menu li a, .parentMenuItem {
     display: block;
-    padding: 3px;
-}
-#menu #end {
-    border-bottom: 1px dotted #cccccc;
+    padding: 6px 2px;
 }
 /* 第二層選單設定 */
 #menu li ul {
@@ -52,9 +48,21 @@
     color: red;
 }
 /* 網路連結 */
+#webLink {
+    padding-left: 0.5em;
+}
+#webLink a {
+    display: block;
+    margin: 3px 0;
+    width: 80px;
+    height: 32px;
+}
+#webLink a:hover {
+    width: 90px;
+}
 #webLink img {
-    width: 5em;
-    height: 2em;
+    width: 100%;
+    height: 100%;
 }
 #webLink li {
     display: block;
