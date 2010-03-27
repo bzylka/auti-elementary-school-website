@@ -5,5 +5,8 @@
 }
 #pageContent p {
     padding: 0.5em 1em;
-    line-height:1.5em;
+    line-height: 1.5em;
+}
+#pageContent table {
+    margin-left: 2em;
 }

@@ -1,0 +1,13 @@
+/* 表格樣式1 */
+.tableStyle1 th, .tableStyle1 td {
+    border: 1px solid white;
+    padding: 5px;
+}
+.tableStyle1 th {
+    background-color: #328AA4;
+    color: #ffffff;
+}
+.tableStyle1 td {
+    background-color: #E5F1F4;
+    color: #555555;
+}

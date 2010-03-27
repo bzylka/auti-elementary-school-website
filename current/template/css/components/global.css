@@ -8,10 +8,12 @@ body {
 th {
     text-align: left;
     vertical-align: top;
+    line-height: 1.2em;
 }
 td {
     text-align: left;
     vertical-align: top;
+    line-height: 1.2em;
 }
 /* 超連結設定 */
 a {
