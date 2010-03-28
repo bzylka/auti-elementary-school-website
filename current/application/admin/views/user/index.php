@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('使用者管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle4.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'adminUser.css') ?>
 
 <h1>使用者管理</h1>
@@ -22,7 +23,7 @@
 
 <?php if ($this->userTable): ?>
     <div id="userTable">
-        <table>
+        <table summary="使用者列表" class="tableStyle4">
             <tr>
                 <th class="userName">姓名</th>
                 <th class="title">職稱</th>
@@ -38,7 +39,7 @@
                     <td class="title"><?php echo $user['titleName'] ?></td>
                     <td class="privilegeName"><?php echo $user['privilegeName'] ?></td>
                     <td class="account"><?php echo $user['account'] ?></td>
-                    <th class="isLeader"><?php if ($user['isLeader']): echo '&nbsp;&nbsp;ν';else: echo '&nbsp;'; endif; ?></th>
+                    <td class="isLeader"><?php if ($user['isLeader']): echo '&nbsp;&nbsp;ν';else: echo '&nbsp;'; endif; ?></td>
                     <td class="edit"><?php echo $this->hyperLinK('admin/user/edit/id/' . $user['userId'], '編輯') ?></td>
                     <td class="delete"><?php echo $this->hyperLinK('admin/user/delete/id/' . $user['userId'], '刪除') ?></td>
                 </tr>

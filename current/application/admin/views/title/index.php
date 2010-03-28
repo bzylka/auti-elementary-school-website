@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('職稱管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle3.css') ?>
 
 <h1>職稱管理</h1>
 
@@ -21,7 +22,7 @@
 
 <?php if ($this->titleTable): ?>
     <div id="titleTable">
-        <table summary="處室列表">
+        <table summary="職稱列表" class="tableStyle3">
             <tr>
                 <th class="officeName">所屬處室</th>
                 <th class="titleName">職稱</th>

@@ -3,13 +3,13 @@
 }
 .memberBlock {
     float: left;
-    width: 31%;
+    width: 260px;
     height: 9em
 }
 .userPhoto {
     float: left;
     padding-right: 0.5em;
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 .userPhoto img {

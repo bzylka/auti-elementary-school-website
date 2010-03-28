@@ -11,8 +11,8 @@
  */
 ?>
 <?php $this->headTitle('學校簡介') ?>
-<?php $this->headLink()->appendStylesheet(BASE_URL . 'template/css/history.css') ?>
-<?php $this->headLink()->appendStylesheet(BASE_URL . 'template/css/components/tableStyle1.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'history.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle1.css') ?>
 
 <h1>學校簡介</h1>
 

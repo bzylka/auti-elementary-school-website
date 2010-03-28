@@ -1,0 +1,12 @@
+/* 表格樣式5 */
+.tableStyle5 th, .tableStyle5 td {
+    border: 1px solid #C1DAD7;
+    padding: 5px;
+}
+.tableStyle5 th {
+    background-color: #CAE8EA;
+    color: #15428B;
+}
+.tableStyle5 td {
+    background-color: #EDF3F3;
+}

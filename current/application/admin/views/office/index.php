@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('處室管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle2.css') ?>
 
 <h1>處室管理</h1>
 
@@ -21,7 +22,7 @@
 
 <?php if ($this->officeTable): ?>
     <div id="officeTable">
-        <table>
+        <table summary="處室列表" class="tableStyle2">
             <tr>
                 <th class="office">處室</th>
                 <th class="officeEnglishName">英文名稱</th>

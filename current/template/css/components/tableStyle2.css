@@ -1,0 +1,12 @@
+/* 表格樣式2 */
+.tableStyle2 th, .tableStyle2 td {
+    border: 1px solid #B5B5B5;
+    padding: 5px;
+}
+.tableStyle2 th {
+    background-color: #AC0000;
+    color: #ffffff;
+}
+.tableStyle2 td {
+    background-color: #EFEFEF;
+}

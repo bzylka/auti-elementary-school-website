@@ -1,0 +1,14 @@
+/* 表格樣式4 */
+.tableStyle4 th, .tableStyle4 td {
+    border-bottom: 1px solid #D3E3A5;
+    border-right: 1px solid white;
+    padding: 5px;
+}
+.tableStyle4 th {
+    background-color: #9EC62F;
+    color: #ffffff;
+}
+.tableStyle4 td {
+    background-color: #E3EEC4;
+    color: #414342;
+}

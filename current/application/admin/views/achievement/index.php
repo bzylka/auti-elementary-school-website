@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('成果區塊管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle1.css') ?>
 
 <h1>成果區塊管理</h1>
 
@@ -21,7 +22,7 @@
 
 <?php if ($this->achievementTable): ?>
     <div id="achievementTable">
-        <table summary="成果區塊列表">
+        <table summary="成果區塊列表" class="tableStyle1">
             <tr>
                 <th class="achievementName">成果區塊名稱</th>
                 <th class="displayOrder">顯示順序</th>

@@ -1,0 +1,15 @@
+/* 表格樣式3 */
+.tableStyle3 {
+    border: 1px solid #F79646;
+}
+.tableStyle3 th, .tableStyle3 td {
+    border: 1px solid #F79646;
+    padding: 5px;
+}
+.tableStyle3 th {
+    background-color: #F79646;
+    color: #ffffff;
+}
+.tableStyle3 td {
+    background-color: #FDE9D9;
+}

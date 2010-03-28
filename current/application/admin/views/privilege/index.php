@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('權限管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle5.css') ?>
 
 <h1>權限管理</h1>
 
@@ -23,7 +24,7 @@
 
 <?php if ($this->privilegeTable): ?>
     <div id="privilegeTable">
-        <table>
+        <table summary="權限列表" class="tableStyle5">
             <tr>
                 <th class="privilegeName">權限名稱</th>
                 <th class="edit">編輯</th>

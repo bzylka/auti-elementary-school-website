@@ -11,7 +11,7 @@
  */
 ?>
 <?php $this->headTitle('交通資訊') ?>
-<?php $this->headLink()->appendStylesheet(BASE_URL . 'template/css/traffic.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'traffic.css') ?>
 
 <h1>交通資訊</h1>
 <ul style="line-height:1.2em;">

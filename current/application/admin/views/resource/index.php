@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('資源管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle3.css') ?>
 
 <h1>資源管理</h1>
 
@@ -23,9 +24,9 @@
 
 <?php if ($this->resourceTable): ?>
     <div id="resourceTable">
-        <table>
+        <table summary="資源列表" class="tableStyle3">
             <tr>
-                <th class="resourceName">權限名稱</th>
+                <th class="resourceName">資源名稱</th>
                 <th class="edit">編輯</th>
                 <th class="delete">刪除</th>
             </tr>

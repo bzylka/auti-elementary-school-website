@@ -12,6 +12,7 @@
 ?>
 <?php $this->headTitle('管理介面')->headTitle('相簿年份管理') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle2.css') ?>
 
 <h1>相簿年份管理</h1>
 
@@ -21,7 +22,7 @@
 
 <?php if ($this->albumYearTable): ?>
     <div id="albumYearTable">
-        <table summary="相簿年份列表">
+        <table summary="相簿年份列表" class="tableStyle2">
             <tr>
                 <th class="albumYearName">相簿年份</th>
                 <th class="edit">編輯</th>
