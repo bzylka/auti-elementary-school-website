@@ -11,22 +11,32 @@
  */
 ?>
 <?php $this->headTitle('校歌、校徽、校訓') ?>
-
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'symbol.css') ?>
 <h1>校歌</h1>
-    <span>校歌播放：</span>
-    <object type="application/x-shockwave-flash" data="/template/media/mp3Player.swf" width="200" height="20">
-        <param name="movie" value="/template/media/mp3Player.swf" />
-        <param name="bgcolor" value="#ffffff" />
-        <param name="FlashVars" value="mp3=/template/media/schoolSong.mp3" />
-        如果看不到播放軟體，請安裝Flash Player
-    </object>
-
-    <p>海天闊  雲飛揚  偉哉我校  位於澳底港  面對太平洋  群育列屏障  美麗堂皇</p>
-    <p>海產無限量  培植第二代  為國育棟樑</p>
+    <br />
+    <p>
+        <audio src="<?php echo BASE_URL ?>template/media/SchoolSong.ogg" controls autobuffer>
+            <object type="application/x-java-applet" width="320" height="15">
+                <param name="archive" value="http://<?php echo $_SERVER['HTTP_HOST'] . BASE_URL ?>template/media/cortado.jar" />
+                <param name="code" value="com.fluendo.player.Cortado.class" />
+                <param name="url" value="/template/media/SchoolSong.ogg" />
+                <param name="seekable" value="false" />
+                <param name="autoPlay" value="false" />
+                <param name="showStatus" value="show" />
+                <p>若無法播放，請使用
+                    <img src="/template/img/browserLogo/firefox.png" title="Firefox" alt="Firefox" /><a href="http://moztw.org/">Firefox</a>
+                    /
+                    <img src="/template/img/browserLogo/googleChrome.png" title="GoogleChrome" alt="GoogleChrome" /><a href="http://www.google.com/chrome">Google Chrome</a>
+                    瀏覽器，或安裝<a href="http://www.java.com/zh_TW/">Java</a>。
+                </p>
+            </object>
+        </audio>
+    </p>
+    <p>海天闊&nbsp;雲飛揚&nbsp;偉哉我校&nbsp;位於澳底港&nbsp;面對太平洋&nbsp;群育列屏障&nbsp;美麗堂皇</p>
+    <p>海產無限量&nbsp;培植第二代&nbsp;為國育棟樑</p>
     <p>澳底澳底國家之光</p>
-
-    <p>春風暖  教澤長  美哉我校  進步日無疆  品德日淬勵  五育重健康  志氣高昂</p>
-    <p>為國爭光榮  光陰莫蹉跎  自勉更自強</p>
+    <p>春風暖&nbsp;教澤長&nbsp;美哉我校&nbsp;進步日無疆&nbsp;品德日淬勵&nbsp;五育重健康&nbsp;志氣高昂</p>
+    <p>為國爭光榮&nbsp;光陰莫蹉跎&nbsp;自勉更自強</p>
     <p>澳底澳底國家之光</p>
 
 <h1>校徽</h1>
