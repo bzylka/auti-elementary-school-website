@@ -81,7 +81,7 @@
             |
             <span id="rotateRight"><?php echo $this->hyperLink('album/rotateRight/photo/id/' . $this->photo['photoId'], '右旋90度') ?></span>
             |
-            <span id="deletePhoto"><?php echo $this->hyperLink('album/delete/photo/id/' . $this->photo['photoId'] . '/albumId/' . $this->photo['albumId'], '刪除此張相片') ?></span>
+            <span id="deletePhoto"><?php echo $this->hyperLink('album/delete/photo/id/' . $this->photo['photoId'] . '/albumId/' . $this->photo['albumId'], '刪除此張相片', array('class' => 'deleteAction')) ?></span>
         </span>
     <?php endif; ?>
     
@@ -106,7 +106,7 @@
             <div id="photoDescriptionNav">
                 <?php echo $this->ajaxLink('$(\'#photoDescription\').css({\'display\':\'block\'});$(\'.formContainer\').css({\'display\':\'inline\'});', '編輯說明文字');?>
                 /
-                <span><?php echo $this->hyperLink('album/delete/photoDescription/id/' . $this->photo['photoId'], '刪除說明文字') ?></span>
+                <span><?php echo $this->hyperLink('album/delete/photoDescription/id/' . $this->photo['photoId'], '刪除說明文字', array('class' => 'deleteAction')) ?></span>
             </div>
         <?php endif; ?>
         

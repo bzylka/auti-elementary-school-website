@@ -11,7 +11,8 @@
  */
 ?>
 <?php
-$this->headScript()->prependFile(JAVASCRIPT_URL . 'selectFirstInput.js')
+$this->headScript()->prependFile(JAVASCRIPT_URL . 'checkDeleteAction.js')
+                   ->prependFile(JAVASCRIPT_URL . 'selectFirstInput.js')
                    ->prependFile(JAVASCRIPT_URL . 'menu.js')
                    ->prependFile(JAVASCRIPT_URL . 'jQuery/jQuery.js');
 ?>

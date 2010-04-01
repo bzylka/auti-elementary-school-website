@@ -41,7 +41,7 @@
                     <td class="account"><?php echo $user['account'] ?></td>
                     <td class="isLeader"><?php if ($user['isLeader']): echo '&nbsp;&nbsp;ν';else: echo '&nbsp;'; endif; ?></td>
                     <td class="edit"><?php echo $this->hyperLinK('admin/user/edit/id/' . $user['userId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/user/delete/id/' . $user['userId'], '刪除') ?></td>
+                    <td class="delete"><?php echo $this->hyperLinK('admin/user/delete/id/' . $user['userId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

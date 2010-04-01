@@ -34,7 +34,7 @@
                     <td class="achievementName"><?php echo $this->escape($achievement['achievementName']) ?></td>
                     <td class="displayOrder"><?php echo $this->escape($achievement['displayOrder']) ?></td>
                     <td class="edit"><?php echo $this->hyperLinK('admin/achievement/edit/id/' . $achievement['achievementId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/achievement/delete/id/' . $achievement['achievementId'], '刪除') ?></td>
+                    <td class="delete"><?php echo $this->hyperLinK('admin/achievement/delete/id/' . $achievement['achievementId'], '刪除',  array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

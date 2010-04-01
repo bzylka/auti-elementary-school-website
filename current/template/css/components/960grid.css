@@ -132,5 +132,3 @@
 .clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;}
 /* http://perishablepress.com/press/2009/12/06/new-clearfix-hack */
 .clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0;}
-/*the following zoom:1 rule is specifically for ie6 + ie7.move to separate stylesheet if invalid css is a problem.*
-/* html .clearfix, *:first-child+html .clearfix{zoom:1;}

@@ -36,11 +36,12 @@
     margin-left: 1em;
     margin-right: 20em;
     background-color: #F0FFE0;
+    border: 1px solid #828177;
 }
 #link legend, #attachment legend {
     margin-left: 0.7em;
     font-weight: bold;
-    padding:0 3px;
+    padding: 0 3px;
 }
 #link legend {
     color: #FF6633;

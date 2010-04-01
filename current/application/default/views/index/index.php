@@ -15,6 +15,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/newsTable.css') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callCalendarBlock.js') ?>
+
 <div id="left">
     <div id="news" class="contentBlock">
         <div class="blockHeader">

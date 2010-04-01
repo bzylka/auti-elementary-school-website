@@ -23,7 +23,7 @@
             <?php echo $this->hyperLink('news/edit/index/id/' . $this->newsData['newsId'], '編輯內容') ?>
             &nbsp;
             <?php echo $this->img('icon/delete.png', '刪除') ?>
-            <?php echo $this->hyperLink('news/delete/index/id/' . $this->newsData['newsId'], '刪除') ?>
+            <?php echo $this->hyperLink('news/delete/index/id/' . $this->newsData['newsId'], '刪除', array('class' => 'deleteAction')) ?>
             &nbsp;
             <?php echo $this->img('icon/downloadAttachment.png', '新增附件') ?>
             <?php echo $this->hyperLink('news/attachment/add/newsId/' . $this->newsData['newsId'], '新增附件')?>
@@ -53,7 +53,7 @@
                     （
                     <?php echo $this->hyperLink('news/link/edit/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '編輯')?>
                     ｜
-                    <?php echo $this->hyperLink('news/link/delete/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '刪除')?>
+                    <?php echo $this->hyperLink('news/link/delete/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '刪除', array('class' => 'deleteAction'))?>
                     ）
                     </small>
                 <?php endif; ?>
@@ -76,7 +76,7 @@
                     （
                     <?php echo $this->hyperLink('news/attachment/edit/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '編輯')?>
                     ｜
-                    <?php echo $this->hyperLink('news/attachment/delete/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '刪除')?>
+                    <?php echo $this->hyperLink('news/attachment/delete/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '刪除', array('class' => 'deleteAction'))?>
                     ）
                     </small>
                 <?php endif; ?>

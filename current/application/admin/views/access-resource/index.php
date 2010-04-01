@@ -31,7 +31,7 @@
         <ul>
         <?php foreach ($access['resource'] as $resource): ?>
             <li class="resourceList">
-                <?php echo $resource['resourceName'] . '&nbsp;' . $this->hyperLink('admin/accessResource/delete/id/' . $resource['accessId'], '【X】') ?>
+                <?php echo $resource['resourceName'] . '&nbsp;' . $this->hyperLink('admin/accessResource/delete/id/' . $resource['accessId'], '【X】', array('class' => 'deleteAction')) ?>
             </li>
         <?php endforeach; ?>
         </ul>

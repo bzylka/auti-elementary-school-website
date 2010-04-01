@@ -45,7 +45,7 @@
                 <p class="webLinkNav">
                     <?php echo $this->hyperLink('webLink/edit/index/id/' . $webLink['webLinkId'], '編輯') ?>
                     ｜
-                    <?php echo $this->hyperLink('webLink/delete/index/id/' . $webLink['webLinkId'], '刪除') ?>
+                    <?php echo $this->hyperLink('webLink/delete/index/id/' . $webLink['webLinkId'], '刪除', array('class' => 'deleteAction')) ?>
                 </p>
             <?php endif; ?>
         </div>

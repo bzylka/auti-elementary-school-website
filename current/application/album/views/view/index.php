@@ -55,7 +55,7 @@
         <?php if ($this->isDeleteAlbum): ?>
             |
             <span id="deleteAlbum">
-                <?php echo $this->hyperLink('album/delete/index/id/' . $this->album['albumData']['albumId'], '刪除相簿') ?>
+                <?php echo $this->hyperLink('album/delete/index/id/' . $this->album['albumData']['albumId'], '刪除相簿', array('class' => 'deleteAction')) ?>
             </span>
         <?php endif; ?>
     </span>

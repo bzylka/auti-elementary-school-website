@@ -119,7 +119,7 @@
                                     <div class="eventNav">
                                         <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], '編輯') ?>
                                         |
-                                        <?php echo $this->hyperLink('calendar/event/delete/id/' . $this->events[$row][$i][$j]['eventId'], '刪除') ?>
+                                        <?php echo $this->hyperLink('calendar/event/delete/id/' . $this->events[$row][$i][$j]['eventId'], '刪除', array('class' => 'deleteAction')) ?>
                                     </div>
                                 <?php endif; ?>
                             </div>

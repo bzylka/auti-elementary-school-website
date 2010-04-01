@@ -32,7 +32,7 @@
                 <tr>
                     <td class="albumYearName"><?php echo $this->escape($albumYear['albumYearName']) ?></td>
                     <td class="edit"><?php echo $this->hyperLinK('admin/albumYear/edit/id/' . $albumYear['albumYearId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/albumYear/delete/id/' . $albumYear['albumYearId'], '刪除') ?></td>
+                    <td class="delete"><?php echo $this->hyperLinK('admin/albumYear/delete/id/' . $albumYear['albumYearId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
