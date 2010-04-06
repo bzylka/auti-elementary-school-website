@@ -14,7 +14,7 @@
 }
 .titleName {
     margin-left: 1em;
-    width: 15em;
+    line-height: 1.2em;
 }
 .userTitleEnglishName {
     font-size: 80%;
@@ -24,6 +24,7 @@
 .userName {
     font-weight: bold;
     font-size: 120%;
+    line-height: 1.3em;
 }
 .duty {
     width: 25em;
@@ -34,4 +35,5 @@
 .duty li {
     margin: 2px 0;
     list-style-type: decimal;
+    line-height: 1.2em;
 }

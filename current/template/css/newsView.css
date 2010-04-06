@@ -31,7 +31,7 @@
     color: #C8C8C8;
 }
 #link, #attachment {
-    padding: 3px;
+    padding: 5px 5px 10px;
     margin-top: 0.5em;
     margin-left: 1em;
     margin-right: 20em;
@@ -58,7 +58,7 @@
     margin-bottom: -0.2em
 }
 .file {
-    margin-left: 2em;
+    margin: 8px 0 8px 25px;
 }
 .file img {
     width: 1.2em;
