@@ -103,8 +103,10 @@ h2 {
 }
 /* 訊息區塊 */
 .messageBlock {
+    line-height: 1.2em;
     text-align: center;
     background-color: #fff070;
     padding: 2px;
+    margin: 10px 0;
     display: inherit;
 }

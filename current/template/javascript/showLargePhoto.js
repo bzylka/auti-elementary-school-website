@@ -17,7 +17,7 @@ $(function() {
         "overlayShow": true,
         "overlayOpacity": 0.5,
         "width": 750,
-        "height": 600,
+        "height": 750 * 0.75,
         "autoDimensions": false
     });
 });

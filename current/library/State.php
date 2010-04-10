@@ -18,13 +18,14 @@
 class State
 {
     // 設定常數
-    const WRITABLE = 'WRITABLE';
-    const READONLY = 'READONLY';
-    const IS_EXIST = 'IS_EXIST';
-    const BIGGER   = 'BIGGER';
-    const EQUAL    = 'EQUAL';
-    const SMALLER  = 'SMALLER';
-    const LOADED   = 'LOADED';
+    const IS_WRITABLE = 'IS_WRITABLE';
+    const IS_READONLY = 'IS_READONLY';
+    const IS_READABLE = 'IS_READABLE';
+    const IS_LOADED   = 'IS_LOADED';
+    const BIGGER      = 'BIGGER';
+    const EQUAL       = 'EQUAL';
+    const SMALLER     = 'SMALLER';
+    const SUGGESTION  = true;
     
     /**
      * @var object Instance
@@ -43,11 +44,12 @@ class State
      * @access protected
      */
     protected $_messages = array();
+    
     /**
-     * @var array 錯誤訊息
+     * @var array 是否有錯誤
      * @access protected
      */
-    protected $_errorMessages = array();
+    protected $_isError = false;
 
     /**
      * 建構子，不使用
@@ -74,15 +76,12 @@ class State
      * @param string $item       檢查項目
      * @param mixed  $conditions 檢查條件
      * @param string $key        儲存結果的鍵值
+     * @param string $suggestion 是否為建議值
      */
-    public function addValidator($className, $item, $conditions, $key = null)
+    public function addValidator($className, $item, $conditions, $key, $suggestion = false)
     {
-        if ($key === null) {
-            $key = $item;
-        }
-        
         $validatorClassName = 'State_Validator_' . $className;
-        $this->_validators[$className][$key] = new $validatorClassName($item, $conditions);
+        $this->_validators[] = new $validatorClassName($item, $conditions, $key, $suggestion);
         return $this;
     }
     
@@ -92,27 +91,14 @@ class State
      */
     public function isValid()
     {
-        if(count($this->_states) > 0) {;
-            foreach ($this->_states as &$state) {
-                if ($state->isValid()) {
-                    $this->_results[$state->getClassName()][$state->getKey()]['isValid'] = true;
-                } else {
-                    $this->_isValid   = false;
-                    $this->_message[] = $state->getMessage();
-                    $this->_results[$state->getClassName()][$state->getKey()]['isValid'] = false;
-                }
-                $this->_results[$state->getClassName()][$state->getKey()]['message'] = $state->getMessage();
+        foreach ($this->_validators as $validator) {
+            if ($validator->isValid() == false && $validator->isSuggestion() == false) {
+                $this->_isError = true;
             }
-            
-            // 排序結果
-            foreach ($results as &$result) {
-                ksort($result);
-            }
-            
-            return $this->_isValid;
-        } else {
-            return false;
+            $this->_messages[] = $validator->getMessage();
         }
+
+        return !$this->_isError;
     }
     
     /**
@@ -121,38 +107,7 @@ class State
      */
     public function getMessage()
     {
-        return $this->_message;
+        return $this->_messages;
     }
-    
-    /**
-     * 取得錯誤訊息
-     * @return array 錯誤訊息
-     */
-    public function getErrorMessage()
-    {
-        return $this->_erroeMessage;
-    }
-    
-    /*
-    $state->addState('Dir', 'data', STATE::DIR_WRITABLE)
-          ->addState('File', 'photos', STATE::DIR_WRITABLE)
-          ->addState('Extension', 'mbstring', STATE::LOADED)
-          ->addState('Ini', 'TimeZone', STATE::EQUAL, 'Asia/Taipei')
-    $state->getState();
-    DIR
-        PHOTO_DIR
-            ->isValid
-            ->message = 檔案應該可寫入
-        ………
-        
-    FILE
-        ISINSTALL
-            ->isValid
-            ->message
-    EXTENSIon
-        mbstring
-    INI
-    
-    */
 }
 ?>

@@ -23,7 +23,19 @@ class State_Validator_Extension extends State_Validator_Abstract
      */
     public function isValid()
     {
+        $isValid = extension_loaded($this->_item);
 
+        if ($isValid == true) {
+            $currentSetting = '已經載入';
+        } else {
+            $currentSetting = '尚未載入';
+        }
+        
+        $this->_message = array('key'            => $this->_key,
+                                'currentSetting' => $currentSetting,
+                                'isValid'        => $isValid,
+                                'suggestion'     => $this->_suggestion);
+        return $isValid;
     }
 }
 ?>
