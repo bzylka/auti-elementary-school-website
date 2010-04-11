@@ -26,7 +26,7 @@ class State_Validator_Extension extends State_Validator_Abstract
         $isValid = extension_loaded($this->_item);
 
         if ($isValid == true) {
-            $currentSetting = '已經載入';
+            $currentSetting = '已載入';
         } else {
             $currentSetting = '尚未載入';
         }

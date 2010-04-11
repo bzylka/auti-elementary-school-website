@@ -25,7 +25,7 @@
             <tr>
                 <th class="key">檢查項目</th>
                 <th class="currentSetting">目前設定</th>
-                <th class="titleEnglishName">結果</th>
+                <th class="titleEnglishName">檢查結果</th>
             </tr>
             <?php foreach ($this->stateMessage as &$state): ?>
                 <tr>
