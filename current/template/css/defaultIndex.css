@@ -13,6 +13,9 @@
     height: 20em;
     height: auto !important;
     margin-bottom: 1em;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 .blockHeader {
     color: #62B280;

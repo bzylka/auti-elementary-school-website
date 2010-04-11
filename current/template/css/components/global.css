@@ -109,4 +109,7 @@ h2 {
     padding: 2px;
     margin: 10px 0;
     display: inherit;
+    -moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
