@@ -26,8 +26,9 @@ CREATE TABLE IF NOT EXISTS title (
  */
 CREATE TABLE IF NOT EXISTS user (
     userId INTEGER PRIMARY KEY NOT NULL ,
-    titleId INTEGER NOT NULL DEFAULT 0,
-    privilegeId INTEGER NOT NULL DEFAULT 0,
+    titleId INTEGER NOT NULL DEFAULT 0 ,
+    privilegeId INTEGER NOT NULL DEFAULT 0 ,
+    classId INTEGER DEFAULT 0 ,
     userName CHAR(20) NOT NULL ,
     userEnglishName CHAR(20) ,
     account CHAR(8) NOT NULL ,
@@ -40,6 +41,15 @@ CREATE TABLE IF NOT EXISTS user (
     isLeader INTEGER DEFAULT 0
 );
 
+/**
+ * 班級
+ */
+CREATE TABLE IF NOT EXISTS class (
+    classId INTEGER PRIMARY KEY NOT NULL ,
+    className CHAR(20) NOT NULL ,
+    classLink CHAR(255)
+);
+ 
 /**
  * 權限
  */
@@ -175,28 +185,4 @@ CREATE TABLE IF NOT EXISTS eventCatalog (
     backgroundColor CHAR(7) DEFAULT 0
 );
 
-/*以下內容暫停
-教育儲蓄專戶
-CREATE TABLE IF NOT EXISTS educationalSavingAccount (
-    entryId INTEGER PRIMARY KEY NOT NULL ,
-    entryDate CHAR(10) NOT NULL ,
-    income INTERGER DEFAULT 0 ,
-    outgo INTERGER DEFAULT 0 ,
-    instruction CHAR(255) NOT NULL
-);
 
-Wiki頁面
-CREATE TABLE IF NOT EXISTS wikiPage (
-    wikiPageId INTEGER PRIMARY KEY NOT NULL ,
-    wikiPageTitle CHAR(255) NOT NULL ,
-    wikiPageContent TEXT
-);
-
-Wiki頁面附加檔案
-CREATE TABLE IF NOT EXISTS wikiPageAttachment (
-    wikiPageAttachmentId INTEGER PRIMARY KEY NOT NULL ,
-    wikiPageId INTEGER NOT NULL DEFAULT 0,
-    fileName CHAR(255) NOT NULL ,
-    fileHash CHAR(40) NOT NULL
-);
-*/
