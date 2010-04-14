@@ -10,7 +10,7 @@
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
-<?php $this->headMeta()->prependName('verify-v1', 'FUmF62n99/DNWN/jv59EbQgWcFBMleR4Crrf+OMOV6Q=') ?>
+<?php $this->headMeta()->prependName('google-site-verification', 'zocX_f_SGDzeMPE2jMcbDsHut7sulKV5epyc4F0x7VA') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'defaultIndex.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/newsTable.css') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
