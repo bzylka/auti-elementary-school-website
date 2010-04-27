@@ -29,7 +29,7 @@ unset($achievement);
         <ul>
             <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>
             <li><?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
-            <li><?php echo $this->hyperLink('instruction/symbol', '學校象徵')?></li>
+            <li><?php echo $this->hyperLink('instruction/symbol', '校歌、校徽')?></li>
 		</ul>
     </li>
     <li class="parentMenuItem"><?php echo $this->img('icon/office.png', '行政組織') ?>行政組織&nbsp;&raquo;

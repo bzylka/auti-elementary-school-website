@@ -31,14 +31,12 @@
     <div id="webLinkContainer">
     <?php foreach ($this->webLinks as &$webLink): ?>
         <div class="webLinkBlock">
-            <p>
-                <a href="<?php echo $webLink['link'] ?>" target="_blank">
-                    <?php echo $this->photo($webLink['iconHashFile'], '連結圖片-' . $webLink['linkName']) ?>
-                </a>
-            </p>
-            <p>
+            <a href="<?php echo $webLink['link'] ?>" target="_blank">
+                <?php echo $this->photo($webLink['iconHashFile'], '連結圖片-' . $webLink['linkName']) ?>
+            </a>
+            <p class="link">
                 <a class="external" href="<?php echo $webLink['link'] ?>" target="_blank">
-                    <?php echo $this->escape($webLink['linkName']) ?>
+                    <?php echo $this->restrictString($webLink['linkName'], 20) ?>
                 </a>
             </p>
             <?php if ($this->isAdmin): ?>
