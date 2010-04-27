@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS user (
     userId INTEGER PRIMARY KEY NOT NULL ,
     titleId INTEGER NOT NULL DEFAULT 0 ,
     privilegeId INTEGER NOT NULL DEFAULT 0 ,
-    classId INTEGER DEFAULT 0 ,
     userName CHAR(20) NOT NULL ,
     userEnglishName CHAR(20) ,
     account CHAR(8) NOT NULL ,
@@ -41,15 +40,6 @@ CREATE TABLE IF NOT EXISTS user (
     isLeader INTEGER DEFAULT 0
 );
 
-/**
- * 班級
- */
-CREATE TABLE IF NOT EXISTS class (
-    classId INTEGER PRIMARY KEY NOT NULL ,
-    className CHAR(20) NOT NULL ,
-    classLink CHAR(255)
-);
- 
 /**
  * 權限
  */
