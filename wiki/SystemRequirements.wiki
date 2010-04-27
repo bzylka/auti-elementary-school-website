@@ -4,5 +4,11 @@
 = 需要的PHP extension =
 
   * mbstring
-  * imageMagick
   * pdo_sqlite
+  * ImageMagick
+
+= 需要的Zend Framwork版本 =
+需要Zend Framework 1.10以上版本，放置於library/Zend資料夾中
+
+= 注意事項 =
+請確定data跟photos資料夾可以寫入
