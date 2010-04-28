@@ -18,50 +18,10 @@
 class Calendar_ViewController extends Controller
 {
     /**
-     * 轉向到顯示兩週行事曆
-     */
-    public function indexAction()
-    {
-        $this->_forward('by2week');
-    }
-
-    /**
-     * 顯示兩週行事曆
-     * 參數：date/2009-10-12
-     */
-    public function by2weekAction()
-    {
-        $this->view->allowCalendar = $this->isAllowed('行事曆管理');
-        
-        if ($date = $this->getParam('date')) {
-            if (!Date::isDate($date)) {
-                $this->redirect('calendar/view', '日期設定錯誤');
-            }
-        } else {
-            $date = Date::getDate();
-        }
-
-        // 設定日期範圍
-        $dateObj = new Zend_Date();
-        $dateObj->set($date, 'yyyy-MM-dd');
-        $dateObj->sub($dateObj->get(Zend_Date::WEEKDAY_8601) - 1, Zend_Date::DAY);
-        $satrtDate = $dateObj->get('yyyy-MM-dd');
-        $endDate   = Date::add($satrtDate, 13);
-
-        // 設定View變數
-        $this->view->calendar = Date::getRangeDates($satrtDate, $endDate);
-        $this->view->events   = $this->_getEvents($satrtDate, $endDate, $this->view->calendar);
-        $this->view->type     = 'by2Week';
-        $this->view->date     = $satrtDate;
-        $this->view->period   = '〔' . $satrtDate . '〕～〔' . $endDate . '〕';
-        $this->render('index');
-    }
-
-    /**
      * 顯示月份行事曆
      * 參數：date/2008-10-14
      */
-    public function bymonthAction()
+    public function indexAction()
     {
         $this->view->allowCalendar = $this->isAllowed('行事曆管理');
         

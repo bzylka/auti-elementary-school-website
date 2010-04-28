@@ -4,9 +4,6 @@
     border-bottom: 7px solid #9BAFF1 !important;
     font-size: 90%;
 }
-#leftNav #period {
-    font-weight: bold;
-}
 #leftNav img {
     width: 1.5em;
     height: 1em;
@@ -48,7 +45,11 @@
 /* 日曆格子設定 */
 #calendar {
     border-bottom: 7px solid #9BAFF1;
-    width: 98%;
+    width: 100%;
+}
+#calendar caption{
+    text-align: left;
+    font-weight: bold;
 }
 #calendar th {
     font-size: 90%;

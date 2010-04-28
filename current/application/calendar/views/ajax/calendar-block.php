@@ -76,6 +76,6 @@
     </div>
 
     <div class="more" style="padding-top:0.5em;">
-        <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->viewDate, '檢視細節…') ?>
+        <?php echo $this->hyperLink('calendar/view/index/date/' . $this->viewDate, '檢視細節…') ?>
     </div>
 <?php endif; ?>

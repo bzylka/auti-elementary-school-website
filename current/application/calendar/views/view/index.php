@@ -22,46 +22,24 @@
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
-<table id="calendar">
-    <tr id="calendarNav">
-        <td id="leftNav" colspan="5">
+<tr id="calendarNav">
+        <td id="leftNav" colspan="7">
             <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['preDate'], '««') ?>
             &nbsp;
             <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['afterDate'], '»»') ?>
             &nbsp;
             <?php echo $this->hyperLink('calendar/view/' . $this->type, '今天') ?>
-            
-            <span id="period">
-                <?php echo $this->escape($this->period)?>
-            <span>
-            
+
             <?php if ($this->allowCalendar == true): ?>
                 <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
             <?php endif; ?>
         </td>
-        <td class="pageNav">
-            <?php if($this->type == 'by2Week'): ?>
-                <div id="selected">
-                    兩週
-                </div>
-            <?php else: ?>
-                <div>
-                    <?php echo $this->hyperLink('calendar/view/by2Week/date/' . $this->date, '兩週') ?>
-                </div>
-            <?php endif; ?>
-        </td>
-        <td class="pageNav">
-            <?php if($this->type == 'byMonth'): ?>
-                <div id="selected">
-                    整月
-                </div>
-            <?php else: ?>
-                <div>
-                    <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->date, '整月') ?>
-                </div>
-            <?php endif; ?>
-        </td>
     </tr>
+
+<table id="calendar" summary="<?php echo $this->escape($this->period) ?>行事曆">
+    <caption>
+        <?php echo $this->escape($this->period) ?>
+    </caption>
     <tr>
         <th>週一</th>
         <th>週二</th>
