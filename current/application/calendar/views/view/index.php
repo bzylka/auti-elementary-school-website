@@ -22,24 +22,31 @@
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
-<tr id="calendarNav">
-        <td id="leftNav" colspan="7">
-            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['preDate'], '««') ?>
-            &nbsp;
-            <?php echo $this->hyperLink('calendar/view/' . $this->type . '/date/' . $this->calendar['afterDate'], '»»') ?>
-            &nbsp;
-            <?php echo $this->hyperLink('calendar/view/' . $this->type, '今天') ?>
+<?php if ($this->allowCalendar == true): ?>
+    <div>
+        <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
+    </div>
+<?php endif; ?>
 
-            <?php if ($this->allowCalendar == true): ?>
-                <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
-            <?php endif; ?>
-        </td>
+<tr id="calendarNav">
+        
     </tr>
 
-<table id="calendar" summary="<?php echo $this->escape($this->period) ?>行事曆">
+<table id="calendar" summary="<?php echo $this->escape($this->calendarCaption) ?>行事曆">
     <caption>
-        <?php echo $this->escape($this->period) ?>
+        <?php echo $this->escape($this->calendarCaption) ?>
     </caption>
+    <tr id="calendarNav">
+        <td id="preMonth">
+            <?php echo $this->hyperLink('calendar/view/index/date/' . $this->preMonthYear . '-' . $this->preMonth, '«' . $this->preMonthYear . '年' . $this->preMonth . '月') ?>
+        </td>
+        <td colspan="5">
+            &nbsp;
+        </td>
+        <td id="nextMonth">
+            <?php echo $this->hyperLink('calendar/view/index/date/' . $this->nextMonthYear . '-' . $this->nextMonth, $this->nextMonthYear . '年' . $this->nextMonth . '月»') ?>
+        </td>
+    </tr>
     <tr>
         <th>週一</th>
         <th>週二</th>

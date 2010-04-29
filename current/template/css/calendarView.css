@@ -1,60 +1,27 @@
-/* 上方操作區塊 */
+/* 日曆操作區塊 */
 #calendarNav td {
     border: 0 !important;
-    border-bottom: 7px solid #9BAFF1 !important;
+    padding: 5px 2px;
     font-size: 90%;
 }
-#leftNav img {
-    width: 1.5em;
-    height: 1em;
-    border: 1px solid gray;
-    padding: 2px;
+#preMonth {
+    text-align: left;
 }
-#leftNav a {
-    font-size: 110%;
-    border: 1px solid gray;
-    padding: 0px 4px;
-    color: white;
-    background-color: #7799BB;
-}
-#leftNav a:hover {
-    color: black;
-    background-color: #A0D0FF;
-}
-.pageNav div {
-    background-color: white;
-    border: 1px solid #9BAFF1;
-    border-bottom: 0;
-    text-align: center;
-    padding: 2px;
-    margin-left: 1em;
-}
-.pageNav div a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-.pageNav div a:hover {
-    font-weight: bold;
-    color: #FFA100;
-}
-.pageNav div#selected {
-    background-color: #9BAFF1;
-    font-weight: bold;
+#nextMonth {
+    text-align: right;
 }
 /* 日曆格子設定 */
 #calendar {
     border-bottom: 7px solid #9BAFF1;
     width: 100%;
 }
-#calendar caption{
-    text-align: left;
+#calendar caption {
+    font-size: 110%;
     font-weight: bold;
 }
 #calendar th {
     font-size: 90%;
-    border-left: 1px solid #9BAFF1;
-    border-right: 1px solid #9BAFF1;
+    border: 1px solid #9BAFF1;
     text-align: center;
     background-color: #C3D9FF;
     padding: 1px;
@@ -63,9 +30,6 @@
     border-left: 1px solid #9BAFF1;
     border-right: 1px solid #9BAFF1;
 }
-#calendar tr {
-    margin-top: 2px;
-}
 .calendarSpace td {
     line-height: 0.2em !important;
 }
@@ -73,8 +37,6 @@
 .days td {
     font-size: 80%;
     width: 6em;
-    text-align: right;
-    color: #3D3D3D;
     padding: 2px;
     background-color: #E8EEF7;
     line-height: 1em !important;

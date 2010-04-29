@@ -84,7 +84,7 @@ class Date
     }
     
     /**
-     * 回傳一段時間的所有日期
+     * 取得一個月的所有日期
      * @param string $startDate 開始日期
      * @param string $endDate   結束日期
      * @return array 日期陣列
@@ -96,7 +96,6 @@ class Date
         $date->set($startDate, 'yyyy-MM-dd');
 
         // 檢查日期限制為1970～2100
-        
         if ($date->get('yyyy') < 1970 || $date->get('yyyy') > 2100) {
             exit('超過日期限制，本行事曆限制年份為西元1970年～西元2100年');
         }
@@ -112,9 +111,7 @@ class Date
         // 回傳陣列
         $row = 0;
         $calendar['preStartDays']   = $preStartDays;
-        $calendar['preDate']        = self::add($preStartDate, -8);
         $calendar['afterStartDays'] = $afterStartDays;
-        $calendar['afterDate']      = self::add($afterStartDate, 1);
 
         $rangeDays = self::sub($endDate, $startDate);
         $today     = self::getDate();

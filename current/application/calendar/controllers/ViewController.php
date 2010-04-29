@@ -27,28 +27,36 @@ class Calendar_ViewController extends Controller
         
         // 取得日期
         if ($date = $this->getParam('date')) {
-            if (!Date::isDate($date)) {
-                $this->redirect('calendar/view', '日期設定錯誤');
+            if (!Zend_Date::isDate($date, 'yyyy-MM')) {
+                $this->redirect('calendar/view', '日期格式錯誤');
             }
         } else {
             $date = Date::getDate();
         }
         
-        // 設定日期範圍
+        // 設定當月
         $dateObj = new Zend_Date();
-        $dateObj->set($date, 'yyyy-MM-dd');
+        $dateObj->set($date, 'yyyy-MM');
         $year        = $dateObj->get(Zend_Date::YEAR_8601);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
 
+        // 設定前一月、後一月的日期
+        $dateObj->add(1, Zend_Date::MONTH);
+        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->nextMonth     = $dateObj->get(Zend_Date::MONTH);
+        $dateObj->sub(2, Zend_Date::MONTH);
+        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->preMonth     = $dateObj->get(Zend_Date::MONTH);
+
+        // 取得當月日期陣列
         $this->view->calendar = Date::getRangeDates("$year-$month-01", "$year-$month-$daysOfMonth");
         
+        // 取得當月事件
         $this->view->events   = $this->_getEvents($this->view->calendar['date'][0][0]['date'],
                                                   current(end(end($this->view->calendar['date']))),
                                                   $this->view->calendar);
-        $this->view->type     = $this->getRequest()->getActionName();
-        $this->view->date     = "$year-$month-01";
-        $this->view->period   = $year . '年' . $month . '月';
+        $this->view->calendarCaption = $year . '年' . $month . '月';
         $this->render('index');
     }
     
