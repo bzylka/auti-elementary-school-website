@@ -30,7 +30,7 @@ class Calendar_AjaxController extends Controller
 
         // 設定都要進行Ajax呼叫
         if (!$this->_request->isXmlHttpRequest()) {
-            //exit('錯誤的呼叫');
+            exit('錯誤的呼叫');
         }
     }
     
