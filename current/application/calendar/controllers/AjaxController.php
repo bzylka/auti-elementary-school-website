@@ -40,7 +40,7 @@ class Calendar_AjaxController extends Controller
     public function getdefaultcalendarAction()
     {
         if ($date = $this->getParam('date')) {
-            if (!Date::isDate($date)) {
+            if (!Zend_Date::isDate($date, 'yyyy-MM')) {
                 $this->view->message = '錯誤的呼叫，請重新整理頁面';
                 $this->render('calendarBlock');
                 exit;
@@ -48,13 +48,22 @@ class Calendar_AjaxController extends Controller
         } else {
             $date = Date::getDate();
         }
-        
-        // 設定日曆
+        // 設定當月
         $dateObj = new Zend_Date();
-        $dateObj->set($date, 'yyyy-MM-dd');
+        $dateObj->set($date, 'yyyy-MM');
         $year        = $dateObj->get(Zend_Date::YEAR_8601);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
+
+        // 設定前一月、後一月的日期
+        $dateObj->add(1, Zend_Date::MONTH);
+        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->nextMonth     = $dateObj->get(Zend_Date::MONTH);
+        $dateObj->sub(2, Zend_Date::MONTH);
+        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->preMonth     = $dateObj->get(Zend_Date::MONTH);
+        
+        // 設定日曆標題、日期
         $this->view->calendarCaption = $year . '年' . $month . '月';
         $this->view->calendar = Date::getRangeDates("$year-$month-01", "$year-$month-$daysOfMonth");;
 
@@ -62,8 +71,8 @@ class Calendar_AjaxController extends Controller
         $event = new Model_Event();
         $this->view->events = $event->getEvents("$year-$month-01", "$year-$month-$daysOfMonth");
         
-        // 設定檢視日期
-        $this->view->viewDate = "$year-$month-01";
+        // 設定本月
+        $this->view->thisMonth = "$year-$month";
         
         $this->render('calendarBlock');
     }
@@ -74,7 +83,7 @@ class Calendar_AjaxController extends Controller
     public function getfestivalAction()
     {
         if ($date = $this->getParam('date')) {
-            if (!Date::isDate($date)) {
+            if (!Zend_Date::isDate($date, 'yyyy-MM')) {
                 $this->view->message = '錯誤的呼叫，請重新整理頁面';
                 $this->render('calendarBlock');
                 exit;
@@ -85,16 +94,16 @@ class Calendar_AjaxController extends Controller
 
         // 設定節日清單
         $dateObj = new Zend_Date();
-        $dateObj->set($date, 'yyyy-MM-dd');
+        $dateObj->set($date, 'yyyy-MM');
         $year        = $dateObj->get(Zend_Date::YEAR_8601);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
         $festivals   = Date::getFestivals("$year-$month-01", "$year-$month-$daysOfMonth");
-        
-        if ($festivals === false) {
-            $festivals['message'] = '無法取得Google的節日資料';
-        } elseif (count($festivals) == 0) {
+
+        if ($festivals == false) {
             $festivals['message'] = '本月無國定節日';
+        } elseif ($festivals === 'error') {
+            $festivals['message'] = '無法取得Google的節日資料';
         }
 
         $this->_helper->json->sendJson($festivals);

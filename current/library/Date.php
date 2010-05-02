@@ -91,51 +91,58 @@ class Date
      */
     public static function getRangeDates($startDate, $endDate)
     {
-        // 取得跟前一週星期天的距離、日期
-        $date = self::getInstance();
-        $date->set($startDate, 'yyyy-MM-dd');
-
-        // 檢查日期限制為1970～2100
-        if ($date->get('yyyy') < 1970 || $date->get('yyyy') > 2100) {
-            exit('超過日期限制，本行事曆限制年份為西元1970年～西元2100年');
-        }
+        $calendarCache = Zend_Registry::get('cacheManager')->getCache('calendar');
+        $cacheTag      = str_replace('-', '', $startDate) .'calenadr';
         
-        $preStartDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
-        $preStartDate = self::add($startDate, -$preStartDays);
+        // 檢查是否有Cache可使用
+        if (!$calendar = $calendarCache->load($cacheTag)) {
+            // 取得跟前一週星期天的距離、日期
+            $date = self::getInstance();
+            $date->set($startDate, 'yyyy-MM-dd');
 
-        // 取得跟最後一週星期天的距離
-        $date->set($endDate, 'yyyy-MM-dd');
-        $afterStartDays = 7 - $date->get(Zend_Date::WEEKDAY_8601);
-        $afterStartDate = self::add($endDate, $afterStartDays);
-
-        // 回傳陣列
-        $row = 0;
-        $calendar['preStartDays']   = $preStartDays;
-        $calendar['afterStartDays'] = $afterStartDays;
-
-        $rangeDays = self::sub($endDate, $startDate);
-        $today     = self::getDate();
-        for ($i = 0; $preStartDate <= $afterStartDate; $i++, $preStartDate = self::add($preStartDate, 1)) {
-            if ($i > 0 && $i % 7 == 0) {
-                $row++;
-                $i = 0;
+            // 檢查日期限制為1970～2100
+            if ($date->get('yyyy') < 1970 || $date->get('yyyy') > 2100) {
+                exit('超過日期限制，本行事曆限制年份為西元1970年～西元2100年');
             }
-            $calendar['date'][$row][$i]['date'] = $preStartDate;
 
-            // 類別判斷
-            if ($row * 7 + $i + 1 <= $preStartDays) {
-                $calendar['date'][$row][$i]['type'] = 'preDays';
-            } elseif ($row * 7 + $i + 1 > $preStartDays + $rangeDays + 1) {
-                $calendar['date'][$row][$i]['type'] = 'afterDays';
-            } else {
-                $calendar['date'][$row][$i]['type'] = 'normal';
+            $preStartDays = $date->get(Zend_Date::WEEKDAY_8601) - 1;
+            $preStartDate = self::add($startDate, -$preStartDays);
+
+            // 取得跟最後一週星期天的距離
+            $date->set($endDate, 'yyyy-MM-dd');
+            $afterStartDays = 7 - $date->get(Zend_Date::WEEKDAY_8601);
+            $afterStartDate = self::add($endDate, $afterStartDays);
+
+            // 回傳陣列
+            $row = 0;
+            $calendar['preStartDays']   = $preStartDays;
+            $calendar['afterStartDays'] = $afterStartDays;
+
+            $rangeDays = self::sub($endDate, $startDate);
+            $today     = self::getDate();
+            for ($i = 0; $preStartDate <= $afterStartDate; $i++, $preStartDate = self::add($preStartDate, 1)) {
+                if ($i > 0 && $i % 7 == 0) {
+                    $row++;
+                    $i = 0;
+                }
+                $calendar['date'][$row][$i]['date'] = $preStartDate;
+
+                // 類別判斷
+                if ($row * 7 + $i + 1 <= $preStartDays) {
+                    $calendar['date'][$row][$i]['type'] = 'preDays';
+                } elseif ($row * 7 + $i + 1 > $preStartDays + $rangeDays + 1) {
+                    $calendar['date'][$row][$i]['type'] = 'afterDays';
+                } else {
+                    $calendar['date'][$row][$i]['type'] = 'normal';
+                }
+
+                // 檢查是否是今天
+                if ($preStartDate == $today) {
+                    $calendar['date'][$row][$i]['type'] .= ' today';
+                }
             }
             
-            // 檢查是否是今天
-            if ($preStartDate == $today) {
-                $calendar['date'][$row][$i]['type'] .= ' today';
-            }
-            
+            $calendarCache->save($calendar, $cacheTag);
         }
 
         return $calendar;
@@ -149,14 +156,14 @@ class Date
      */
     public function getFestivals($startDate, $endDate)
     {
-        $festivalCache = Zend_Controller_Front::getInstance ()->getParam ( 'bootstrap' )->getPluginResource('cachemanager')->getCacheManager()->getCache('festival');
+        $festivalCache = Zend_Registry::get('cacheManager')->getCache('calendar');
+        $cacheTag      = str_replace('-', '', $startDate) . 'festival';
 
         // 檢查是否有快取可以使用
-        if (!$festival = $festivalCache->load('festival')) {
-        
+        if (!$festival = $festivalCache->load($cacheTag)) {
             // 網路發生問題，無法連線，發出錯誤訊息
             if (!$festivalFeed = @file_get_contents("http://www.google.com/calendar/feeds/taiwan__zh_tw%40holiday.calendar.google.com/public/basic?orderby=starttime&sortorder=ascending&start-min=$startDate&start-max=$endDate")) {
-                return false;
+                return 'error';
             }
 
             // 剖析Google Calendar的內容
@@ -166,9 +173,9 @@ class Date
                 $festival[] = array('date' => $match[0], 'title' => (string)$festivalEntry->title);
             }
             
-            $festivalCache->save($festival, 'festival');
+            $festivalCache->save($festival, $cacheTag);
         }
-        
+
         return $festival;
     }
     

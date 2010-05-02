@@ -38,6 +38,7 @@
     text-align: right;
     background-color: transparent !important;
 }
+/* 最新消息 */
 #news table {
     width: 99.3%;
 }
@@ -56,6 +57,7 @@
 #news .newsTitle {
     width: 20em;
 }
+/* 行事曆 */
 #calendar {
     min-height: 4em;
 }
@@ -83,13 +85,11 @@
 #calendar #dates #caption td {
     background-color: #C3D9FF;
     font-weight: bold;
-    color: blue;
+    vertical-align: middle;
 }
 #calendar #dates th {
     font-weight: normal;
     background-color: #C3D9FF;
-}
-#calendar #dates td {
 }
 #calendar #dates .preDays, #calendar #dates .afterDays {
     color: #9E8888;

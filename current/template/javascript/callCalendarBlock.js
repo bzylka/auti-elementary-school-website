@@ -24,6 +24,7 @@ function getCalendarBlock(date, moveDirection)
         error: function(exception) {
             $('#calendarMessage').html('發生錯誤，讀取行事曆，請稍後再試');
         },
+        dataType: 'html',
         success: function(response) {
             // 設定消失方向（反向）
             if (moveDirection == 'left') {

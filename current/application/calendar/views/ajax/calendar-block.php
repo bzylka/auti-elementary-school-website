@@ -19,13 +19,13 @@
     <table id="dates">
         <tr id="caption" style="line-height:1.2em;">
             <td style="font-size:130%;">
-                <?php echo $this->ajaxLink("getCalendarBlock('" . $this->calendar['preDate'] . "', 'right')", '«') ?>
+                <?php echo $this->ajaxLink("getCalendarBlock('" . $this->preMonthYear . '-' . $this->preMonth . "', 'right')", '«') ?>
             </td>
             <td colspan="5">
-                <?php echo $this->hyperLink('calendar/view/byMonth/date/' . $this->viewDate, $this->calendarCaption) ?>
+                <?php echo $this->escape($this->calendarCaption) ?>
             </td>
             <td style="font-size:130%;">
-                <?php echo $this->ajaxLink("getCalendarBlock('" . $this->calendar['afterDate'] . "', 'left')", '»') ?>
+                <?php echo $this->ajaxLink("getCalendarBlock('" . $this->nextMonthYear . '-' . $this->nextMonth . "', 'left')", '»') ?>
             </td>
         </tr>
         <tr>
@@ -76,6 +76,6 @@
     </div>
 
     <div class="more" style="padding-top:0.5em;">
-        <?php echo $this->hyperLink('calendar/view/index/date/' . $this->viewDate, '檢視細節…') ?>
+        <?php echo $this->hyperLink('calendar/view/index/date/' . $this->thisMonth, '檢視' . $this->thisMonth. '行事曆…') ?>
     </div>
 <?php endif; ?>

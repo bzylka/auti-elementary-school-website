@@ -13,7 +13,7 @@
 <?php $this->headMeta()->prependName('google-site-verification', 'zocX_f_SGDzeMPE2jMcbDsHut7sulKV5epyc4F0x7VA') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'defaultIndex.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/newsTable.css') ?>
-<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUI.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'callCalendarBlock.js') ?>
 
 <div id="left">
@@ -84,7 +84,7 @@
     <div id="calendar" class="contentBlock">
         <div class="blockHeader">
             <span class="blockNav">
-                <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈顯示本月〉') ?>
+                <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈檢視本月行事曆〉') ?>
             </span>
             行事曆
         </div>
