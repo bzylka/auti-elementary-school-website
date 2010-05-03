@@ -15,7 +15,7 @@
 <?php $this->headTitle('行事曆') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'calendarView.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/calendarDetailDialog.css') ?>
-<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUi.js') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/jQueryUI.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'calendarNav.js') ?>
 
 <?php if ($this->message): ?>
@@ -27,10 +27,6 @@
         <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
     </div>
 <?php endif; ?>
-
-<tr id="calendarNav">
-        
-    </tr>
 
 <table id="calendar" summary="<?php echo $this->escape($this->calendarCaption) ?>行事曆">
     <caption>

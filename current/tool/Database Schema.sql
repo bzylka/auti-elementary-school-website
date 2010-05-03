@@ -154,6 +154,7 @@ CREATE TABLE IF NOT EXISTS achievement (
     dirHash CHAR(40) NOT NULL ,
     displayOrder INT NOT NULL DEFAULT 0
 );
+
 /**
  * 行事曆項目
  */

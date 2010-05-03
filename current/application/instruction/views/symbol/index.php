@@ -20,6 +20,7 @@
                 <param name="archive" value="http://<?php echo $_SERVER['HTTP_HOST'] . BASE_URL ?>template/media/cortado.jar" />
                 <param name="code" value="com.fluendo.player.Cortado.class" />
                 <param name="url" value="/template/media/SchoolSong.ogg" />
+                <param name="video" value="false" />
                 <param name="seekable" value="false" />
                 <param name="autoPlay" value="false" />
                 <param name="showStatus" value="show" />

@@ -65,19 +65,25 @@ class Model_Album extends Model_Abstract
      */
     public function getRandomPhotos($counts)
     {
-        $albumRowset = $this->getTable()->where('isSlideShow = 1')->getRowset();
+        $photoCache = Zend_Registry::get('cacheManager')->getCache('photo');
         
-        if (count($albumRowset) == 0) {
-            return false;
+        if (!$photos = $photoCache->load('photoCache')) {
+            $albumRowset = $this->getTable()->where('isSlideShow = 1')->getRowset();
+
+            if (count($albumRowset) == 0) {
+                return false;
+            }
+
+            $albumCounts = count($albumRowset);
+            $albumRow = $albumRowset[mt_rand(0, $albumCounts - 1)];
+            $photos['albumId']   = $albumRow->albumId;
+            $photos['albumName'] = $albumRow->albumName;
+            $photos['photos']    = $albumRow->findDependentRowset('Table_Photo')->toArray();
+            shuffle($photos['photos']);
+            array_splice($photos['photos'], $counts);
+            $photoCache->save($photos, 'photoCache');
         }
         
-        $albumCounts = count($albumRowset);
-        $albumRow = $albumRowset[mt_rand(0, $albumCounts - 1)];
-        $photos['albumId']   = $albumRow->albumId;
-        $photos['albumName'] = $albumRow->albumName;
-        $photos['photos']    = $albumRow->findDependentRowset('Table_Photo')->toArray();
-        shuffle($photos['photos']);
-        array_splice($photos['photos'], $counts);
         return $photos;
     }
     

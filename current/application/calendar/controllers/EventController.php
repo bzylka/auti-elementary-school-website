@@ -37,7 +37,7 @@ class Calendar_EventController extends Controller
         if ($this->isPost()) {
             if ($event->isValid()) {
                 $event->add();
-                $this->redirect('calendar/view/by2Week/date/' . $event->getForm()->startDate->getValue(), $event->getMessage());
+                $this->redirect('calendar/view/index/date/' . $event->getForm()->startDate->getValue(), $event->getMessage());
             } else {
                 $this->view->message = $event->getMessage();
             }
@@ -59,7 +59,7 @@ class Calendar_EventController extends Controller
         if ($this->isPost()) {
             if ($event->isValid()) {
                 $event->update($id);
-                $this->redirect('calendar/view/by2Week/date/' . $event->getForm()->startDate->getValue(), $event->getMessage());
+                $this->redirect('calendar/view/index/date/' . $event->getForm()->startDate->getValue(), $event->getMessage());
             } else {
                 $this->view->message = $event->getMessage();
             }

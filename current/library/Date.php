@@ -135,11 +135,6 @@ class Date
                 } else {
                     $calendar['date'][$row][$i]['type'] = 'normal';
                 }
-
-                // 檢查是否是今天
-                if ($preStartDate == $today) {
-                    $calendar['date'][$row][$i]['type'] .= ' today';
-                }
             }
             
             $calendarCache->save($calendar, $cacheTag);

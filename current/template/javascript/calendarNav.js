@@ -26,12 +26,16 @@ $(function() {
     );
     
     // 將所有事件細節用Detail包裝起來
-    $('.event').children('.detail').dialog({autoOpen: false});
+    $('.event').children('.detail').dialog({
+        autoOpen: false,
+        hide: 'scale',
+        show: 'scale'
+    });
     
-    // 標示節日（測試程式碼）
-    //$('tr').find("td:contains('04-23')").css('color', 'red');
-    //$('tr').find("td:contains('04-23')").prepend('YA，今天放假！');
-    
+    // 標示節日（尚未完成）
+        //$('tr').find("td:contains('04-23')").css('color', 'red');
+        //$('tr').find("td:contains('04-23')").prepend('YA，今天放假！');
+    // 標示今天（尚未完成）
 });
 
 /**
