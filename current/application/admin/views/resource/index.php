@@ -33,8 +33,8 @@
             <?php foreach ($this->resourceTable as &$resource): ?>
                 <tr>
                     <td class="resourceName"><?php echo $resource['resourceName'] ?></td>
-                    <td class="edit"><?php echo $this->hyperLinK('admin/resource/edit/id/' . $resource['resourceId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/resource/delete/id/' . $resource['resourceId'], '刪除', array('class' => 'deleteAction')) ?></td>
+                    <td class="edit"><?php echo $this->hyperLink('admin/resource/edit/id/' . $resource['resourceId'], '編輯') ?></td>
+                    <td class="delete"><?php echo $this->hyperLink('admin/resource/delete/id/' . $resource['resourceId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

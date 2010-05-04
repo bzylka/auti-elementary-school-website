@@ -37,8 +37,8 @@
                     <td class="officeEnglishName"><?php echo $office['officeEnglishName'] ?></td>
                     <td class="displayOrder"><?php echo $office['displayOrder'] ?></td>
                     <td class="testLink"><?php if ($office['officeLink']): echo '<a class="external" href="' . $office['officeLink'] . '" target="_blank">測試</a>'; else: echo '無連結設定';endif; ?></td>
-                    <td class="edit"><?php echo $this->hyperLinK('admin/office/edit/id/' . $office['officeId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/office/delete/id/' . $office['officeId'], '刪除', array('class' => 'deleteAction')) ?></td>
+                    <td class="edit"><?php echo $this->hyperLink('admin/office/edit/id/' . $office['officeId'], '編輯') ?></td>
+                    <td class="delete"><?php echo $this->hyperLink('admin/office/delete/id/' . $office['officeId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

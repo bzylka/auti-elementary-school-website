@@ -21,7 +21,7 @@
         <div class="blockHeader">
             <?php if ($this->allowAddNews): ?>
                 <span class="blockNav">
-                    <?php echo $this->hyperLinK('news/add', '發佈新聞 »') ?>
+                    <?php echo $this->hyperLink('news/add', '發佈新聞 »') ?>
                 </span>
             <?php endif; ?>
             最新消息

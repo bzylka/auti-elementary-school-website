@@ -33,8 +33,8 @@
             <?php foreach ($this->privilegeTable as &$privilege): ?>
                 <tr>
                     <td class="privilegeName"><?php echo $privilege['privilegeName'] ?></td>
-                    <td class="edit"><?php echo $this->hyperLinK('admin/privilege/edit/id/' . $privilege['privilegeId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/privilege/delete/id/' . $privilege['privilegeId'], '刪除', array('class' => 'deleteAction')) ?></td>
+                    <td class="edit"><?php echo $this->hyperLink('admin/privilege/edit/id/' . $privilege['privilegeId'], '編輯') ?></td>
+                    <td class="delete"><?php echo $this->hyperLink('admin/privilege/delete/id/' . $privilege['privilegeId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>

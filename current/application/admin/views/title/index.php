@@ -37,8 +37,8 @@
                     <td class="titleName"><?php echo $title['titleName'] ?></td>
                     <td class="titleEnglishName"><?php echo $title['titleEnglishName'] ?></td>
                     <td class="displayOrder"><?php echo $title['displayOrder'] ?></td>
-                    <td class="edit"><?php echo $this->hyperLinK('admin/title/edit/id/' . $title['titleId'], '編輯') ?></td>
-                    <td class="delete"><?php echo $this->hyperLinK('admin/title/delete/id/' . $title['titleId'], '刪除', array('class' => 'deleteAction')) ?></td>
+                    <td class="edit"><?php echo $this->hyperLink('admin/title/edit/id/' . $title['titleId'], '編輯') ?></td>
+                    <td class="delete"><?php echo $this->hyperLink('admin/title/delete/id/' . $title['titleId'], '刪除', array('class' => 'deleteAction')) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
