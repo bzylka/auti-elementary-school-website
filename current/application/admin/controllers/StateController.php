@@ -45,8 +45,9 @@ class Admin_StateController extends Controller
               ->addValidator('Extension', 'pdo_sqlite', State::IS_LOADED, 'pdo_sqlite是否載入')
               ->addValidator('Extension', 'imagick', State::IS_LOADED, 'imagick是否載入')
               ->addValidator('Extension', 'zip', State::IS_LOADED, 'zip是否載入')
+              ->addValidator('Ini', 'memory_limit', array(State::BIGGER, '1099M'), 'memory_limit是否大於1100M')
+              ->addValidator('Ini', 'post_max_size', array(State::BIGGER, '1049M'), 'post_max_size是否大於1050M')
               ->addValidator('Ini', 'upload_max_filesize', array(State::BIGGER, '1023M'), 'upload_max_filesize是否大於1024M')
-              ->addValidator('Ini', 'post_max_size', array(State::BIGGER, '1023M'), 'post_max_size是否大於1024M')
               ->addValidator('Ini', 'date.timezone', array(State::EQUAL, 'Asia/Taipei'), 'date.timezone是否設定為Asia/Taipei', State::SUGGESTION)
               ->addValidator('Ini', 'magic_quotes_gpc', array(State::EQUAL, false), 'magic_quotes_gpc是否關閉', State::SUGGESTION)
               ->addValidator('Ini', 'display_errors', array(State::EQUAL, false), 'display_errors是否關閉', State::SUGGESTION);

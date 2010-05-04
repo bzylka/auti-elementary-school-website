@@ -41,7 +41,7 @@ class State_Validator_Ini extends State_Validator_Abstract
                 
                 break;
             case 'BIGGER':
-                if ($currentSetting > $this->_conditions[1]) {
+                if ($this->_convertFileSize($currentSetting) > $this->_convertFileSize($this->_conditions[1])) {
                     $isValid = true;
                 } else {
                     $isValid = false;
@@ -49,7 +49,7 @@ class State_Validator_Ini extends State_Validator_Abstract
 
                 break;
             case 'SMALLER':
-                if ($currentSetting < $this->_conditions[1]) {
+                if ($this->_convertFileSize($currentSetting) < $this->_convertFileSize($this->_conditions[1])) {
                     $isValid = true;
                 } else {
                     $isValid = false;
@@ -66,6 +66,36 @@ class State_Validator_Ini extends State_Validator_Abstract
                                 'isValid'        => $isValid,
                                 'suggestion'     => $this->_suggestion);
         return $isValid;
+    }
+    
+    /**
+     * 換算檔案單位大小
+     * @param string $fileSize 檔案大小
+     * @return int 
+     */
+    private function _convertFileSize($fileSize)
+    {
+        if (is_numeric($fileSize)) {
+            return (int)$fileSize;
+        } else {
+            switch (substr($fileSize, -1)) {
+                case 'K':
+                case 'k':
+                    return (int)$fileSize * 1024;
+                    break;
+                case 'M':
+                case 'm':
+                    return (int)$fileSize * 1048576;
+                    break;
+                case 'G':
+                case 'g':
+                    return (int)$fileSize * 1073741824;
+                    break;
+                default:
+                    return $fileSize;
+                    break;
+            }
+        }
     }
 }
 ?>
