@@ -4,7 +4,7 @@
 = mod_rewrite設定 =
 {{{
 url.rewrite-once = (
-  ".*\.(js|ico|gif|jpg|png|css|txt|ogg|jar)$" => "$0",
+  ".*\.(js|gif|jpg|png|css|txt|ogg|jar)$" => "$0",
   ".*\?(.*)$" => "/index.php?$1",
   "" => "/index.php"
 )
