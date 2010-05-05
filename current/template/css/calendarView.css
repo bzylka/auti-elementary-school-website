@@ -50,7 +50,8 @@
     line-height: 1.1em;
 }
 .event {
-    padding: 2px 10px;
+    padding: 2px 7px;
+    font-size: 80%;
 /* 一般事件背景色設定 */
     background-color: #164fe3;
     color: white;
