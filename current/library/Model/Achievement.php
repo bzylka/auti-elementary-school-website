@@ -40,6 +40,8 @@ class Model_Achievement extends Model_Abstract
     
     /**
      * 取得成果資料夾檔案內容
+     * @param int $id 成果ID
+     * @return array 成果資料夾檔案內容
      */
     public function getFileList($id)
     {
@@ -58,7 +60,7 @@ class Model_Achievement extends Model_Abstract
     
     /**
      * 覆載delete()，刪除檔案資料夾
-     * @param int $id 相簿ID
+     * @param int $id 成果ID
      */
     public function delete($id)
     {
@@ -88,7 +90,9 @@ class Model_Achievement extends Model_Abstract
     }
     
     /**
-     * 刪除檔案
+     * 遞迴刪除資料夾檔案
+     * @param string $dir 要刪除的資料夾
+     * @return bool 刪除結果
      */
     private function _removeDir($dir)
     {
@@ -112,6 +116,7 @@ class Model_Achievement extends Model_Abstract
     /**
      * 遞迴取得資料夾內容
      * @param string $directory 資料夾名稱
+     * @return array 資料夾內容
      */
     private function _getFileListArray($directory)
     {
