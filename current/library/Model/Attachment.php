@@ -105,12 +105,11 @@ class Model_Attachment extends Model_Abstract
         }
 
         $attachmentRow = $this->getTable()->find($id)->current();
-        
         if (!move_uploaded_file($_FILES['newsAttachment']['tmp_name'], DATA_DIR . $attachmentRow->fileHash)) {
             return false;
         }
-        
-        return mb_convert_encoding($_FILES['newsAttachment']['name'], 'UTF-8', 'Big5');
+       
+        return FileInfo::convertToUTF8($_FILES['newsAttachment']['name']);
     }
     
     /**

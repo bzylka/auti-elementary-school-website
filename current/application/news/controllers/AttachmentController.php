@@ -72,7 +72,7 @@ class News_AttachmentController extends Controller
         
         if ($this->isPost()) {
             if ($attachment->isValid()) {
-                // 如果有上傳檔案就取代檔案（尚未完成）
+                // 如果有上傳檔案就取代檔案
                 if ($_FILES['newsAttachment']['error'] == '0') {
                     if ($uploadFileName = $attachment->replace($id)) {
                         if ($userSetFileName = $attachment->getForm()->fileName->getValue()) {
@@ -89,7 +89,7 @@ class News_AttachmentController extends Controller
                         $attachment->setMessage('檔案取代失敗，請聯絡系統管理員');
                     }
                 } else {
-                    // 如果沒有上傳就只要修改檔名（尚未完成）
+                    // 如果沒有上傳就只要修改檔名
                     if ($newFileName = $attachment->getForm()->fileName->getValue()) {
                         $orginFile = new FileInfo($attachment->getTable()->find($id)->current()->fileName);
                         if ($orginFile->extension) {

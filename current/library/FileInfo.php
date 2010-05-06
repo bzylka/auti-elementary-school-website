@@ -72,5 +72,19 @@ class FileInfo
             return false;
         }
     }
+    
+    /**
+     * 將Big5檔名轉成UTF-8，如果是UTF-8則不更動
+     * @param string $string 檔名
+     * @return 檔名
+     */
+    public static function convertToUTF8($string)
+    {
+        if (mb_check_encoding($string, 'Big5')) {
+            $string = mb_convert_encoding($string, 'UTF-8', 'Big5');
+        }
+
+        return $string;
+    }
 }
 ?>

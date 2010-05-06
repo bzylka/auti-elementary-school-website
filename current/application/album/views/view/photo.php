@@ -42,7 +42,7 @@
     </span>
     <span>»</span>
     <span id="fileName">
-        <?php echo mb_convert_encoding($this->photo['fileName'], 'UTF-8') ?>
+        <?php echo FileInfo::convertToUTF8($this->photo['fileName']) ?>
     </span>
 </div>
 
@@ -68,7 +68,7 @@
         <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
         <small>｜</small>
         <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
-        <a href="#photoView" title="<?php echo mb_convert_encoding($this->photo['fileName'], 'UTF-8') ?>" id="showLargePhoto">放大檢視</a>
+        <a href="#photoView" title="<?php echo FileInfo::convertToUTF8($this->photo['fileName']) ?>" id="showLargePhoto">放大檢視</a>
     </div>
 <?php endif; ?>
     

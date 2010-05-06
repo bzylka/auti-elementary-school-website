@@ -77,7 +77,7 @@ class Model_Achievement extends Model_Abstract
     public function download($id, $filePath)
     {
         if ($achievementRow = $this->getTable()->find($id)->current()) {
-            $achievementFilePath = mb_convert_encoding($achievementRow->dirHash . $filePath, 'Big5', 'UTF-8');
+            $achievementFilePath = FileInfo::convertToUTF8($achievementRow->dirHash . $filePath);
             header('Content-Type: application/octet-stream');
             header('Content-Disposition: attachment; Filename="' . basename($achievementFilePath) . '"');
             echo file_get_contents(DATA_DIR . $achievementFilePath);
@@ -136,13 +136,13 @@ class Model_Achievement extends Model_Abstract
         // 繼續尋找目錄的檔案
         $fileDirArray = array();
         foreach ($dirList as $dir) {
-            $dirName = mb_convert_encoding($dir, 'UTF-8', 'Big5');
+            $dirName = FileInfo::convertToUTF8($dir);
             $fileDirArray[$dirName] = $this->_getFileListArray($directory . '/' . $dir);
         }
 
         // 處理檔案
         foreach ($fileList as $file) {
-            $fileDirArray[] = mb_convert_encoding($file, 'UTF-8', 'Big5');
+            $fileDirArray[] = FileInfo::convertToUTF8($file);
         }
 
         return $fileDirArray;

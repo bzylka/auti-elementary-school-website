@@ -85,7 +85,7 @@ class Album_AddController extends Controller
                                 for ($i = 0; $i < $zip->numFiles; $i++) {
                                     $entryName = $zip->getNameIndex($i);
                                     if (substr($entryName, -1) != '/' && strtolower(substr($entryName, -3)) == 'jpg') {
-                                        $fileName = mb_convert_encoding(basename($entryName), 'UTF-8', 'Big5');
+                                        $fileName = FileInfo::convertToUTF8(basename($entryName));
                                         $zip->renameIndex($i, Hash::generate() . '.jpg');
                                         $entries[] = $zip->getNameIndex($i);
                                         $photos[] = array('file'     => $tmpDir . $zip->getNameIndex($i),
