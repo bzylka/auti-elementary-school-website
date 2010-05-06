@@ -119,7 +119,6 @@ class Date
             $calendar['afterStartDays'] = $afterStartDays;
 
             $rangeDays = self::sub($endDate, $startDate);
-            $today     = self::getDate();
             for ($i = 0; $preStartDate <= $afterStartDate; $i++, $preStartDate = self::add($preStartDate, 1)) {
                 if ($i > 0 && $i % 7 == 0) {
                     $row++;

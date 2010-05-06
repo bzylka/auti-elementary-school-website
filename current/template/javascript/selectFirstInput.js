@@ -14,8 +14,8 @@
  */
 $(function() {
     // 設定高亮度標記的顏色
-    $("input[type='text'], input[type='password']").focus(function(){this.style.backgroundColor = '#ffff99';});
-    $("input[type='text'], input[type='password']").blur(function(){this.style.backgroundColor = '';});
+    $("input[type='text'], input[type='password']").focus(function(){this.style.backgroundColor = "#ffff99";});
+    $("input[type='text'], input[type='password']").blur(function(){this.style.backgroundColor = "";});
     
     // 自動移到第一個input
     $("input[type='text']:first").focus();

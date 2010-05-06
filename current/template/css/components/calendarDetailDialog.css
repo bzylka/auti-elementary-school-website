@@ -783,7 +783,7 @@
 }
 .ui-dialog .ui-dialog-title {
     float: left;
-    margin: .1em 0 .2em;
+    margin: .1em 2em .2em 0;
 }
 .ui-dialog .ui-dialog-titlebar-close {
     position: absolute;

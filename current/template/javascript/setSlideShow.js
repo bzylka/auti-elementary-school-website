@@ -21,9 +21,9 @@ $(function() {
         }
         
         $.ajax({
-            url: 'slideShow/set/id/' + $(this).attr("name") + '/isShow/' + isShow,
+            url: "slideShow/set/id/" + $(this).attr("name") + "/isShow/" + isShow,
             error: function(exception) {
-                alert('發生錯誤，可能網站無法運作，請重新整理');
+                alert("發生錯誤，可能網站無法運作，請重新整理");
             },
             success: function(response) {
                 alert(response);

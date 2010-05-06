@@ -13,12 +13,12 @@
  * 確認密碼輸入是否相同
  */
 $(function() {
-    $('form').submit(
+    $("form").submit(
         function()
         {
-            if ($('#password').val() != $('#confirmPassword').val()) {
-                alert('確認密碼和密碼不同，請重新輸入');
-                $('#password').select();
+            if ($("#password").val() != $("#confirmPassword").val()) {
+                alert("確認密碼和密碼不同，請重新輸入");
+                $("#password").select();
                 return false;
             }
             

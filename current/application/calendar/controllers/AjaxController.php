@@ -51,16 +51,16 @@ class Calendar_AjaxController extends Controller
         // 設定當月
         $dateObj = new Zend_Date();
         $dateObj->set($date, 'yyyy-MM');
-        $year        = $dateObj->get(Zend_Date::YEAR_8601);
+        $year        = $dateObj->get(Zend_Date::YEAR);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
 
         // 設定前一月、後一月的日期
         $dateObj->add(1, Zend_Date::MONTH);
-        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR);
         $this->view->nextMonth     = $dateObj->get(Zend_Date::MONTH);
         $dateObj->sub(2, Zend_Date::MONTH);
-        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR);
         $this->view->preMonth     = $dateObj->get(Zend_Date::MONTH);
         
         // 設定日曆標題、日期
@@ -95,7 +95,7 @@ class Calendar_AjaxController extends Controller
         // 設定節日清單
         $dateObj = new Zend_Date();
         $dateObj->set($date, 'yyyy-MM');
-        $year        = $dateObj->get(Zend_Date::YEAR_8601);
+        $year        = $dateObj->get(Zend_Date::YEAR);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
         $festivals   = Date::getFestivals("$year-$month-01", "$year-$month-$daysOfMonth");

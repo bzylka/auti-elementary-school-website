@@ -8,7 +8,7 @@
  *
  * @category   View
  * @package    Script
- * @copyright  2008 ottokang
+ * @copyright  2010 ottokang
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
@@ -28,18 +28,16 @@
     </div>
 <?php endif; ?>
 
-<table id="calendar" summary="<?php echo $this->escape($this->calendarCaption) ?>行事曆">
-    <caption>
-        <?php echo $this->escape($this->calendarCaption) ?>
-    </caption>
-    <tr id="calendarNav">
-        <td id="preMonth">
+<table id="calendar" summary="<?php echo $this->escape($this->calendarCaption) ?>行事曆" title="<?php echo $this->thisMonth ?>">
+    <tr id="calendarNav" title="<?php echo $this->today ?>">
+        <td id="preMonth" colspan="2">
             <?php echo $this->hyperLink('calendar/view/index/date/' . $this->preMonthYear . '-' . $this->preMonth, '«' . $this->preMonthYear . '年' . $this->preMonth . '月') ?>
+            <button onclick="location.href='<?php echo BASE_URL ?>calendar/view/index/date/'">回到今天</button>
         </td>
-        <td colspan="5">
-            &nbsp;
+        <td id="calendarTitle" colspan="3">
+            <?php echo $this->escape($this->calendarCaption) ?>
         </td>
-        <td id="nextMonth">
+        <td id="nextMonth" colspan="2">
             <?php echo $this->hyperLink('calendar/view/index/date/' . $this->nextMonthYear . '-' . $this->nextMonth, $this->nextMonthYear . '年' . $this->nextMonth . '月»') ?>
         </td>
     </tr>
@@ -56,7 +54,9 @@
     <?php foreach ($this->calendar['date'] as $row => $week): ?>
         <tr class="days">
             <?php foreach ($week as $weekDay => $day): ?>
-                <td class="<?php echo $day['type']?>"><?php echo substr($day['date'], -5) ?></td>
+                <td class="<?php echo $day['type']?>" title="<?php echo $this->escape($day['date']) ?>">
+                    <?php echo substr($day['date'], -5) ?>
+                </td>
             <?php endforeach; ?>
         </tr>
         
@@ -83,19 +83,22 @@
                                 <span class="hasPre">«</span>
                             <?php endif ?>
                             
-                            <?php echo $this->restrictString($this->events[$row][$i][$j]['eventName'], $this->events[$row][$i][$j]['colspan'] * 16) ?>
+                            <?php echo $this->restrictString($this->events[$row][$i][$j]['eventName'], $this->events[$row][$i][$j]['colspan'] * 14) ?>
 
                             <div class="detail" id="<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row?>" title="<?php echo $this->escape($this->events[$row][$i][$j]['eventName']) ?>">
                                 <div class="datePeriod">
                                     <?php if ($this->events[$row][$i][$j]['startDate'] == $this->events[$row][$i][$j]['endDate']): ?>
-                                        <?php echo $this->events[$row][$i][$j]['startDate'] ?>
+                                        日期：<?php echo $this->convertDate($this->events[$row][$i][$j]['startDate']) ?>
                                     <?php else: ?>
-                                        <?php echo $this->events[$row][$i][$j]['startDate'] . '～' . $this->events[$row][$i][$j]['endDate']?>
+                                        日期：<?php echo $this->convertDate($this->events[$row][$i][$j]['startDate']) . '～' . $this->convertDate($this->events[$row][$i][$j]['endDate']) ?>
                                     <?php endif; ?>
                                 </div>
-                                <div class="eventDescription">
-                                    <?php echo nl2br($this->escape($this->events[$row][$i][$j]['eventDescription']));?>
-                                </div>
+                                <?php if ($this->events[$row][$i][$j]['eventDescription']): ?>
+                                    <hr />
+                                    <div class="eventDescription">
+                                        <?php echo nl2br($this->escape($this->events[$row][$i][$j]['eventDescription']));?>
+                                    </div>
+                                <?php endif; ?>
                                 <?php if ($this->allowCalendar == true): ?>
                                     <div class="eventNav">
                                         <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], '編輯') ?>

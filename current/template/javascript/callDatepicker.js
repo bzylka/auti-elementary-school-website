@@ -13,8 +13,8 @@
  * 呼叫Datepicker
  */
 $(function() {
-    $('.callDatepicker').datepicker({
-        dateFormat: 'yy-mm-dd',
+    $(".callDatepicker").datepicker({
+        dateFormat: "yy-mm-dd",
         showButtonPanel: true
     });
 });

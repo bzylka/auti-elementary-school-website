@@ -3,9 +3,13 @@
     border: 0 !important;
     padding: 5px 2px;
     font-size: 90%;
+    vertical-align: middle;
 }
 #preMonth {
     text-align: left;
+}
+#preMonth button {
+    background-color: #E2E2E2;
 }
 #nextMonth {
     text-align: right;
@@ -15,8 +19,8 @@
     border-bottom: 7px solid #9BAFF1;
     width: 100%;
 }
-#calendar caption {
-    font-size: 110%;
+#calendar #calendarTitle {
+    font-size: 120%;
     font-weight: bold;
 }
 #calendar th {
@@ -33,25 +37,49 @@
 .calendarSpace td {
     line-height: 0.2em !important;
 }
+/* 節日區塊設定 */
+.festival {
+    float: right;
+    line-height: 1.2em;
+    max-width: 5em;
+    padding: 0px 4px;
+    color: white;
+    background-color: #CC3333;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+/* 今天區塊設定 */
+.today {
+    float: right;
+    line-height: 1.2em;
+    width: 55%;
+    padding: 0px 4px;
+    background-color: #FFFF99;
+    text-align: center;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
 /* 日期設定 */
 .days td {
     font-size: 80%;
     width: 6em;
     padding: 2px;
     background-color: #E8EEF7;
-    line-height: 1em !important;
 }
 .days .preDays, .days .afterDays {
     background-color: #EEEEEE;
     color: #77778D;
 }
 /* 事件 */
-.eventRow td {
-    line-height: 1.1em;
-}
 .event {
-    padding: 2px 7px;
+    padding: 0 9px;
     font-size: 80%;
+    vertical-align: middle;
+    border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
 /* 一般事件背景色設定 */
     background-color: #164fe3;
     color: white;
@@ -62,8 +90,6 @@
 .eventHighlight {
     opacity: 0.7;
     filter: alpha(opacity=70);
-}
-.hasPre {
 }
 .hasNext {
     float: right;
@@ -76,11 +102,12 @@
     font-weight: bold;
 }
 .eventDescription {
-    padding-top: 1em;
+    padding-left: 1em;
 }
 .eventNav {
-    padding-top: 0.5em;
     font-size: 90% !important;
+    text-align: right;
+    padding-top: 0.5em;
 }
 .eventNav a {
     color: blue !important;

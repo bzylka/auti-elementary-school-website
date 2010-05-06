@@ -13,11 +13,11 @@
  * 首頁選單操作
  */
 $(function() {
-    $('#menu>li').hover(
+    $("#menu>li").hover(
         function(){
-            $(this).children('ul').show();
-            $(this).children('ul').css({"left": $(this).width() + 5 + "px", "top": $(this).position().top + "px"});
+            $(this).children("ul").show();
+            $(this).children("ul").css({"left": $(this).width() + 5 + "px", "top": $(this).position().top + "px"});
         }, function(){
-            $(this).children('ul').hide();
+            $(this).children("ul").hide();
         })
 });

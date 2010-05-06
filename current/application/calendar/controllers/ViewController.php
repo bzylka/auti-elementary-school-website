@@ -37,16 +37,16 @@ class Calendar_ViewController extends Controller
         // 設定當月
         $dateObj = new Zend_Date();
         $dateObj->set($date, 'yyyy-MM');
-        $year        = $dateObj->get(Zend_Date::YEAR_8601);
+        $year        = $dateObj->get(Zend_Date::YEAR);
         $month       = $dateObj->get(Zend_Date::MONTH);
         $daysOfMonth = $dateObj->get(Zend_Date::MONTH_DAYS);
 
         // 設定前一月、後一月的日期
         $dateObj->add(1, Zend_Date::MONTH);
-        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->nextMonthYear = $dateObj->get(Zend_Date::YEAR);
         $this->view->nextMonth     = $dateObj->get(Zend_Date::MONTH);
         $dateObj->sub(2, Zend_Date::MONTH);
-        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR_8601);
+        $this->view->preMonthYear = $dateObj->get(Zend_Date::YEAR);
         $this->view->preMonth     = $dateObj->get(Zend_Date::MONTH);
 
         // 取得當月日期陣列
@@ -56,7 +56,11 @@ class Calendar_ViewController extends Controller
         $this->view->events   = $this->_getEvents($this->view->calendar['date'][0][0]['date'],
                                                   current(end(end($this->view->calendar['date']))),
                                                   $this->view->calendar);
-        $this->view->calendarCaption = $year . '年' . $month . '月';
+        $this->view->calendarCaption = $year . '年' . $month . '月行事曆';
+
+        // jQuery參數，取得當月節日和標示今天
+        $this->view->thisMonth = $year . '-' . $month;
+        $this->view->today     = Date::getDate();
         $this->render('index');
     }
     

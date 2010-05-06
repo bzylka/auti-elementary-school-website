@@ -13,5 +13,5 @@
  * 呼叫Datepicker
  */
 $(function() {
-    $('#colorpicker').farbtastic('#backgroundColor');
+    $("#colorpicker").farbtastic("#backgroundColor");
 });
