@@ -34,17 +34,19 @@ class Form_WebLink extends Form_Abstract
              ->addElement('Text', 'linkName',
                           array('label'     => '連結名稱',
                                 'required'  => true,
-                                'size'      => 18,
+                                'size'      => 20,
                                 'maxlength' => 40,
                                 'stringMin' => 1,
                                 'stringMax' => 50))
              ->addElement('Text', 'link',
-                          array('label'     => '連結',
+                          array('label'     => '連結網址',
                                 'required'  => true,
-                                'size'      => 35,
+                                'size'      => 50,
                                 'maxlength' => 255,
                                 'stringMin' => 10,
-                                'stringMax' => 255));
+                                'stringMax' => 255))
+            ->addElement('Checkbox', 'isShowOnIndex',
+                          array('label' => '是否顯示在首頁'));
 
         if ($this->_formType == 'edit') {
             $this->iconFile->setRequired(false)
@@ -61,7 +63,7 @@ class Form_WebLink extends Form_Abstract
         
         //設定分行
         $this->addDisplayGroup(array('iconFile'))
-             ->addDisplayGroup(array('linkName'))
+             ->addDisplayGroup(array('linkName', 'isShowOnIndex'))
              ->addDisplayGroup(array('link'))
              ->addDisplayGroup(array('submit', 'cancel'));
     }

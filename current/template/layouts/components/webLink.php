@@ -13,7 +13,7 @@
 <?php
 // 讀取網路連結列表
 $webLink = new Model_WebLink(array('setNoForm' => true));
-$webLinkList = $webLink->getWebLinks(5);
+$webLinkList = $webLink->getWebLinks(true);
 unset($webLink);
 ?>
 <br />
@@ -26,5 +26,7 @@ unset($webLink);
             </a>
         </li>
     <?php endforeach; ?>
+    <li id="showMoreWebLink"><a href="<?php echo BASE_URL . 'webLink'?>">檢視更多連結…</a></li>
 </ul>
+
         

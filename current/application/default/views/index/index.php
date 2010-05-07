@@ -84,7 +84,7 @@
     <div id="calendar" class="contentBlock">
         <div class="blockHeader">
             <span class="blockNav">
-                <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈檢視本月行事曆〉') ?>
+                <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈回到本月行事曆〉') ?>
             </span>
             行事曆
         </div>

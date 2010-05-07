@@ -30,13 +30,13 @@ class Model_WebLink extends Model_Abstract
     protected $_formClass = 'WebLink';
     
     /**
-     * @param int $limit 數量
+     * 取得網路連結，或是只取得首頁部份
      * @return array 網路連結列表
      */
-    public function getWebLinks($limit = null)
+    public function getWebLinks($isIndex = false)
     {
-        if ($limit) {
-            $this->getTable()->limit($limit);
+        if ($isIndex) {
+            $this->getTable()->where('isShowOnIndex = 1');
         }
         
         if ($webLinkRowset = $this->getTable()->getRowset()) {
@@ -45,6 +45,7 @@ class Model_WebLink extends Model_Abstract
             return false;
         }
     }
+    
     
     /**
      * 覆載delete()，刪除連結圖示檔案

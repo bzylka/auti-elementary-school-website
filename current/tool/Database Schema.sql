@@ -142,11 +142,12 @@ CREATE TABLE IF NOT EXISTS webLink (
     userId INTEGER NOT NULL DEFAULT 0 ,
     iconHashFile CHAR(50) NOT NULL ,
     linkName CHAR(50) NOT NULL ,
-    link CHAR(255) NOT NULL
+    link CHAR(255) NOT NULL ,
+    isShowOnIndex INTEGER DEFAULT 0
 );
 
 /**
- * 成果區塊
+ * 成果
  */
 CREATE TABLE IF NOT EXISTS achievement (
     achievementId INTEGER PRIMARY KEY NOT NULL ,
@@ -156,7 +157,7 @@ CREATE TABLE IF NOT EXISTS achievement (
 );
 
 /**
- * 行事曆項目
+ * 行事曆事件
  */
 CREATE TABLE IF NOT EXISTS event (
     eventId INTEGER PRIMARY KEY NOT NULL ,
@@ -168,12 +169,10 @@ CREATE TABLE IF NOT EXISTS event (
 );
 
 /**
- * 行事曆分類
+ * 行事曆事件分類
  */
 CREATE TABLE IF NOT EXISTS eventCatalog (
     eventCatalogId INTEGER PRIMARY KEY NOT NULL ,
     eventCatalogName CHAR(255) NOT NULL ,
     backgroundColor CHAR(7) DEFAULT 0
 );
-
-

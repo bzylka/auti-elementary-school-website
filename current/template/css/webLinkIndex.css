@@ -1,9 +1,9 @@
+/* 網路連結畫面設定 */
 .webLinkBlock {
     float: left;
     height: 5em;
     width: 180px;
-    margin-left: 0.5em;
-    margin-top: 1em;
+    margin: 1em 0 1.5em 0.5em;
 }
 .webLinkBlock .link {
     padding: 5px 0;
@@ -17,7 +17,16 @@
     font-size: 80%;
     text-align: right;
 }
-#addHyperLink {
+.isShowOnIndex {
+    float: left;
+    background-color: #FFCCCC;
+    padding: 3px;
+    font-size: 80%;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+#addWebLink {
     float: right;
     margin-right: 1em;
     margin-top: -1.5em;

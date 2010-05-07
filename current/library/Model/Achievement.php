@@ -79,10 +79,28 @@ class Model_Achievement extends Model_Abstract
     public function download($id, $filePath)
     {
         if ($achievementRow = $this->getTable()->find($id)->current()) {
-            $achievementFilePath = FileInfo::convertToUTF8($achievementRow->dirHash . $filePath);
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; Filename="' . basename($achievementFilePath) . '"');
-            echo file_get_contents(DATA_DIR . $achievementFilePath);
+
+            // 處理Linux和Windows儲存檔名的差異
+            $achievementFilePath = $achievementRow->dirHash . $filePath;
+            if (!is_file(DATA_DIR . $achievementFilePath)) {
+                // Windows系統要轉換成Big5編碼
+                $achievementFilePath = mb_convert_encoding($achievementFilePath, 'Big5');
+            }
+            
+            // 處理檔案下載IE瀏覽器和其他瀏覽器的差別
+            $fileName = FileInfo::convertToUTF8(basename($achievementFilePath));
+            if ($isIE) { //處理IE偵測
+                // IE瀏覽器要轉換成Big5編碼
+                $fileName = mb_convert_encoding($fileName, 'Big5');
+            }
+            
+            echo $fileName . '<br />';
+            echo $achievementFilePath;
+            exit;
+            
+            //header('Content-Type: application/octet-stream');
+            //header('Content-Disposition: attachment; Filename="' . $fileName . '"');
+            //echo file_get_contents(DATA_DIR . $achievementFilePath);
             exit;
         } else {
             echo 'ID錯誤，請回上一頁';

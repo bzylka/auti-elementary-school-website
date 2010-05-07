@@ -18,7 +18,7 @@
 <h1>網路連結</h1>
 
 <?php if ($this->isAdmin): ?>
-    <div id="addHyperLink">
+    <div id="addWebLink">
         <?php echo $this->hyperLink('webLink/add', '新增連結»') ?>
     </div>
 <?php endif; ?>
@@ -40,6 +40,11 @@
                 </a>
             </p>
             <?php if ($this->isAdmin): ?>
+                <?php if ($webLink['isShowOnIndex']): ?>
+                    <p class="isShowOnIndex">
+                        ↑連結顯示於首頁
+                    </p>
+                <?php endif; ?>
                 <p class="webLinkNav">
                     <?php echo $this->hyperLink('webLink/edit/index/id/' . $webLink['webLinkId'], '編輯') ?>
                     ｜

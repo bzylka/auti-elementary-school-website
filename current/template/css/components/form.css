@@ -2,16 +2,19 @@
 .formContainer {
     margin-top: 0.5em;
 }
-/* 分行 */
+/* 表單分行設定 */
 .formContainer fieldset {
-    border: 0;
     margin: 0 0 12px 0;
 }
+/* 表單說明和輸入項目設定 */
 .formContainer fieldset dt {
     float: left;
     display: block;
     width: 6em;
     line-height: 1.7em;
+}
+.formContainer fieldset .checkbox {
+    width: 1.7em;
 }
 .formContainer fieldset dd {
     float: left;
