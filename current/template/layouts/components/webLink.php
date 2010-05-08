@@ -26,7 +26,7 @@ unset($webLink);
             </a>
         </li>
     <?php endforeach; ?>
-    <li id="showMoreWebLink"><a href="<?php echo BASE_URL . 'webLink'?>">檢視更多連結…</a></li>
+    <li id="showMoreWebLink"><a href="<?php echo BASE_URL . 'webLink'?>">更多連結»</a></li>
 </ul>
 
         

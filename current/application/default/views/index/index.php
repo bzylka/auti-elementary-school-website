@@ -46,7 +46,7 @@
                         </tr>
                     <?php endforeach; ?>
                     <tr>
-                        <td colspan="5" class="more"><?php echo $this->hyperLink('news', '更多…') ?></td>
+                        <td colspan="5" class="more"><?php echo $this->hyperLink('news', '更多最新消息»') ?></td>
                     </tr>
                 </table>
             </div>
@@ -74,7 +74,7 @@
                 <b>無設定顯示相簿</b>
             <?php endif; ?>
             <div class="more" style="padding-top:0.5em;">
-                <?php echo $this->hyperLink('album', '檢視更多相簿…') ?>
+                <?php echo $this->hyperLink('album', '更多相簿»') ?>
             </div>
         </div>
     </div>
