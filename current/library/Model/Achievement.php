@@ -89,18 +89,17 @@ class Model_Achievement extends Model_Abstract
             
             // 處理檔案下載IE瀏覽器和其他瀏覽器的差別
             $fileName = FileInfo::convertToUTF8(basename($achievementFilePath));
-            if ($isIE) { //處理IE偵測
+            $known = array('msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');
+            preg_match_all( '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9]+(?:\.[0-9]+)?)#', strtolower($_SERVER['HTTP_USER_AGENT']), $browser);
+            if ($browser['browser'][0] == 'msie') {
                 // IE瀏覽器要轉換成Big5編碼
                 $fileName = mb_convert_encoding($fileName, 'Big5');
             }
             
-            echo $fileName . '<br />';
-            echo $achievementFilePath;
-            exit;
-            
-            //header('Content-Type: application/octet-stream');
-            //header('Content-Disposition: attachment; Filename="' . $fileName . '"');
-            //echo file_get_contents(DATA_DIR . $achievementFilePath);
+            // 下載檔案
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; Filename="' . $fileName . '"');
+            echo file_get_contents(DATA_DIR . $achievementFilePath);
             exit;
         } else {
             echo 'ID錯誤，請回上一頁';
