@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS webLink (
     iconHashFile CHAR(50) NOT NULL ,
     linkName CHAR(50) NOT NULL ,
     link CHAR(255) NOT NULL ,
-    isShowOnIndex INTEGER DEFAULT 0
+    isShowOnIndex INTEGER NOT NULL DEFAULT 0
 );
 
 /**
