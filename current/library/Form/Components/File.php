@@ -41,5 +41,13 @@ class Form_Components_File extends Zend_Form_Element_File
                                             Zend_Validate_File_Upload::FILE_NOT_FOUND => "找不到上傳檔",
                                             Zend_Validate_File_Upload::UNKNOWN        => "檔案上傳時發生未知錯誤，請聯絡管理員"));
     }
+    
+    /**
+     * 覆載getValue()，防止中文檔名移動錯誤
+     */
+    public function getValue()
+    {
+        return true;
+    }
 }
 ?>
