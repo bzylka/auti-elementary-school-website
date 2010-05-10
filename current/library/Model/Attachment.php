@@ -88,6 +88,13 @@ class Model_Attachment extends Model_Abstract
         $fileHash = $attachmentRow->fileHash;
         $fileName = $attachmentRow->fileName;
         
+        // 檢查是否是IE瀏覽器，轉換成Big5編碼
+        $known = array('msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');
+        preg_match_all( '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9]+(?:\.[0-9]+)?)#', strtolower($_SERVER['HTTP_USER_AGENT']), $browser);
+        if ($browser['browser'][0] == 'msie') {
+            $fileName = mb_convert_encoding($fileName, 'Big5');
+        }
+        
         header('Content-Type: application/octet-stream');
         header('Content-Disposition: attachment; Filename="' . $fileName . '"');
         echo file_get_contents(DATA_DIR . $fileHash);

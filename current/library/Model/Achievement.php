@@ -87,12 +87,11 @@ class Model_Achievement extends Model_Abstract
                 $achievementFilePath = mb_convert_encoding($achievementFilePath, 'Big5');
             }
             
-            // 處理檔案下載IE瀏覽器和其他瀏覽器的差別
+            // 處理IE瀏覽器，下載檔名轉換成Big5編碼
             $fileName = FileInfo::convertToUTF8(basename($achievementFilePath));
             $known = array('msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');
             preg_match_all( '#(?<browser>' . join('|', $known) . ')[/ ]+(?<version>[0-9]+(?:\.[0-9]+)?)#', strtolower($_SERVER['HTTP_USER_AGENT']), $browser);
             if ($browser['browser'][0] == 'msie') {
-                // IE瀏覽器要轉換成Big5編碼
                 $fileName = mb_convert_encoding($fileName, 'Big5');
             }
             

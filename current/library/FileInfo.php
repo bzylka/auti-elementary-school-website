@@ -44,6 +44,9 @@ class FileInfo
             return false;
         }
 
+        // 轉換UTF-8編碼
+        $file = self::convertToUTF8($file);
+        
         if (strpos($file, '/') !== false) {
             $this->_baseName = end(explode('/', $file));
         } elseif (strpos($file, '\\') !== false) {
