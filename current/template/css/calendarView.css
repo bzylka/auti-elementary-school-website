@@ -14,6 +14,14 @@
 #nextMonth {
     text-align: right;
 }
+#nextMonth #loadFestivalMessage {
+    padding: 1px 8px;
+    color: white;
+    background-color: #CC3333;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
 /* 日曆格子設定 */
 #calendar {
     border-bottom: 7px solid #9BAFF1;

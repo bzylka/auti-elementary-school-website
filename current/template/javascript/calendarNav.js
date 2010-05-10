@@ -37,9 +37,13 @@ $(function() {
     
     // 標示節日
     $.ajax({
-        url: "../../../ajax/getFestival/date/" + $("#calendar").attr("title"),
+        url: "/calendar/ajax/getFestival/date/" + $("#calendar").attr("title"),
         dataType: "json",
         success: function(response) {
+            // 設定讀取訊息消失
+            $("#loadFestivalMessage").fadeOut(600);
+            
+            // 尋找日期，附加節日訊息
             $.each(response, function(i, festival){
                 if ($("td[title='" + festival.date + "']").html().length < 80) {
                     $("td[title='" + festival.date + "']").append("<div class=\"festival\">" + festival.title + "</div>");

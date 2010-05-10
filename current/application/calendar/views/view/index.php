@@ -32,12 +32,16 @@
     <tr id="calendarNav" title="<?php echo $this->today ?>">
         <td id="preMonth" colspan="2">
             <?php echo $this->hyperLink('calendar/view/index/date/' . $this->preMonthYear . '-' . $this->preMonth, '«' . $this->preMonthYear . '年' . $this->preMonth . '月') ?>
-            <button onclick="location.href='<?php echo BASE_URL ?>calendar/view/index/date/'">回到今天</button>
+            <button onclick="location.href='<?php echo BASE_URL ?>calendar/view/'">回到今天</button>
         </td>
         <td id="calendarTitle" colspan="3">
             <?php echo $this->escape($this->calendarCaption) ?>
         </td>
         <td id="nextMonth" colspan="2">
+            <span id="loadFestivalMessage">
+                讀取節日中…
+            </span>
+            &nbsp;
             <?php echo $this->hyperLink('calendar/view/index/date/' . $this->nextMonthYear . '-' . $this->nextMonth, $this->nextMonthYear . '年' . $this->nextMonth . '月»') ?>
         </td>
     </tr>
