@@ -31,11 +31,11 @@
     <div id="webLinkContainer">
     <?php foreach ($this->webLinks as &$webLink): ?>
         <div class="webLinkBlock">
-            <a href="<?php echo $webLink['link'] ?>" target="_blank">
+            <a href="<?php echo str_replace('&', '&amp;', $webLink['link']) ?>" target="_blank">
                 <?php echo $this->photo($webLink['iconHashFile'], '連結圖片-' . $webLink['linkName']) ?>
             </a>
             <p class="link">
-                <a class="external" href="<?php echo $webLink['link'] ?>" target="_blank">
+                <a class="external" href="<?php echo str_replace('&', '&amp;', $webLink['link']) ?>" target="_blank">
                     <?php echo $this->restrictString($webLink['linkName'], 20) ?>
                 </a>
             </p>

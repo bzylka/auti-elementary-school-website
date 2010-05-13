@@ -21,7 +21,7 @@ unset($webLink);
 <ul id="webLink">
     <?php foreach ($webLinkList as &$webLink): ?>
         <li>
-            <a href="<?php echo $webLink['link'] ?>">
+            <a href="<?php echo str_replace('&', '&amp;', $webLink['link']) ?>">
                 <?php echo $this->layout()->getView()->photo($webLink['iconHashFile'], $webLink['linkName']) ?>
             </a>
         </li>
