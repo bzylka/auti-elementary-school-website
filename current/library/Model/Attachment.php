@@ -95,7 +95,9 @@ class Model_Attachment extends Model_Abstract
             $fileName = mb_convert_encoding($fileName, 'Big5');
         }
         
+        // 執行下載檔案動作
         header('Content-Type: application/octet-stream');
+        header('Content-Length: ' . filesize(DATA_DIR . $fileHash));
         header('Content-Disposition: attachment; Filename="' . $fileName . '"');
         echo file_get_contents(DATA_DIR . $fileHash);
         exit;

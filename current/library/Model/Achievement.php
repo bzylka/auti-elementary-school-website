@@ -95,8 +95,9 @@ class Model_Achievement extends Model_Abstract
                 $fileName = mb_convert_encoding($fileName, 'Big5');
             }
             
-            // 下載檔案
+            // 執行下載檔案動作
             header('Content-Type: application/octet-stream');
+            header('Content-Length: ' . filesize(DATA_DIR . $achievementFilePath));
             header('Content-Disposition: attachment; Filename="' . $fileName . '"');
             echo file_get_contents(DATA_DIR . $achievementFilePath);
             exit;
