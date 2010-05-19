@@ -24,10 +24,10 @@ class Form_News extends Form_Abstract
         $this->addElement('Text', 'newsTitle',
                           array('label'     => '標題',
                                 'required'  => true,
-                                'size'      => 30,
+                                'size'      => 40,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
-                                'stringMax' => 50))
+                                'stringMax' => 150))
              ->addElement('Checkbox', 'isImportant',
                           array('label' => '重要公告'))
              ->addElement('Textarea', 'newsContent',
@@ -60,9 +60,9 @@ class Form_News extends Form_Abstract
                      ->addElement('Text', 'newsLink_' . $i . '_name',
                                   array('label'     => '連結' . $i . '名稱',
                                         'size'      => 18,
-                                        'maxlength' => 40,
+                                        'maxlength' => 50,
                                         'stringMin' => 0,
-                                        'stringMax' => 50));
+                                        'stringMax' => 75));
             }
             
             // 加入新聞附件組件

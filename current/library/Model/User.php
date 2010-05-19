@@ -48,27 +48,13 @@ class Model_User extends Model_Abstract
      */
     public function getTeamList()
     {
-        $userRowset = $this->getTable()->order('userName')->getRowset();
+        $userRowset = $this->getTable()->order('userName')->where('titleId = 0')->getRowset();
         foreach ($userRowset as $userRow) {
             $teamList[] = array_merge($userRow->toArray(),
                                       array('titleName' => $userRow->findParentRow('Table_Title')->titleName));
         }
         
         return $teamList;
-        
-        /* 下面的先暫時不使用
-        $office = new Table_Office();
-        $select = $office->getTable()->select()->order('displayOrder');
-        
-        $officeRowset = $office->order('displayOrder')->getRowset();
-        foreach ($officeRowset as $officeRow) {
-            $titleRowset = $officeRow->findDependentRowset('Table_Title', 'Office', $select);
-            foreach ($titleRowset as $titleRow) {
-
-            }
-            
-        }
-        */
     }
     
     /**

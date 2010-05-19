@@ -27,7 +27,7 @@ class Form_Title extends Form_Abstract
                                     'size'      => 10,
                                     'maxlength' => 10,
                                     'stringMin' => 1,
-                                    'stringMax' => 10))
+                                    'stringMax' => 30))
                  ->addElement('Text', 'titleEnglishName',
                               array('label'     => '英文名稱',
                                     'required'  => true,

@@ -10,11 +10,11 @@
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
-<?php $this->headTitle('學校團隊') ?>
+<?php $this->headTitle('教師團隊') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'teamIndex.css') ?>
 
-<h1>學校團隊（依照姓名筆劃排序）</h1>
+<h1>教師團隊</h1>
 
 <div id="teacherContainer">
     <?php foreach ($this->teamList as $member): ?>

@@ -17,8 +17,7 @@
     width: 1em;
 }
 #newsContent {
-    padding-left: 2em;
-    padding-right: 2.5em;
+    padding: 5px 2.5em 1.2em 2em;
 }
 #newsInfo {
     border-top: 1px dotted gray;

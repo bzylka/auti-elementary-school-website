@@ -39,8 +39,8 @@ class Form_Components_Text extends Zend_Form_Element_Text
              ->addValidator('StringLength', true,
                             array($stringMin,
                                   $stringMax,
-                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $options['stringMin'] . '個字以上',
-                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $options['stringMin'] . '10個字')));
+                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $stringMin . '個字以上',
+                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $stringMax . '個字元')));
     }
 }
 ?>

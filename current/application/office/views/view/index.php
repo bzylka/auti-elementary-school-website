@@ -30,9 +30,9 @@ if ($this->officeData['officeLink']) {
                 <div class="titleName">
                     <div class="userTitle">
                         <?php echo $this->escape($title['titleName']) ?>
-                        <span class="userTitleEnglishName">
+                        <div class="userTitleEnglishName">
                             <?php echo $this->escape($title['titleEnglishName'])?>
-                        </span>
+                        </div>
                     </div>
                     <div class="userName">
                         <?php echo $this->escape($user['userName']) ?>
