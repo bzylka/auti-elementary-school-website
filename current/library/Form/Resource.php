@@ -27,7 +27,7 @@ class Form_Resource extends Form_Abstract
                                 'size'      => 30,
                                 'maxlength' => 30,
                                 'stringMin' => 1,
-                                'stringMax' => 30));
+                                'stringMax' => 60));
 
         if ($this->_formType == 'edit') {
             $this->addElement('Submit', 'submit',

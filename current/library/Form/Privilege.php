@@ -27,7 +27,7 @@ class Form_Privilege extends Form_Abstract
                                 'size'      => 30,
                                 'maxlength' => 30,
                                 'stringMin' => 0,
-                                'stringMax' => 30));
+                                'stringMax' => 60));
 
         if ($this->formType == 'edit') {
             $this->addElement('Submit', 'submit',

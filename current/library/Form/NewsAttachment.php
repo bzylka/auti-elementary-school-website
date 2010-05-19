@@ -32,7 +32,7 @@ class Form_NewsAttachment extends Form_Abstract
                                 'size'      => 15,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
-                                'stringMax' => 50))
+                                'stringMax' => 100))
              ->addElement('Cancel', 'cancel',
                           array('label'   => '取消',
                                 'attribs' => array('onclick' => 'history.go(-1)')));

@@ -28,7 +28,7 @@ class Form_Achievement extends Form_Abstract
                                 'size'      => 20,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
-                                'stringMax' => 50))
+                                'stringMax' => 100))
              ->addElement('Text', 'DisplayOrder',
                           array('label'     => '顯示順序',
                                 'size'      => 3,

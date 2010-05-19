@@ -28,7 +28,7 @@ class Form_User extends Form_Abstract
                                 'size'      => 15,
                                 'maxlength' => 20,
                                 'stringMin' => 2,
-                                'stringMax' => 10))
+                                'stringMax' => 20))
              ->addElement('Text', 'userEnglishName',
                           array('label'      => '英文姓名',
                                 'size'       => 20,

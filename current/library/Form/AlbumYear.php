@@ -27,7 +27,7 @@ class Form_AlbumYear extends Form_Abstract
                                 'size'      => 30,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
-                                'stringMax' => 50));
+                                'stringMax' => 100));
 
         if ($this->_formType == 'edit') {
             $this->addElement('Submit', 'submit' ,

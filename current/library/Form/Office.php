@@ -27,7 +27,7 @@ class Form_Office extends Form_Abstract
                                 'size'      => 10,
                                 'maxlength' => 10,
                                 'stringMin' => 1,
-                                'stringMax' => 10))
+                                'stringMax' => 20))
              ->addElement('Text', 'displayOrder',
                           array('label'     => '顯示順序',
                                 'size'      => 3,

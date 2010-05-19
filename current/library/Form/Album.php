@@ -27,7 +27,7 @@ class Form_Album extends Form_Abstract
                                 'size'      => 20,
                                 'maxlength' => 50,
                                 'stringMin' => 0,
-                                'stringMax' => 50))
+                                'stringMax' => 100))
              ->addElement('Select', 'albumYearId',
                           array('label'        => '相簿年份',
                                 'required'     => true,
