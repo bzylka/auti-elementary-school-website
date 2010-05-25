@@ -48,7 +48,7 @@
         <?php if ($this->isEditAlbum): ?>
             |
             <span id="editAlbum">
-                <?php echo $this->hyperLink('album/edit/index/id/' . $this->album['albumData']['albumId'], '編輯相簿資訊') ?>
+                <?php echo $this->hyperLink('album/edit/index/id/' . $this->album['albumData']['albumId'], '編輯相簿') ?>
             </span>
         <?php endif; ?>
             

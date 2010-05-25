@@ -29,7 +29,7 @@ class Form_Achievement extends Form_Abstract
                                 'maxlength' => 50,
                                 'stringMin' => 0,
                                 'stringMax' => 100))
-             ->addElement('Text', 'DisplayOrder',
+             ->addElement('Text', 'displayOrder',
                           array('label'     => '顯示順序',
                                 'size'      => 3,
                                 'maxlength' => 2,
