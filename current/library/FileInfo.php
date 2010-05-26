@@ -69,7 +69,7 @@ class FileInfo
      */
     public function __get($property)
     {
-        if(isset($this->{'_' . $property})) {
+        if (isset($this->{'_' . $property})) {
             return $this->{'_' . $property};
         } else {
             return false;

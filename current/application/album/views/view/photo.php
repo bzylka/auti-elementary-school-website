@@ -42,7 +42,7 @@
     </span>
     <span>»</span>
     <span id="fileName">
-        <?php echo FileInfo::convertToUTF8($this->photo['fileName']) ?>
+        <?php echo $this->escape($this->photo['fileName']) ?>
     </span>
 </div>
 

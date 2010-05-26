@@ -101,12 +101,12 @@ class Album_AddController extends Controller
                                 $message[] = '"' . $photoFile['name'] . '"';
                             }
                         } else {
-                            $photos[] = array('file' => $photoFile['tmp_name'], 'fileName' => $photoFile['name']);
+                            $photos[] = array('file' => $photoFile['tmp_name'], 'fileName' => FileInfo::convertToUTF8($photoFile['name']));
                         }
                         
                     }
                 }
-               
+
                 // 建立相片縮圖、寫入資料庫
                 foreach ($photos as &$file) {
                     if ($photoHashFile = Image::resize($file['file'], array(1024, 768), array(200, 150))) {

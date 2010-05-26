@@ -48,6 +48,7 @@ class Calendar_AjaxController extends Controller
         } else {
             $date = Date::getDate();
         }
+        
         // 設定當月
         $dateObj = new Zend_Date();
         $dateObj->set($date, 'yyyy-MM');
