@@ -6,7 +6,7 @@
  *
  * 本程式遵循GNU/GPL v3規範，詳情請見http://www.gnu.org/licenses/gpl.txt
  *
- * @copyright  2008 ottokang
+ * @copyright  2010 ottokang
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 
@@ -36,18 +36,18 @@ class Album_AddController extends Controller
                 $this->view->message = $album->getMessage();
             }
         }
-        
+
         $this->view->albumForm = $album->getForm();
         $this->render('index');
     }
-    
+
     /**
      * 新增相片
      */
     public function photoAction()
     {
         $albumId = $this->getParam('albumId');
-        
+
         // 檢查權限
         $this->isAllowed('新增相片', true);
 
@@ -57,24 +57,22 @@ class Album_AddController extends Controller
         if (!$albumRow) {
             $this->redirect('album', '相簿ID無效');
         }
-        
+
         $photo = new Model_Photo();
-        
+
         if ($this->isPost()) {
             if ($photo->isValid()) {
-                //檢查相簿是否有效
-                
                 // 加入相片資訊
                 $photInfo['userId']     = Zend_Auth::getInstance()->getIdentity()->userId;
                 $photInfo['albumId']    = $albumId;
                 $photInfo['uploadDate'] = Date::getDate();
                 $photInfo['uploadTime'] = Date::getTime();
                 $photo->addData($photInfo);
-                
+
                 // 處理相片檔案
                 set_time_limit(3600);
                 $photoFiles = $photo->getForm()->uploadPhotos->getTransferAdapter()->getFileInfo();
-                
+
                 foreach ($photoFiles as &$photoFile) {
                     if ($photoFile['error'] == 0) {
                         if (strtolower(pathinfo($photoFile['name'], PATHINFO_EXTENSION)) == 'zip') {
@@ -85,14 +83,15 @@ class Album_AddController extends Controller
                                 for ($i = 0; $i < $zip->numFiles; $i++) {
                                     $entryName = $zip->getNameIndex($i);
                                     if (substr($entryName, -1) != '/' && strtolower(substr($entryName, -3)) == 'jpg') {
-                                        $fileName = basename($entryName);
+                                        $fileInfo = new FileInfo($entryName);
                                         $zip->renameIndex($i, Hash::generate() . '.jpg');
                                         $entries[] = $zip->getNameIndex($i);
                                         $photos[] = array('file'     => $tmpDir . $zip->getNameIndex($i),
-                                                          'fileName' => $fileName);
+                                                          'fileName' => $fileInfo->baseName);
+                                        unset($fileInfo);
                                     }
                                 }
-                                
+
                                 mkdir($tmpDir);
                                 $zip->extractTo($tmpDir, $entries);
                                 $zip->close();
@@ -103,15 +102,16 @@ class Album_AddController extends Controller
                         } else {
                             $photos[] = array('file' => $photoFile['tmp_name'], 'fileName' => $photoFile['name']);
                         }
-                        
                     }
                 }
 
                 // 建立相片縮圖、寫入資料庫
                 foreach ($photos as &$file) {
                     if ($photoHashFile = Image::resize($file['file'], array(1024, 768), array(200, 150))) {
-                        $photo->addData(array('fileName'      => pathinfo($file['fileName'], PATHINFO_FILENAME) . '.' . strtolower(pathinfo($file['fileName'], PATHINFO_EXTENSION)),
+                        $photoFile = new FileInfo($file['fileName']);
+                        $photo->addData(array('fileName'      => $photoFile->fileName . '.' . strtolower($photoFile->extension),
                                               'photoHashFile' => $photoHashFile));
+                        unset($photoFile);
                         $photo->add();
                     } else {
                         $message[] = '"' . $file['fileName'] . '"';
@@ -128,14 +128,14 @@ class Album_AddController extends Controller
                     }
                     rmdir($tmpDir);
                 }
-                
+
                 // 建立訊息
                 if ($message) {
-                    $message = '檔案' . implode('、', $message) . '發生錯誤，可能是損毀';
+                    $message = '處理檔案' . implode('、', $message) . '發生錯誤，可能是檔案損毀或格式錯誤，請重新上傳';
                 } else {
                     $message = '上傳完成';
                 }
-                
+
                 // 回到相簿首頁
                 $this->redirect("album/view/index/id/$albumId", $message);
             } else {
