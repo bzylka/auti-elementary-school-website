@@ -1,14 +1,14 @@
 #summary 安裝需求
 #labels Document
 
-= 需要的PHP extension =
+= 請安裝下列PHP extension =
 
   * mbstring
   * pdo_sqlite
   * ImageMagick
 
-= 需要的Zend Framwork版本 =
-需要Zend Framework 1.10以上版本，放置於library/Zend資料夾中
+= Zend Framwork版本 =
+至少要Zend Framework 1.10以上版本，放置於library/Zend資料夾中
 
-= 注意事項 =
+= 目錄寫入權限 =
 請確定data、photos、cache資料夾可以寫入
