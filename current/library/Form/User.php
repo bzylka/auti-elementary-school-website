@@ -42,16 +42,16 @@ class Form_User extends Form_Abstract
                                 'required'   => true,
                                 'size'       => 15,
                                 'maxlength'  => 20,
-                                'stringMin'  => 4,
-                                'stringMax'  => 10,
+                                'stringMin'  => 3,
+                                'stringMax'  => 15,
                                 'filters'    => array('StringToLower'),
                                 'validators' => array(array('Alnum', true, array('messages' => '帳號只能使用"英文"和"數字"')))))
              ->addElement('Password', 'passwordConfirm',
                           array('label'     => '確認密碼',
                                 'size'      => 15,
-                                'maxlength' => 8,
-                                'stringMin' => 4,
-                                'stringMax' => 8))
+                                'maxlength' => 15,
+                                'stringMin' => 3,
+                                'stringMax' => 15))
              ->addElement('Text', 'email',
                           array('label'      => 'E-mail',
                                 'size'       => 20,
