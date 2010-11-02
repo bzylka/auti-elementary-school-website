@@ -2,7 +2,6 @@
 #labels Document
 
 = 請安裝下列PHP extension =
-
   * mbstring
   * pdo_sqlite
   * ImageMagick
@@ -12,3 +11,8 @@
 
 = 目錄寫入權限 =
 請確定data、photos、cache資料夾可以寫入
+
+= jQueryUI需求組件 =
+  * UI Core全部
+  * Widgets的Dialog、Datepicker
+  * Effects全部
