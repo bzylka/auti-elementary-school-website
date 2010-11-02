@@ -22,7 +22,7 @@ class Album_SetcoverController extends Controller
      */
     public function indexAction()
     {
-        $this->isAllowed('管理相簿', true);
+        $this->isAllowed('編輯相簿', true);
         $album = new Model_Album();
         $album->setCover($this->getParam('albumId'), $this->getParam('id'));
         $this->redirect('album/view/photo/id/' . $this->getParam('id'), '設定完成');
