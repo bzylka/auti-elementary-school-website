@@ -26,7 +26,7 @@ class News_IndexController extends Controller
         $this->view->allowAddNews = $this->isAllowed('發佈新聞');
         
         $news = new Model_News();
-        $this->view->newsTable = $news->getNewsList(10, $this->getParam('page'));
+        $this->view->newsTable = $news->getNewsList(18, $this->getParam('page'));
         $this->render('index');
     }
 }
