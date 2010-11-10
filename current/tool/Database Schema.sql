@@ -176,3 +176,12 @@ CREATE TABLE IF NOT EXISTS eventCatalog (
     eventCatalogName CHAR(255) NOT NULL ,
     backgroundColor CHAR(7) DEFAULT 0
 );
+
+/**
+ * 班級
+ */
+CREATE TABLE IF NOT EXISTS class (
+    classId INTEGER PRIMARY KEY NOT NULL ,
+    className CHAR(255) NOT NULL ,
+    classWebsite CHAR(255)
+);
