@@ -23,6 +23,8 @@
         <li class="navTitle">相簿</li>
         <li><?php echo $this->hyperLink('admin/albumYear', '相簿年份管理')?></li>
         <li><?php echo $this->hyperLink('admin/slideShow', '相簿隨機展示')?></li>
+        <li class="navTitle">班級</li>
+        <li><?php echo $this->hyperLink('admin/classWebsite', '班級網頁管理')?></li>
         <li class="navTitle">行事曆</li>
         <li><?php echo $this->hyperLink('admin/eventCatalog', '事件類別管理')?></li>
         <li class="navTitle">成果區塊</li>
