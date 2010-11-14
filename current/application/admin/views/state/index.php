@@ -14,6 +14,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle5.css') ?>
 
 <h1>系統狀態檢查</h1>
+<h1>當系統發生問題時，請來此處檢查是否有設定錯誤的地方</h1>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
