@@ -64,7 +64,7 @@ class Calendar_EventController extends Controller
                 $this->view->message = $event->getMessage();
             }
         } elseif (!$event->setFormById($id)) {
-            $this->redirect('calendar', $event->getMessage());
+            $this->redirect('calendar/view', $event->getMessage());
         }
 
         $this->view->eventForm = $event->getForm();
@@ -79,7 +79,7 @@ class Calendar_EventController extends Controller
         $id = $this->getParam('id');
         $event = new Model_Event();
         $event->delete($id);
-        $this->redirect('calendar', $event->getMessage());
+        $this->redirect('calendar/view', $event->getMessage());
     }
 }
 ?>
