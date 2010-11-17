@@ -19,8 +19,6 @@
     color: white;
     background-color: #CC3333;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 /* 日曆格子設定 */
 #calendar {
@@ -55,8 +53,6 @@
     color: white;
     background-color: #CC3333;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 /* 今天區塊設定 */
 .today {
@@ -67,8 +63,6 @@
     background-color: #FFFF99;
     text-align: center;
     border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
 }
 /* 日期設定 */
 .days td {
@@ -87,8 +81,6 @@
     font-size: 80%;
     vertical-align: middle;
     border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
 /* 一般事件背景色設定 */
     background-color: #164fe3;
     color: white;

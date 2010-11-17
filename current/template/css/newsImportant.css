@@ -1,11 +1,16 @@
 #importantNews h2 {
     margin-left: 2em;
+
 }
 #importantNews h3 {
     margin-left: 4em;
+padding: 3px 0;
 }
 #importantNews ul {
     margin-left: 6em;
+}
+#importantNews ul li {
+    padding: 3px 0;
 }
 #importantNews .postDate {
     color: #949494;

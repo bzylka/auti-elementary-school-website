@@ -29,7 +29,7 @@ class Form_News extends Form_Abstract
                                 'stringMin' => 0,
                                 'stringMax' => 150))
              ->addElement('Checkbox', 'isImportant',
-                          array('label' => '重要公告'))
+                          array('label' => '此消息為重要公告（保留一年）'))
              ->addElement('Textarea', 'newsContent',
                           array('label'     => '內容',
                                 'cols'      => 60,

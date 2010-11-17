@@ -14,8 +14,6 @@
     height: auto !important;
     margin-bottom: 1em;
     border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
 }
 .blockHeader {
     color: #4D7F4A;
@@ -25,8 +23,6 @@
     font-weight: bold;
     line-height: 1.2em;
     border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
 }
 .blockNav {
     float: right;

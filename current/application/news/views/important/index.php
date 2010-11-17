@@ -12,10 +12,10 @@
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
-<?php $this->headTitle('重要公告') ?>
+<?php $this->headTitle('近期重要公告') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'newsImportant.css') ?>
 
-<h1>重要公告</h1>
+<h1>近期重要公告</h1>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>

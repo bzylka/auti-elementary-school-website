@@ -20,7 +20,7 @@
     <div id="news" class="contentBlock">
         <div class="blockHeader">
             <?php if ($this->allowAddNews): ?>
-                <span class="blockNav">
+                <span class="blockNav adminNav">
                     <?php echo $this->hyperLink('news/add', '發佈新聞 »') ?>
                 </span>
             <?php endif; ?>
