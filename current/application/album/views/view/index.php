@@ -28,13 +28,6 @@
     <span id="albumName">
         <?php echo $this->escape($this->album['albumData']['albumName']) ?>
     </span>
-    <span id="albumCover">
-        <?php if ($this->album['albumData']['coverPhotoFile']): ?>
-            <?php echo $this->photo($this->album['albumData']['coverPhotoFile'], $this->album['albumData']['albumName']) ?>
-        <?php else: ?>
-            <?php echo $this->img('noCover.png', $this->album['albumData']['albumName']) ?>
-        <?php endif; ?>
-    </span>
 </div>
 
 <div id="infoBlock">

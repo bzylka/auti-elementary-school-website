@@ -3,10 +3,6 @@
     font-weight: bold;
     line-height: 1.4em;
 }
-#albumCover img {
-    width: 1.5em;
-    height: 1.1em;
-}
 #infoBlock {
     font-size: 90%;
     color: #666666;

@@ -14,8 +14,8 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'photoView.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'albumView.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
-<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/fancybox.css') ?>
-<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/fancybox.js') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/colorbox.css') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'jQuery/colorbox.js') ?>
 <?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'showLargePhoto.js') ?>
 
 <div id="albumNav">
@@ -32,13 +32,6 @@
     <span>»</span>
     <span id="albumName">
         <?php echo $this->escape($this->photo['albumName']) ?>
-    </span>
-    <span id="albumCover">
-        <?php if ($this->photo['coverPhotoFile']): ?>
-            <?php echo $this->photo($this->photo['coverPhotoFile'], $this->photo['albumName']) ?>
-        <?php else: ?>
-            <?php echo $this->img('noCoverPhoto.jpg', $this->photo['albumName']) ?>
-        <?php endif; ?>
     </span>
     <span>»</span>
     <span id="fileName">
@@ -68,7 +61,8 @@
         <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
         <small>｜</small>
         <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
-        <a href="#photoView" title="<?php echo FileInfo::convertToUTF8($this->photo['fileName']) ?>" id="showLargePhoto">放大檢視</a>
+        <?php echo $this->hyperLink('photos/' . $this->photo['photoHashFile'], '放大檢視', array('id'    => 'showLargePhoto',
+                                                                                                 'title' => $this->photo['photoDescription'] ? $this->photo['photoDescription'] : FileInfo::convertToUTF8($this->photo['fileName']))) ?>
     </div>
 <?php endif; ?>
     
