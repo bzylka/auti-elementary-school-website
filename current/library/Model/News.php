@@ -75,14 +75,25 @@ class Model_News extends Model_Abstract
     }
     
      /**
-     * 取得重要公告列表
-     * @param int $limit 取得新聞的限制數量
+     * 取得近期重要公告列表
+     * @param int $days 取得重要公告的期限天數
      * @return array 新聞列表
      */
-    public function getImportantNewsList($limit = null)
+    public function getImportantNewsList($days = 365)
     {
-        $this->getTable()->where('isImportant = 1');
-        $newsList = $this->_getNewsList($limit);
+        $deadline = Date::add(Date::getDate(), -$days);
+        $this->getTable()->where("isImportant = 1 AND postDate > '$deadline'");
+        $newsRowset = $this->getTable()->order('newsId DESC')->getRowset();
+        $newsArray = array();
+        foreach ($newsRowset as $newsRow) {
+            array_push($newsArray, array_merge($newsRow->toArray(),
+                                               array('titleName'  => $newsRow->findParentRow('Table_Title')->titleName,
+                                                     'officeName' => $newsRow->findParentRow('Table_Office')->officeName)));
+        }
+
+        $newsList = $this->_getNewsList();
+
+
         $importantNewsList = array();
         foreach ($newsList as &$news) {
             $importantNewsList[$news['officeName']][$news['titleName']][] = $news;

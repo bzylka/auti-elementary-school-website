@@ -13,12 +13,12 @@
 /**
  * News_ImportantController
  *
- * 顯示重要公告
+ * 顯示近期重要公告
  */
 class News_ImportantController extends Controller
 {
     /**
-     * 顯示重要公告列表
+     * 顯示近期重要公告列表
      */
     public function indexAction()
     {
@@ -26,7 +26,7 @@ class News_ImportantController extends Controller
         $this->view->allowAddNews = $this->isAllowed('發佈新聞');
         
         $news = new Model_News();
-        $this->view->newsTable = $news->getImportantNewsList(20);
+        $this->view->newsTable = $news->getImportantNewsList(365);
         $this->render('index');
     }
 }

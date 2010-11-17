@@ -44,7 +44,7 @@ class Date
     
     /**
      * 日期加總/相減
-     * @param  string $originDate 要加總的日期
+     * @param  string $originDate 要計算的日期
      * @param  int    $days 加總量/相減量
      * @return string 加總後的日期
      */
