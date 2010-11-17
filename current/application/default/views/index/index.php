@@ -57,8 +57,7 @@
         <div class="blockHeader">
             相簿
             <?php if ($this->photos): ?>
-                »
-                <?php echo $this->hyperLink('album/view/index/id/' . $this->photos['albumId'], $this->photos['albumName']) ?>
+                -&nbsp;<?php echo $this->escape($this->photos['albumName']) ?>
             <?php endif; ?>
         </div>
         <div class="blockContent">
@@ -74,7 +73,7 @@
                 <b>無設定顯示相簿</b>
             <?php endif; ?>
             <div class="more" style="padding-top:0.5em;">
-                <?php echo $this->hyperLink('album', '更多相簿»') ?>
+                <?php echo $this->hyperLink('album/view/index/id/' . $this->photos['albumId'], '更多《' . $this->photos['albumName'] . '》的相片»') ?>
             </div>
         </div>
     </div>
