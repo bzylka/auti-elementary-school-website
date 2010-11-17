@@ -13,7 +13,7 @@
 <?php $this->headTitle('相簿')->headTitle('上傳相片') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 
-<h1>上傳相片（支援JPG、PNG、GIF、ZIP）</h1>
+<h1>上傳相片（支援.jpg、.png、.gif檔案，或檔案壓縮成.zip後上傳，大小上限1GB）</h1>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>

@@ -25,7 +25,7 @@
 <?php endif; ?>
 
 <?php if ($this->allowAddNews): ?>
-    <div id="addNews">
+    <div id="addNews" class="adminNav">
         <?php echo $this->hyperLink('news/add', '發佈新聞»') ?>
     </div>
 <?php endif; ?>

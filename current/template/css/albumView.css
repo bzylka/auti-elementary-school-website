@@ -6,7 +6,7 @@
 #infoBlock {
     font-size: 90%;
     color: #666666;
-    margin-left: 0.8em;
+    margin: 0 3em 1em 0.8em;
 }
 #infoBlock #infoNav {
     float: right;

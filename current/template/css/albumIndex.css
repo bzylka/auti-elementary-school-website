@@ -40,3 +40,9 @@
     font-weight: bold;
     color: red;
 }
+/* 新增按鈕 */
+.adminNav {
+    margin: 1em 0;
+    padding: 0 2em;
+    text-align: right;
+}

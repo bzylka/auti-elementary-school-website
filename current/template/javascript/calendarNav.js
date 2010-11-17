@@ -16,12 +16,12 @@ $(function() {
     // 高亮度標記事件
     $(".event").hover(
         function() {
-            var eventTitle = $(this).attr("title");
-            $("td[title='" + eventTitle + "']").toggleClass("eventHighlight");
+            var eventTitle = $(this).attr("class");
+            $("td[class='" + eventTitle + "']").toggleClass("eventHighlight");
         },
         function() {
-            var eventTitle = $(this).attr("title");
-            $("td[title='" + eventTitle + "']").toggleClass("eventHighlight");
+            var eventTitle = $(this).attr("class");
+            $("td[class='" + eventTitle + "']").toggleClass("eventHighlight");
         }
     );
     
@@ -42,14 +42,10 @@ $(function() {
         success: function(response) {
             // 設定讀取訊息消失
             $("#loadFestivalMessage").fadeOut(600);
-            
+
             // 尋找日期，附加節日訊息
             $.each(response, function(i, festival){
-                if ($("td[title='" + festival.date + "']").html().length < 80) {
-                    $("td[title='" + festival.date + "']").append("<div class=\"festival\">" + festival.title + "</div>");
-                } else {
-                    $("td[title='" + festival.date + "'] .festival").append("<br />" + festival.title);
-                }
+                $("td[title='" + festival.date + "']").append("<div class=\"festival\">" + festival.title + "</div>");
             });
         }
     });

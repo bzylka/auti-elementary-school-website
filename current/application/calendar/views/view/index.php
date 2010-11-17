@@ -23,8 +23,8 @@
 <?php endif; ?>
 
 <?php if ($this->allowCalendar == true): ?>
-    <div>
-        <?php echo $this->hyperLink('calendar/event/add', '新增事件＋') ?>
+    <div class="adminNav" style="float: right;">
+        <?php echo $this->hyperLink('calendar/event/add', '新增事件»') ?>
     </div>
 <?php endif; ?>
 
@@ -79,7 +79,14 @@
                     <?php if ($this->events[$row][$i][$j] === true): ?>
                         <td>&nbsp;</td>
                     <?php elseif (is_array($this->events[$row][$i][$j])): ?>
-                        <td onclick="showDetail('<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row ?>')" class="event" title="<?php echo 'eventId' . $this->events[$row][$i][$j]['eventId']?>" colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>"<?php if ($this->events[$row][$i][$j]['backgroundColor']): ?> style="background-color:<?php echo $this->events[$row][$i][$j]['backgroundColor'] ?>"<?php endif; ?>>
+                        <td onclick="showDetail('<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row ?>')"
+                            class="event <?php echo 'eventId' . $this->events[$row][$i][$j]['eventId']?>"
+                            title="<?php echo $this->events[$row][$i][$j]['eventName'] ?>"
+                            colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>"
+                            <?php if ($this->events[$row][$i][$j]['backgroundColor']): ?>
+                                style="background-color:<?php echo $this->events[$row][$i][$j]['backgroundColor'] ?>"
+                            <?php endif; ?>>
+
                             <?php if ($this->events[$row][$i][$j]['hasNext'] == true): ?>
                                 <span class="hasNext">»</span>
                             <?php endif ?>
@@ -104,7 +111,7 @@
                                     </div>
                                 <?php endif; ?>
                                 <?php if ($this->allowCalendar == true): ?>
-                                    <div class="eventNav">
+                                    <div class="eventNav adminNav">
                                         <?php echo $this->hyperLink('calendar/event/edit/id/' . $this->events[$row][$i][$j]['eventId'], '編輯') ?>
                                         |
                                         <?php echo $this->hyperLink('calendar/event/delete/id/' . $this->events[$row][$i][$j]['eventId'], '刪除', array('class' => 'deleteAction')) ?>

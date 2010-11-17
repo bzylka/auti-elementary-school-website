@@ -27,10 +27,14 @@ a:visited {
 }
 /* 管理操作設定 */
 .adminNav a {
-    color: #FF5E00;
+    color: white !important;
+    padding: 2px;
+    border: 1px solid #FF5E00;
+    background-color: #FF5E00;
+    border-radius: 5px;
 }
 .adminNav a:hover {
-    text-decoration: underline;
+    background-color: #FF4400 !important;
 }
 /* 連外超連結設定 */
 .external {

@@ -89,8 +89,7 @@
     cursor: pointer;
 }
 .eventHighlight {
-    opacity: 0.7;
-    filter: alpha(opacity=70);
+    background-color: #F6AE38;
 }
 .hasNext {
     float: right;
@@ -109,10 +108,4 @@
     font-size: 90% !important;
     text-align: right;
     padding-top: 0.5em;
-}
-.eventNav a {
-    color: blue !important;
-}
-.eventNav a:hover {
-    color: red !important;
 }

@@ -68,7 +68,7 @@
     
 <div id="infoBlock">
     <?php if ($this->isAdmin): ?>
-        <span id="infoNav">
+        <span id="infoNav" class="adminNav">
             <span id="setAlbumCover"><?php echo $this->hyperLink('album/setCover/index/id/' . $this->photo['photoId'] . '/albumId/' . $this->photo['albumId'], '設定為相簿封面') ?></span>
             |
             <span id="rotateLeft"><?php echo $this->hyperLink('album/rotateLeft/photo/id/' . $this->photo['photoId'], '左旋90度') ?></span>
