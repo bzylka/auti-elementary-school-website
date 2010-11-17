@@ -16,7 +16,7 @@
 
 <h1>權限管理</h1>
 
-<h2>＊請勿任意更動這邊的資料，除非你要幫忙寫程式＊</h2>
+<div id="attention">請勿任意更動這邊的資料，除非你要幫忙寫程式！</div>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>

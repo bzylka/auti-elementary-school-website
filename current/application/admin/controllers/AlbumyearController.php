@@ -48,7 +48,7 @@ class Admin_AlbumyearController extends Controller
             }
         }
         
-        $this->view->albumYearTable = $albumYear->getTable()->order('displayOrder')->getRowset()->toArray();
+        $this->view->albumYearTable = $albumYear->getAlbumYears()->toArray();
         $this->view->albumYearForm  = $albumYear->getForm();
         $this->render('index');
     }

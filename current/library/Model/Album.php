@@ -35,11 +35,11 @@ class Model_Album extends Model_Abstract
      */
     public function getAlbums()
     {
-        $albumYear = new Table_AlbumYear();
-        $albumYearRowset = $albumYear->order('albumYearId DESC')->getRowset();
+        $albumYear = new Model_AlbumYear();
+        $albumYearRowset = $albumYear->getAlbumYears();
 
         foreach ($albumYearRowset as $albumYearRow) {
-            $select = $albumYear->select()->order('createDate DESC');
+            $select = $albumYearRow->select()->order('createDate DESC');
             $albumRowset = $albumYearRow->findDependentRowset('Table_Album', 'AlbumYear', $select);
             foreach ($albumRowset as $albumRow) {
                 $albumArray[$albumYearRow->albumYearName][] = array_merge($albumRow->toArray(),

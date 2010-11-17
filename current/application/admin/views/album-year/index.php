@@ -16,6 +16,8 @@
 
 <h1>相簿年份管理</h1>
 
+<div id="attention">請以"098學年度"、"099學年度"、"100學年度"來命名，方便排序</div>
+
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>

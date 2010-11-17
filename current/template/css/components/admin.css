@@ -12,3 +12,10 @@
     font-size: 110%;
     font-weight: bold;
 }
+/* 管理介面說明 */
+#attention {
+    color: red;
+    padding: 7px 0;
+    margin-left: 1em;
+    font-weight: bold;
+}

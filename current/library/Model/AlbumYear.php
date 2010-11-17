@@ -28,7 +28,16 @@ class Model_AlbumYear extends Model_Abstract
      * @access protected
      */
     protected $_formClass = 'AlbumYear';
-    
+
+    /**
+     * 依照名稱取得相簿年份
+     * @return obj 相簿年份的Rowset
+     */
+    public function getAlbumYears()
+    {
+        return $this->getTable()->order('albumYearName DESC')->getRowset();
+    }
+
     /**
      * 覆載delete()，設定相簿為無年份
      * @param int $id 相簿ID
