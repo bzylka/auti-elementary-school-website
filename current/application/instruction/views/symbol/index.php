@@ -10,7 +10,7 @@
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 ?>
-<?php $this->headTitle('校歌、校徽') ?>
+<?php $this->headTitle('校歌') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'symbol.css') ?>
 <h1>校歌</h1>
     <br />
@@ -38,5 +38,3 @@
     <br />
     <p>（重複）春風暖，教澤長，美哉我校，進步日無疆，品德日淬勵。</p>
     <p>五育重健康，志氣高昂，為國爭光榮，光陰莫蹉跎，自勉更自強，澳底澳底國家之光～</p>
-
-<h1>校徽</h1>

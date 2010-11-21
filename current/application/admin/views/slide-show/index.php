@@ -17,7 +17,7 @@
 
 <h1>首頁相簿隨機展示</h1>
 
-<div id="attention">點選核取方塊即可完成首頁相簿展示設定。</div>
+<div id="attention">點選核取方塊即可完成首頁相簿展示設定。此外30天內的新相簿也會自動顯示。</div>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>

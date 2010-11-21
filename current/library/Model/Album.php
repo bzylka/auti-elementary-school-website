@@ -68,7 +68,9 @@ class Model_Album extends Model_Abstract
         $photoCache = Zend_Registry::get('cacheManager')->getCache('photo');
         
         if (!$photos = $photoCache->load('photoCache')) {
-            $albumRowset = $this->getTable()->where('isSlideShow = 1')->getRowset();
+            // 取得有設定顯示的相簿，或者30天內的新相片
+            $deadline = Date::add(Date::getDate(), -30);
+            $albumRowset = $this->getTable()->where("isSlideShow = 1 OR createDate > '" . $deadline . "'")->getRowset();
 
             if (count($albumRowset) == 0) {
                 return false;
