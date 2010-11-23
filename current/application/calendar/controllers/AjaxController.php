@@ -70,7 +70,12 @@ class Calendar_AjaxController extends Controller
 
         // 設定待辦事項
         $event = new Model_Event();
-        $this->view->events = $event->getEvents("$year-$month-01", "$year-$month-$daysOfMonth");
+        if (substr(Date::getDate(), 5, 2) == $month) {
+            // 如果是本月，則顯示後30天的待辦事項
+            $this->view->events = $event->getEvents(Date::getDate(), Date::add(Date::getDate(), 30));
+        } else {
+            $this->view->events = $event->getEvents("$year-$month-01", "$year-$month-$daysOfMonth");
+        }
         
         // 設定本月
         $this->view->thisMonth = "$year-$month";

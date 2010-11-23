@@ -38,8 +38,18 @@ class Admin_StateController extends Controller
     public function indexAction()
     {
         $state = State::getInstance();
+
+        // 設定資料庫路徑
+        $table    = new Table_Title();
+        $dbConfig = $table->getAdapter()->getConfig();
+        $dbFile   = $dbConfig['dbname'];
+        unset($table);
+
+        // 設定系統狀態檢查項目
         $state->addValidator('Filesystem', DATA_DIR, State::IS_WRITABLE, 'data資料夾是否可以寫入')
               ->addValidator('Filesystem', PHOTO_DIR, State::IS_WRITABLE, 'photos資料夾是否可以寫入')
+              ->addValidator('Filesystem', ROOT_DIR . 'cache/', State::IS_WRITABLE, 'cache資料夾是否可以寫入')
+              ->addValidator('Filesystem', $dbFile, State::IS_WRITABLE, '資料庫檔案是否可以寫入')
               ->addValidator('Extension', 'mbstring', State::IS_LOADED, 'mbstring是否載入')
               ->addValidator('Extension', 'iconv', State::IS_LOADED, 'iconv是否載入')
               ->addValidator('Extension', 'pdo_sqlite', State::IS_LOADED, 'pdo_sqlite是否載入')
@@ -53,7 +63,7 @@ class Admin_StateController extends Controller
               ->addValidator('Ini', 'display_errors', array(State::EQUAL, false), 'display_errors是否關閉', State::SUGGESTION);
 
         if (!$state->isValid()) {
-            $this->view->message = '系統狀態有錯誤，請檢查PHP/伺服器設定';
+            $this->view->message = '系統狀態有錯誤，請檢查伺服器上PHP的設定';
         }
         
         $this->view->stateMessage = $state->getMessage();
