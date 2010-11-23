@@ -13,5 +13,7 @@
  * 全螢幕顯示圖片
  */
 $(function() {
-    $("a#showLargePhoto").colorbox();
+    $("a#showLargePhoto").colorbox({
+        maxHeight: '95%'
+    });
 });

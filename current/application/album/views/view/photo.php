@@ -21,14 +21,14 @@
 <div id="albumNav">
     <?php echo $this->hyperLink('album', '相簿')?>
     <span>»</span>
-    <span>
-        <?php if ($this->photo['albumYearName']): ?>
-            <?php $albumYearName = $this->photo['albumYearName'] ?>
-        <?php else: ?>
-            <?php $albumYearName = '無年份'?>
-        <?php endif; ?>
-        <?php echo $this->hyperLink('album#' . $albumYearName, $albumYearName)?>
-    </span>
+
+    <?php if ($this->photo['albumYearName']): ?>
+        <?php $albumYearName = $this->photo['albumYearName'] ?>
+    <?php else: ?>
+        <?php $albumYearName = '無年份'?>
+    <?php endif; ?>
+    <?php echo $this->hyperLink('album#' . $albumYearName, $albumYearName)?>
+
     <span>»</span>
     <span id="albumName">
         <?php echo $this->escape($this->photo['albumName']) ?>
@@ -39,33 +39,50 @@
     </span>
 </div>
 
-<?php if ($this->photo['prevId'] || $this->photo['nextId']): ?>
-    <div id="photoNav">
-        相片<?php echo $this->photo['count'] ?>，總數為<?php echo $this->photo['totalCount'] ?>
-        <small>｜</small>
-        <?php echo $this->img('icon/upNarrow.png', '檢視全部相片')?>
-        <?php echo $this->hyperLink('album/view/index/id/' . $this->photo['albumId'], '檢視全部相片') ?>
-        <small>｜</small>
-        <?php echo $this->img('icon/backNarrow.png', '上一張')?>
-        <?php if ($this->photo['prevId']): ?>
-            <?php echo $this->hyperLink('album/view/photo/id/' . $this->photo['prevId'], '上一張') ?>
-        <?php else: ?>
-            上一張
-        <?php endif; ?>
-        <small>｜</small>
-        <?php if ($this->photo['nextId']): ?>
-            <?php echo $this->hyperLink('album/view/photo/id/' . $this->photo['nextId'], '下一張') ?>
-        <?php else: ?>
-            下一張
-        <?php endif; ?>
-        <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
-        <small>｜</small>
-        <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
-        <?php echo $this->hyperLink('photos/' . $this->photo['photoHashFile'], '放大檢視', array('id'    => 'showLargePhoto',
-                                                                                                 'title' => $this->photo['photoDescription'] ? $this->photo['photoDescription'] : FileInfo::convertToUTF8($this->photo['fileName']))) ?>
-    </div>
-<?php endif; ?>
-    
+<table summary="相片操作區" id="photoNavTable" class="photoNav">
+    <tr>
+        <td>
+            第&nbsp;<?php echo $this->photo['count'] ?>&nbsp;張相片（共&nbsp;<?php echo $this->photo['totalCount'] ?>&nbsp;張）
+            <?php echo $this->hyperLink('album/view/index/id/' . $this->photo['albumId'], '檢視全部相片') ?>
+        </td>
+        <td style="text-align:center;">
+            <?php if ($this->photo['prevId'] || $this->photo['nextId']): ?>
+                <span class="navBlock">
+                    <?php if ($this->photo['prevId']): ?>
+                        <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $this->photo['prevId'] ?>">
+                        <?php echo $this->img('icon/backNarrow.png', '上一張')?>
+                        上一張
+                        </a>
+                    <?php else: ?>
+                        <?php echo $this->img('icon/backNarrow.png', '上一張')?>
+                        <span class="noPhoto">上一張</span>
+                    <?php endif; ?>
+                </span>
+                &nbsp;
+                <span class="navBlock">
+                    <?php if ($this->photo['nextId']): ?>
+                        <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $this->photo['nextId'] ?>">
+                        下一張
+                        <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
+                        </a>
+                    <?php else: ?>
+                        <span class="noPhoto">下一張</span>
+                        <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
+                    <?php endif; ?>
+                </span>
+            <?php endif; ?>
+        </td>
+        <td style="text-align:right;">
+            <span class="navBlock">
+                <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
+                <?php echo $this->hyperLink('photos/' . $this->photo['photoHashFile'], '放大檢視', array('id'    => 'showLargePhoto',
+                                                                                                         'title' => $this->photo['photoDescription'] ? $this->photo['photoDescription'] : FileInfo::convertToUTF8($this->photo['fileName']))) ?>
+            </span>
+        </td>
+    </tr>
+</table>
+
+
 <div id="infoBlock">
     <?php if ($this->isAdmin): ?>
         <span id="infoNav" class="adminNav">
@@ -79,7 +96,7 @@
         </span>
     <?php endif; ?>
     
-    <span>日期：<?php echo $this->photo['uploadDate'] ?></span>
+    <span>日期：<?php echo $this->photo['uploadDate'] ?>,&nbsp;</span>
     <span>上傳者：<?php echo $this->photo['userName'] ?></span>
     
     <?php if ($this->message): ?>

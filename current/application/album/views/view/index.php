@@ -53,7 +53,7 @@
         <?php endif; ?>
     </span>
     <span id="createDate"><?php echo $this->album['albumData']['createDate'] ?></span>
-    <small>|</small>
+    ,&nbsp;
     <span id="photoCounts"><?php echo '共' . count($this->album['photos']) . '張相片' ?></span>
     <?php if ($this->message): ?>
         <small>|</small>
