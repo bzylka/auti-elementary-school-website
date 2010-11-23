@@ -16,6 +16,11 @@ $office = new Model_Office();
 $officeList = $office->getOfficeList();
 unset($office);
 
+// 讀取班級列表
+$class = new Model_Class();
+$classList = $class->getClasses();
+unset($class);
+
 // 讀取成果專區
 $achievement = new Model_Achievement();
 $achievementList = $achievement->getAchievementList();
@@ -42,18 +47,11 @@ unset($achievement);
     <li><a href="<?php echo BASE_URL . 'team'?>"><?php echo $this->img('icon/team.png', '教師團隊') ?>教師團隊</a></li>
     <li class="parentMenuItem"><?php echo $this->img('icon/classWeb.png', '班級網頁') ?>班級網頁&nbsp;&raquo;
         <ul>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000069012" target="_blank">一甲</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000072230" target="_blank">一乙</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071189" target="_blank">二甲</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071187" target="_blank">二乙</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071190" target="_blank">三甲</a></li>
-            <li><a class="external" href="#">三乙（X）</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000042400" target="_blank">四甲</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000042404" target="_blank">四乙</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071481" target="_blank">五甲</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071482" target="_blank">五乙</a></li>
-            <li><a class="external" href="http://tw.class.urlifelinks.com/class/?csid=css000000071489" target="_blank">六甲</a></li>
-            <li><a class="external" href="#">六乙（X）</a></li>
+            <?php foreach ($classList as $class): ?>
+                <?php if ($class->classWebsite): ?>
+                    <li><a class="external" href="<?php echo $class->classWebsite ?>" target="_blank"><?php echo $this->escape($class->className) ?></a></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
 		</ul>
     </li>
     <li><a href="http://www.nhcue.edu.tw/~u9115043/AutiDoc/"><?php echo $this->img('icon/doc.png', '數位機會中心') ?>數位機會中心</a></li>

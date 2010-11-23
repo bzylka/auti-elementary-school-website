@@ -35,7 +35,7 @@ class Model_Class extends Model_Abstract
      */
     public function getClasses()
     {
-        return $this->getTable()->order('className DESC')->getRowset();
+        return $this->getTable()->order('className')->getRowset();
     }
 }
 ?>
