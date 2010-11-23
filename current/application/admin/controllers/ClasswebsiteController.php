@@ -37,56 +37,56 @@ class Admin_ClasswebsiteController extends Controller
      */
     public function indexAction()
     {
-        $office = new Model_Office();
+        $class = new Model_Class();
 
         if ($this->isPost()) {
-            if ($office->isValid()) {
-                $office->add();
-                $this->redirect('admin/office', $office->getMessage());
+            if ($class->isValid()) {
+                $class->add();
+                $this->redirect('admin/classWebsite', $class->getMessage());
             } else {
-                $this->view->message = $office->getMessage();
+                $this->view->message = $class->getMessage();
             }
         }
         
-        $this->view->officeTable = $office->getTable()->order('displayOrder')->getRowset()->toArray();
-        $this->view->officeForm  = $office->getForm();
+        $this->view->classTable = $class->getTable()->order('displayOrder')->getRowset()->toArray();
+        $this->view->classForm  = $class->getForm();
         $this->render('index');
     }
     
     /**
-     * 編輯處室
+     * 編輯班級
      */
     public function editAction()
     {
         $id = $this->getParam('id');
-        $office = new Model_Office();
-        $office->setFormType('edit');
+        $class = new Model_Class();
+        $class->setFormType('edit');
 
         if ($this->isPost()) {
-            if ($office->isValid()) {
-                $office->update($id);
-                $this->redirect('admin/office', $office->getMessage());
+            if ($class->isValid()) {
+                $class->update($id);
+                $this->redirect('admin/classWebsite', $class->getMessage());
             } else {
-                $this->view->message = $office->getMessage();
+                $this->view->message = $class->getMessage();
             }
-        } elseif (!$office->setFormById($id)) {
-            $this->redirect('admin/office', $office->getMessage());
+        } elseif (!$class->setFormById($id)) {
+            $this->redirect('admin/classWebsite', $class->getMessage());
         }
 
-        $this->view->officeTable = $office->getTable()->order('displayOrder')->getRowset()->toArray();
-        $this->view->officeForm  = $office->getForm();
+        $this->view->classTable = $class->getTable()->order('displayOrder')->getRowset()->toArray();
+        $this->view->classForm  = $class->getForm();
         $this->render('index');
     }
     
     /**
-     * 刪除使用者
+     * 刪除班級
      */
     public function deleteAction()
     {
         $id = $this->getParam('id');
-        $office = new Model_Office();
-        $office->delete($id);
-        $this->redirect('admin/office', $office->getMessage());
+        $class = new Model_Class();
+        $class->delete($id);
+        $this->redirect('admin/classWebsite', $class->getMessage());
     }
 }
 ?>

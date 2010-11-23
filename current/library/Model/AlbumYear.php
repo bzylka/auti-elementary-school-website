@@ -13,7 +13,7 @@
 /**
  * Model_AlbumYear
  *
- * 最新消息處理
+ * 相簿年份處理
  */
 class Model_AlbumYear extends Model_Abstract
 {

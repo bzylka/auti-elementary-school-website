@@ -79,7 +79,7 @@ class Admin_OfficeController extends Controller
     }
     
     /**
-     * 刪除使用者
+     * 刪除處室
      */
     public function deleteAction()
     {
