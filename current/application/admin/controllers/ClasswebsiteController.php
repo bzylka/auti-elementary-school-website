@@ -48,7 +48,7 @@ class Admin_ClasswebsiteController extends Controller
             }
         }
         
-        $this->view->classTable = $class->getTable()->order('displayOrder')->getRowset()->toArray();
+        $this->view->classTable = $class->getClasses()->toArray();
         $this->view->classForm  = $class->getForm();
         $this->render('index');
     }
@@ -73,7 +73,7 @@ class Admin_ClasswebsiteController extends Controller
             $this->redirect('admin/classWebsite', $class->getMessage());
         }
 
-        $this->view->classTable = $class->getTable()->order('displayOrder')->getRowset()->toArray();
+        $this->view->classTable = $class->getClasses()->toArray();
         $this->view->classForm  = $class->getForm();
         $this->render('index');
     }
