@@ -62,5 +62,8 @@ var pageTracker = _gat._getTracker("UA-8577883-1");
 pageTracker._trackPageview();
 } catch(err) {}
 </script>
+        <noscript>
+            您的瀏覽器不支援Javascript，但是並不會影響到網頁的閱讀
+        </noscript>
     </body>
 </html>

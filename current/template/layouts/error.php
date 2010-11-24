@@ -39,5 +39,8 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
         </div>
         
         <?php echo $this->partial('./components/footer.php') ?>
+        <noscript>
+            您的瀏覽器不支援Javascript，但是並不會影響到網頁的閱讀
+        </noscript>
     </body>
 </html>

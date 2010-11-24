@@ -32,7 +32,7 @@
     <tr id="calendarNav" title="<?php echo $this->today ?>">
         <td id="preMonth" colspan="2">
             <?php echo $this->hyperLink('calendar/view/index/date/' . $this->preMonthYear . '-' . $this->preMonth, '«' . $this->preMonthYear . '年' . $this->preMonth . '月') ?>
-            <button onclick="location.href='<?php echo BASE_URL ?>calendar/view/'">回到今天</button>
+            <button onclick="location.href='<?php echo BASE_URL ?>calendar/view/'" onkeypress="location.href='<?php echo BASE_URL ?>calendar/view/'">回到今天</button>
         </td>
         <td id="calendarTitle" colspan="3">
             <?php echo $this->escape($this->calendarCaption) ?>
@@ -80,6 +80,7 @@
                         <td>&nbsp;</td>
                     <?php elseif (is_array($this->events[$row][$i][$j])): ?>
                         <td onclick="showDetail('<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row ?>')"
+                            onkeypress="showDetail('<?php echo 'detail' . $this->events[$row][$i][$j]['eventId'] . '_' . $row ?>')"
                             class="event <?php echo 'eventId' . $this->events[$row][$i][$j]['eventId']?>"
                             title="<?php echo $this->events[$row][$i][$j]['eventName'] ?>"
                             colspan="<?php echo $this->events[$row][$i][$j]['colspan']?>"
