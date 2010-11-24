@@ -63,14 +63,14 @@
         <div class="blockContent">
             <?php if ($this->photos): ?>
                 <?php foreach ($this->photos['photos'] as &$photo): ?>
-                <span>
+                <div class="photoContainer">
                     <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
                         <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $photo['fileName']) ?>
                     </a>
-                </span>
+                </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <b>無設定顯示相簿</b>
+                <div id="noRandomPhoto">無設定顯示相簿</div>
             <?php endif; ?>
             <div class="more" style="padding-top:0.5em;">
                 <?php echo $this->hyperLink('album/view/index/id/' . $this->photos['albumId'], '更多《' . $this->photos['albumName'] . '》的相片»') ?>

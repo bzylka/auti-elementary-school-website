@@ -42,8 +42,8 @@
 
     <?php foreach ($paginator->pagesInRange as $page): ?>
         <?php if ($page != $paginator->current): ?>
-            <a class="pageNumber" href="<?php echo $this->url(array('page' => $page)) ?>">
-                <?php echo $page; ?></a>
+            [<a class="pageNumber" href="<?php echo $this->url(array('page' => $page)) ?>">
+                <?php echo $page; ?></a>]
         <?php else: ?>
             <span id="currentPage"><?php echo $page; ?></span>
         <?php endif; ?>

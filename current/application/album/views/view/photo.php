@@ -47,7 +47,7 @@
         </td>
         <td style="text-align:center;">
             <?php if ($this->photo['prevId'] || $this->photo['nextId']): ?>
-                <span class="navBlock">
+                <div class="navBlock">
                     <?php if ($this->photo['prevId']): ?>
                         <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $this->photo['prevId'] ?>">
                         <?php echo $this->img('icon/backNarrow.png', '上一張')?>
@@ -57,9 +57,9 @@
                         <?php echo $this->img('icon/backNarrow.png', '上一張')?>
                         <span class="noPhoto">上一張</span>
                     <?php endif; ?>
-                </span>
+                </div>
                 &nbsp;
-                <span class="navBlock">
+                <div class="navBlock">
                     <?php if ($this->photo['nextId']): ?>
                         <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $this->photo['nextId'] ?>">
                         下一張
@@ -69,7 +69,7 @@
                         <span class="noPhoto">下一張</span>
                         <?php echo $this->img('icon/forwardNarrow.png', '下一張')?>
                     <?php endif; ?>
-                </span>
+                </div>
             <?php endif; ?>
         </td>
         <td style="text-align:right;">

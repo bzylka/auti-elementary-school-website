@@ -142,7 +142,11 @@
     border: 1px solid #A7A7A7;
     margin: 2px;
 }
-#album .blockContent b {
+#album .photoContainer {
+    display: inline;
+}
+/* 無設定相簿說明文字 */
+#album #noRandomPhoto {
     font-size: 120%;
     line-height: 2em;
 }
