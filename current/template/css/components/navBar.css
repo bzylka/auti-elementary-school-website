@@ -1,0 +1,17 @@
+/* 導覽列 */
+#navBar {
+    margin: 1em auto;
+    font-size: 80%;
+}
+#navBar #selected {
+    padding: 2px;
+    border: 1px solid #659100;
+    border-radius: 3px;
+    background-color: #96CA06;
+    color: white;
+    font-weight: bold;
+}
+#navBar small {
+    font-size: 80%;
+    color: #B2B2B2;
+}

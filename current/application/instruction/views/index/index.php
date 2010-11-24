@@ -13,6 +13,16 @@
 <?php $this->headTitle('學校簡介') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'history.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle1.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/navBar.css') ?>
+
+<div id="navBar">
+    目前位置：
+    <span id="selected">學校簡介</span>
+    <small>|</small>
+    <?php echo $this->hyperLink('instruction/traffic', '交通資訊')?>
+    <small>|</small>
+    <?php echo $this->hyperLink('instruction/traffic', '校歌')?>
+</div>
 
 <h1>學校簡介</h1>
 

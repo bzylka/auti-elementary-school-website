@@ -24,6 +24,8 @@ class Office_ViewController extends Controller
     {
         $office = new Model_Office();
         if ($this->view->officeData = $office->getOfficeData($this->getParam('id'))) {
+            //取得處室列表，提供導覽列使用
+            $this->view->officeList = $office->getOfficeList();
             $this->render('index');
         } else {
             $this->redirect('', $office->getMessage());

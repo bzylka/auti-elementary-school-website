@@ -12,6 +12,23 @@
 ?>
 <?php $this->headTitle($this->officeData['officeName']) ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'officeView.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/navBar.css') ?>
+
+<div id="navBar">
+    目前位置：
+    <?php
+        foreach ($this->officeList as $office) {
+            if ($office['officeId'] == $this->officeData['officeId']) {
+                $navBar[] = '<span id="selected">' . $office['officeName'] . '</span>';
+            } else {
+                $navBar[] = $this->hyperLink('office/view/index/id/' . $office['officeId'], $office['officeName']);
+            }
+        }
+
+        echo implode('&nbsp;<small>|</small>&nbsp;', $navBar);
+    ?>
+
+</div>
 
 <h1><?php echo $this->escape($this->officeData['officeName']) . '&nbsp;│&nbsp;' . $this->escape($this->officeData['officeEnglishName'])?></h1>
 <?php

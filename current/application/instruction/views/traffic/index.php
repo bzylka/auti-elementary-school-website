@@ -12,8 +12,19 @@
 ?>
 <?php $this->headTitle('交通資訊') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'traffic.css') ?>
+<?php $this->headLink()->appendStylesheet(CSS_URL . 'components/navBar.css') ?>
+
+<div id="navBar">
+    目前位置：
+    <?php echo $this->hyperLink('instruction', '學校簡介')?>
+    <small>|</small>
+    <span id="selected">交通資訊</span>
+    <small>|</small>
+    <?php echo $this->hyperLink('instruction/symbol', '校歌')?>
+</div>
 
 <h1>交通資訊</h1>
+
 <ul style="line-height:1.2em;">
     <li>火車：於福隆火車站下車，再轉搭基隆客運</li>
     <li>客運：搭乘基隆客運（基隆─福隆）、國光客運（台北─宜蘭羅東線），到澳底站下車</li>
