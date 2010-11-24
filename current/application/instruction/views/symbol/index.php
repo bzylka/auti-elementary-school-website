@@ -15,7 +15,7 @@
 <h1>校歌</h1>
     <br />
     <p>
-        <audio src="<?php echo BASE_URL ?>template/media/SchoolSong.ogg" controls autobuffer>
+        <audio src="<?php echo BASE_URL ?>template/media/SchoolSong.ogg" controls buffered>
             <object type="application/x-java-applet" width="320" height="15">
                 <param name="archive" value="http://<?php echo $_SERVER['HTTP_HOST'] . BASE_URL ?>template/media/cortado.jar" />
                 <param name="code" value="com.fluendo.player.Cortado.class" />
