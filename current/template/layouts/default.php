@@ -42,6 +42,7 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
             </div>
             
             <div id="pageContent" class="grid_20">
+                <div id="anchor"><a title="主要內容區" href="#content" accesskey="C">:::</a></div>
                 <?php echo $this->layout()->content ?>
             </div>
             

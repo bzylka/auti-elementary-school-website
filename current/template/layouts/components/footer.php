@@ -12,6 +12,7 @@
 ?>
 <div id="footer">
     <p>
+        <a href="#information" title="學校資訊" accesskey="I">:::</a>
         地址：(22844)新北市貢寮區延平街10號&nbsp;&nbsp;&nbsp;電話：02-24901432&nbsp;&nbsp;&nbsp;傳真：02-24902287&nbsp;&nbsp;&nbsp;幼稚園電話：02-24902793
     </p>
     <p>

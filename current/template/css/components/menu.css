@@ -28,7 +28,7 @@
     cursor: pointer;
     color: blue;
 }
-#menu li a, .parentMenuItem {
+#menu li a, #menu .parentMenuItem {
     display: block;
     padding: 6px 2px;
 }

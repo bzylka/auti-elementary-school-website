@@ -26,10 +26,11 @@ $achievement = new Model_Achievement();
 $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
-<h1>網站導覽</h1>
+<h1><a title="登入" href="#menu" accesskey="M">:::</a>網站選單</h1>
 <ul id="menu">
     <li><a href="<?php echo BASE_URL . 'news'?>"><?php echo $this->img('icon/news.png', '最新消息') ?>最新消息</a></li>
     <li><a href="<?php echo BASE_URL . 'news/important'?>"><?php echo $this->img('icon/important.png', '近期重要公告') ?>近期重要公告</a></li>
+    <li><a href="<?php echo BASE_URL . 'sitemap'?>"><?php echo $this->img('icon/sitemap.png', '網站導覽') ?>網站導覽</a></li>
     <li class="parentMenuItem"><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;
         <ul>
             <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>

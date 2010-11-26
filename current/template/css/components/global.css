@@ -90,6 +90,9 @@ h2 {
 #pageContent {
     margin-bottom: 1.5em;
 }
+#pageContent #anchor {
+    text-align: center;
+}
 /* footer */
 #footer {
     margin: 0.5em auto 1em auto;

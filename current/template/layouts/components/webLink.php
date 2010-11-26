@@ -17,7 +17,7 @@ $webLinkList = $webLink->getWebLinks(true);
 unset($webLink);
 ?>
 <br />
-<h1>網路連結</h1>
+<h1><a title="網路連結" href="#link" accesskey="K">:::</a>網路連結</h1>
 <ul id="webLink">
     <?php foreach ($webLinkList as &$webLink): ?>
         <li>

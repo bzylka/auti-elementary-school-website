@@ -1,0 +1,41 @@
+#sitemap {
+    margin-left: 2em;
+    font-size: 110%;
+}
+#sitemap li {
+    list-style-type: disc;
+    margin: 0.4em 0;
+}
+#sitemap .parentMenuItem li {
+    margin-left: 2em;
+    list-style-type: circle;
+}
+#accesskey {
+    font-size: 110%;
+    margin: 0.5em 2em 1.5em 2em;
+    border: 1px solid gray;
+    background-color: #FFF090;
+    border-radius: 5px;
+    padding: 0.5em;
+    line-height: 1.5em;
+}
+#accesskey .key {
+    border: 0.2em outset #cecbc7;
+    background: #f0ece8;
+    padding: 0 0.4em 0.1em 0.3em;
+    font-size: 0.85em;
+    white-space: nowrap;
+    font-weight: bold;
+}
+#accesskey li {
+    list-style-type: disc;
+    margin-left: 2em;
+    line-height: 1.5em;
+}
+#note {
+    margin-top: 1em;
+}
+#note strong {
+    color: #7F1010;
+    font-size: 120%;
+}
