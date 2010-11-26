@@ -21,7 +21,7 @@
     <small>|</small>
     <?php echo $this->hyperLink('instruction/traffic', '交通資訊')?>
     <small>|</small>
-    <?php echo $this->hyperLink('instruction/traffic', '校歌')?>
+    <?php echo $this->hyperLink('instruction/schoolSong', '校歌')?>
 </div>
 
 <h1>學校簡介</h1>

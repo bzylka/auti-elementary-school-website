@@ -11,11 +11,11 @@
  */
 
 /**
- * Instruction_SymbolController
+ * Instruction_SchoolsongController
  *
- * 學校象徵
+ * 校歌
  */
-class Instruction_SymbolController extends Controller
+class Instruction_SchoolsongController extends Controller
 {
     /**
      * 顯示頁面

@@ -31,7 +31,7 @@ class Album_AddController extends Controller
                 // 加入相簿建立日期
                 $album->add();
                 // 回到相簿首頁
-                $this->redirect('album', $message);
+                $this->redirect('album', $album->getMessage());
             } else {
                 $this->view->message = $album->getMessage();
             }

@@ -15,14 +15,14 @@
 <?php $this->headTitle('相簿') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'albumIndex.css') ?>
 
+<?php if ($this->message): ?>
+    <?php echo $this->messageBlock($this->message) ?>
+<?php endif; ?>
+
 <?php if ($this->allowAlbum): ?>
     <div class="adminNav">
         <?php echo $this->hyperLink('album/add', '新增相簿»') ?>
     </div>
-<?php endif; ?>
-
-<?php if ($this->message): ?>
-    <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
 <?php if ($this->albums): ?>

@@ -18,7 +18,7 @@
         建議使用瀏覽器：
         <?php echo $this->img('browserLogo/firefox.png', 'Firefox') ?><a href="http://moztw.org/">Firefox</a>、
         <?php echo $this->img('browserLogo/ie7.png', 'ie7') ?><a href="http://www.microsoft.com/taiwan/products/ie/">IE 8</a>、
-        <?php echo $this->img('browserLogo/googleChrome.png', 'GoogleChrome') ?><a href="http://www.google.com/chrome">Google Chrome</a>、
+        <?php echo $this->img('browserLogo/googleChrome.png', 'Google 瀏覽器') ?><a href="http://www.google.com/chrome">Google 瀏覽器</a>、
         <?php echo $this->img('browserLogo/safari.png', 'Safari') ?><a href="http://www.apple.com/tw/safari/">Safari</a>、
         <?php echo $this->img('browserLogo/opera.png', 'Opera') ?><a href="http://www.opera.com/">Opera</a>
         |

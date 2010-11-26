@@ -1,9 +1,10 @@
 .albumYear {
-    background-color: #797979;
+    background-color: #50A3E5;
+    border: 1px solid #AAAAAA;
     color: white;
-    margin-right: 2em;
-    padding-left: 0.5em;
-    width: 95%;
+    padding: 0.3em 0 0.3em 0.5em;
+    width: 90%;
+    border-radius: 5px;
 }
 .albumBlock {
     color: #666666;
@@ -42,7 +43,7 @@
 }
 /* 新增按鈕 */
 .adminNav {
-    margin: 1em 0;
     padding: 0 2em;
-    text-align: right;
+    float: right;
+    margin-top: 0.3em;
 }

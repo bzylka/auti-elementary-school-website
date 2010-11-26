@@ -20,7 +20,7 @@
     <small>|</small>
     <span id="selected">交通資訊</span>
     <small>|</small>
-    <?php echo $this->hyperLink('instruction/symbol', '校歌')?>
+    <?php echo $this->hyperLink('instruction/schoolSong', '校歌')?>
 </div>
 
 <h1>交通資訊</h1>
@@ -37,7 +37,7 @@
     <br />
     <div style="margin-top:5px; text-align:right;">
         <a class="external" href="http://maps.google.com.tw/maps?q=%E6%BE%B3%E5%BA%95%E5%9C%8B%E5%B0%8F&amp;ie=UTF8&amp;brcurrent=3,0x345d5ce8e584c6dd:0x9103200a1e847910&amp;sll=25.05488,121.92504&amp;sspn=0.006295,0.006295&amp;ll=25.052363,121.922278&amp;spn=0.018661,0.027466&amp;z=15&amp;source=embed" style="color:#0000FF;text-align:left" target="blank">
-            在Google Maps上查看
+            在Google 地圖上查看
         </a>
     </div>
 </div>

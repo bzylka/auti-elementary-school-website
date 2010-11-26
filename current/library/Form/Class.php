@@ -33,7 +33,7 @@ class Form_Class extends Form_Abstract
                           array('label'     => '班級網頁',
                                 'size'      => 50,
                                 'maxlength' => 255,
-                                'stringMin' => 10,
+                                'stringMin' => 5,
                                 'stringMax' => 255));
 
         if ($this->_formType == 'edit') {
