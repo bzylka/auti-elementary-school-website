@@ -20,6 +20,7 @@
     <ul>
         <li><span class="key">L</span>：上方登入區，進行登入操作。</li>
         <li><span class="key">M</span>：左方選單區，進行選單操作。</li>
+        <li><span class="key">K</span>：左方連結區，進行連結操作。</li>
         <li><span class="key">C</span>：主要內容區。</li>
         <li><span class="key">I</span>：聯絡資訊區。</li>
     </ul>
