@@ -4,7 +4,7 @@
 = mod_rewrite設定 =
 {{{
 RewriteEngine on
-RewriteRule !\.(js|gif|jpg|png|css|txt|jar|ogg)$ index.php
+RewriteRule !\.(js|gif|jpg|png|css|txt|jar|ogg|xml)$ index.php
 }}}
 
 = mod_expires設定 =
