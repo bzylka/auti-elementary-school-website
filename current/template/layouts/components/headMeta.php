@@ -12,9 +12,8 @@
 ?>
 <?php
 // 設定HeadMeta
-$this->headMeta()->prependName('description', '台北縣貢寮鄉澳底國小')
-                 ->prependName('keywords', '澳底, 國小, 台北縣, 貢寮, 海洋')
+$this->headMeta()->prependName('description', '新北市貢寮區澳底國小')
+                 ->prependName('keywords', '澳底, 國小, 新北市, 貢寮, 海洋, 教育')
+                 ->prependName('Accessible_website', '本網站通過第A+優先等級無障礙網頁檢測')
                  ->prependHttpEquiv('Content-Type', 'text/html; charset=utf-8');
-                 
 ?>
-        

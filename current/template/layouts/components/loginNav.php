@@ -13,7 +13,7 @@
 <?php $userInfo = Zend_Auth::getInstance()->getIdentity() ?>
 <div id="loginNav" class="grid_24">
     <ul>
-        <li><a title="登入" href="#login" accesskey="L">:::</a></li>
+        <li><a title="登入" href="#login" accesskey="L">:::</a>&nbsp;</li>
         <?php if ($this->layout()->getView()->loginMessage): ?>
             <li>
                 <?php echo $this->layout()->getView()->messageBlock($this->layout()->getView()->loginMessage) ?>

@@ -14,6 +14,6 @@
 ?>
 <div id="header" class="grid_24">
     <a href="<?php echo BASE_URL ?>">
-        <img src="<?php echo IMG_URL . 'banner.jpg' ?>" alt="台北縣貢寮鄉澳底國小" title="台北縣貢寮鄉澳底國小" />
+        <?php echo $this->img('banner.jpg', '新北市貢寮區澳底國小') ?>
     </a>
 </div>

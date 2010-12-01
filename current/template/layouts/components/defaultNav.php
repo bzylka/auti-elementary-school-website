@@ -26,7 +26,7 @@ $achievement = new Model_Achievement();
 $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
-<h1><a title="登入" href="#menu" accesskey="M">:::</a>網站選單</h1>
+<h1><a title="登入" href="#menu" accesskey="M">:::</a>&nbsp;網站選單</h1>
 <ul id="menu">
     <li><a href="<?php echo BASE_URL . 'news'?>"><?php echo $this->img('icon/news.png', '最新消息') ?>最新消息</a></li>
     <li><a href="<?php echo BASE_URL . 'news/important'?>"><?php echo $this->img('icon/important.png', '近期重要公告') ?>近期重要公告</a></li>
@@ -50,7 +50,7 @@ unset($achievement);
         <ul>
             <?php foreach ($classList as $class): ?>
                 <?php if ($class->classWebsite): ?>
-                    <li><a class="external" href="<?php echo $class->classWebsite ?>" target="_blank"><?php echo $this->escape($class->className) ?></a></li>
+                    <li><a class="external" href="<?php echo str_replace('&', '&amp;', $class->classWebsite) ?>" target="_blank"><?php echo $this->escape($class->className) ?></a></li>
                 <?php endif; ?>
             <?php endforeach; ?>
 		</ul>

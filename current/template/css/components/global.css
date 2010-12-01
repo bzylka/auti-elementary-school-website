@@ -103,6 +103,7 @@ h2 {
 }
 #footer p {
     line-height: 1.3em;
+    padding: 2px 0;
 }
 #footer a {
     color: #1F2126;
@@ -114,6 +115,10 @@ h2 {
 #footer img {
     width: 1em;
     margin-right: 0.2em;
+}
+#footer #validate img {
+    width: 75px;
+    height: 26px;
 }
 /* 訊息區塊 */
 .messageBlock {

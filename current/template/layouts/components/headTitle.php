@@ -13,6 +13,6 @@
 <?php
 // 設定瀏覽器標題
 $this->headTitle()->setSeparator(' - ');
-$this->headTitle('台北縣貢寮鄉澳底國小', 'PREPEND');
+$this->headTitle('新北市貢寮區澳底國小', 'PREPEND');
 ?>
         
