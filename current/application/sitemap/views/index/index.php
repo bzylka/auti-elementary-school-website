@@ -18,10 +18,9 @@
 <div id="accesskey">
     本網站的無障礙快速鍵（Accesskey）設定如下：
     <ul>
-        <li><span class="key">L</span>：上方登入區，進行登入操作。</li>
         <li><span class="key">M</span>：左方選單區，進行選單操作。</li>
-        <li><span class="key">K</span>：左方連結區，進行連結操作。</li>
         <li><span class="key">C</span>：主要內容區。</li>
+        <li><span class="key">L</span>：首頁行事曆。</li>
         <li><span class="key">I</span>：聯絡資訊區。</li>
     </ul>
 
@@ -58,37 +57,43 @@ $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
 <ul id="sitemap">
-    <li><a href="<?php echo BASE_URL . 'news'?>">最新消息</a></li>
-    <li><a href="<?php echo BASE_URL . 'news/important'?>">近期重要公告</a></li>
-    <li><a href="<?php echo BASE_URL . 'sitemap'?>">網站導覽</a></li>
-    <li class="parentMenuItem">學校簡介&nbsp;&raquo;
+    <li>1.&nbsp;<a href="<?php echo BASE_URL . 'news'?>">最新消息</a></li>
+    <li>2.&nbsp;<a href="<?php echo BASE_URL . 'news/important'?>">近期重要公告</a></li>
+    <li>3.&nbsp;<a href="<?php echo BASE_URL . 'sitemap'?>">網站導覽</a></li>
+    <li class="parentMenuItem">4.&nbsp;<a href="#instruction">學校簡介&nbsp;&raquo;</a>
         <ul>
-            <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>
-            <li><?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
-            <li><?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
+            <li>4-1.&nbsp;<?php echo $this->hyperLink('instruction', '學校簡介')?></li>
+            <li>4-2.&nbsp;<?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
+            <li>4-3.&nbsp;<?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
 		</ul>
     </li>
-    <li class="parentMenuItem">行政組織&nbsp;&raquo;
+    <li class="parentMenuItem">5.&nbsp;<a href="#organization">行政組織&nbsp;&raquo;</a>
         <ul>
+            <?php $i = 1; ?>
             <?php foreach ($officeList as $office): ?>
-                <li><?php echo $this->hyperLink('office/view/index/id/' . $office['officeId'], $office['officeName'])?></li>
+                <li><?php echo '5-' . $i . '.&nbsp;' . $this->hyperLink('office/view/index/id/' . $office['officeId'], $office['officeName'])?></li>
+                <?php $i++; ?>
             <?php endforeach; ?>
         </ul>
     </li>
-    <li><a href="<?php echo BASE_URL . 'team'?>">教師團隊</a></li>
-    <li class="parentMenuItem">班級網頁&nbsp;&raquo;
+    <li><a href="<?php echo BASE_URL . 'team'?>">6.&nbsp;教師團隊</a></li>
+    <li class="parentMenuItem">7.&nbsp;<a href="#classWeb">班級網頁&nbsp;&raquo;</a>
         <ul>
+            <?php $i = 1; ?>
             <?php foreach ($classList as $class): ?>
                 <?php if ($class->classWebsite): ?>
-                    <li><a class="external" href="<?php echo $class->classWebsite ?>" target="_blank"><?php echo $this->escape($class->className) ?></a></li>
+                    <li><?php echo '7-' . $i . '.&nbsp;' ?><a class="external" href="<?php echo $class->classWebsite ?>" target="_blank"><?php echo $this->escape($class->className) ?></a></li>
                 <?php endif; ?>
+                <?php $i++; ?>
             <?php endforeach; ?>
 		</ul>
     </li>
-    <li><a href="http://www.nhcue.edu.tw/~u9115043/AutiDoc/">數位機會中心</a></li>
-    <li><a href="<?php echo BASE_URL . 'album'?>">相簿</a></li>
-    <li><a href="<?php echo BASE_URL . 'calendar/view'?>">行事曆</a></li>
+    <li>8.&nbsp;<a href="http://www.nhcue.edu.tw/~u9115043/AutiDoc/">數位機會中心</a></li>
+    <li>9.&nbsp;<a href="<?php echo BASE_URL . 'album'?>">相簿</a></li>
+    <li>10.&nbsp;<a href="<?php echo BASE_URL . 'calendar/view'?>">行事曆</a></li>
+    <?php $i = 11; ?>
     <?php foreach ($achievementList as $achievement): ?>
-        <li><a href="<?php echo BASE_URL . 'achievement/index/index/id/' . $achievement['achievementId']?>"><?php echo $this->escape($achievement['achievementName']) ?></a></li>
+        <li><?php echo $i . '.&nbsp;' ?><a href="<?php echo BASE_URL . 'achievement/index/index/id/' . $achievement['achievementId']?>"><?php echo $this->escape($achievement['achievementName']) ?></a></li>
+        <?php $i++; ?>
     <?php endforeach; ?>
 </ul>

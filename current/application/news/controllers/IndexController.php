@@ -27,6 +27,11 @@ class News_IndexController extends Controller
         
         $news = new Model_News();
         $this->view->newsTable = $news->getNewsList(18, $this->getParam('page'));
+
+        // 設定最新消息返回頁面
+        if (!$this->view->backPage = $this->getParam('page')) {
+            $this->view->backPage = 1;
+        }
         $this->render('index');
     }
 }

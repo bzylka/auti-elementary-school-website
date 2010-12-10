@@ -109,7 +109,7 @@
 
 <div id="photoContainer">
     <div id="photoView">
-        <?php echo $this->photo($this->photo['photoHashFile'], $this->photo['fileName']) ?>
+        <?php echo $this->photo($this->photo['photoHashFile'], '相片：' . $this->photo['fileName']) ?>
     </div>
 
     <div id="photoDescriptionContainer">

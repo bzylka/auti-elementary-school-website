@@ -42,7 +42,7 @@
                             <td class="officeName"><?php echo $this->escape($news['officeName']) ?></td>
                             <td class="isImportant"><?php echo ($news['isImportant'] ? $this->img('icon/important.png', '重要訊息') : '&nbsp;') ?></td>
                             <td class="titleName"><?php echo $this->escape($news['titleName']) ?></td>
-                            <td class="newsTitle"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'], $this->restrictString($news['newsTitle'], 35)) ?></td>
+                            <td class="newsTitle"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/index', $this->restrictString($news['newsTitle'], 35)) ?></td>
                         </tr>
                     <?php endforeach; ?>
                     <tr>
@@ -65,7 +65,7 @@
                 <?php foreach ($this->photos['photos'] as &$photo): ?>
                 <div class="photoContainer">
                     <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
-                        <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $photo['fileName']) ?>
+                        <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $this->photos['albumName'] . '的相片：' . $photo['fileName']) ?>
                     </a>
                 </div>
                 <?php endforeach; ?>
@@ -85,7 +85,7 @@
             <span class="blockNav">
                 <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈回到本月行事曆〉') ?>
             </span>
-            行事曆
+            <a accesskey="L" href="#calendar" title="行事曆">:::</a>行事曆
         </div>
         <div id="calendarMessage">
 

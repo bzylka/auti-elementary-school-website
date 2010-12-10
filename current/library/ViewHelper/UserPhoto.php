@@ -20,16 +20,17 @@ class ViewHelper_UserPhoto
     /**
      * 產生img標籤
      * @param int $id 使用者ID
+     * @param string $alt 圖檔標題、說明
      * @return string IMG HTML
      */
-    public function userPhoto($id)
+    public function userPhoto($id, $alt = null)
     {
         if (is_file(PHOTO_DIR . 'user' . $id . '.jpg')) {
             $photo = new ViewHelper_Photo();
-            return $photo->photo('user' . $id . '.jpg');
+            return $photo->photo('user' . $id . '.jpg', $alt);
         } else {
             $img = new ViewHelper_Img();
-            return $img->img('noPhoto.png');
+            return $img->img('noPhoto.png', $alt . '（目前無相片）');
         }
     }
 }

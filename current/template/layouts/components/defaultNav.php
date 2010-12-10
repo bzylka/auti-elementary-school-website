@@ -26,19 +26,19 @@ $achievement = new Model_Achievement();
 $achievementList = $achievement->getAchievementList();
 unset($achievement);
 ?>
-<h1><a title="登入" href="#menu" accesskey="M">:::</a>&nbsp;網站選單</h1>
+<h1><a title="選單" href="#menu" accesskey="M">:::</a>&nbsp;網站選單</h1>
 <ul id="menu">
     <li><a href="<?php echo BASE_URL . 'news'?>"><?php echo $this->img('icon/news.png', '最新消息') ?>最新消息</a></li>
     <li><a href="<?php echo BASE_URL . 'news/important'?>"><?php echo $this->img('icon/important.png', '近期重要公告') ?>近期重要公告</a></li>
     <li><a href="<?php echo BASE_URL . 'sitemap'?>"><?php echo $this->img('icon/sitemap.png', '網站導覽') ?>網站導覽</a></li>
-    <li class="parentMenuItem"><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;
+    <li class="parentMenuItem"><a href="#instruction"><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;</a>
         <ul>
             <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>
             <li><?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
             <li><?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
 		</ul>
     </li>
-    <li class="parentMenuItem"><?php echo $this->img('icon/office.png', '行政組織') ?>行政組織&nbsp;&raquo;
+    <li class="parentMenuItem"><a href="#organization"><?php echo $this->img('icon/office.png', '行政組織') ?>行政組織&nbsp;&raquo;</a>
         <ul>
             <?php foreach ($officeList as $office): ?>
                 <li><?php echo $this->hyperLink('office/view/index/id/' . $office['officeId'], $office['officeName'])?></li>
@@ -46,7 +46,7 @@ unset($achievement);
         </ul>
     </li>
     <li><a href="<?php echo BASE_URL . 'team'?>"><?php echo $this->img('icon/team.png', '教師團隊') ?>教師團隊</a></li>
-    <li class="parentMenuItem"><?php echo $this->img('icon/classWeb.png', '班級網頁') ?>班級網頁&nbsp;&raquo;
+    <li class="parentMenuItem"><a href="#classWeb"><?php echo $this->img('icon/classWeb.png', '班級網頁') ?>班級網頁&nbsp;&raquo;</a>
         <ul>
             <?php foreach ($classList as $class): ?>
                 <?php if ($class->classWebsite): ?>

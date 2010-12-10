@@ -3,12 +3,10 @@
     font-size: 110%;
 }
 #sitemap li {
-    list-style-type: disc;
     margin: 0.4em 0;
 }
 #sitemap .parentMenuItem li {
     margin-left: 2em;
-    list-style-type: circle;
 }
 #accesskey {
     font-size: 110%;

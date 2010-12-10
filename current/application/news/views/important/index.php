@@ -35,7 +35,7 @@
             <h3><?php echo $this->escape($titleName) ?></h3>
             <ul>
                 <?php foreach ($newsArray as &$news): ?>
-                <li><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'], $this->restrictString($news['newsTitle'], 70)) ?></li>
+                <li><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/important', $this->restrictString($news['newsTitle'], 70)) ?></li>
                 <?php endforeach; ?>
             </ul>
         <?php endforeach; ?>

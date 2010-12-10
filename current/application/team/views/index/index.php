@@ -19,7 +19,7 @@
 <div id="teacherContainer">
     <?php foreach ($this->teamList as $member): ?>
         <div class="memberBlock">
-            <div class="userPhoto"><?php echo $this->userPhoto($member['userId']) ?></div>
+            <div class="userPhoto"><?php echo $this->userPhoto($member['userId'], $member['userName']) ?></div>
             <div class="text">
                 <span class="userName"><?php echo $this->escape($member['userName']) ?></span>
                 <br />

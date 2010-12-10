@@ -67,7 +67,7 @@
         <div class="photoBlock">
             <div class="photo">
                 <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
-                    <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $photo['fileName']) ?>
+                    <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), '相片：' . $photo['fileName']) ?>
                 </a>
             </div>
             <p class="photoDescription">

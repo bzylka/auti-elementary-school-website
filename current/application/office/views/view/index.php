@@ -42,7 +42,7 @@ if ($this->officeData['officeLink']) {
         <?php foreach ($title['user'] as &$user): ?>
             <div class="userBlock">
                 <div class="photo">
-                    <?php echo $this->userPhoto($user['userId']) ?>
+                    <?php echo $this->userPhoto($user['userId'], $user['userName']) ?>
                 </div>
                 <div class="titleName">
                     <div class="userTitle">

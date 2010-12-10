@@ -14,7 +14,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'newsView.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 
-<?php echo $this->ajaxLink('history.go(-1)', '«回上一頁') ?>
+<?php echo $this->hyperLink($this->backTo['url'], '«回到' . $this->backTo['name']) ?>
 
 <h1>
     <?php if ($this->isAdmin): ?>

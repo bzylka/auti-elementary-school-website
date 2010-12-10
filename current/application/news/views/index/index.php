@@ -74,7 +74,7 @@
                     <td class="isImportant"><?php echo ($news['isImportant'] ? $this->img('icon/important.png', '重要訊息') : '&nbsp;') ?></td>
                     <td class="officeName"><?php echo $this->escape($news['officeName']) ?></td>
                     <td class="titleName"><?php echo $this->escape($news['titleName']) ?></td>
-                    <td class="newsTitle"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'], $this->restrictString($news['newsTitle'], 70)) ?></td>
+                    <td class="newsTitle"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/news/backPage/' . $this->backPage, $this->restrictString($news['newsTitle'], 70)) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
