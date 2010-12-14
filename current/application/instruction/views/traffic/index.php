@@ -14,14 +14,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'traffic.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/navBar.css') ?>
 
-<div id="navBar">
-    目前位置：
-    <?php echo $this->hyperLink('instruction', '學校簡介')?>
-    <small>|</small>
-    <span id="selected">交通資訊</span>
-    <small>|</small>
-    <?php echo $this->hyperLink('instruction/schoolSong', '校歌')?>
-</div>
+<?php echo $this->partial('navBar.php', array('page' => 'traffic'))?>
 
 <h1>交通資訊</h1>
 

@@ -26,7 +26,7 @@
         <a target="_blank" class="external" href="http://code.google.com/p/auti-elementary-school-website/">程式專案網站</a>
     </p>
     <p id="validate">
-        <a href="http://www.webguide.nat.gov.tw/enable.jsp?category=20101203141938" title="無障礙網站">
+        <a href="http://www.webguide.nat.gov.tw/enable.jsp?category=20101212115001" title="無障礙網站">
             <?php echo $this->img('A+Accessibility.jpg', '全網站通過A+優先等級無障礙網頁檢測') ?>
         </a>
         &nbsp;

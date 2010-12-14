@@ -62,9 +62,10 @@ unset($achievement);
     <li>3.&nbsp;<a href="<?php echo BASE_URL . 'sitemap'?>">網站導覽</a></li>
     <li class="parentMenuItem">4.&nbsp;<a href="#instruction">學校簡介&nbsp;&raquo;</a>
         <ul>
-            <li>4-1.&nbsp;<?php echo $this->hyperLink('instruction', '學校簡介')?></li>
-            <li>4-2.&nbsp;<?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
-            <li>4-3.&nbsp;<?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
+            <li>4-1.<?php echo $this->hyperLink('instruction', '學校簡介')?></li>
+            <li>4-2.&nbsp;<?php echo $this->hyperLink('instruction/vision', '願景')?></li>
+            <li>4-3.&nbsp;<?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
+            <li>4-4.&nbsp;<?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
 		</ul>
     </li>
     <li class="parentMenuItem">5.&nbsp;<a href="#organization">行政組織&nbsp;&raquo;</a>

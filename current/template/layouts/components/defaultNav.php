@@ -34,6 +34,7 @@ unset($achievement);
     <li class="parentMenuItem"><a href="#instruction"><?php echo $this->img('icon/instruction.png', '學校簡介') ?>學校簡介&nbsp;&raquo;</a>
         <ul>
             <li><?php echo $this->hyperLink('instruction', '學校簡介')?></li>
+            <li><?php echo $this->hyperLink('instruction/vision', '願景')?></li>
             <li><?php echo $this->hyperLink('instruction/traffic', '交通資訊')?></li>
             <li><?php echo $this->hyperLink('instruction/schoolSong', '校歌')?></li>
 		</ul>

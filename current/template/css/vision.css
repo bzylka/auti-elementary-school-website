@@ -1,0 +1,11 @@
+#vision {
+    font-size: 120%;
+}
+#vision li {
+    margin: 1em 0 1em 3em;
+    list-style-type: square;
+}
+#vision strong {
+    font-size: 120%;
+    color: #FF6600;
+}
