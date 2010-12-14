@@ -15,6 +15,8 @@
 
 <h1>最新消息附件管理</h1>
 
+<h2>附件請盡量加上檔名，檔案大小最多1GB</h2>
+
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>

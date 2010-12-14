@@ -56,7 +56,6 @@ class News_AddController extends Controller
                 }
 
                 // 處理上傳檔
-                
                 $attachment = new Model_Attachment();
                 $attachment->save($news, $newsId);
                 if ($attachment->getMessage()) {

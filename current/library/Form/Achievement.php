@@ -44,8 +44,8 @@ class Form_Achievement extends Form_Abstract
             $this->addElement('File', 'achievementFile',
                               array('label'       => '成果檔案',
                                     'size'        => 40,
-                                    'maxFileSize' => 209715200,
-                                    'fileSize'    => '200MB'))
+                                    'maxFileSize' => 1073741824,
+                                    'fileSize'    => '1GB'))
                  ->addElement('Submit', 'submit',
                               array('label' => '更新'));
 

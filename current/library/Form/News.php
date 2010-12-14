@@ -70,8 +70,8 @@ class Form_News extends Form_Abstract
                 $this->addElement('File', 'newsAttachment_' . $i,
                                   array('label'       => '附件' . $i,
                                         'size'        => 30,
-                                        'maxFileSize' => 83886080,
-                                        'fileSize'    => '20MB'))
+                                        'maxFileSize' => 1073741824,
+                                        'fileSize'    => '1GB'))
                      ->addElement('Text', 'newsAttachment_' . $i . '_fileName',
                                   array('label'     => '檔名',
                                         'size'      => 15,

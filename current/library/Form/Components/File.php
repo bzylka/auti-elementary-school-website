@@ -27,7 +27,7 @@ class Form_Components_File extends Zend_Form_Element_File
         $this->addValidator('Size', true, $options['fileSize']);
         
         $sizeValidator = $this->getValidator('Size');
-        $sizeValidator->setMessages(array(Zend_Validate_File_Size::TOO_BIG => "上傳檔最多%max%，'%value%'（%size%）超過了"));
+        $sizeValidator->setMessages(array(Zend_Validate_File_Size::TOO_BIG => "上傳檔大小最多%max%，您的檔案'%value%'（%size%）超過了"));
         
         $uploadValidator = $this->getValidator('Upload');
         $uploadValidator->setMessages(array(Zend_Validate_File_Upload::INI_SIZE       => "上傳檔超過php.ini設定的大小",

@@ -16,6 +16,8 @@
 
 <h1>成果區塊管理</h1>
 
+<div id="attention">請將成果檔案壓縮成.zip檔案上傳，最大1GB</div>
+
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>

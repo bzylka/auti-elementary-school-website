@@ -80,7 +80,6 @@
         </div>
         <?php endforeach; ?>
     <?php else: ?>
-        <p>此相簿無任何相片</p>
-        <?php echo $this->hyperLink('album/add/photo/albumId/' . $this->album['albumData']['albumId'], '上傳相片＋') ?>
+        <h2>此相簿無任何相片</h2>
     <?php endif; ?>
 </div>

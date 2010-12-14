@@ -41,7 +41,6 @@ class Model_Attachment extends Model_Abstract
         for ($i = 1; $i < 5; $i++) {
             if ($_FILES['newsAttachment_' .  $i]['error'] == 0) {
                 $file = new FileInfo($_FILES['newsAttachment_' .  $i]['name']);
-                
                 if ($fileName = $news->getForm()->getElement('newsAttachment_' .  $i . '_fileName')->getValue()) {
                     $fileFullName = $fileName . '.' . $file->extension;
                 } else {
