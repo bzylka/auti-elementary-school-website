@@ -25,7 +25,7 @@ class Album_EditController extends Controller
         $id = $this->getParam('id');
         
         // 檢查權限
-        $this->isAllowed('管理相簿', true);
+        $this->isAllowed('編輯相簿', true);
         $album = new Model_Album();
         $album->setFormType('edit');
         
