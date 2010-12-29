@@ -69,14 +69,15 @@
                 <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
                     <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), '相片：' . $photo['fileName']) ?>
                 </a>
+
+                <p class="photoDescription">
+                    <?php if ($photo['photoDescription']): ?>
+                        <?php echo $this->restrictString($this->escape($photo['photoDescription']), 18) ?>
+                    <?php else: ?>
+                        &nbsp;
+                    <?php endif; ?>
+                </p>
             </div>
-            <p class="photoDescription">
-                <?php if ($photo['photoDescription']): ?>
-                    <?php echo $this->restrictString($this->escape($photo['photoDescription']), 10) ?>
-                <?php else: ?>
-                    &nbsp;
-                <?php endif; ?>
-            </p>
         </div>
         <?php endforeach; ?>
     <?php else: ?>

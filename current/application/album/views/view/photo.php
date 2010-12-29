@@ -121,9 +121,9 @@
             </div>
         <?php endif; ?>
         
-        <span id="photoDescriptionText">
+        <div id="photoDescriptionText">
             <?php echo $this->escape($this->photo['photoDescription']) ?>
-        </span>
+        </div>
     </div>
 
     <div class="formContainer" style="display: none;">
