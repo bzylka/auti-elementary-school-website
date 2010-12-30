@@ -70,12 +70,16 @@ h2 {
 }
 /* 登入操作區 */
 #loginNav {
-    font-size: 80%;
     text-align: right;
     margin-bottom: 0.3em;
+    line-height: 2em;
+    font-size: 90%;
 }
 #loginNav li {
     display: inline;
+}
+#loginNav #loginUserName {
+    font-weight: bold;
 }
 /* Header */
 #header {
@@ -129,4 +133,8 @@ h2 {
     margin: 10px 0;
     display: inherit;
     border-radius: 5px;
+}
+/* Google搜尋框 */
+#googleSearch {
+    float: left;
 }

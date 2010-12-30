@@ -16,4 +16,9 @@ $this->headMeta()->prependName('description', '新北市貢寮區澳底國小')
                  ->prependName('keywords', '澳底, 國小, 新北市, 貢寮, 海洋, 教育')
                  ->prependName('Accessible_website', '本網站通過第A+優先等級無障礙網頁檢測')
                  ->prependHttpEquiv('Content-Type', 'text/html; charset=utf-8');
+                 
+// 設定網站ICON
+$this->headLink(array('rel'  => 'shortcut icon',
+                      'href' => IMG_URL . 'favicon.ico'),
+                      'PREPEND')
 ?>

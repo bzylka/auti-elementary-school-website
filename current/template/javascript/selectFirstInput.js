@@ -18,5 +18,5 @@ $(function() {
     $("input[type='text'], input[type='password']").blur(function(){this.style.backgroundColor = "";});
     
     // 自動移到第一個input
-    $("input[type='text']:first").focus();
+    $("input[type='text'][id!='googleSearchText']:first").focus();
 });

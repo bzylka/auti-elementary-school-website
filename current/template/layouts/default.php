@@ -28,6 +28,7 @@ include ROOT_DIR . 'template/layouts/components/headTitle.php';
     
     <body>
         <div id="pageWraper" class="container_24">
+
             <?php echo $this->partial('./components/loginNav.php') ?>
             
             <div class="clear"></div>
@@ -63,6 +64,7 @@ var pageTracker = _gat._getTracker("UA-8577883-1");
 pageTracker._trackPageview();
 } catch(err) {}
 </script>
+<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=zh-Hant"></script>
         <noscript>
             您的瀏覽器不支援Javascript，但是並不會影響到網頁的閱讀
         </noscript>

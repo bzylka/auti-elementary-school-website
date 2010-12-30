@@ -12,6 +12,15 @@
 ?>
 <?php $userInfo = Zend_Auth::getInstance()->getIdentity() ?>
 <div id="loginNav" class="grid_24">
+    <form action="http://www.google.com/cse" id="cse-search-box">
+        <div id="googleSearch">
+            <input type="hidden" name="cx" value="005828894808706215757:lumwwvoaqvu" />
+            <input type="hidden" name="ie" value="UTF-8" />
+            <input id="googleSearchText" type="text" name="q" size="22" />
+            <input type="submit" name="sa" value="搜尋網站" />
+        </div>
+    </form>
+
     <ul>
         <?php if ($this->layout()->getView()->loginMessage): ?>
             <li>
@@ -38,8 +47,8 @@
                 <li><?php echo $userInfo->titleName ?>&nbsp;|</li>
             <?php endif; ?>
 
-            <li><strong><?php echo $userInfo->userName ?></strong>&nbsp;|</li>
-            <li>身份：<?php echo $userInfo->privilegeName ?>&nbsp;|</li>
+            <li id="loginUserName"><?php echo $userInfo->userName ?></li>
+            <li>|&nbsp;身份：<?php echo $userInfo->privilegeName ?>&nbsp;|</li>
             <li><?php echo $this->hyperLink('logout', '登出')?></li>
         <?php else: ?>
             <li><?php echo $this->hyperLink('login', '登入')?></li>
