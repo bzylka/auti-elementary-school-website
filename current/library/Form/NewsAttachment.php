@@ -28,11 +28,12 @@ class Form_NewsAttachment extends Form_Abstract
                                 'maxFileSize' => 1073741824,
                                 'fileSize'    => '1GB'))
              ->addElement('Text', 'fileName',
-                          array('label'     => '檔名',
-                                'size'      => 15,
-                                'maxlength' => 50,
-                                'stringMin' => 0,
-                                'stringMax' => 100))
+                          array('label'      => '檔名',
+                                'size'       => 15,
+                                'maxlength'  => 50,
+                                'stringMin'  => 0,
+                                'stringMax'  => 100,
+                                'validators' => array(new Validator_Filename())))
              ->addElement('Cancel', 'cancel',
                           array('label'   => '取消',
                                 'attribs' => array('onclick' => 'history.go(-1)')));
