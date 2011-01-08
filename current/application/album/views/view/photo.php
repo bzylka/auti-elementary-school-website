@@ -74,9 +74,10 @@
         </td>
         <td style="text-align:right;">
             <span class="navBlock">
-                <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
-                <?php echo $this->hyperLink('photos/' . $this->photo['photoHashFile'], '放大檢視', array('id'    => 'showLargePhoto',
-                                                                                                         'title' => $this->photo['photoDescription'] ? $this->photo['photoDescription'] : FileInfo::convertToUTF8($this->photo['fileName']))) ?>
+                <a id="showLargePhoto" title="<?php echo $this->photo['photoDescription'] ? $this->photo['photoDescription'] : FileInfo::convertToUTF8($this->photo['fileName']) ?>" href="<?php echo BASE_URL . 'photos/' . $this->photo['photoHashFile'] ?>">
+                    <?php echo $this->img('icon/fullScreenView.png', '放大檢視')?>
+                    放大檢視
+                </a>
             </span>
         </td>
     </tr>
