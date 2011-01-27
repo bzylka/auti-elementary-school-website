@@ -26,7 +26,16 @@ class News_IndexController extends Controller
         $this->view->allowAddNews = $this->isAllowed('發佈新聞');
         
         $news = new Model_News();
-        $this->view->newsTable = $news->getNewsList(18, $this->getParam('page'));
+        if ($this->getParam('page')) {
+            $page = $this->getParam('page');
+        } else {
+            $page = 0;
+        }
+
+        $result = $news->getNewsListWithPages(18, $page);
+
+        $this->view->newsTable = $result['newsTable'];
+        $this->view->paginator = $result['paginator'];
 
         // 設定最新消息返回頁面
         if (!$this->view->backPage = $this->getParam('page')) {

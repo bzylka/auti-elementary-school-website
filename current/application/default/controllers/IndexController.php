@@ -37,7 +37,7 @@ class IndexController extends Controller
         // 讀取新聞區塊
         $news = new Model_News();
         $this->view->newsTable = $news->getNewsList(12);
-        
+
         // 讀取相簿區塊
         $album = new Model_Album();
         $this->view->photos = $album->getRandomPhotos(8);

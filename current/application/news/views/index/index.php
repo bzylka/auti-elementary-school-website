@@ -31,7 +31,7 @@
 <?php endif; ?>
 
 <div id="newsPageNav">
-    <?php $paginator = $this->newsTable->getPages();?>
+    <?php $paginator = $this->paginator->getPages();?>
     <?php if (isset($paginator->previous)): ?>
         <a id="prev" href="<?php echo $this->url(array('page' => $paginator->previous)) ?>">
             «上一頁

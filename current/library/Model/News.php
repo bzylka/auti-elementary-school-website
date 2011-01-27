@@ -36,11 +36,6 @@ class Model_News extends Model_Abstract
      */
     private function _getNewsArray($limit = null)
     {
-        // 設定限制數量
-        if ($limit) {
-            $this->getTable()->limit($limit);
-        }
-
         $newsRowset = $this->getTable()->order('newsId DESC')->getRowset();
         $newsArray = array();
         foreach ($newsRowset as $newsRow) {
@@ -53,18 +48,42 @@ class Model_News extends Model_Abstract
     }
     
     /**
-     * 取得最新消息列表
-     * @param int $limit 最新消息的限制數量（用在Zend_Paginator物件上）
-     * @param int $page  頁面
-     * @return array 新聞列表
+     * 取得最新消息列表（首頁用）
+     * @param int $limit 限制數量
+     * @return array 最新消息列表
      */
-    public function getNewsList($limit = null, $page = 0)
+    public function getNewsList($limit)
     {
-        $newsArray = $this->_getNewsArray();
-        $paginator = Zend_Paginator::factory($newsArray);
+        // 設定限制數量
+        if ($limit) {
+            $this->getTable()->limit($limit);
+        }
+
+        return $this->_getNewsArray();
+    }
+    
+    /**
+     * 取得最新消息列表，包含分頁
+     * @param int $limit 最新消息的每頁限制數量
+     * @param int $page  目前頁面
+     * @return array 分頁結果、新聞列表
+     */
+    public function getNewsListWithPages($limit, $page)
+    {
+        $select = $this->getTable()->select()->order('newsId DESC');
+        $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_DbTableSelect($select));
         $paginator->setCurrentPageNumber($page)
                   ->setItemCountPerPage($limit);
-        return $paginator;
+
+        $newsRowset = $paginator->getCurrentItems();
+        $newsArray = array();
+        foreach ($newsRowset as $newsRow) {
+            $newsArray[] = array_merge($newsRow->toArray(),
+                                       array('titleName'  => $newsRow->findParentRow('Table_Title')->titleName,
+                                             'officeName' => $newsRow->findParentRow('Table_Office')->officeName));
+        }
+
+        return array('newsTable' => $newsArray, 'paginator' => $paginator);
     }
     
      /**
