@@ -86,6 +86,12 @@ class Model_Attachment extends Model_Abstract
         $attachmentRow = $this->getTable()->find($id)->current();
         $fileHash = $attachmentRow->fileHash;
         $fileName = $attachmentRow->fileName;
+
+        // 檢查檔案是否存在
+        if (!is_file(DATA_DIR . $fileHash)) {
+            echo '檔案不存在！請回到上一頁';
+            exit;
+        }
         
         // 檢查是否是IE瀏覽器，轉換成Big5編碼
         $known = array('msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');

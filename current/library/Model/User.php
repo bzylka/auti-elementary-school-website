@@ -34,7 +34,7 @@ class Model_User extends Model_Abstract
      */
     public function getUserTable()
     {
-        $userRowset = $this->getTable()->getRowset();
+        $userRowset = $this->getTable()->order(array('isLeader DESC', 'titleId DESC'))->getRowset();
         foreach ($userRowset as $userRow) {
             $userTable[] = array_merge($userRow->toArray(),
                                        array('titleName'     => $userRow->findParentRow('Table_Title')->titleName),

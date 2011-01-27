@@ -87,6 +87,12 @@ class Model_Achievement extends Model_Abstract
                 $achievementFilePath = mb_convert_encoding($achievementFilePath, 'Big5');
             }
             
+            // 檢查檔案是否存在
+            if (!is_file(DATA_DIR . $achievementFilePath)) {
+                echo '檔案不存在！請回到上一頁';
+                exit;
+            }
+            
             // 處理IE瀏覽器，下載檔名轉換成Big5編碼
             $fileName = FileInfo::convertToUTF8(basename($achievementFilePath));
             $known = array('msie', 'firefox', 'safari', 'webkit', 'opera', 'netscape', 'konqueror', 'gecko');

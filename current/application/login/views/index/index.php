@@ -14,6 +14,7 @@
 ?>
 <?php $this->headTitle('登入') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'detectCapsLock.js') ?>
 
 <h1>登入</h1>
 

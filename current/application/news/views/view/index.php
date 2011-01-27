@@ -45,24 +45,22 @@
 <?php if ($this->newsData['link']): ?>
     <fieldset id="link">
         <legend>參考連結</legend>
-        <ul>
+
         <?php foreach ($this->newsData['link'] as &$link): ?>
-            <li>
+            <div class="linkItem">
                 <?php if ($this->isAdmin): ?>
-                    <small>
-                    （
-                    <?php echo $this->hyperLink('news/link/edit/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '編輯')?>
+                    <span class="adminNav">
+                    <?php echo $this->hyperLink('news/link/edit/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '編輯連結')?>
                     ｜
-                    <?php echo $this->hyperLink('news/link/delete/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '刪除', array('class' => 'deleteAction'))?>
-                    ）
-                    </small>
+                    <?php echo $this->hyperLink('news/link/delete/id/' . $link['linkId'] . '/newsId/' . $this->newsData['newsId'], '刪除連結', array('class' => 'deleteAction'))?>
+                    </span>
                 <?php endif; ?>
 
                 <?php echo $this->img('icon/newsLink.png', $link['linkName']) ?>
                 <?php echo '<a class="external" href="' . $link['link'] . '" target="_blank">' . $this->escape($link['linkName']) . '</a>' ?>
-            </li>
+            </div>
         <?php endforeach; ?>
-        </ul>
+
     </fieldset>
 <?php endif; ?>
 
@@ -72,16 +70,17 @@
         <?php foreach ($this->newsData['attachment'] as &$attachment): ?>
             <div class="file">
                 <?php if ($this->isAdmin): ?>
-                    <small>
-                    （
-                    <?php echo $this->hyperLink('news/attachment/edit/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '編輯')?>
+                    <span class="adminNav">
+                    <?php echo $this->hyperLink('news/attachment/edit/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '編輯附件')?>
                     ｜
-                    <?php echo $this->hyperLink('news/attachment/delete/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '刪除', array('class' => 'deleteAction'))?>
-                    ）
-                    </small>
+                    <?php echo $this->hyperLink('news/attachment/delete/id/' . $attachment['attachmentId'] . '/newsId/' . $this->newsData['newsId'], '刪除附件', array('class' => 'deleteAction'))?>
+                    </span>
                 <?php endif; ?>
                 <?php echo $this->img('icon/downloadAttachment.png', '附件下載-' . $attachment['fileName']) ?>
                 <?php echo $this->hyperLink('news/attachment/download/id/' . $attachment['attachmentId'], $attachment['fileName']) ?>
+                <span class="fileSize">
+                    檔案大小：<?php echo $this->formatSize($attachment['fileSize'], 1) ?>
+                </span>
             </div>
         <?php endforeach; ?>
     </fieldset>

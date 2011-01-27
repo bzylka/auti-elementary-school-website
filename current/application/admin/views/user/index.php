@@ -14,6 +14,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/tableStyle4.css') ?>
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'adminUser.css') ?>
+<?php $this->headScript()->appendFile(JAVASCRIPT_URL . 'detectCapsLock.js') ?>
 
 <h1>使用者管理</h1>
 

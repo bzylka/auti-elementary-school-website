@@ -29,6 +29,7 @@
     font-size: 70%;
     color: #C8C8C8;
 }
+/* 附件、連結共同樣式區 */
 #link, #attachment {
     padding: 5px 5px 10px;
     margin-top: 0.5em;
@@ -42,24 +43,32 @@
     font-weight: bold;
     padding: 0 3px;
 }
+#link .linkItem, #attachment .file {
+    margin: 8px 0 8px 25px;
+    padding: 3px;
+}
+/*連結樣式*/
 #link legend {
     color: #FF6633;
 }
-#attachment legend {
-    color: #009900;
-}
-#link li {
-    list-style-type: none;
-    margin-left: 2em;
-}
-#link li img {
+#link .linkItem img {
     width: 1.1em;
     margin-bottom: -0.2em
 }
-.file {
-    margin: 8px 0 8px 25px;
+/* 附件樣式 */
+#attachment legend {
+    color: #009900;
 }
-.file img {
+#attachment .file img {
     width: 1.2em;
     margin-bottom: -0.2em
+}
+#attachment .file .fileSize {
+    float: right;
+    color: #666666;
+}
+.adminNav {
+    float: right;
+    font-size: 90%;
+    margin-left: 1em;
 }
