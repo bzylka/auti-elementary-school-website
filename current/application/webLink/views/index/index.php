@@ -19,7 +19,9 @@
 
 <?php if ($this->isAdmin): ?>
     <div id="addWebLink">
-        <?php echo $this->hyperLink('webLink/add', '新增連結»') ?>
+        <span class="blockNav adminNav">
+            <?php echo $this->hyperLink('webLink/add', '新增連結»') ?>
+        </span>
     </div>
 <?php endif; ?>
 

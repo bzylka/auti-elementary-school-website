@@ -29,9 +29,7 @@ class Form_Components_Password extends Zend_Form_Element_Password
             $this->addValidator('NotEmpty', true, array('messages' => '密碼不能空白'));
         }
         
-        $this->addValidator('Alnum', true, array('messages' => array(Zend_Validate_Alnum::NOT_ALNUM    => '密碼只能使用"英文"和"數字"',
-                                                                     Zend_Validate_Alnum::STRING_EMPTY => '密碼不能空白')))
-             ->addValidator('StringLength', true, array(4, 'messages' => '密碼需要4個字以上'));
+        $this->addValidator('StringLength', true, array(4, 'messages' => '密碼需要4個字以上'));
 
         
     }

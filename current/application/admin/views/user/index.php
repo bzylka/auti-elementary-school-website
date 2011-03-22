@@ -18,10 +18,6 @@
 
 <h1>使用者管理</h1>
 
-<?php if ($this->message): ?>
-    <?php echo $this->messageBlock($this->message) ?>
-<?php endif; ?>
-
 <?php if ($this->userTable): ?>
     <div id="userTable">
         <table summary="使用者列表" class="tableStyle4">
@@ -47,6 +43,10 @@
             <?php endforeach; ?>
         </table>
     </div>
+<?php endif; ?>
+
+<?php if ($this->message): ?>
+    <?php echo $this->messageBlock($this->message) ?>
 <?php endif; ?>
 
 <?php if ($this->userId): ?>
