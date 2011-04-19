@@ -1,7 +1,7 @@
 #summary 安裝需求
 #labels Document
 
-= 請安裝下列PHP extension =
+= 運作需要的PHP extension =
   * mbstring
   * pdo_sqlite
   * ImageMagick
