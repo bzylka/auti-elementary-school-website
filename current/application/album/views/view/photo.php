@@ -110,7 +110,13 @@
 
 <div id="photoContainer">
     <div id="photoView">
-        <?php echo $this->photo($this->photo['photoHashFile'], '相片：' . $this->photo['fileName']) ?>
+        <?php if ($this->photo['nextId']): ?>
+            <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $this->photo['nextId'] ?>">
+                <?php echo $this->photo($this->photo['photoHashFile'], '相片：' . $this->photo['fileName']) ?>
+            </a>
+        <?php else: ?>
+            <?php echo $this->photo($this->photo['photoHashFile'], '相片：' . $this->photo['fileName']) ?>
+        <?php endif; ?>
     </div>
 
     <div id="photoDescriptionContainer">
