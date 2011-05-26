@@ -17,7 +17,7 @@ $(function() {
     $("#menu>li").hover(
         function(){
             $(this).children("ul").show();
-            $(this).children("ul").css({"left": $(this).width() + 5 + "px", "top": $(this).position().top + "px"});
+            $(this).children("ul").css({"left": $(this).width() - 15 + "px", "top": $(this).position().top + "px"});
         }, function(){
             $(this).children("ul").hide();
         }
@@ -27,7 +27,7 @@ $(function() {
     $("#menu>li>a").focus(
         function(){
             $(this).parent("li").children("ul").show();
-            $(this).parent("li").children("ul").css({"left": $(this).width() + 5 + "px", "top": $(this).position().top + "px"});
+            $(this).parent("li").children("ul").css({"left": $(this).width() - 15 + "px", "top": $(this).position().top + "px"});
         }
     );
 
