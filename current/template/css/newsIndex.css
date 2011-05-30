@@ -31,12 +31,6 @@
 #newsTable .officeName {
     width: 4em;
 }
-#newsTable .isImportant {
-    width: 1.1em;
-}
-#newsTable .titleName {
-    width: 5em;
-}
 #newsTable .newsTitle {
     width: auto;
 }

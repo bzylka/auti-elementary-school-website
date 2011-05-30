@@ -1,17 +1,18 @@
 #newsTable th {
-    background-color: #FFCCCC;
+    background-color: #D4EDC9;
     padding: 3px 2px 2px 6px;
     vertical-align: middle;
-    border-bottom: 1.5px solid #FFFFFF;
 }
 #newsTable td {
-    background-color: #FFCCFF;
-    padding: 3px 2px 2px 5px;
-    border-bottom: 1.5px solid #FFFFFF;
+    padding: 6px 2px 3px 5px;
+    border-bottom: 1px solid #DEDEDE;
 }
-#newsTable .isImportant {
-    text-align: center;
-    padding: 4px 6px;
+#newsTable .isImportant a:link {
+    color: #A64B00;
+    font-weight: bold;
+}
+#newsTable .isImportant a:hover {
+    color: red;
 }
 #newsTable .isImportant img {
     width: 1em;

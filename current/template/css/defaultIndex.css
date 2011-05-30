@@ -41,17 +41,11 @@
 #news .postDate {
     width: 3em;
 }
-#news .isImportant {
-    width: 1.1em;
-}
 #news .officeName {
     width: 4em;
 }
-#news .titleName {
-    width: 5em;
-}
 #news .newsTitle {
-    width: 20em;
+    width: auto;
 }
 /* 行事曆 */
 #calendar {

@@ -63,18 +63,14 @@
         <table summary="最新消息列表">
             <tr>
                 <th class="postDate">日期</th>
-                <th class="isImportant"><?php echo $this->img('icon/important.png', '重要訊息')?></th>
                 <th class="officeName">處室</th>
-                <th class="titleName">職稱</th>
                 <th class="newsTitle">標題</th>
             </tr>
             <?php foreach ($this->newsTable as &$news): ?>
                 <tr>
                     <td class="postDate"><?php echo str_replace('-', '.', substr($news['postDate'], 5)) ?></td>
-                    <td class="isImportant"><?php echo ($news['isImportant'] ? $this->img('icon/important.png', '重要訊息') : '&nbsp;') ?></td>
                     <td class="officeName"><?php echo $this->escape($news['officeName']) ?></td>
-                    <td class="titleName"><?php echo $this->escape($news['titleName']) ?></td>
-                    <td class="newsTitle"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/news/backPage/' . $this->backPage, $this->restrictString($news['newsTitle'], 70)) ?></td>
+                    <td class="newsTitle<?php echo ($news['isImportant'] ? ' isImportant': '') ?>"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/news/backPage/' . $this->backPage, $this->restrictString($news['newsTitle'], 80)) ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
