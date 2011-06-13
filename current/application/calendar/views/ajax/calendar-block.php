@@ -40,7 +40,7 @@
         <?php foreach ($this->calendar['date'] as $row => $week): ?>
             <tr class="days">
                 <?php foreach ($week as $weekDay => $day): ?>
-                    <td class="<?php echo $day['type']?><?php if ($weekDay % 7 == 5 || $weekDay % 7 == 6): echo ' weekEnd'; endif;?>"><?php echo (int)substr($day['date'], -2) ?></td>
+                    <td class="<?php echo $day['type']?><?php if ($weekDay % 7 == 5 || $weekDay % 7 == 6): echo ' weekEnd'; endif;?><?php if ($day['date'] == $this->today): echo ' today'; endif;?>"><?php echo (int)substr($day['date'], -2) ?></td>
                 <?php endforeach; ?>
             </tr>
         <?php endforeach;?>

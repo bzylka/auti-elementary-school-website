@@ -88,9 +88,9 @@
     background-color: #EEEEEE;
 }
 #calendar #dates .today {
-    background-color: #557799;
+    background-color: #FFF7D7;
     font-weight: bold;
-    color: white;
+    border: 1px solid #FAD163;
 }
 #calendar #events {
     margin: 1em 0.5em;

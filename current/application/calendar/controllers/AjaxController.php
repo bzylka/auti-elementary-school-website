@@ -77,9 +77,9 @@ class Calendar_AjaxController extends Controller
             $this->view->events = $event->getEvents("$year-$month-01", "$year-$month-$daysOfMonth");
         }
         
-        // 設定本月
+        // 設定本月、今天日期
         $this->view->thisMonth = "$year-$month";
-        
+        $this->view->today     = Date::getDate();
         $this->render('calendarBlock');
     }
     

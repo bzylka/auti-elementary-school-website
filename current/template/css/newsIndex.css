@@ -24,6 +24,7 @@
 }
 #newsTable table {
     width: 100%;
+    border: 2px solid #D4EDC9;
 }
 #newsTable .postDate {
     width: 3em;
