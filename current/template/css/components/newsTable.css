@@ -4,7 +4,7 @@
     vertical-align: middle;
 }
 #newsTable td {
-    padding: 6px 2px 3px 5px;
+    padding: 6px 2px 5px 5px;
     border-bottom: 1px solid #DEDEDE;
 }
 #newsTable .isImportant a:link {
