@@ -33,6 +33,7 @@
 .more {
     text-align: right;
     background-color: transparent !important;
+    border-bottom: none !important;
 }
 /* 最新消息 */
 #news table {
