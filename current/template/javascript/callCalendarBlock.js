@@ -22,7 +22,7 @@ function getCalendarBlock(date, moveDirection)
     $.ajax({
         url: "calendar/ajax/getDefaultCalendar/date/" + date,
         error: function(exception) {
-            $("#calendarMessage").html("發生錯誤，讀取行事曆，請稍後再試");
+            $("#calendarMessage").html("讀取行事曆發生錯誤，請稍後再試");
         },
         dataType: "html",
         success: function(response) {
@@ -43,14 +43,14 @@ function getCalendarBlock(date, moveDirection)
                 $("#calendar .blockContent").css("display", "none");
             }
 
-            // 寫入內容，顯示動作
-            $("#calendar .blockContent").html(response);
+            // 執行行事曆移動動作，寫入內容到行事曆區塊
             $("#calendarMessage").fadeOut(600);
             if (isSlide == true) {
                 $("#calendar .blockContent").show("slide", { direction: moveDirection }, 450);
             } else {
                 $("#calendar .blockContent").fadeIn(200);
             }
+            $("#calendar .blockContent").html(response);
             
             // 讀取節日列表
             $("#festivalMessage").html("讀取本月節日中…");

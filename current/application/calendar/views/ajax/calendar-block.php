@@ -46,6 +46,10 @@
         <?php endforeach;?>
     </table>
 
+    <div class="more">
+        <?php echo $this->hyperLink('calendar/view/index/date/' . $this->thisMonth, '檢視' . $this->thisMonth. '行事曆»') ?>
+    </div>
+
     <hr />
 
     <div id="events">
@@ -73,9 +77,5 @@
     </div>
 
     <div id="festivalList">
-    </div>
-
-    <div class="more" style="padding-top:0.5em;">
-        <?php echo $this->hyperLink('calendar/view/index/date/' . $this->thisMonth, '檢視' . $this->thisMonth. '行事曆…') ?>
     </div>
 <?php endif; ?>

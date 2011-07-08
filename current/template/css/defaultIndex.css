@@ -142,8 +142,11 @@
     text-align: center;
     width: 95px;
 }
-/* 無設定相簿說明文字 */
+#album .more {
+    padding-top: 0.5em;
+}
 #album #noRandomPhoto {
     font-size: 120%;
     line-height: 2em;
+    padding-left: 1em;
 }

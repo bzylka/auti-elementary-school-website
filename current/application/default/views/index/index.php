@@ -31,7 +31,6 @@
                 <table summary="新聞列表">
                     <?php foreach ($this->newsTable as &$news): ?>
                         <tr>
-
                             <td class="postDate"><?php echo str_replace('-', '.', substr($news['postDate'], 5)) ?></td>
                             <td class="officeName"><?php echo $this->escape($news['officeName']) ?></td>
                             <td class="newsTitle<?php echo ($news['isImportant'] ? ' isImportant': '') ?>"><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/index', $this->restrictString($news['newsTitle'], 48)) ?></td>
@@ -55,18 +54,18 @@
         <div class="blockContent">
             <?php if ($this->photos): ?>
                 <?php foreach ($this->photos['photos'] as &$photo): ?>
-                <div class="photoContainer">
-                    <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
-                        <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $this->photos['albumName'] . '的相片：' . $photo['fileName']) ?>
-                    </a>
-                </div>
+                    <div class="photoContainer">
+                        <a href="<?php echo BASE_URL . 'album/view/photo/id/' . $photo['photoId']?>">
+                            <?php echo $this->photo(str_replace('.', '_thumb.', $photo['photoHashFile']), $this->photos['albumName'] . '的相片：' . $photo['fileName']) ?>
+                        </a>
+                    </div>
                 <?php endforeach; ?>
+                <div class="more">
+                    <?php echo $this->hyperLink('album/view/index/id/' . $this->photos['albumId'], '更多《' . $this->photos['albumName'] . '》的相片»') ?>
+                </div>
             <?php else: ?>
-                <div id="noRandomPhoto">無設定顯示相簿</div>
+                <div id="noRandomPhoto">未設定首頁顯示相簿</div>
             <?php endif; ?>
-            <div class="more" style="padding-top:0.5em;">
-                <?php echo $this->hyperLink('album/view/index/id/' . $this->photos['albumId'], '更多《' . $this->photos['albumName'] . '》的相片»') ?>
-            </div>
         </div>
     </div>
 </div>
@@ -74,14 +73,15 @@
 <div id="right">
     <div id="calendar" class="contentBlock">
         <div class="blockHeader">
-            <span class="blockNav">
+            <div class="blockNav">
                 <?php echo $this->ajaxLink("getCalendarBlock('', 'down')", '〈回到本月行事曆〉') ?>
-            </span>
+            </div>
             <a accesskey="L" href="#calendar" title="行事曆">:::</a>行事曆
         </div>
-        <div id="calendarMessage">
 
+        <div id="calendarMessage">
         </div>
+
         <div class="blockContent">
         </div>
     </div>
