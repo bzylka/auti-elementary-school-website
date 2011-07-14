@@ -6,7 +6,7 @@
  *
  * 本程式遵循GNU/GPL v3規範，詳情請見http://www.gnu.org/licenses/gpl.txt
  *
- * @copyright  2008 ottokang
+ * @copyright  2011 ottokang
  * @license    http://www.gnu.org/licenses/gpl.txt   GNU/GPL License 3
  */
 
@@ -22,11 +22,8 @@ class News_ImportantController extends Controller
      */
     public function indexAction()
     {
-        // 檢查權限
-        $this->view->allowAddNews = $this->isAllowed('發佈新聞');
-        
         $news = new Model_News();
-        $this->view->newsTable = $news->getImportantNewsList(365);
+        $this->view->newsTable = $news->getImportantNewsList(365);  // 設定發佈的天數
         $this->render('index');
     }
 }

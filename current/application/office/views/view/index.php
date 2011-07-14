@@ -27,7 +27,6 @@
 
         echo implode('&nbsp;<small>|</small>&nbsp;', $navBar);
     ?>
-
 </div>
 
 <h1><?php echo $this->escape($this->officeData['officeName']) . '&nbsp;│&nbsp;' . $this->escape($this->officeData['officeEnglishName'])?></h1>

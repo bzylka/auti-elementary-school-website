@@ -17,28 +17,18 @@
 
 <h1>近期重要公告</h1>
 
-<?php if ($this->message): ?>
-    <?php echo $this->messageBlock($this->message) ?>
-<?php endif; ?>
-
-<?php if ($this->allowAddNews): ?>
-    <div id="addNews">
-        <?php echo $this->hyperLink('news/add', '發佈»') ?>
-    </div>
-<?php endif; ?>
-
 <?php if ($this->newsTable): ?>
-<div id="importantNews">
-    <?php foreach ($this->newsTable as $officeName => &$title): ?>
-        <h2><?php echo $this->escape($officeName) ?></h2>
-        <?php foreach ($title as $titleName => &$newsArray): ?>
-            <h3><?php echo $this->escape($titleName) ?></h3>
-            <ul>
-                <?php foreach ($newsArray as &$news): ?>
-                <li><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/important', $this->restrictString($news['newsTitle'], 70)) ?></li>
-                <?php endforeach; ?>
-            </ul>
+    <div id="importantNews">
+        <?php foreach ($this->newsTable as $officeName => &$title): ?>
+            <h2><?php echo $this->escape($officeName) ?></h2>
+            <?php foreach ($title as $titleName => &$newsArray): ?>
+                <h3><?php echo $this->escape($titleName) ?></h3>
+                <ul>
+                    <?php foreach ($newsArray as &$news): ?>
+                    <li><?php echo $this->hyperLink('news/view/index/id/' . $news['newsId'] . '/backTo/important', $this->restrictString($news['newsTitle'], 70)) ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endforeach; ?>
         <?php endforeach; ?>
-    <?php endforeach; ?>
-</div>
+    </div>
 <?php endif; ?>

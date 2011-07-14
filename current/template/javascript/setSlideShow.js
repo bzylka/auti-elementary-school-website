@@ -14,14 +14,14 @@
  */
 $(function() {
     $("input[type='checkbox']").click(function(){
-        if ($(this).attr("checked") == true) {
+        if ($(this).prop("checked") == true) {
             var isShow = "1";
         } else {
             var isShow = "0";
         }
         
         $.ajax({
-            url: "slideShow/set/id/" + $(this).attr("name") + "/isShow/" + isShow,
+            url: "slideShow/set/id/" + $(this).prop("name") + "/isShow/" + isShow,
             error: function(exception) {
                 alert("發生錯誤，可能網站無法運作，請重新整理");
             },
