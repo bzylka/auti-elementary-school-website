@@ -14,6 +14,7 @@
 <?php $this->headLink()->appendStylesheet(CSS_URL . 'components/form.css') ?>
 
 <h1>上傳相片（支援.jpg、.png、.gif檔案，或將相片壓縮成.zip檔後上傳，檔案最大1GB）</h1>
+<h2>上傳後需要處理相片，請耐心等待頁面跳轉</h2>
 
 <?php if ($this->message): ?>
     <?php echo $this->messageBlock($this->message) ?>
