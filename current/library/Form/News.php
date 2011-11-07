@@ -35,7 +35,7 @@ class Form_News extends Form_Abstract
                                 'cols'      => 60,
                                 'rows'      => 16,
                                 'stringMin' => 0,
-                                'stringMax' => 500))
+                                'stringMax' => 800))
              ->addElement('Cancel', 'cancel',
                           array('label'   => '取消',
                                 'attribs' => array('onclick' => 'history.go(-1)')));
