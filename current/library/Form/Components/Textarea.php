@@ -21,7 +21,13 @@ class Form_Components_Textarea extends Zend_Form_Element_Textarea
      * 建構子
      */
     public function __construct($name, $options)
-    { 
+    {
+        // 刪除屬性避免加入到HTML中
+        $stringMin = $options['stringMin'];
+        $stringMax = $options['stringMax'];
+        unset($options['stringMin']);
+        unset($options['stringMax']); 
+        
         parent::__construct($name, $options);
         
         // 加入NotEmpty的設定
@@ -34,8 +40,8 @@ class Form_Components_Textarea extends Zend_Form_Element_Textarea
                             true,
                             array($options['stringMin'],
                                   $options['stringMax'],
-                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $option['stringMin'] . '個字以上',
-                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $option['stringMin'] . '10個字')));
+                                  'messages' => array(Zend_Validate_StringLength::TOO_SHORT => $this->getLabel() . '需要' . $stringMin . '個字以上',
+                                                      Zend_Validate_StringLength::TOO_LONG  => $this->getLabel() . '不能超過' . $stringMax . '個字')));
     }
 }
 ?>
