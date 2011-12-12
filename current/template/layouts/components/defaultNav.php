@@ -60,8 +60,8 @@ unset($achievement);
     <li><a href="<?php echo BASE_URL . 'calendar/view'?>"><?php echo $this->img('icon/calendar.png', '*') ?>行事曆</a></li>
     <li><a href="<?php echo 'http://paauti.blogspot.com/'?>"><?php echo $this->img('icon/parentsAssociationOffice.png', '*') ?>家長會</a></li>
     <li><a href="<?php echo 'http://tw.class.uschoolnet.com/class/?csid=css000000046904'?>"><?php echo $this->img('icon/volunteer.png', '*') ?>志工隊</a></li>
+    <li><a href="<?php echo 'http://autisandiaoliondance.blogspot.com/' ?>"><?php echo $this->img('icon/sandiaoLionDance.png', '*') ?>三貂獅</a></li>
     <li><a href="<?php echo BASE_URL . 'websites/Doc' ?>"><?php echo $this->img('icon/doc.png', '*') ?>數位機會中心</a></li>
-    <li><a href="<?php echo BASE_URL . 'websites/SandiaoLionDance' ?>"><?php echo $this->img('icon/sandiaoLionDance.png', '*') ?>三貂獅</a></li>
     <?php foreach ($achievementList as $achievement): ?>
         <li>
             <a href="<?php echo BASE_URL . 'achievement/index/index/id/' . $achievement['achievementId']?>">
