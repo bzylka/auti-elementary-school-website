@@ -17,7 +17,7 @@
 }
 /* 整體選單設定 */
 #menu {
-    white-space: nowrap;
+    white-space: normal;
 }
 /* 整體選單hover的效果 */
 #menu li:hover, #menu li a:hover, #menu li a:active {
