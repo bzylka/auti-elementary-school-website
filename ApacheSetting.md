@@ -1,0 +1,18 @@
+# mod\_rewrite設定 #
+## 根目錄 ##
+```
+RewriteEngine on
+RewriteRule !\.(js|gif|jpg|png|css|txt|jar|ogg|xml)$ index.php
+```
+
+## website ##
+```
+RewriteEngine off
+```
+# mod\_expires設定 #
+## 設定圖片、CSS的過期時間以及Etag，提供瀏覽器做快取 ##
+```
+ExpiresActive on
+ExpiresDefault "access plus 10 years"
+FileETag MTime Size
+```

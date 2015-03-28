@@ -1,0 +1,15 @@
+# 需要的PHP extension #
+  * mbstring
+  * pdo\_sqlite
+  * ImageMagick
+
+# Zend Framwork版本 #
+至少要Zend Framework 1.10以上版本，放置於library/Zend資料夾中
+
+# 目錄寫入權限 #
+請確定data、photos、cache三個目錄擁有寫入權限
+
+# jQueryUI需求組件 #
+  * UI Core全部
+  * Widgets的Dialog、Datepicker
+  * Effects全部
